@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/SCSS/all.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="main bg-primary">
+        <div class="header">
+            <a href=""><img src="./assets/images/LOGOSize=lg.png" alt="LOGO"></a>
+        </div>
+        <div class="container">
+            <div class="nav">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a class="" href="#">首頁</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">登入 / 註冊</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="longin bg-orange-300">
+                <h3>登入</h3>
+                <div class="goSignin">
+                    <p>還沒成為小說檢索網用戶嗎？</p>
+                    <a href="#">現在註冊</a>
+                </div>
+                <div class="longin-main">
+                    <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="請輸入密碼">
+                    <button type="submit" class="btn btn-success mb-3">登入</button>
+                </div>
+            </div>
+            <div class="signin">
+                <h3>註冊</h3>
+            </div>
+            <div class="privacyPolicy">
+                <p>登入即代表您同意我們的使用者條款與隱私權政策。</p>
+                <p>此網站受 reCAPTCHA 的保護，且適用於 Google 的隱私權政策與使用者條款。</p>
+            </div>
+        </div>  
+    </div>
+
+
+
+    <script src="./assets/js/bootstrap.bundle.js"></script>
 </body>
 </html>

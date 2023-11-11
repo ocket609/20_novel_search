@@ -1,0 +1,15 @@
+/*全域、全站*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Noto Serif TC", "Cardo", sans-serif;
+    color: $secondary;
+}
+img {
+    vertical-align: middle;
+}
+a {
+    text-decoration: none;
+}
