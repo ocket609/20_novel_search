@@ -20,25 +20,31 @@
                     </ol>
                 </nav>
             </div>
-            <div class="longin bg-orange-300">
-                <h3>登入</h3>
-                <div class="goSignin">
-                    <p>還沒成為小說檢索網用戶嗎？</p>
-                    <a href="#">現在註冊</a>
+            <div class="turn d-flex flex-column align-items-center">
+                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center ">
+                    <h3 class="align-middle py-3">登入</h3>
+                    <div class="goSignin d-flex">
+                        <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
+                        <a href="#">現在註冊</a>
+                    </div>
+                    <div class="longin-content">
+                        <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <div class="forget-password d-flex justify-content-end">
+                            <a class="forget-password-btn" href="#">忘記密碼</a>
+                        </div>
+                        <button type="submit" class="btn btn-success longin-btn">登入</button>
+                    </div>
                 </div>
-                <div class="longin-main">
-                    <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="請輸入密碼">
-                    <button type="submit" class="btn btn-success mb-3">登入</button>
+                <div class="signin bg-orange-300 rounded-4">
+                    <h3>註冊</h3>
                 </div>
             </div>
-            <div class="signin">
-                <h3>註冊</h3>
-            </div>
-            <div class="privacyPolicy">
-                <p>登入即代表您同意我們的使用者條款與隱私權政策。</p>
+            
+            <div class="privacyPolicy d-flex flex-column align-items-center">
+                <p class="">登入即代表您同意我們的使用者條款與隱私權政策。</p>
                 <p>此網站受 reCAPTCHA 的保護，且適用於 Google 的隱私權政策與使用者條款。</p>
             </div>
         </div>  
