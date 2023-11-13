@@ -10256,4 +10256,32 @@ margin & padding
 
 .privacyPolicy {
   padding: 20px 0 60px;
+}
+
+.searchDiv {
+  height: 100%;
+  width: 90%;
+}
+
+a {
+  color: black;
+}
+
+.search {
+  width: 10%;
+  border: 0;
+}
+
+.searchImg {
+  background-image: url("../../../images/search.png");
+}
+
+.bookImg {
+  width: 50%;
+  height: 600px;
+}
+
+.moreCommitBtn:hover {
+  box-shadow: 5px 10px;
+  background-color: aqua;
 }/*# sourceMappingURL=all.css.map */
