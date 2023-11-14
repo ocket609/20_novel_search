@@ -1,4 +1,8 @@
 
+
+/*adjust*/
+
+
 .searchDiv{
     height: 100%;
     width: 90%;
@@ -9,22 +13,71 @@ a{
 }
 
 .search{
-    width: 10%;
+    width: 90%;
     border: 0;
 }
 
-.searchImg{
-    
-    background-image: url('../../../images/search.png');
-    
-}
+
 
 .bookImg{
     width: 50%;
     height: 600px;
 }
 
-.moreCommitBtn:hover {
-    box-shadow: 5px 10px;
-    background-color: aqua;
+
+/*圖片區*/
+
+.searchImg{
+    width: 10%;
+    background-image: url('/app/assets/images/search.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #fff;
+    background-size: 90% 65%;
+    border: 0;
 }
+
+.starButton{
+    background-image: url('/20_novel_search/app/assets/images/heart.svg');
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: 100%;
+    border: 0;
+}
+
+
+.switchCommitLeft{
+    background-image: url(/20_novel_search/app/assets/images/arrow_left.svg);
+    background-repeat: no-repeat;
+}
+
+.switchCommitRight{
+    background-image: url(/20_novel_search/app/assets/images/arrow_right.svg);
+    background-repeat: no-repeat;
+}
+
+
+
+
+/*button*/
+
+.moreCommitBtn:hover {
+    box-shadow: 3px 3px rgba(231, 140, 82, 0.5);
+    
+}
+
+.pagesIcon:hover{
+    box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+}
+
+/*a*/
+
+.outsideSiteLink:hover{
+   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+   transform: scale(1.2);  
+}
+
+.siteLink:hover{
+    box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+    transform: scale(1.2);  
+ }
