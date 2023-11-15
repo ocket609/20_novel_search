@@ -8,24 +8,22 @@
     width: 90%;
 }
 
-a{
-    color: black;
-}
-
 .search{
     width: 90%;
     border: 0;
 }
-
-
 
 .bookImg{
     width: 50%;
     height: 600px;
 }
 
+.footerLaug{
+    margin-left: 12%;
+}
 
 /*圖片區*/
+
 
 .searchImg{
     width: 10%;
@@ -57,9 +55,8 @@ a{
 }
 
 
-
-
 /*button*/
+
 
 .moreCommitBtn:hover {
     box-shadow: 3px 3px rgba(231, 140, 82, 0.5);
@@ -70,14 +67,14 @@ a{
     box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
 }
 
+
 /*a*/
 
+
 .outsideSiteLink:hover{
-   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
-   transform: scale(1.2);  
+   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5); 
 }
 
 .siteLink:hover{
-    box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
-    transform: scale(1.2);  
+    box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5); 
  }

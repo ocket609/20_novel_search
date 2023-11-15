@@ -10264,10 +10264,6 @@ margin & padding
   width: 90%;
 }
 
-a {
-  color: black;
-}
-
 .search {
   width: 90%;
   border: 0;
@@ -10276,6 +10272,10 @@ a {
 .bookImg {
   width: 50%;
   height: 600px;
+}
+
+.footerLaug {
+  margin-left: 12%;
 }
 
 /*圖片區*/
@@ -10319,10 +10319,8 @@ a {
 /*a*/
 .outsideSiteLink:hover {
   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
-  transform: scale(1.2);
 }
 
 .siteLink:hover {
   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
-  transform: scale(1.2);
 }/*# sourceMappingURL=all.css.map */
