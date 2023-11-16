@@ -9,10 +9,11 @@
 <body>
     <div class="longin-main bg-primary">
         <div class="header">
-            <a href="#"><img src="./assets/images/LOGOSize=lg.png" alt="LOGO"></a>
+            <a class="d-none d-sm-block" href="#"><img src="./assets/images/LOGOSize=lg.png" alt="LOGO"></a>
+            <a class="d-sm-none" href="#"><img src="./assets/images/LOGOSize=sm.png" alt="LOGO"></a>
         </div>
-        <div class="container">
-            <div class="nav">
+        <div class="container container-sm">
+            <div class="nav ms-4 ms-lg-0">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="#">首頁</a></li>
@@ -21,11 +22,12 @@
                 </nav>
             </div>
             <div class="turn d-flex flex-column align-items-center">
-                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center ">
+                <!--longin-->
+                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center">
                     <h3 class="align-middle py-3">登入</h3>
-                    <div class="goSignin d-flex">
+                    <div class="goSignin d-sm-flex text-center pb-2 pb-sm-0">
                         <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
-                        <a href="#">現在註冊</a>
+                        <a class="" href="#">現在註冊</a>
                     </div>
                     <div class="longin-content">
                         <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
@@ -38,18 +40,49 @@
                         <button type="submit" class="btn btn-success longin-btn">登入</button>
                     </div>
                 </div>
-                <div class="signin bg-orange-300 rounded-4">
-                    <h3>註冊</h3>
+                <!--signup-->
+                <div class="signup bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">註冊</h3>
+                    <div class="longin-content">
+                        <label for="exampleFormControlInput1" class="form-label">帳號</label>
+                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入帳號">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請再次輸入密碼">
+                        <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
+                        <input type="email" class="form-control form-bd-color mb-14" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                    </div>
+                </div>
+                <!--textEmail-->
+                <div class="textEmail bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">驗證註冊信箱</h3>
+                    <div class="textEmail-content">
+                        <label for="exampleFormControlInput1" class="form-label">請輸入註冊電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                    </div>
+                    <button type="submit" class="btn btn-success longin-btn">送出</button>
+                </div>
+                <!--resetPassword-->
+                <div class="resetPassword bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">重設密碼</h3>
+                    <div class="reset-content">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color mb-14" id="inputPassword" placeholder="請再次輸入密碼">
+                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                    </div>
                 </div>
             </div>
-            
+            <!--privacyPolicy-->
             <div class="privacyPolicy d-flex flex-column align-items-center">
-                <p class="">登入即代表您同意我們的使用者條款與隱私權政策。</p>
-                <p>此網站受 reCAPTCHA 的保護，且適用於 Google 的隱私權政策與使用者條款。</p>
+                <p class="text-center">登入即代表您同意我們的使用者條款與隱私權政策。</p>
+                <p class="text-center">此網站受 reCAPTCHA 的保護，且適用於 Google 的隱私權政策與使用者條款。</p>
             </div>
         </div>  
     </div>
-
 
 
     <script src="./assets/js/bootstrap.bundle.js"></script>
