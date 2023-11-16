@@ -6,25 +6,50 @@
         padding: 32px 80px;
     }
 }
+@media (max-width: 768px) {
+    .longin-main {
+        .header {
+            padding: 32px 60px;
+        }
+    }
+}
 
 .turn {
     padding: 40px 0;
 }
-.longin, .signin {
+.longin, .signup, .textEmail, .resetPassword {
     padding: 80px 150PX;
     margin:  40px 200px;
 }
-.signin {
-    display: none;
+@media (max-width: 992px) {
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 80px 100px;
+        margin:  40px 100px;
+    }
 }
-.longin a:active {
+@media (max-width: 768px) {
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 80px;
+        margin:  20px;
+    }
+}
+@media (max-width: 375px) {
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 80px 100px;
+        margin:  40px 100px;
+    }
+}
+/*.signup {
+    display: none;
+}*/
+/*.longin a:active {
     .longin {
         display: none;
     }
     .signin {
         display: block;
     }
-}
+}*/
 
 
 .form-bd-color {
@@ -53,9 +78,13 @@
             left: 4px;
             background: rgba(231, 140, 82, 0.5);
             border-radius: 4px;
-            z-index: 1;
+            z-index: -1;
         }
     }
+}
+
+.textEmail-content {
+    padding: 80px 0;
 }
 
 .privacyPolicy {

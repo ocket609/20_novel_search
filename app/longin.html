@@ -11,7 +11,7 @@
         <div class="header">
             <a href="#"><img src="./assets/images/LOGOSize=lg.png" alt="LOGO"></a>
         </div>
-        <div class="container">
+        <div class="container container-sm">
             <div class="nav">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -21,7 +21,7 @@
                 </nav>
             </div>
             <div class="turn d-flex flex-column align-items-center">
-                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center ">
+                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center">
                     <h3 class="align-middle py-3">登入</h3>
                     <div class="goSignin d-flex">
                         <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
@@ -38,8 +38,37 @@
                         <button type="submit" class="btn btn-success longin-btn">登入</button>
                     </div>
                 </div>
-                <div class="signin bg-orange-300 rounded-4">
-                    <h3>註冊</h3>
+                <div class="signup bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">註冊</h3>
+                    <div class="longin-content">
+                        <label for="exampleFormControlInput1" class="form-label">帳號</label>
+                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入帳號">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請再次輸入密碼">
+                        <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
+                        <input type="email" class="form-control form-bd-color mb-14" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                    </div>
+                </div>
+                <div class="textEmail bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">驗證註冊信箱</h3>
+                    <div class="textEmail-content">
+                        <label for="exampleFormControlInput1" class="form-label">請輸入註冊電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                    </div>
+                    <button type="submit" class="btn btn-success longin-btn">送出</button>
+                </div>
+                <div class="resetPassword bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                    <h3 class="align-middle py-3">重設密碼</h3>
+                    <div class="reset-content">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color mb-14" id="inputPassword" placeholder="請再次輸入密碼">
+                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                    </div>
                 </div>
             </div>
             
