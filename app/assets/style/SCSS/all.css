@@ -10215,6 +10215,11 @@ margin & padding
     padding: 32px 60px;
   }
 }
+@media (max-width: 572px) {
+  .longin-main .header {
+    padding: 32px 30px;
+  }
+}
 .turn {
   padding: 40px 0;
 }
@@ -10237,9 +10242,12 @@ margin & padding
   }
 }
 @media (max-width: 375px) {
+  .turn {
+    padding: 0;
+  }
   .longin, .signup, .textEmail, .resetPassword {
-    padding: 80px 100px;
-    margin: 40px 100px;
+    padding: 40px 50px;
+    margin: 20px 10px;
   }
 }
 /*.signup {
@@ -10268,7 +10276,6 @@ margin & padding
   position: relative;
   width: 100%;
   padding: 12px 24px;
-  z-index: 3;
 }
 .longin-btn:hover::after {
   content: "";
