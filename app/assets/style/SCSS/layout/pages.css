@@ -69,6 +69,15 @@
   transform: scale(1.1);
 }
 
+.userCenter {
+  background-image: url(/app/assets/images/account_circle_black_24dp.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.userCenter:hover {
+  background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
+}
+
 /*button*/
 .moreCommitBtn:hover {
   box-shadow: 3px 3px rgba(231, 140, 82, 0.5);
@@ -79,10 +88,18 @@
 }
 
 /*a*/
+.outsideSiteLink {
+  color: #454545;
+}
 .outsideSiteLink:hover {
+  color: #E78C52;
   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
 }
 
+.siteLink {
+  color: #454545;
+}
 .siteLink:hover {
+  color: #E78C52;
   box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
 }/*# sourceMappingURL=pages.css.map */
