@@ -40,7 +40,7 @@
 }
 
 .switchCommitLeft {
-  background-image: url(/app/assets/images/arrow_left.svg);
+  background-image: url("/app/assets/images/arrow_left.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 30px;

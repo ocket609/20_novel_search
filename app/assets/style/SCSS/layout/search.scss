@@ -1,0 +1,42 @@
+
+
+/*adjust*/
+
+.searchPageDiv{
+    height: 10%;
+    width: 30%;
+    border:1px solid #E78C5233;
+    &:hover{
+        border:1px solid #E78C52CC;
+    };
+}
+
+.searchPage{
+    width: 90%;
+    border: 0;
+    outline: none;
+}
+
+
+
+/*圖片區*/
+
+
+.searchPageImg{
+    width: 10%;
+    background-image: url('/app/assets/images/search.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #fff;
+    background-size: 90% 65%;
+    border: 0;
+    &:hover{
+        box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+        transform: scale(1.1);
+    }
+}
+
+.book{
+    width: 80%;
+    height: 50%;
+}
