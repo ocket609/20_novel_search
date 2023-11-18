@@ -27,7 +27,7 @@
 /*圖片區*/
 .searchImg {
   width: 10%;
-  background-image: url(/app/assets/images/search.png);
+  background-image: url(../../images/search.png);
   background-repeat: no-repeat;
   background-position: right;
   background-color: #fff;
@@ -40,7 +40,7 @@
 }
 
 .switchCommitLeft {
-  background-image: url(/app/assets/images/arrow_left.svg);
+  background-image: url(../../images/arrow_left.svg);
   background-repeat: no-repeat;
   background-position: center;
   width: 30px;
@@ -50,12 +50,12 @@
 }
 .switchCommitLeft.active, .switchCommitLeft:hover {
   border: 1px solid #E78C52;
-  background-image: url(/app/assets/images/arrow_left_hover.svg);
+  background-image: url(../../images/arrow_left_hover.svg);
   transform: scale(1.1);
 }
 
 .switchCommitRight {
-  background-image: url(/app/assets/images/arrow_right.svg);
+  background-image: url(../../images/arrow_right.svg);
   background-repeat: no-repeat;
   background-position: center;
   width: 30px;
@@ -65,17 +65,17 @@
 }
 .switchCommitRight.active, .switchCommitRight:hover {
   border: 1px solid #E78C52;
-  background-image: url(/app/assets/images/arrow_right_hover.svg);
+  background-image: url(../../images/arrow_right_hover.svg);
   transform: scale(1.1);
 }
 
 .userCenter {
-  background-image: url(/app/assets/images/account_circle_black_24dp.svg);
+  background-image: url(../../images/account_circle_black_24dp.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 .userCenter:hover {
-  background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
+  background-image: url(../../images/account_circle_hover_24dp.svg);
 }
 
 /*button*/

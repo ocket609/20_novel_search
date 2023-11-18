@@ -1,10 +1,8 @@
 @charset "UTF-8";
 /*adjust*/
 .searchPageDiv {
-  height: auto;
-  width: 50%;
-  min-width: 100px;
-  margin: auto;
+  height: 10%;
+  width: 30%;
   border: 1px solid rgba(231, 140, 82, 0.2);
 }
 .searchPageDiv:hover {
@@ -12,14 +10,14 @@
 }
 
 .searchPage {
-  width: 95%;
+  width: 90%;
   border: 0;
   outline: none;
 }
 
 /*圖片區*/
 .searchPageImg {
-  width: 5%;
+  width: 10%;
   background-image: url("/app/assets/images/search.png");
   background-repeat: no-repeat;
   background-position: right;

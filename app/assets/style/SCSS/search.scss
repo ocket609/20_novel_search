@@ -3,10 +3,8 @@
 /*adjust*/
 
 .searchPageDiv{
-    height: auto;
-    width: 50%;
-    min-width: 100px;
-    margin: auto;
+    height: 10%;
+    width: 30%;
     border:1px solid #E78C5233;
     &:hover{
         border:1px solid #E78C52CC;
@@ -14,7 +12,7 @@
 }
 
 .searchPage{
-    width: 95%;
+    width: 90%;
     border: 0;
     outline: none;
 }
@@ -25,7 +23,7 @@
 
 
 .searchPageImg{
-    width: 5%;
+    width: 10%;
     background-image: url('/app/assets/images/search.png');
     background-repeat: no-repeat;
     background-position: right;

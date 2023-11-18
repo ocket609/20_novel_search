@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/SCSS/all.css">
+    <link rel="stylesheet" href="./assets/style/SCSS/layout/search.css">
     <title>SearchPage</title>
 </head>
 
@@ -23,16 +24,18 @@
         </nav>
        </div>
     
-    <div class="searchSection  mt-5 ms-3">
-       <div class="container row d-flex"> 
-        <div class="booksearch col-4 ">
-            <div class="d-flex  searchPageDiv rounded-3 mt-5 mb-5"> 
+   <div class="searchSection "> 
+    <div class="container">
+       <div class=" row text-center"> 
+        <div class="booksearch col-3 mt-5">
+            <div class="d-flex  searchPageDiv rounded-3 mt-5 mb-5 "> 
                 <input class="searchPage" type="search" placeholder="Search" aria-label="Search">
                 <button class="searchPageImg" aria-label="Search"></button>        
            </div>
 
-            <h3 class="mb-3">類別</h3>
+            
             <div class="dropdown">
+              <h3 class="mb-3">類別</h3>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                   選擇類別
                 </button>
@@ -61,97 +64,100 @@
 
          </div>
 
-           <div class="bookdisplay col-8 mt-5 text-center">
-             <div class="row bookclass d-flex">
-               <div class="col-3">
-                <img class="book" src="/img/book.jpg" alt="書">
-                <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                <div class="star">
-                  <img src="/img/star.png" alt="">
-                  <p>123456</p>
-                 </div>
-                </div>
-      
-                <div class="col-3">
-                  <img class="book" src="/img/book.jpg" alt="書">
-                  <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                  <div class="star">
-                    <img src="/img/star.png" alt="">
-                    <p>123456</p>
-                   </div>
+           <div class="bookdisplay col-9 mt-5">          
+             <div class="row row-cols-1 row-cols-xl-4 row-cols-sm-2 text-end">
+              <div class="col-xl-3">
+                <div class="h-100 position-relative">
+                  <img src="/img/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
+                  <div class="d-flex position-absolute top-50 end-0 mt-3">
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star.svg" alt="star"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
                   </div>
-      
-                  <div class="col-3">
-                    <img class="book" src="/img/book.jpg" alt="書">
-                    <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                    <div class="star">
-                      <img src="/img/star.png" alt="">
-                      <p>123456</p>
-                     </div>
-                    </div>
-                </div> 
-
-                <div class="row bookclass d-flex">
-                    <div class="col-3">
-                     <img class="book" src="/img/book.jpg" alt="書">
-                     <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                     <div class="star">
-                       <img src="/img/star.png" alt="">
-                       <p>123456</p>
-                      </div>
-                     </div>
-           
-                     <div class="col-3">
-                       <img class="book" src="/img/book.jpg" alt="書">
-                       <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                       <div class="star">
-                         <img src="/img/star.png" alt="">
-                         <p>123456</p>
-                        </div>
-                       </div>
-           
-                       <div class="col-3">
-                         <img class="book" src="/img/book.jpg" alt="書">
-                         <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                         <div class="star">
-                           <img src="/img/star.png" alt="">
-                           <p>123456</p>
-                          </div>
-                         </div>
-                     </div>
-
-                     <div class="row bookclass d-flex">
-                        <div class="col-3">
-                         <img class="book" src="/img/book.jpg" alt="書">
-                         <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                         <div class="star">
-                           <img src="/img/star.png" alt="">
-                           <p>123456</p>
-                          </div>
-                         </div>
-               
-                         <div class="col-3">
-                           <img class="book" src="/img/book.jpg" alt="書">
-                           <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                           <div class="star">
-                             <img src="/img/star.png" alt="">
-                             <p>123456</p>
-                            </div>
-                           </div>
-               
-                           <div class="col-3">
-                             <img class="book" src="/img/book.jpg" alt="書">
-                             <h5 class="mt-2 mb-0">轉生史萊姆</h5>
-                             <div class="star">
-                               <img src="/img/star.png" alt="">
-                               <p>123456</p>
-                              </div>
-                             </div>
-                         </div>
+                  <div class="card-body">         
+                    <div class="row cardIcon ">
+                      <h5 class=" col-xl-12 card-title">轉身成為史萊姆</h5>
+                      <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
+                     </div> 
+                  </div>
+                </div>
+              </div>  
+              <div class="col-xl-3">
+                <div class="h-100 position-relative">
+                  <img src="/img/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
+                  <div class="d-flex position-absolute top-50 end-0 mt-3">
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star.svg" alt="star"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
+                  </div>
+                  <div class="card-body">         
+                    <div class="row cardIcon ">
+                      <h5 class="col-xl-12 card-title">轉身成為史萊姆</h5>
+                      <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
+                     </div> 
+                  </div>
+                </div>
+              </div> 
+              <div class="col-xl-3">
+                <div class="h-100 position-relative">
+                  <img src="/img/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
+                  <div class="d-flex position-absolute top-50 end-0 mt-3">
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star.svg" alt="star"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
+                  </div>
+                  <div class="card-body">         
+                    <div class="row cardIcon ">
+                      <h5 class="col-xl-12 card-title">轉身成為史萊姆</h5>
+                      <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
+                     </div> 
+                  </div>
+                </div>
+              </div> 
+              <div class="col-xl-3">
+                <div class="h-100 position-relative">
+                  <img src="/img/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
+                  <div class="d-flex position-absolute top-50 end-0 mt-3">
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star.svg" alt="star"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
+                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
+                  </div>
+                  <div class="card-body">         
+                    <div class="row cardIcon ">
+                      <h5 class="col-xl-12 card-title">轉身成為史萊姆</h5>
+                      <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
+                     </div> 
+                  </div>
+                </div>
+              </div>                
+             </div>
             </div>
-           </div> 
-        </div>    
+              
+              <div class="mulitpagesSection mt-5">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous" style="color: red;">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: red;">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: red;">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: red;">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next" style="color: red;">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
 
+              </div>
+            
+          </div>
+        </div>    
+      </div>   
+         
         <div class="Footer mt-5">
             <div class="container-xl bg-orange-100 border border-orange-100 rounded-4">
                 <div class="d-flex  row">
