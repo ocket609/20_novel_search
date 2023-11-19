@@ -79,11 +79,11 @@
 
 
 .userCenter{
-    background-image: url(../../images/account_circle_black_24dp.svg);
+    background-image: url(/app/assets/images/account_circle_black_24dp.svg);
     background-repeat: no-repeat;
     background-position: center;
     &:hover{
-        background-image: url(../../images/account_circle_hover_24dp.svg);
+        background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
     } 
  }
 

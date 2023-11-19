@@ -10368,12 +10368,12 @@ margin & padding
 }
 
 .userCenter {
-  background-image: url(../../images/account_circle_black_24dp.svg);
+  background-image: url(/app/assets/images/account_circle_black_24dp.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 .userCenter:hover {
-  background-image: url(../../images/account_circle_hover_24dp.svg);
+  background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
 }
 
 /*button*/
@@ -10404,8 +10404,10 @@ margin & padding
 
 /*adjust*/
 .searchPageDiv {
-  height: 10%;
-  width: 30%;
+  height: auto;
+  width: 50%;
+  min-width: 120px;
+  margin: auto;
   border: 1px solid rgba(231, 140, 82, 0.2);
 }
 .searchPageDiv:hover {
@@ -10413,15 +10415,15 @@ margin & padding
 }
 
 .searchPage {
-  width: 90%;
+  width: 95%;
   border: 0;
   outline: none;
 }
 
 /*圖片區*/
 .searchPageImg {
-  width: 10%;
-  background-image: url("/app/assets/images/search.png");
+  width: 5%;
+  background-image: url("../../images/search.png");
   background-repeat: no-repeat;
   background-position: right;
   background-color: #fff;
@@ -10431,6 +10433,28 @@ margin & padding
 .searchPageImg:hover {
   box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
   transform: scale(1.1);
+}
+
+.userCenter {
+  background-image: url(../../images/account_circle_black_24dp.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.userCenter:hover {
+  background-image: url(../../images/account_circle_hover_24dp.svg);
+}
+
+/*a*/
+.mulitPageLink {
+  color: #454545;
+}
+.mulitPageLink.active, .mulitPageLink:hover {
+  background-color: rgba(231, 140, 82, 0.2);
+  color: #E78C52;
+}
+.mulitPageLink:focus {
+  color: #E78C52;
+  background-color: rgba(231, 140, 82, 0.2);
 }
 
 .book {
