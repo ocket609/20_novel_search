@@ -1,0 +1,71 @@
+
+
+/*adjust*/
+
+.searchPageDiv{
+    height: auto;
+    width: 50%;
+    min-width: 120px;
+    margin: auto;
+    border:1px solid #E78C5233;
+    &:hover{
+        border:1px solid #E78C52CC;
+    };
+}
+
+.searchPage{
+    width: 95%;
+    border: 0;
+    outline: none;
+}
+
+
+
+/*圖片區*/
+
+
+.searchPageImg{
+    width: 5%;
+    background-image: url('../../images/search.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #fff;
+    background-size: 90% 65%;
+    border: 0;
+    &:hover{
+        box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+        transform: scale(1.1);
+    }
+}
+
+.userCenter{
+    background-image: url(../../images/account_circle_black_24dp.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover{
+        background-image: url(../../images/account_circle_hover_24dp.svg);
+    } 
+ }
+
+
+/*a*/
+
+
+.mulitPageLink{
+    color: #454545; 
+    &.active,
+    &:hover{  
+      background-color: #E78C5233;
+      color: #E78C52;
+    } 
+    &:focus {
+        color: #E78C52;
+        background-color: #E78C5233;
+      }
+}
+
+
+.book{
+    width: 80%;
+    height: 50%;
+}
