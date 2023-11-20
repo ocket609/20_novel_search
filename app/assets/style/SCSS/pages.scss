@@ -1,0 +1,123 @@
+
+
+/*adjust*/
+
+
+.searchDiv{
+    height: 100%;
+    width: 90%;
+    border:1px solid #E78C5233;
+    &:hover{
+        border:1px solid #E78C52CC;
+    };
+}
+
+.search{
+    width: 90%;
+    border: 0;
+    outline: none;
+}
+
+.bookImg{
+    width: 50%;
+    height: 600px;
+}
+
+.footerLaug{
+    margin-left: 12%;
+}
+
+/*圖片區*/
+
+
+.searchImg{
+    width: 10%;
+    background-image: url(../../images/search.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #fff;
+    background-size: 90% 65%;
+    border: 0;
+    &:hover{
+        box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+        transform: scale(1.1);
+    }
+}
+
+.switchCommitLeft{
+    background-image: url(../../images/arrow_left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border:1px solid gray;
+    border-radius: 29px;
+    &.active,
+    &:hover{
+        border:1px solid #E78C52;
+        background-image: url(../../images/arrow_left_hover.svg);
+        transform: scale(1.1);
+    }
+}
+
+
+.switchCommitRight{
+    background-image: url(../../images/arrow_right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border:1px solid gray;
+    border-radius: 29px;
+    &.active,
+    &:hover{
+        border:1px solid #E78C52;
+        background-image: url(../../images/arrow_right_hover.svg);
+        transform: scale(1.1);
+    }
+}
+
+
+.userCenter{
+    background-image: url(/app/assets/images/account_circle_black_24dp.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover{
+        background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
+    } 
+ }
+
+
+/*button*/
+
+
+.moreCommitBtn:hover {
+    box-shadow: 3px 3px rgba(231, 140, 82, 0.5);
+    
+}
+
+.pagesIcon:hover{
+    box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+}
+
+
+/*a*/
+
+
+.outsideSiteLink{
+    color: #454545;
+   &:hover{
+     color: #E78C52;
+     box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+   } 
+}
+
+.siteLink{
+    color: #454545; 
+    &:hover{
+      color: #E78C52;
+      box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+    } 
+ } 
+ 
+

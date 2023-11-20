@@ -6,25 +6,65 @@
         padding: 32px 80px;
     }
 }
+@media (max-width: 768px) {
+    .longin-main {
+        .header {
+            padding: 32px 60px;
+        }
+    }
+}
+@media (max-width: 572px) {
+    .longin-main {
+        .header {
+            padding: 32px 30px;
+        }
+    }
+}
+.longin-hover-btn {
+    &:hover {
+        font-weight: $font-weight-bold;
+    }
+}
 
 .turn {
     padding: 40px 0;
 }
-.longin, .signin {
+.longin, .signup, .textEmail, .resetPassword {
     padding: 80px 150PX;
     margin:  40px 200px;
 }
-.signin {
-    display: none;
+@media (max-width: 992px) {
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 80px 100px;
+        margin:  40px 100px;
+    }
 }
-.longin a:active {
+@media (max-width: 768px) {
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 80px;
+        margin:  20px;
+    }
+}
+@media (max-width: 375px) {
+    .turn {
+        padding: 0;
+    }
+    .longin, .signup, .textEmail, .resetPassword {
+        padding: 40px 50px;
+        margin:  20px 10px;
+    }
+}
+/*.signup {
+    display: none;
+}*/
+/*.longin a:active {
     .longin {
         display: none;
     }
     .signin {
         display: block;
     }
-}
+}*/
 
 
 .form-bd-color {
@@ -39,23 +79,15 @@
 }
 
 .longin-btn {
-    position: relative;
     width: 100%;
     padding: 12px 24px;
-    z-index: 3;
     &:hover {
-        &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 4px;
-            left: 4px;
-            background: rgba(231, 140, 82, 0.5);
-            border-radius: 4px;
-            z-index: 1;
-        }
+        box-shadow: 4px 4px rgba(231, 140, 82, 0.5);
     }
+}
+
+.textEmail-content {
+    padding: 80px 0;
 }
 
 .privacyPolicy {

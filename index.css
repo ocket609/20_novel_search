@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -235,3 +236,192 @@ li{list-style-type: none;}
 .inside h5{
     padding: 80px 0px 80px 0px;
 }
+=======
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #FFFEF6;
+    font-family: 'Castoro', serif;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+h3{
+    font-size: 32px;
+}
+
+h4{
+    font-size: 28px;
+}
+
+h5{
+    font-size: 24px;
+}
+
+h6{
+    font-size: 20px;
+}
+
+
+.navbar{
+    background-color: #fffbe8;
+}
+
+
+
+.banner{
+    padding: 100px 0px;
+    background-color: #fffbe8;
+}
+
+
+.classification li{
+    list-style-type: none;
+    border: 1px solid;
+    border-top: none; 
+    border-bottom: none ;
+    padding: 32px;
+    margin: 48px 0px;
+}
+
+li{list-style-type: none;}
+
+.classification a {text-decoration:none;}
+
+
+.arrow li{
+    margin: 8px;
+}
+
+
+.rank{
+    text-align: center;
+    margin: 120px 0px;
+}
+
+
+.rankbtn{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #F5F5F5;
+    text-decoration: none;
+    border-radius: 40px 0px 0px 40px;
+    color: #454545;
+}
+
+.card-title{
+    display: flex;
+    height: 80px;
+    align-items: center;
+}
+
+.illustrateCard{
+    background-color: #FFF0D4;
+}
+
+
+.classify{
+    background-color: #fffbe8;
+}
+
+
+.listbtn{
+    margin-top: 24px;
+    display: inline-block;
+    padding: 8px 24px;
+    background-color: #E78C52;
+    border-radius: 20px 20px 20px 0px;
+    color: white;
+    font-size: 20px;
+    text-decoration:none;
+}
+
+
+.star{
+    display: flex;
+    height: 28px;
+    align-items: center;
+}
+
+.bookclass{
+    margin-bottom: 60px;
+}
+
+
+.commentCard{
+    background-color: #FFF2E1;
+    border: none;
+}
+
+.inside{
+    background-color: white;
+    text-align: center;
+    margin: 0px 12px;
+    border: none;
+}
+
+.inside h5{
+    padding: 84px;
+}
+>>>>>>> 879bce8c31a70058396ad2aad59891e6986aec64
