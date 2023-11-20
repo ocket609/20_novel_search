@@ -3,6 +3,9 @@
    License: none (public domain)
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -56,7 +59,7 @@ table {
 
 body{
     background-color: #FFFEF6;
-    font-family: 'Castoro', serif;
+    font-family: "Noto Serif TC", "Cardo", sans-serif;
 }
 
 h1 {
@@ -119,6 +122,11 @@ li{list-style-type: none;}
     margin: 8px;
 }
 
+.bull{
+    color: #E78C52;
+    font-weight:bold;
+}
+
 
 .rank{
     text-align: center;
@@ -136,8 +144,18 @@ li{list-style-type: none;}
 }
 
 
+
 .novelImg{
     position: relative;
+}
+
+.amount{
+    background-image: url(./img/meaningless.png);
+    width: 68px;
+    height: 68px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .share{
