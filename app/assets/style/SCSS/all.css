@@ -10317,6 +10317,27 @@ margin & padding
   margin-left: 12%;
 }
 
+.dotLine {
+  border-bottom: 1px dashed #A0A0A0;
+  border-width: 1px;
+}
+
+.dotLine2 {
+  border-bottom: 1px dashed #E0E0E0;
+}
+
+.dotLine3 {
+  border-top: 1px dashed #A0A0A0;
+}
+
+.commitTitlt {
+  color: #A0A0A0;
+}
+
+.bookInfoTitlt {
+  background-color: #FFFEF6;
+}
+
 /*圖片區*/
 .searchImg {
   width: 10%;
@@ -10328,8 +10349,14 @@ margin & padding
   border: 0;
 }
 .searchImg:hover {
+  border-radius: 5px;
   box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
   transform: scale(1.1);
+}
+.searchImg.active {
+  border-radius: 10px;
+  box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+  transform: scale(0.8);
 }
 
 .switchCommitLeft {
@@ -10376,8 +10403,13 @@ margin & padding
   box-shadow: 3px 3px rgba(231, 140, 82, 0.5);
 }
 
+.pagesIcon {
+  background-color: #fff;
+  border-radius: 100px;
+}
 .pagesIcon:hover {
-  box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(231, 140, 82, 0.5);
 }
 
 /*a*/
@@ -10386,7 +10418,6 @@ margin & padding
 }
 .outsideSiteLink:hover {
   color: #E78C52;
-  box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
 }
 
 .siteLink {
@@ -10394,7 +10425,6 @@ margin & padding
 }
 .siteLink:hover {
   color: #E78C52;
-  box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
 }
 
 /*adjust*/
