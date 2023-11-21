@@ -9,6 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  
+<!-- owl.carousel -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> -->
+<!-- </link> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+<!-- </link> -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+
   <link rel="stylesheet" href="./index.css">
   <title>小說檢索網</title>
 </head>
@@ -28,13 +38,12 @@
       </div>
     </div>
     </nav>
-
     <div class="banner">
      <div class="container">
       <div class="row">
-        <div class="col-9 d-flex justify-content-between">
-          <div class="text d-flex">
-          <h3 class="m-2">專<br>屬<br>你<br>的</h3>
+        <div class="col-12 col-md-9 d-flex justify-content-between bannerimg">
+          <div class="d-flex">
+          <h3 class="bannertext m-2">專<br>屬<br>你<br>的</h3>
           <h1 class="m-2">書<br>籍<br>地<br>圖</h1>
         </div>
           <img src="./img/Banner.png" alt="banner" class="">
@@ -42,13 +51,13 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-6 search">
+        <div class="col-10 col-md-6 search">
           <input class="form-control" type="search" placeholder="找好書">
         </div>
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-10 col-md-4">
        <ul class="d-flex classification">
         <li><a href="">奇<br>幻<br> ．<br>科<br>幻</a></li>
         <li><a href="">歷<br>史 <br>．<br>武<br>俠</a></li>
@@ -67,15 +76,16 @@
       <div class="container d-flex justify-content-end">
         <div class="d-flex arrow">
       <li> 
-          <img src="./img/previous.png" alt="">
+        <a href="#" class="previous"><img src="./img/previous.png" alt=""></a>
+          
       </li>
       <li>
-        <img src="./img/next.png" alt="">
-    </li>
+        <a href="#" class="next"> <img src="./img/next.png" alt=""></a>
+      </li>
       </div>
-    </div>
+       </div>
 
-      <div class="container ranking">
+      <div class="container" >
       <div class="row">
         <div class="col-12 col-md-4 bg-white novelImg my-3">
             <img src="./img/novel.jpg" alt="書" >
@@ -131,6 +141,48 @@
           <li><img src="./img/shareBox.png" alt=""></li>
         </ul>
         <h5 class="mt-2 mb-0">轉生史萊姆</h5>
+        <div class="col-1 col-md-1 star">
+        <img src="./img/star.png" alt="star">
+        <p>4.9</p>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+        <a href="#" class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
+      </div>
+      </div>
+
+      <div class="col-12 col-md-4 bg-white novelImg my-3">
+        <img src="./img/novel.jpg" alt="書" class="img-fluid picFade">
+        <div class="amount text-white" id="number">
+          <p class="py-1 px-3">no.</p>
+          <h5 class="py-1 px-3">04</h5>
+          </div>
+        <ul class="share d-flex">
+          <li><img src="./img/starBox.png" alt=""></li>
+          <li><img src="./img/like.png" alt=""></li>
+          <li><img src="./img/shareBox.png" alt=""></li>
+        </ul>
+        <h5 class="mt-2 mb-0">轉生史萊姆</h5>
+        <div class="star">
+        <img src="./img/star.png" alt="star">
+        <p>4.9</p>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+        <a href="#" class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
+      </div>
+      </div>
+
+      <div class="col-12 col-md-4 bg-white novelImg my-3">
+        <img src="./img/novel.jpg" alt="書" class="img-fluid picFade">
+        <div class="amount text-white" id="number">
+          <p class="py-1 px-3">no.</p>
+          <h5 class="py-1 px-3">05</h5>
+          </div>
+        <ul class="share d-flex">
+          <li><img src="./img/starBox.png" alt=""></li>
+          <li><img src="./img/like.png" alt=""></li>
+          <li><img src="./img/shareBox.png" alt=""></li>
+        </ul>
+        <h5 class="mt-2 mb-0">轉生史萊姆</h5>
         <div class="star">
         <img src="./img/star.png" alt="star">
         <p>4.9</p>
@@ -144,26 +196,27 @@
     </div>
  
       <div class="illustrate my-5">
-      <div class="container d-flex my-4">
+      <div class="container d-flex my-4 illustrateRwd">
         <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
           <div class="row g-0">
-            <div class="col-md-4">
-              <img src="./img/1646.png" alt="..." class="px-5">
+            <div class="col-5 col-md-4">
+              <img src="./img/1646.png" alt="..." class="ps-5">
             </div>
-            <div class="col-md-8">
+            <div class="col-7 col-md-8">
               <div class="card-body">
                 <h5 class="card-title">多元標籤搜尋</h5>
               </div>
             </div>
           </div>
         </div> 
+      
 
         <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
           <div class="row g-0">
-            <div class="col-md-4">
-              <img src="./img/1647.png" alt="..." class="px-5">
+            <div class="col-5 col-md-4">
+              <img src="./img/1647.png" alt="..." class="ps-5">
             </div>
-            <div class="col-md-8">
+            <div class="col-7 col-md-8">
               <div class="card-body">
                 <h5 class="card-title">簡單易懂的書籍資訊</h5>
               </div>
@@ -172,15 +225,16 @@
         </div>
       </div>
 
+
        
 
-        <div class="container d-flex my-4">
+        <div class="container d-flex my-4 illustrateRwd">
           <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="./img/list.png" alt="..." class="px-5">
+              <div class="col-5 col-md-4">
+                <img src="./img/list.png" alt="..." class="ps-5">
               </div>
-              <div class="col-md-8">
+              <div class="col-7 col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">專屬你的閱讀清單</h5>
                 </div>
@@ -190,16 +244,19 @@
 
           <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="./img/content.png" alt="..." class="px-5">
+              <div class="col-5 col-md-4">
+                <img src="./img/content.png" alt="..." class="ps-5">
               </div>
-              <div class="col-md-8">
+              <div class="col-7 col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">豐富的書評分享</h5>
                 </div>
               </div>
             </div>
           </div> 
+
+          <!-- <a href="#" class="previous">&lt;</a> -->
+	        <!-- <a href="#" class="next">&gt;</a> -->
 
         </div>
       </div>
@@ -225,7 +282,7 @@
           <h5 class="mt-2 mb-0">轉生史萊姆</h5>
           <div class="star">
             <img src="./img/star.png" alt="">
-            <p>123456</p>
+            <p>4.8</p>
            </div>
           </div>
 
@@ -239,7 +296,7 @@
             <h5 class="mt-2 mb-0">轉生史萊姆</h5>
             <div class="star">
               <img src="./img/star.png" alt="">
-              <p>123456</p>
+              <p>4.8</p>
              </div>
             </div>
 
@@ -253,7 +310,7 @@
               <h5 class="mt-2 mb-0">轉生史萊姆</h5>
               <div class="star">
                 <img src="./img/star.png" alt="">
-                <p>123456</p>
+                <p>4.8</p>
                </div>
               </div>
           </div>
@@ -274,7 +331,7 @@
             <h5 class="mt-2 mb-0">轉生史萊姆</h5>
             <div class="star">
               <img src="./img/star.png" alt="">
-              <p>123456</p>
+              <p>4.8</p>
              </div>
             </div>
             <div class="col-12 col-md-3 bookImg">
@@ -287,7 +344,7 @@
               <h5 class="mt-2 mb-0">轉生史萊姆</h5>
               <div class="star">
                 <img src="./img/star.png" alt="">
-                <p>123456</p>
+                <p>4.8</p>
                </div>
               </div>
               <div class="col-12 col-md-3 bookImg">
@@ -300,7 +357,7 @@
                 <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                 <div class="star">
                   <img src="./img/star.png" alt="">
-                  <p>123456</p>
+                  <p>4.8</p>
                  </div>
                 </div>
             </div>
@@ -320,7 +377,7 @@
               <h5 class="mt-2 mb-0">轉生史萊姆</h5>
               <div class="star">
                 <img src="./img/star.png" alt="">
-                <p>123456</p>
+                <p>4.8</p>
                </div>
               </div>
               <div class="col-12 col-md-3 bookImg">
@@ -333,7 +390,7 @@
                 <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                 <div class="star">
                   <img src="./img/star.png" alt="">
-                  <p>123456</p>
+                  <p>4.8</p>
                  </div>
                 </div>
                 <div class="col-12 col-md-3 bookImg">
@@ -346,7 +403,7 @@
                   <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                   <div class="star">
                     <img src="./img/star.png" alt="">
-                    <p>123456</p>
+                    <p>4.8</p>
                    </div>
                   </div>
               </div>
@@ -367,7 +424,7 @@
                 <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                 <div class="star">
                   <img src="./img/star.png" alt="">
-                  <p>123456</p>
+                  <p>4.8</p>
                  </div>
                 </div>
                 <div class="col-12 col-md-3 bookImg">
@@ -380,7 +437,7 @@
                   <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                   <div class="star">
                     <img src="./img/star.png" alt="">
-                    <p>123456</p>
+                    <p>4.8</p>
                    </div>
                   </div>
                   <div class="col-12 col-md-3 bookImg">
@@ -393,7 +450,7 @@
                     <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                     <div class="star">
                       <img src="./img/star.png" alt="">
-                      <p>123456</p>
+                      <p>4.8</p>
                      </div>
                     </div>
                 </div>
@@ -414,7 +471,7 @@
                   <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                   <div class="star">
                     <img src="./img/star.png" alt="">
-                    <p>123456</p>
+                    <p>4.8</p>
                    </div>
                   </div>
                   <div class="col-12 col-md-3 bookImg">
@@ -427,7 +484,7 @@
                     <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                     <div class="star">
                       <img src="./img/star.png" alt="">
-                      <p>123456</p>
+                      <p>4.8</p>
                      </div>
                     </div>
                     <div class="col-12 col-md-3 bookImg">
@@ -440,7 +497,7 @@
                       <h5 class="mt-2 mb-0">轉生史萊姆</h5>
                       <div class="star">
                         <img src="./img/star.png" alt="">
-                        <p>123456</p>
+                        <p>4.8</p>
                        </div>
                       </div>
                   </div>
@@ -449,7 +506,7 @@
 
        
             <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;</h2>
-            <h2 class="pb-5">熱門評論</h2>
+            <h2 class="pb-1">熱門評論</h2>
    
              <div class="container comment my-5">
               <div class="row">
@@ -459,7 +516,8 @@
                     <div class="box"></div>
                   <img src="./img/Avatar.png" alt="網友" class="netizen"></div>
                   <div class="card inside">
-                    <h6 class="pt-5">看我看我</h6>
+                    <h6 class="pt-5 text-secondary">看我看我</h6>
+                    <span class="borderBottom"></span>
                     <h5>跪求續集啊 Orz</h5 >
                   </div>
                   <div class="footer d-flex justify-content-between py-2 px-2">
@@ -481,7 +539,8 @@
                       <div class="box"></div>
                     <img src="./img/Avatar2.png" alt="網友" class="netizen"></div>
                     <div class="card inside">
-                      <h6 class="pt-5">看我看我</h6>
+                      <h6 class="pt-5 text-secondary">巨石大大</h6>
+                      <span class="borderBottom"></span>
                       <h5>作者好會，賺我眼淚QQ</h5>
                     </div>
                     <div class="footer d-flex justify-content-between py-2 px-2">
@@ -503,7 +562,8 @@
                         <div class="box"></div>
                       <img src="./img/Avatar4.png" alt="網友" class="netizen"></div>
                       <div class="card inside">
-                        <h6 class="pt-5">看我看我</h6>
+                        <h6 class="pt-5 text-secondary">萬皮斯</h6>
+                        <span class="borderBottom"></span>
                         <h5>不看你會後悔阿阿阿阿阿</h5 >
                       </div>
                       <div class="footer d-flex justify-content-between py-2 px-2">
@@ -523,13 +583,8 @@
         </div>
 
         
-          <div class="footer">
-           
-            
-          </div>
-
-            
-
+          <div class="footer"> </div>
+          
 
         
 

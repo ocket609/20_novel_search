@@ -51,10 +51,20 @@ table {
 }
 
 
-
 * {
     margin: 0;
     box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+*,*::before,*::after {
+box-sizing: border-box;
 }
 
 body{
@@ -251,5 +261,34 @@ li{list-style-type: none;}
 }
 
 .inside h5{
-    padding: 80px 0px 80px 0px;
+    padding: 50px 0px 70px 0px;
 }
+
+.borderBottom{
+    border-width:medium; 
+    border-bottom-style:dashed;
+    color: #E0E0E0;
+    margin: 8px 16px 16px 16px;
+}
+
+
+@media (max-width: 767px) {  
+     .bannertext{
+        white-space: nowrap;
+     }
+
+    .illustrateRwd{
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .illustrateCard{
+        width: 95%;
+        margin-top: 16px;
+    }
+
+    .bannerimg{
+        max-width: 100%;
+       flex-direction: column;
+    }
+    }
