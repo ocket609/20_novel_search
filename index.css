@@ -3,6 +3,9 @@
    License: none (public domain)
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,15 +51,25 @@ table {
 }
 
 
-
 * {
     margin: 0;
     box-sizing: border-box;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+*,*::before,*::after {
+box-sizing: border-box;
+}
+
 body{
     background-color: #FFFEF6;
-    font-family: 'Castoro', serif;
+    font-family: "Noto Serif TC", "Cardo", sans-serif;
 }
 
 h1 {
@@ -90,6 +103,14 @@ h6{
 }
 
 
+.btnLogin {
+    background-color: #E78C52;
+    color: white;
+}
+ 
+.btnLogin:hover{
+    box-shadow: 4px 4px rgba(231, 140, 82, 0.5);
+  }
 
 .banner{
     padding: 100px 0px;
@@ -99,11 +120,15 @@ h6{
 
 .classification li{
     list-style-type: none;
-    border: 1px solid;
+    border-left: 1px solid;
     border-top: none; 
     border-bottom: none ;
     padding: 32px;
     margin: 48px 0px;
+}
+
+.addBorder{
+    border-right: 1px solid;
 }
 
 li{list-style-type: none;}
@@ -113,6 +138,11 @@ li{list-style-type: none;}
 
 .arrow li{
     margin: 8px;
+}
+
+.bull{
+    color: #E78C52;
+    font-weight:bold;
 }
 
 
@@ -131,6 +161,32 @@ li{list-style-type: none;}
     color: #454545;
 }
 
+
+
+.novelImg{
+    position: relative;
+}
+
+.amount{
+    background-image: url(./img/meaningless.png);
+    width: 68px;
+    height: 68px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.share{
+    position: absolute;
+    top: 260px;
+    left: 265px;
+}
+
+
+.share li{
+    margin: 4px;
+}
+
 .card-title{
     display: flex;
     height: 80px;
@@ -147,6 +203,8 @@ li{list-style-type: none;}
 }
 
 
+
+
 .listbtn{
     margin-top: 24px;
     display: inline-block;
@@ -157,6 +215,22 @@ li{list-style-type: none;}
     font-size: 20px;
     text-decoration:none;
 }
+
+
+.bookImg{
+    position: relative;
+}
+
+.bookshare{
+    position: absolute;
+    top: 250px;
+    left: 167px;
+}
+
+.bookshare li{
+    margin: 2px;
+}
+
 
 
 .star{
@@ -171,8 +245,20 @@ li{list-style-type: none;}
 
 
 .commentCard{
-    background-color: #FFF2E1;
+    /* background: linear-gradient(90deg, #FFF2E1, #FFE4BC); */
+    background: linear-gradient(to top, #FFF2E1 0%, #FFE4BC 100%, #FFF2E1 100%, #FFE4BC 100%);
     border: none;
+    position: relative;
+}
+
+.netizen{
+    position: absolute;
+    top: -45px;
+    z-index:1;
+}
+
+.box{
+    height: 24px;
 }
 
 .inside{
@@ -183,5 +269,29 @@ li{list-style-type: none;}
 }
 
 .inside h5{
-    padding: 84px;
+    padding: 50px 0px 70px 0px;
 }
+
+.borderBottom{
+    border-width:medium; 
+    border-bottom-style:dashed;
+    color: #E0E0E0;
+    margin: 8px 16px 16px 16px;
+}
+
+
+@media (max-width: 767px) {  
+    .illustrateRwd{
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .illustrateCard{
+        width: 95%;
+        margin-top: 16px;
+    }
+    .bannerimg{
+        max-width: 100%;
+       flex-direction: column;
+    }
+    }
