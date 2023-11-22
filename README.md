@@ -6,6 +6,8 @@
 - 阿博
 - Mina
 
+  首頁Demo https://ocket609.github.io/20_novel_search/
+
 
 ----------
 SCSS檔案設定規劃
