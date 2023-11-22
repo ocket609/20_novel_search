@@ -103,6 +103,14 @@ h6{
 }
 
 
+.btnLogin {
+    background-color: #E78C52;
+    color: white;
+}
+ 
+.btnLogin:hover{
+    box-shadow: 4px 4px rgba(231, 140, 82, 0.5);
+  }
 
 .banner{
     padding: 100px 0px;
@@ -273,10 +281,6 @@ li{list-style-type: none;}
 
 
 @media (max-width: 767px) {  
-     .bannertext{
-        white-space: nowrap;
-     }
-
     .illustrateRwd{
         max-width: 100%;
         flex-direction: column;
@@ -286,7 +290,6 @@ li{list-style-type: none;}
         width: 95%;
         margin-top: 16px;
     }
-
     .bannerimg{
         max-width: 100%;
        flex-direction: column;
