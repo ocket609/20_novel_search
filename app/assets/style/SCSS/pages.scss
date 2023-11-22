@@ -3,7 +3,8 @@
 
 
 @mixin mobile{
-    @media(max-width:425px){
+    @media(max-width:576px){
+        @content;
     }
   }
 
@@ -60,6 +61,24 @@
 /*圖片區*/
 
 
+.logo{
+    background-image: url(../../images/LogoSize=lg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 206px;
+    height: 80px;
+    @include mobile{
+        background-image: url(../../images/LogoSize=sm.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        width: 119px;
+        height: 60px;
+    }
+ }
+
+
 .searchImg{
     width: 10%;
     min-width: 20px;
@@ -111,11 +130,11 @@
 
 
 .userCenter{
-    background-image: url(/app/assets/images/account_circle_black_24dp.svg);
+    background-image: url(../../images/account_circle_black_24dp.svg);
     background-repeat: no-repeat;
     background-position: center;
     &:hover{
-        background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
+        background-image: url(../../images/account_circle_hover_24dp.svg);
     } 
  }
 
@@ -132,10 +151,10 @@
     background-color: #fff;
     padding: 8px;
     border-radius:100px;
-    border:1px solid #fff;
+    border:2px solid #fff;
    &:hover{
     border-radius:100px;
-    border: 1px solid rgba(231, 140, 82);
+    border: 2px solid rgba(231, 140, 82);
      }
 }
 
