@@ -1,0 +1,132 @@
+{
+    "users": [
+        { "id": 1, "name": "小a" },
+        { "id": 2, "name": "小b" },
+        { "id": 3, "name": "小c" }
+    ],
+    "comments": [
+        { "id": 1, "body": "some comment", "userId": 1 }
+    ],
+    "bookInfos": [
+        { 
+            "id": 1,
+            "bookName": "關於我轉生變成史萊姆這檔事",
+            "author": "伏瀨",
+            "description": "",
+            "tags": ["奇幻．科幻"],
+            "link": "https://www.bookwalker.com.tw/product/55696",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/55696/zoom_big_55696.jpg?_gl=1*1jcq01s*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDkyNjQ3Ni4xNi4xLjE3MDA5MjY1MjMuMTMuMC4w",
+            "SerializationStatus": "連載中",
+            "Episode": "第一集",
+            "language": ["日文", "繁體中文"],
+            "Star": "4.9",
+            "message": [
+                {"userId": 1},
+                {"userId": 2},
+                {"userId": 3}
+            ]
+        },
+        { 
+            "id": 2,
+            "bookName": "全知讀者視角 08",
+            "author": "sing N song",
+            "description": "",
+            "tags": ["奇幻．科幻"],
+            "link": "https://www.bookwalker.com.tw/product/170343",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/170343/zoom_big_170343.jpg?_gl=1*12gqxfu*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDkyNjQ3Ni4xNi4xLjE3MDA5MjY4OTEuNTkuMC4w",
+            "SerializationStatus": "連載中",
+            "Episode": "第八集",
+            "language": ["韓文", "繁體中文"],
+            "Star": "4.9",
+            "message": [
+                {"userId": 1},
+                {"userId": 2},
+                {"userId": 3}
+            ]
+        },
+        { 
+            "id": 3,
+            "bookName": "大唐赤夜歌：卷四．長生劫",
+            "author": "鹿青",
+            "description": "",
+            "tags": ["歷史．武俠"],
+            "link": "https://readmoo.com/book/210276864000101",
+            "img": "https://cdn.readmoo.com/cover/64/2378gc4_460x580.jpg?v=1686302042",
+            "SerializationStatus": "完結",
+            "Episode": "第四集",
+            "language": ["繁體中文"],
+            "Star": "4.7",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 4,
+            "bookName": "有匪 4：挽山河",
+            "author": "Priest",
+            "description": "",
+            "tags": ["歷史．武俠", "愛情．文藝"],
+            "link": "https://www.books.com.tw/products/0010784621?sloc=main",
+            "img": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/078/46/0010784621.jpg&v=5c302ff9k&w=348&h=348",
+            "SerializationStatus": "完結",
+            "Episode": "第四集",
+            "language": ["簡體中文", "繁體中文"],
+            "Star": "4.3",
+            "message": [
+                {"userId": 1}
+            ]
+        },
+        { 
+            "id": 5,
+            "bookName": "我的幸福婚約 06",
+            "author": "顎木亞玖彌（顎木あくみ）",
+            "description": "",
+            "tags": ["愛情．文藝"],
+            "link": "https://www.bookwalker.com.tw/product/161038",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/161038/zoom_big_161038.jpg?_gl=1*1iepv6p*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDkyNjQ3Ni4xNi4xLjE3MDA5Mjc5NDIuNDMuMC4w",
+            "SerializationStatus": "連載中",
+            "Episode": "第六集",
+            "language": ["日文", "繁體中文"],
+            "Star": "4.7",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 6,
+            "bookName": "反派角色只有死亡結局 06",
+            "author": "Gwon Gyeoeul",
+            "description": "",
+            "tags": ["愛情．文藝"],
+            "link": "https://readmoo.com/book/210291880000101",
+            "img": "https://cdn.readmoo.com/cover/hb/j9j9o9a_460x580.jpg?v=1696579740",
+            "SerializationStatus": "完結",
+            "Episode": "第六集",
+            "language": ["英文", "繁體中文"],
+            "Star": "4.8",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 7,
+            "bookName": "地獄系列 第十五部: 地獄之後",
+            "author": "Div",
+            "description": "",
+            "tags": ["懸疑．推理", "恐怖．驚悚"],
+            "link": "https://www.bookwalker.com.tw/product/107733",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/107733/zoom_big_107733.jpg?_gl=1*hhw5ig*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDkyNjQ3Ni4xNi4xLjE3MDA5Mjg3OTYuMzEuMC4w",
+            "SerializationStatus": "完結",
+            "Episode": "第十五集",
+            "language": ["繁體中文"],
+            "Star": "4.8",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        }
+    ]
+  }
