@@ -91,7 +91,8 @@
             "Star": "4.7",
             "message": [
                 {"userId": 1},
-                {"userId": 2}
+                {"userId": 2},
+                {"userId": 3}
             ]
         },
         { 
@@ -126,6 +127,139 @@
             "message": [
                 {"userId": 1},
                 {"userId": 2}
+            ]
+        },
+        { 
+            "id": 8,
+            "bookName": "解謎前．請投幣",
+            "author": "路邊攤",
+            "description": "",
+            "tags": ["懸疑．推理", "恐怖．驚悚"],
+            "link": "https://www.bookwalker.com.tw/product/164082",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/164082/zoom_big_164082.jpg?_gl=1*a6ehrc*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4wLjE3MDA5OTM4OTEuNjAuMC4w",
+            "SerializationStatus": "完結",
+            "Episode": "全一冊",
+            "language": ["繁體中文"],
+            "Star": "4.1",
+            "message": []
+        },
+        { 
+            "id": 9,
+            "bookName": "純白殺人魔全",
+            "author": "三輪．キャナウェイ",
+            "description": "",
+            "tags": ["懸疑．推理"],
+            "link": "https://www.kingstone.com.tw/basic/2018612281159/?lid=book_normal_rg&actid=book_normal_rg",
+            "img": "https://cdn1.kingstone.com.tw/book/images/product/20186/2018612281159/2018612281159b.jpg?Q=4e147",
+            "SerializationStatus": "完結",
+            "Episode": "全一冊",
+            "language": ["日文", "繁體中文"],
+            "Star": "4.8",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 10,
+            "bookName": "地府犯罪調查中心 3 Final case",
+            "author": "馥閒庭",
+            "description": "",
+            "tags": ["懸疑．推理"],
+            "link": "https://www.bookwalker.com.tw/product/169952",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/169952/zoom_big_169952.jpg?_gl=1*ongcse*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4xLjE3MDA5OTQ0OTQuNjAuMC4w",
+            "SerializationStatus": "完結",
+            "Episode": "第三集",
+            "language": ["繁體中文"],
+            "Star": "4.5",
+            "message": [
+                {"userId": 1},
+                {"userId": 2},
+                {"userId": 3}
+            ]
+        },
+        { 
+            "id": 11,
+            "bookName": "邪臨",
+            "author": "澤村伊智",
+            "description": "",
+            "tags": ["恐怖．驚悚"],
+            "link": "https://www.bookwalker.com.tw/product/50793",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/50793/zoom_big_50793.jpg?_gl=1*hcporh*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4xLjE3MDA5OTQ4MjUuNjAuMC4w",
+            "SerializationStatus": "完結",
+            "Episode": "全一冊",
+            "language": ["繁體中文"],
+            "Star": "4.3",
+            "message": [
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 12,
+            "bookName": "Re:從零開始的異世界生活 31",
+            "author": "長月達平",
+            "description": "",
+            "tags": ["奇幻．科幻"],
+            "link": "https://www.bookwalker.com.tw/product/177123",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/177123/zoom_big_177123.jpg?_gl=1*1cohrvx*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4xLjE3MDA5OTUzMDMuMjIuMC4w",
+            "SerializationStatus": "連載中",
+            "Episode": "第三十一集",
+            "language": ["日文", "繁體中文"],
+            "Star": "4.9",
+            "message": [
+                {"userId": 1},
+                {"userId": 2},
+                {"userId": 3}
+            ]
+        },
+        { 
+            "id": 13,
+            "bookName": "關於我在無意間被隔壁的天使變成廢柴這件事 08",
+            "author": "佐伯さん",
+            "description": "",
+            "tags": ["愛情．文藝"],
+            "link": "https://www.bookwalker.com.tw/product/179460",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/179460/zoom_big_179460.jpg?_gl=1*9rvsnf*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4xLjE3MDA5OTU3MTIuNTkuMC4w",
+            "SerializationStatus": "連載中",
+            "Episode": "第八集",
+            "language": ["日文", "繁體中文"],
+            "Star": "4.6",
+            "message": [
+                {"userId": 1},
+                {"userId": 2}
+            ]
+        },
+        { 
+            "id": 14,
+            "bookName": "劍來【第二部】（四）",
+            "author": "烽火戲諸侯",
+            "description": "",
+            "tags": ["歷史．武俠"],
+            "link": "https://readmoo.com/book/210302222000101",
+            "img": "https://cdn.readmoo.com/cover/ql/efzgvfz_460x580.jpg?v=1700547500",
+            "SerializationStatus": "連載中",
+            "Episode": "第四集",
+            "language": ["簡體中文", "繁體中文"],
+            "Star": "4.8",
+            "message": [
+                {"userId": 2},
+                {"userId": 3}
+            ]
+        },
+        { 
+            "id": 15,
+            "bookName": "百鬼夜行卷 12",
+            "author": "笭菁",
+            "description": "",
+            "tags": ["恐怖．驚悚"],
+            "link": "https://www.bookwalker.com.tw/product/176317",
+            "img": "https://taiwan-image.bookwalker.com.tw/product/176317/zoom_big_176317.jpg?_gl=1*15pif4y*_ga*NTMzNjEyMzMuMTY2NzQ3OTU1OA..*_ga_QKSKV5XSBD*MTcwMDk5Mzg5MS4xNy4xLjE3MDA5OTcwMTEuMTYuMC4w",
+            "SerializationStatus": "完結",
+            "Episode": "第十二集",
+            "language": ["繁體中文"],
+            "Star": "4.5",
+            "message": [
+                {"userId": 3}
             ]
         }
     ]
