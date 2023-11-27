@@ -1,13 +1,113 @@
 {
     "users": [
-        { "id": 1, "name": "小a" },
-        { "id": 2, "name": "小b" },
-        { "id": 3, "name": "小c" }
+        {
+            "id": 1,
+            "email": "",
+            "password": "",
+            "name": "小a",
+            "given_name": "",
+            "family_name": "",
+            "img": "",
+            "logins_count": 15,
+            "created_at": "2016-11-28T14:10:11.338Z",
+            "updated_at": "2016-12-02T01:17:29.310Z",
+            "last_login": "2016-12-02T01:17:29.310Z",
+            "email_verified": true,
+            "collect_book": [
+                {"bookId": 1},
+                {"bookId": 2},
+                {"bookId": 12}
+            ],
+            "collect_comment": [
+                {"commentId": 2},
+                {"commentId": 3}
+            ],
+            "comment": [
+                {"commentId": 1}
+            ],
+            "token": ""
+        },
+        { 
+            "id": 2, 
+            "email": "",
+            "password": "",
+            "name": "小b",
+            "given_name": "",
+            "family_name": "",
+            "img": "",
+            "logins_count": 15,
+            "created_at": "2016-11-29T15:11:11.338Z",
+            "updated_at": "2016-12-02T01:13:29.310Z",
+            "last_login": "2016-12-02T01:17:29.310Z",
+            "email_verified": true,
+            "collect_book": [
+                {"bookId": 1},
+                {"bookId": 3},
+                {"bookId": 10}
+            ],
+            "collect_comment": [
+                {"commentId": 1},
+                {"commentId": 2}
+            ],
+            "comment": [
+                {"commentId": 3}
+            ],
+            "token": ""
+        },
+        { 
+            "id": 3,
+            "email": "",
+            "password": "",
+            "name": "小c",
+            "given_name": "",
+            "family_name": "",
+            "img": "",
+            "logins_count": 15,
+            "created_at": "2016-11-28T16:14:11.338Z",
+            "updated_at": "2016-11-28T16:14:11.338Z",
+            "last_login": "2016-12-02T07:19:46.310Z",
+            "email_verified": true,
+            "collect_book": [
+                {"bookId": 8},
+                {"bookId": 9},
+                {"bookId": 15}
+            ],
+            "collect_comment": [
+                {"commentId": 1}
+            ],
+            "comment": [
+                {"commentId": 2}
+            ],
+            "token": ""
+        }
     ],
     "comments": [
-        { "id": 1, "body": "some comment", "userId": 1 }
+        {
+            "id": 1,
+            "userId": 1,
+            "bookId": 1,
+            "textContent": "跪求續集阿Orz",
+            "score": 4.9,
+            "like": 10
+        },
+        {
+            "id": 2,
+            "userId": 3,
+            "bookId": 1,
+            "textContent": "作者好會，賺我眼淚QQ",
+            "score": 4.9,
+            "like": 50
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "bookId": 1,
+            "textContent": "不看你會後悔阿阿阿阿阿",
+            "score": 4.9,
+            "like": 20
+        }
     ],
-    "bookInfos": [
+    "books": [
         { 
             "id": 1,
             "bookName": "關於我轉生變成史萊姆這檔事 20",
@@ -20,10 +120,10 @@
             "Episode": "第二十集",
             "language": ["日文", "繁體中文"],
             "Star": "4.9",
-            "message": [
-                {"userId": 1},
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -38,10 +138,10 @@
             "Episode": "第八集",
             "language": ["韓文", "繁體中文"],
             "Star": "4.9",
-            "message": [
-                {"userId": 1},
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -56,9 +156,9 @@
             "Episode": "第四集",
             "language": ["繁體中文"],
             "Star": "4.7",
-            "message": [
-                {"userId": 1},
-                {"userId": 2}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2}
             ]
         },
         { 
@@ -73,8 +173,8 @@
             "Episode": "第四集",
             "language": ["簡體中文", "繁體中文"],
             "Star": "4.3",
-            "message": [
-                {"userId": 1}
+            "comments": [
+                {"commentId": 1}
             ]
         },
         { 
@@ -89,10 +189,10 @@
             "Episode": "第六集",
             "language": ["日文", "繁體中文"],
             "Star": "4.7",
-            "message": [
-                {"userId": 1},
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -107,9 +207,9 @@
             "Episode": "第六集",
             "language": ["英文", "繁體中文"],
             "Star": "4.8",
-            "message": [
-                {"userId": 1},
-                {"userId": 2}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2}
             ]
         },
         { 
@@ -124,9 +224,9 @@
             "Episode": "第十五集",
             "language": ["繁體中文"],
             "Star": "4.8",
-            "message": [
-                {"userId": 1},
-                {"userId": 2}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2}
             ]
         },
         { 
@@ -141,7 +241,7 @@
             "Episode": "全一冊",
             "language": ["繁體中文"],
             "Star": "4.1",
-            "message": []
+            "comments": []
         },
         { 
             "id": 9,
@@ -155,9 +255,9 @@
             "Episode": "全一冊",
             "language": ["日文", "繁體中文"],
             "Star": "4.8",
-            "message": [
-                {"userId": 1},
-                {"userId": 2}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2}
             ]
         },
         { 
@@ -172,10 +272,10 @@
             "Episode": "第三集",
             "language": ["繁體中文"],
             "Star": "4.5",
-            "message": [
-                {"userId": 1},
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -190,8 +290,8 @@
             "Episode": "全一冊",
             "language": ["繁體中文"],
             "Star": "4.3",
-            "message": [
-                {"userId": 2}
+            "comments": [
+                {"commentId": 2}
             ]
         },
         { 
@@ -206,10 +306,10 @@
             "Episode": "第三十一集",
             "language": ["日文", "繁體中文"],
             "Star": "4.9",
-            "message": [
-                {"userId": 1},
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -224,9 +324,9 @@
             "Episode": "第八集",
             "language": ["日文", "繁體中文"],
             "Star": "4.6",
-            "message": [
-                {"userId": 1},
-                {"userId": 2}
+            "comments": [
+                {"commentId": 1},
+                {"commentId": 2}
             ]
         },
         { 
@@ -241,9 +341,9 @@
             "Episode": "第四集",
             "language": ["簡體中文", "繁體中文"],
             "Star": "4.8",
-            "message": [
-                {"userId": 2},
-                {"userId": 3}
+            "comments": [
+                {"commentId": 2},
+                {"commentId": 3}
             ]
         },
         { 
@@ -258,8 +358,8 @@
             "Episode": "第十二集",
             "language": ["繁體中文"],
             "Star": "4.5",
-            "message": [
-                {"userId": 3}
+            "comments": [
+                {"commentId": 3}
             ]
         }
     ]
