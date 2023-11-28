@@ -1,11 +1,13 @@
 @charset "UTF-8";
+/*rwd*/
 /*adjust*/
 .searchDiv {
-  height: 100%;
-  width: 90%;
+  width: 50%;
+  min-width: 100px;
   border: 1px solid rgba(231, 140, 82, 0.2);
+  border-radius: 20px;
 }
-.searchDiv:hover {
+.searchDiv:active {
   border: 1px solid rgba(231, 140, 82, 0.8);
 }
 
@@ -46,24 +48,39 @@
 }
 
 /*圖片區*/
+.logo {
+  background-image: url(../../images/LogoSize=lg.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 206px;
+  height: 80px;
+}
+@media (max-width: 576px) {
+  .logo {
+    background-image: url(../../images/LogoSize=sm.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 119px;
+    height: 60px;
+  }
+}
+
 .searchImg {
   width: 10%;
-  background-image: url(../../images/search.png);
+  min-width: 20px;
+  background-image: url(../../images/search.svg);
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
   background-color: #fff;
-  background-size: 90% 65%;
+  background-size: cover;
   border: 0;
+  border-radius: 100px;
 }
-.searchImg:hover {
-  border-radius: 5px;
-  box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
-  transform: scale(1.1);
-}
-.searchImg.active {
-  border-radius: 10px;
-  box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
-  transform: scale(0.8);
+.searchImg:active {
+  border-radius: 100px;
+  background-image: url(../../images/search_active.svg);
 }
 
 .switchCommitLeft {
@@ -97,12 +114,12 @@
 }
 
 .userCenter {
-  background-image: url(/app/assets/images/account_circle_black_24dp.svg);
+  background-image: url(../../images/account_circle_black_24dp.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 .userCenter:hover {
-  background-image: url(/app/assets/images/account_circle_hover_24dp.svg);
+  background-image: url(../../images/account_circle_hover_24dp.svg);
 }
 
 /*button*/
@@ -112,11 +129,13 @@
 
 .pagesIcon {
   background-color: #fff;
+  padding: 8px;
   border-radius: 100px;
+  border: 2px solid #fff;
 }
 .pagesIcon:hover {
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px rgba(231, 140, 82, 0.5);
+  border-radius: 100px;
+  border: 2px solid rgb(231, 140, 82);
 }
 
 /*a*/
