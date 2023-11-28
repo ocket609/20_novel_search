@@ -33,6 +33,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    color: #454545;
 }
 ol, ul {
 	list-style: none;
@@ -61,6 +62,8 @@ img{
     height: auto;
     display: block;
 }
+
+
 
 
 *,*::before,*::after {
@@ -117,6 +120,18 @@ h6{
     background-color: #fffbe8;
 }
 
+
+.inputSearch {
+    position: relative; 
+    display: inline-block;
+  }	
+  	
+  .inputSearch .icon { /*右邊圖示*/
+    position: absolute;	
+    width: 55px;	
+    right: 20px;
+    top: calc(2% - 0.3em);
+  }
 
 .classification li{
     list-style-type: none;
