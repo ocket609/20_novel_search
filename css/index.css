@@ -180,10 +180,14 @@ li{list-style-type: none;}
 
 .novelImg{
     position: relative;
+    /* width: 416px; 设置宽度 */
+    /* height: 312px; 设置高度 */
 }
 
+
+
 .amount{
-    background-image: url(./img/meaningless.png);
+    background-image: url(../img/meaningless.png);
     width: 68px;
     height: 68px;
     position: absolute;
