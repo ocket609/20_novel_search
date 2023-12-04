@@ -6,7 +6,7 @@
 - 阿博
 - Mina
 
-  首頁Demo https://ocket609.github.io/20_novel_search/
+  首頁Demo https://ocket609.github.io/20_novel_search/index.html
 
 
 ----------
