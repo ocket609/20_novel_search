@@ -30,8 +30,9 @@ function pagesRender(){
 
 }
 
+//search API
 
-function searchRender(){
+function searchApi(){
     axios.get(serachGet)
     
       .than(function(response){
@@ -41,6 +42,12 @@ function searchRender(){
           console.log(error.response);
       })
 
+}
+
+//search render
+
+function searchRender(){
+    
 }
 
 function haveLogin(){
