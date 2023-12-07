@@ -3,66 +3,39 @@
 const booksGet = "http://localhost:3000/books";
 const pagesGet = "http://localhost:3000/books?_expand=commits";
 const usersGet = "http://localhost:3000/users";
+let data = [];
+
+
+//預載入
+
+searchPageApi()
 
 
 
-function indexRender(){
-     axios.get(booksGet)
-     
-       .than(function(response){
-           console.log(response.data);
-       })
-       .catch(function(error){
-           console.log(error.response);
-       })
+//searchPageApi
 
-}
-
-function pagesRender(){
-    axios.get(booksGet)
-    
-      .than(function(response){
-          console.log(response.data);
-      })
-      .catch(function(error){
-          console.log(error.response);
-      })
-
-}
-
-//search API
-
-function searchApi(){
+function searchPageApi(){
     axios.get(booksGet)
     
       .then(function(response){
-          searchRender(response.data);
+          data = response.data;
+          searchPageRender(data);
       })
       .catch(function(error){
           console.log(error.response);
       })
-
 }
 
-
-
-//search render
-const searchPageSearch = document.querySelector('.search');
-const searchPageSearchBtn = document.querySelector('.searchImg');
+//searchPageRender
 const bookListArea = document.querySelector('.bookList');
-console.log(searchPageSearchBtn);
 
-searchPageSearchBtn.addEventListener('click',searchApi);
-
-function searchRender(bookData){
-    
-    console.log(searchPageSearch.value);
-    console.log(bookData);
-    let strAll = '';
-    bookData.forEach((item) => {
-        let str = item.bookName; 
-        if(str.includes(searchPageSearch.value)){
-            strAll += `<div class="col p-0 position-relative m-3" style="width: 15rem;" >
+function searchPageRender(bookAllData) {
+      let str = '';
+      if(bookAllData.length === 0){
+         alert('無法搜尋到相關書籍');
+      }else{
+      bookAllData.forEach((item) => {
+            str +=  `<div class="col p-0 position-relative m-3" style="width: 15rem;" >
             <img src=${item.img} class="card-img-top" alt="..." >
             <div class="d-flex position-absolute top-50 end-0 mt-5  align-items-center ">
               <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
@@ -76,12 +49,96 @@ function searchRender(bookData){
                </div> 
             </div>
         </div> `
-        }
-        
-    });
-    bookListArea.innerHTML = strAll;
+      })
+    }
+      bookListArea.innerHTML = str;
+}
+
+
+/*search API
+
+function searchApi(){
+    axios.get(booksGet)
+    
+      .then(function(response){
+        searchRender(response.data);
+          data = response.data;
+          console.log(data);
+      })
+      .catch(function(error){
+          console.log(error.response);
+      })
 
 }
+*/
+
+//search render
+const searchPageSearch = document.querySelector('.search');
+
+
+searchPageSearch.addEventListener('change',searchRender);
+
+function searchRender(){
+    
+    newData  = data.filter((item) => item.bookName.includes(searchPageSearch.value));
+    searchPageRender(newData);
+    searchPageSelectCategory.options[0].selected = true;
+    searchPageSelectStar.options[0].selected = true;
+}
+
+
+//select render
+const searchArea = document.querySelector('.selectArea');
+const searchPageSelectCategory = document.querySelector('.selectCategory');
+const searchPageSelectStar = document.querySelector('.selectStar');
+
+searchArea.addEventListener('change',selectRender);
+
+function selectRender(e){
+    const CateValue = searchPageSelectCategory.value;
+    const StarValue = searchPageSelectStar.value
+    //console.log(searchPageSelectCategory.value);
+    //console.log(searchPageSelectStar.value);
+    console.log(e.target.value);
+    //console.log(isNaN(e.target.value));
+    //console.log(typeof(e.target.value));
+    //isNaN(e.target.value)
+
+           if(e.target.value === undefined){
+               return;
+
+           }else if(CateValue === '' && StarValue === ''){
+               searchPageRender(data);
+
+           }else if(CateValue !== '' && StarValue === ''){  
+               searchPageSearch.value = ''; 
+               newDataFormCategory = data.filter((item) => {
+                   return  item.tags.includes(CateValue) ;
+                     });
+                   searchPageRender(newDataFormCategory);
+
+           }else if(StarValue !== '' &&CateValue  === ''){
+               searchPageSearch.value = ''; 
+               newDataFromStar = data.filter((item) => {
+                   let newStar = parseInt(item.Star);
+                   let newStartoString = newStar.toString();
+                  return newStartoString.includes(StarValue)});
+                  searchPageRender(newDataFromStar);
+               
+           }else{
+                searchPageSearch.value = ''; 
+                newDataFormCategory = data.filter((item) => {
+                    return  item.tags.includes(CateValue) ;
+                      });
+                    newDataFromStar = newDataFormCategory.filter((item) => {
+                        let newStar = parseInt(item.Star);
+                        let newStartoString = newStar.toString();
+                       return newStartoString.includes(StarValue)});
+                       searchPageRender(newDataFromStar);
+           }
+}
+
+
 
 function haveLogin(){
     axios.get(usersGet)

@@ -32,45 +32,58 @@
                <input class="searchImg " type="button" aria-label="button">
              </div>
 
-            
-            <div class="dropdown ">
-              <h3 class="mb-3 ">類別</h3>
-                <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  選擇類別
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><button class="dropdown-item" type="button" value="奇幻 • 科幻">奇幻 • 科幻</button></li>
-                  <li><button class="dropdown-item" type="button" value="歷史 • 武俠">歷史 • 武俠</button></li>
-                  <li><button class="dropdown-item" type="button" value="愛情 • 文藝">愛情 • 文藝</button></li>
-                  <li><button class="dropdown-item" type="button" value="懸疑 • 推理">懸疑 • 推理</button></li>
-                  <li><button class="dropdown-item" type="button" value="恐怖 • 驚悚">恐怖 • 驚悚</button></li>
-                </ul>
-            </div>  
-            
-            <div class="dropdown mt-5">
-                <h3 class="mb-3 ">評分</h3>
-                <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  選擇評分
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><button class="dropdown-item a" type="button" value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                </ul>
-            </div> 
-            <div>
-              <select name="" id="" class="btn btn-success  w-75">
-                <option value="">選擇評分</option>
-                <option value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-              </select>
-            </div>
+            <div class="selectArea">
+              <div class="dropdown ">
+                <h3 class="mb-3 ">類別</h3>
+                  <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    選擇類別
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item" type="button" value="奇幻．科幻">奇幻 • 科幻</button></li>
+                    <li><button class="dropdown-item" type="button" value="歷史．武俠">歷史 • 武俠</button></li>
+                    <li><button class="dropdown-item" type="button" value="愛情．文藝">愛情 • 文藝</button></li>
+                    <li><button class="dropdown-item" type="button" value="懸疑．推理">懸疑 • 推理</button></li>
+                    <li><button class="dropdown-item" type="button" value="恐怖．驚悚">恐怖 • 驚悚</button></li>
+                  </ul>
+              </div>  
+              <div>
+                <select class="selectCategory btn btn-success  w-75">
+                  <option value="">選擇類別</option>
+                  <option value="奇幻．科幻">奇幻 • 科幻</option>
+                  <option value="歷史．武俠">歷史 • 武俠</option>
+                  <option value="愛情．文藝">愛情 • 文藝</option>
+                  <option value="懸疑．推理">懸疑 • 推理</option>
+                  <option value="恐怖．驚悚">恐怖 • 驚悚</option>
+                </select>
+              </div>
+  
+              
+              <div class="dropdown mt-5">
+                  <h3 class="mb-3 ">評分</h3>
+                  <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    選擇評分
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item a" type="button" value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
+                    <li><button class="dropdown-item a" type="button" value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
+                    <li><button class="dropdown-item a" type="button" value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
+                    <li><button class="dropdown-item a" type="button" value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
+                    <li><button class="dropdown-item a" type="button" value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
+                  </ul>
+              </div> 
+              <div>
+                <select class="selectStar btn btn-success  w-75">
+                  <option value="">選擇評分</option>
+                  <option value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                </select>
+              </div>    
 
+            </div>
+            
          </div>
 
            <div class="bookdisplay col-8 mt-5 ">     
