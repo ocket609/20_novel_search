@@ -1,30 +1,37 @@
 
-
 const booksGet = "http://localhost:3000/books";
-const pagesGet = "http://localhost:3000/books?_expand=commits";
-const usersGet = "http://localhost:3000/users";
 let data = [];
 
 
-//預載入
 
-searchPageApi()
+searchPageApi();
 
+//Search Area
+const searchPageSearch = document.querySelector('.search');
 
+//Select Area
+const selectArea = document.querySelector('.selectArea');
+const searchPageSelectCategory = document.querySelector('.selectCategory');
+const searchPageSelectStar = document.querySelector('.selectStar');
+
+//addEventListener
+searchPageSearch.addEventListener('change',searchRender);
+selectArea.addEventListener('change',selectRender);
 
 //searchPageApi
 
-function searchPageApi(){
-    axios.get(booksGet)
-    
-      .then(function(response){
-          data = response.data;
-          searchPageRender(data);
-      })
-      .catch(function(error){
-          console.log(error.response);
-      })
+export function searchPageApi(){
+  axios.get(booksGet)
+  
+    .then(function(response){
+        data = response.data;
+        searchPageRender(data);
+    })
+    .catch(function(error){
+        console.log(error.response);
+    })
 }
+
 
 //searchPageRender
 const bookListArea = document.querySelector('.bookList');
@@ -35,8 +42,8 @@ function searchPageRender(bookAllData) {
          alert('無法搜尋到相關書籍');
       }else{
       bookAllData.forEach((item) => {
-            str +=  `<div class="col p-0 position-relative m-3" style="width: 15rem;" >
-            <img src=${item.img} class="card-img-top" alt="..." >
+            str +=  `<div class="col p-0 position-relative m-3" style="width: 15rem;height: 32rem;" >
+            <img src=${item.img} class="card-img-top" alt="..." style="height: 360px;">
             <div class="d-flex position-absolute top-50 end-0 mt-5  align-items-center ">
               <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
               <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
@@ -51,36 +58,15 @@ function searchPageRender(bookAllData) {
         </div> `
       })
     }
-      bookListArea.innerHTML = str;
+     bookListArea.innerHTML = str;
 }
-
-
-/*search API
-
-function searchApi(){
-    axios.get(booksGet)
-    
-      .then(function(response){
-        searchRender(response.data);
-          data = response.data;
-          console.log(data);
-      })
-      .catch(function(error){
-          console.log(error.response);
-      })
-
-}
-*/
 
 //search render
-const searchPageSearch = document.querySelector('.search');
 
 
-searchPageSearch.addEventListener('change',searchRender);
 
-function searchRender(){
-    
-    newData  = data.filter((item) => item.bookName.includes(searchPageSearch.value));
+ function searchRender(){
+    let newData  = data.filter((item) => item.bookName.includes(searchPageSearch.value));
     searchPageRender(newData);
     searchPageSelectCategory.options[0].selected = true;
     searchPageSelectStar.options[0].selected = true;
@@ -88,21 +74,10 @@ function searchRender(){
 
 
 //select render
-const searchArea = document.querySelector('.selectArea');
-const searchPageSelectCategory = document.querySelector('.selectCategory');
-const searchPageSelectStar = document.querySelector('.selectStar');
 
-searchArea.addEventListener('change',selectRender);
-
-function selectRender(e){
-    const CateValue = searchPageSelectCategory.value;
-    const StarValue = searchPageSelectStar.value
-    //console.log(searchPageSelectCategory.value);
-    //console.log(searchPageSelectStar.value);
-    console.log(e.target.value);
-    //console.log(isNaN(e.target.value));
-    //console.log(typeof(e.target.value));
-    //isNaN(e.target.value)
+ function selectRender(e){
+  const CateValue = searchPageSelectCategory.value;
+  const StarValue = searchPageSelectStar.value
 
            if(e.target.value === undefined){
                return;
@@ -112,14 +87,14 @@ function selectRender(e){
 
            }else if(CateValue !== '' && StarValue === ''){  
                searchPageSearch.value = ''; 
-               newDataFormCategory = data.filter((item) => {
+               let newDataFormCategory = data.filter((item) => {
                    return  item.tags.includes(CateValue) ;
                      });
                    searchPageRender(newDataFormCategory);
 
            }else if(StarValue !== '' &&CateValue  === ''){
                searchPageSearch.value = ''; 
-               newDataFromStar = data.filter((item) => {
+               let newDataFromStar = data.filter((item) => {
                    let newStar = parseInt(item.Star);
                    let newStartoString = newStar.toString();
                   return newStartoString.includes(StarValue)});
@@ -127,42 +102,13 @@ function selectRender(e){
                
            }else{
                 searchPageSearch.value = ''; 
-                newDataFormCategory = data.filter((item) => {
+                let newDataFormCategory = data.filter((item) => {
                     return  item.tags.includes(CateValue) ;
                       });
-                    newDataFromStar = newDataFormCategory.filter((item) => {
+                      let newDataFromStar = newDataFormCategory.filter((item) => {
                         let newStar = parseInt(item.Star);
                         let newStartoString = newStar.toString();
                        return newStartoString.includes(StarValue)});
                        searchPageRender(newDataFromStar);
            }
-}
-
-
-
-function haveLogin(){
-    axios.get(usersGet)
-    
-    .than(function(response){
-        console.log(response.data);
-    })
-    .catch(function(error){
-        console.log(error.response);
-    })
-}
-
-function searchButton(){
-    axios.get(`booksGet?s=${搜尋名}`)
-    
-    .than(function(response){
-        console.log(response.data);
-    })
-    .catch(function(error){
-        console.log(error.response);
-    })
-}
-
-
-function searchSelect(){
-    
 }
