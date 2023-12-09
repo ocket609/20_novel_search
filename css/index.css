@@ -251,6 +251,18 @@ li{list-style-type: none;}
 }
 
 
+.book-cover {
+    width: 306px; 
+    height: 306px; 
+    object-fit: cover; 
+  }
+
+  .bookCover {
+    width: 416px; 
+    height: 416px; 
+    object-fit: cover; 
+  }
+  
 
 .star{
     display: flex;
@@ -309,8 +321,19 @@ li{list-style-type: none;}
         width: 95%;
         margin-top: 16px;
     }
+
     .bannerimg{
         max-width: 100%;
        flex-direction: column;
     }
     }
+
+    .Footer{
+        background-color: #FDF9E6;
+    }
+
+    .siteLink{
+        color: #454545;
+    }
+
+    a { text-decoration: none; }
