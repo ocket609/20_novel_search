@@ -1,11 +1,11 @@
-import * as search_module from '../module/search.js'
+//import * as search_module from '../module/search.js'
 
-const pagesGet = "http://localhost:3000/books?_expand=commits";
-const usersGet = "http://localhost:3000/users";
+//const pagesGet = "http://localhost:3000/books?_expand=commits";
+//const usersGet = "http://localhost:3000/users";
 
 //預載入
 
-search_module.searchPageApi();
+//search_module.searchPageApi();
 
 
 
