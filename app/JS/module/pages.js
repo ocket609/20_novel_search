@@ -68,7 +68,7 @@ function pageRender(bookData) {
             }else{
 
             bookImg.innerHTML = `<div class="bookImgDiv">
-            <img src=${bookData.img} class="bookImg" alt="我真的太難了">
+            <img src=${bookData.img} class="bookImg" alt="我真的太難了" style="min-width:250px;">
            </div> `;
 
             bookName.innerHTML = ` 
@@ -80,7 +80,7 @@ function pageRender(bookData) {
             bookInfoLeft.innerHTML = `
             <p >連載狀態 : ${bookData.SerializationStatus}</p>
             <p>集數 : ${bookData.Episode}</p>
-            <p>類別 : <span class="bg-success  p-2 text-white rounded-3">${bookData.tags[0]}</span><span class="bg-success ms-3 p-2 text-white rounded-3">${bookData.tags[1]}</span></p>
+            <p>類別 : <span class="bg-success  p-1 text-white rounded-3">${bookData.tags[0]}</span><span class="bg-success ms-3 p-1 text-white rounded-3">${bookData.tags[1]}</span></p>
             <p>語言 : ${bookData.language}</p>`;
 
           }else{
@@ -107,9 +107,17 @@ function pageRender(bookData) {
 }
 
 
+// Initialize Swiper(套件)
+
+
+const swiperEl = document.querySelector('swiper-container');
+const swiper = swiperEl.swiper;
+
+
+
 //PagesCommentRender
 
-const commentListArea = document.querySelector('.commentList');
+const commentListArea = document.querySelector('.mySwiper');
 const commentArea = document.querySelector('.commentArea');
 
 function PageCommentRender(commentAllData) {
@@ -121,30 +129,32 @@ function PageCommentRender(commentAllData) {
       }else{
 
         commentAllData.comments.forEach((item) => {
-            str +=  `<div class="card bg-orange-300 mb-3 col-3 col-xl-3 col-md-3 mx-2 px-2 mt-5" style="min-width: 5rem;" >    
-            <div class="position-relative mb-3">
-              <div class="position-absolute top-50 start-50 translate-middle">
-               <img src="./assets/images/Avatar2.png" alt="book">
-              </div>   
-            </div>
-        <div class="card-body bg-white text-center"> 
-          <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
-          <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
-        </div>
-           <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
-              <div class="">${commentAllData.bookName}</div>
-              <div class="d-flex row cardIcon align-items-center">
-                <div class="col-xl-7 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
-                <div class="col-xl-5 p-1"><a class="ms-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></a></div>
-               </div>  
-           </div>        
-          </div> 
+
+          str +=  `
+          <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active" 
+          role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
+          <div  class="">
+           <img src="./assets/images/Avatar2.png" alt="book" style="" class="position-absolute top-0 start-50 translate-middle">
+           </div> 
+    <div class="card-body bg-white text-center mt-3"> 
+      <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
+      <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
+    </div>
+       <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
+          <div class="">${commentAllData.bookName}</div>
+          <div class="d-flex row cardIcon align-items-center">
+            <div class="col-xl-6 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
+            <div class="col-xl-6 p-1"><a class="ms-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></a></div>
+           </div>  
+       </div>       
+    </swiper-slide>
           `
-          
       })
     }
     commentListArea.innerHTML = str;
 }
+
+
 
 //move to Search.html
 
@@ -166,3 +176,25 @@ function pageSearchToSearchPage() {
      }
 
 }
+
+
+
+
+/*<div class="card bg-orange-300 mb-3 col-3 col-xl-3 col-md-3 mx-2 px-2 mt-5" style="min-width: 5rem;" >    
+            <div class="position-relative mb-3">
+              <div class="position-absolute top-50 start-50 translate-middle">
+               <img src="./assets/images/Avatar2.png" alt="book">
+              </div>   
+            </div>
+        <div class="card-body bg-white text-center"> 
+          <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
+          <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
+        </div>
+           <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
+              <div class="">${commentAllData.bookName}</div>
+              <div class="d-flex row cardIcon align-items-center">
+                <div class="col-xl-7 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
+                <div class="col-xl-5 p-1"><a class="ms-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></a></div>
+               </div>  
+           </div>        
+          </div> */
