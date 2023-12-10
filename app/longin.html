@@ -27,52 +27,52 @@
                     <h3 class="align-middle py-3">登入</h3>
                     <div class="goSignin d-sm-flex text-center pb-2 pb-sm-0">
                         <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
-                        <a class="longin-hover-btn" href="#">現在註冊</a>
+                        <a class="longin-hover-btn signinNew" href="#">現在註冊</a>
                     </div>
                     <div class="longin-content">
-                        <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
+                        <label for="longinEmail" class="form-label">電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="longinEmail" placeholder="請輸入電子信箱">
+                        <label for="longinPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="longinPassword" placeholder="請輸入密碼">
                         <div class="forget-password d-flex justify-content-end">
-                            <a class="forget-password-btn longin-hover-btn" href="#">忘記密碼</a>
+                            <a class="forget-password-btn longin-hover-btn forget-password" href="#">忘記密碼</a>
                         </div>
-                        <button type="submit" class="btn btn-success longin-btn">登入</button>
+                        <button type="button" class="btn btn-success longin-btn getLongin-btn">登入</button>
                     </div>
                 </div>
                 <!--signup-->
-                <div class="signup bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                <div class="signup bg-orange-300 rounded-4 d-flex flex-column align-items-center d-none">
                     <h3 class="align-middle py-3">註冊</h3>
                     <div class="longin-content">
-                        <label for="exampleFormControlInput1" class="form-label">帳號</label>
-                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入帳號">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
-                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請再次輸入密碼">
-                        <label for="exampleFormControlInput1" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color mb-14" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
-                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                        <label for="signupEmail" class="form-label">電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="signupEmail" placeholder="請輸入電子信箱">
+                        <label for="signupPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="signupPassword" placeholder="請輸入密碼">
+                        <label for="signupPasswordAgain" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="signupPasswordAgain" placeholder="請再次輸入密碼">
+                        <label for="signupPhone" class="col-sm-5 col-form-label">電話號碼</label>
+                        <input type="tel" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼">
+                        <button type="button" class="btn btn-success longin-btn getSignUp-btn">送出</button>
                     </div>
                 </div>
                 <!--textEmail-->
-                <div class="textEmail bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                <div class="textEmail bg-orange-300 rounded-4 d-flex flex-column align-items-center d-none">
                     <h3 class="align-middle py-3">驗證註冊信箱</h3>
                     <div class="textEmail-content">
-                        <label for="exampleFormControlInput1" class="form-label">請輸入註冊電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="exampleFormControlInput1" placeholder="請輸入電子信箱">
+                        <label for="textEmail" class="form-label">請輸入註冊電子信箱</label>
+                        <input type="email" class="form-control form-bd-color" id="textEmail" placeholder="請輸入電子信箱">
                     </div>
-                    <button type="submit" class="btn btn-success longin-btn">送出</button>
+                    <button type="button" class="btn btn-success longin-btn getVerify-btn">送出</button>
                 </div>
                 <!--resetPassword-->
-                <div class="resetPassword bg-orange-300 rounded-4 d-flex flex-column align-items-center">
+                <div class="resetPassword bg-orange-300 rounded-4 d-flex flex-column align-items-center d-none">
                     <h3 class="align-middle py-3">重設密碼</h3>
                     <div class="reset-content">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="inputPassword" placeholder="請輸入密碼">
-                        <label for="inputPassword" class="col-sm-5 col-form-label">再次輸入密碼</label>
-                        <input type="password" class="form-control form-bd-color mb-14" id="inputPassword" placeholder="請再次輸入密碼">
-                        <button type="submit" class="btn btn-success longin-btn">送出</button>
+                        <label for="resetPassword" class="col-sm-2 col-form-label">密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="resetPassword" placeholder="請輸入密碼">
+                        <label for="resetPasswordAgain" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color mb-14" id="resetPasswordAgain" placeholder="請再次輸入密碼">
+                        <button type="button" class="btn btn-success longin-btn getReset-btn">送出</button>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             </div>
         </div>  
     </div>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./assets/js/longin.js"></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
 </html>
