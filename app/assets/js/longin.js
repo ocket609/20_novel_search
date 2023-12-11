@@ -47,10 +47,11 @@ forget_password.addEventListener("click", (e) => {
     textEmail.classList.remove("d-none");
 });
 
+
 // 註冊送出鈕
 getSignUp_btn.addEventListener("click", (e) => {
     e.preventDefault();
-    //console.log(e.target);
+    console.log(e.target);
     const signupEmail = document.querySelector("#signupEmail").value;
     const signupPassword = document.querySelector("#signupPassword").value;
     const signupPasswordAgain = document.querySelector("#signupPasswordAgain").value;
@@ -72,20 +73,15 @@ function SignUp() {
             "given_name": "",
             "family_name": "",
             "phone": signupPhone, //必填
-            "img": "",
-            "logins_count": 0,
-            "created_at": "",
-            "updated_at": "",
-            "last_login": "",
-            "email_verified": true,
-            "collect_book": [],
-            "collect_comment": [],
-            "comment": [],
             "token": "",
         })
         .then((response) => {
             console.log(response.data);
+            alert("註冊完成");
             //跳出註冊成功alert，點擊確認後轉跳登入頁面(按鈕a給小說主頁網址)
+            // 註冊完成切換登入
+            longin.classList.remove("d-none");
+            signup.classList.add("d-none");
         })
         .catch((error) => {
             console.log(error);
@@ -110,6 +106,7 @@ function login() {
         .then((response) => {
             console.log(response.data);
             token = response.data.accessToken;
+            alert("登入成功");
             //跳出成功登入alert，點擊確認後轉跳小說首頁
         })
         .catch((error) => {
@@ -117,11 +114,21 @@ function login() {
         })
 };
 
+// 密碼重設完成切換登入
+getReset_btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const resetPassword = document.querySelector("#resetPassword").value;
+    const resetPasswordAgain = document.querySelector("#resetPasswordAgain").value;
+    if(resetPassword !== resetPasswordAgain) {
+        alert("請確認密碼2次輸入是否正確！");
+    }
+    updatePassword();
+});
 // 重設密碼PATCH
 function updatePassword() {
     axios
         .patch(`${longinUrl}600/users/4`, {
-            "password": "1122334455"
+            "password": resetPassword
         }, {
             headers: {
                 "authorization": `Bearer ${token}`
@@ -130,7 +137,10 @@ function updatePassword() {
         .then((response) => {
             //console.log(response.data);
             token = response.data.accessToken;
+            alert("密碼重新設定完成");
             //跳出密碼修改完成alert，點擊確認後轉跳登入頁面
+            resetPassword.classList.add("d-none");
+            longin.classList.remove("d-none");
         })
         .catch((error) => {
             console.log(error);

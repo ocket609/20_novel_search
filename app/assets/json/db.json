@@ -138,13 +138,13 @@
       "id": 4
     },
     {
-      "email": "",
-      "password": "",
+      "email": {},
+      "password": {},
       "account": "",
       "name": "",
       "given_name": "",
       "family_name": "",
-      "phone": "",
+      "phone": {},
       "img": "",
       "logins_count": 0,
       "created_at": "",
