@@ -16,6 +16,7 @@ function getUsres() {
         .then((response) => {
             console.log(response.data);
             userData = response.data;
+            console.log(userData[0].id);
         })
         .catch((error) => {
             console.log(error);
@@ -47,7 +48,6 @@ forget_password.addEventListener("click", (e) => {
     textEmail.classList.remove("d-none");
 });
 
-
 // 註冊送出鈕
 getSignUp_btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -60,10 +60,10 @@ getSignUp_btn.addEventListener("click", (e) => {
         alert("請確認密碼2次輸入是否正確！");
         //暫時先用，有時間再換成有設計的alert
     }
-    SignUp();
+    SignUp(signupEmail, signupPassword, signupPhone);
 });
 // 註冊POST
-function SignUp() {
+function SignUp(signupEmail, signupPassword, signupPhone) {
     axios
         .post(`${longinUrl}users`, {
             "email": signupEmail, //必填
@@ -73,12 +73,26 @@ function SignUp() {
             "given_name": "",
             "family_name": "",
             "phone": signupPhone, //必填
+            "img": "",
+            "logins_count": 0,
+            "created_at": "",
+            "updated_at": "",
+            "last_login": "",
+            "email_verified": true,
+            "collect_book": [],
+            "collect_comment": [],
+            "comment": [],
             "token": "",
         })
         .then((response) => {
             console.log(response.data);
             alert("註冊完成");
             //跳出註冊成功alert，點擊確認後轉跳登入頁面(按鈕a給小說主頁網址)
+            // 清空
+            document.querySelector("#signupEmail").value = "";
+            document.querySelector("#signupPassword").value = "";
+            document.querySelector("#signupPasswordAgain").value = "";
+            document.querySelector("#signupPhone").value = "";
             // 註冊完成切換登入
             longin.classList.remove("d-none");
             signup.classList.add("d-none");
@@ -89,15 +103,25 @@ function SignUp() {
 };
 
 // 登入送出鈕
+let longinUserId = "";
 getLongin_btn.addEventListener("click", (e) => {
     e.preventDefault();
     //console.log(e.target);
     const longinEmail = document.querySelector("#longinEmail").value;
     const longinPassword = document.querySelector("#longinPassword").value;
-    login();
+    login(longinEmail, longinPassword);
+    userData.forEach((item) => {
+        if(longinEmail == item.email) {
+            longinUserId = item.id;
+            console.log(longinUserId);
+            item.token = token;
+            console.log(token); //沒出現，不確定有沒有成功
+        }
+    });
+    
 });
 // 登入POST
-function login() {
+function login(longinEmail, longinPassword) {
     axios
         .post(`${longinUrl}login`, {
             "email": longinEmail,
@@ -108,6 +132,9 @@ function login() {
             token = response.data.accessToken;
             alert("登入成功");
             //跳出成功登入alert，點擊確認後轉跳小說首頁
+            // 清空
+            document.querySelector("#longinEmail").value = "";
+            document.querySelector("#longinPassword").value = "";
         })
         .catch((error) => {
             console.log(error.response);
@@ -122,12 +149,12 @@ getReset_btn.addEventListener("click", (e) => {
     if(resetPassword !== resetPasswordAgain) {
         alert("請確認密碼2次輸入是否正確！");
     }
-    updatePassword();
+    updatePassword(resetPassword);
 });
 // 重設密碼PATCH
-function updatePassword() {
+function updatePassword(resetPassword) {
     axios
-        .patch(`${longinUrl}600/users/4`, {
+        .patch(`${longinUrl}600/users/${longinUserId}`, {
             "password": resetPassword
         }, {
             headers: {
@@ -135,10 +162,13 @@ function updatePassword() {
             }
         })
         .then((response) => {
-            //console.log(response.data);
+            console.log(response.data);
             token = response.data.accessToken;
             alert("密碼重新設定完成");
             //跳出密碼修改完成alert，點擊確認後轉跳登入頁面
+            // 清空
+            document.querySelector("#resetPassword").value = "";
+            document.querySelector("#resetPasswordAgain").value = "";
             resetPassword.classList.add("d-none");
             longin.classList.remove("d-none");
         })
@@ -153,8 +183,8 @@ function updatePassword() {
 // 修改內容
 function patchContent() {
     axios
-        .patch(`${longinUrl}users/4`, {
-            "name": "毛毛"
+        .patch(`${longinUrl}users/1`, {
+            "password": "bestPassw0rd"
         })
         .then((response) => {
             console.log(response.data);

@@ -1,150 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "aaa@mail.com",
-      "password": "123123",
-      "name": "小a",
-      "given_name": "",
-      "family_name": "",
-      "phone": "",
-      "img": "",
-      "logins_count": 15,
-      "created_at": "2016-11-28T14:10:11.338Z",
-      "updated_at": "2016-12-02T01:17:29.310Z",
-      "last_login": "2016-12-02T01:17:29.310Z",
-      "email_verified": true,
-      "collect_book": [
-        {
-          "bookId": 1
-        },
-        {
-          "bookId": 2
-        },
-        {
-          "bookId": 12
-        }
-      ],
-      "collect_comment": [
-        {
-          "commentId": 2
-        },
-        {
-          "commentId": 3
-        }
-      ],
-      "comment": [
-        {
-          "commentId": 1
-        }
-      ],
-      "token": ""
-    },
-    {
-      "id": 2,
-      "email": "bbb@mail.com",
-      "password": "321321",
-      "name": "小b",
-      "given_name": "",
-      "family_name": "",
-      "phone": "",
-      "img": "",
-      "logins_count": 15,
-      "created_at": "2016-11-29T15:11:11.338Z",
-      "updated_at": "2016-12-02T01:13:29.310Z",
-      "last_login": "2016-12-02T01:17:29.310Z",
-      "email_verified": true,
-      "collect_book": [
-        {
-          "bookId": 1
-        },
-        {
-          "bookId": 3
-        },
-        {
-          "bookId": 10
-        }
-      ],
-      "collect_comment": [
-        {
-          "commentId": 1
-        },
-        {
-          "commentId": 2
-        }
-      ],
-      "comment": [
-        {
-          "commentId": 3
-        }
-      ],
-      "token": ""
-    },
-    {
-      "id": 3,
-      "email": "ccc@mail.com",
-      "password": "1234567",
-      "name": "小c",
-      "given_name": "",
-      "family_name": "",
-      "phone": "",
-      "img": "",
-      "logins_count": 15,
-      "created_at": "2016-11-28T16:14:11.338Z",
-      "updated_at": "2016-11-28T16:14:11.338Z",
-      "last_login": "2016-12-02T07:19:46.310Z",
-      "email_verified": true,
-      "collect_book": [
-        {
-          "bookId": 8
-        },
-        {
-          "bookId": 9
-        },
-        {
-          "bookId": 15
-        }
-      ],
-      "collect_comment": [
-        {
-          "commentId": 1
-        }
-      ],
-      "comment": [
-        {
-          "commentId": 2
-        }
-      ],
-      "token": ""
-    },
-    {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$51xCH5/x8gjgxfQHzd8pcu00ZBrigtes9zbIdwoR1urLMgvjPV.c6",
-      "account": "",
-      "name": "毛毛",
-      "given_name": "",
-      "family_name": "",
-      "phone": "",
-      "img": "",
-      "logins_count": 2,
-      "created_at": "2018-11-28T14:10:11.338Z",
-      "updated_at": "2018-12-02T01:17:29.310Z",
-      "last_login": "2018-12-02T01:17:29.310Z",
-      "email_verified": true,
-      "collect_book": [],
-      "collect_comment": [],
-      "comment": [],
-      "token": "",
-      "id": 4
-    },
-    {
-      "email": {},
-      "password": {},
+      "email": "olivier2@mail.com",
+      "password": "$2a$10$AFzPRTb3CwtyY3yw9oi4nueLY0Iu5jxUj7fkPbFDzlMGVHIogAJ4q",
       "account": "",
       "name": "",
       "given_name": "",
       "family_name": "",
-      "phone": {},
+      "phone": "0912345678",
       "img": "",
       "logins_count": 0,
       "created_at": "",
@@ -155,7 +18,47 @@
       "collect_comment": [],
       "comment": [],
       "token": "",
-      "id": 5
+      "id": 2
+    },
+    {
+      "email": "olivier3@mail.com",
+      "password": "$2a$10$OrdSP.pw3k5T37Bn2vqUquC/xOLxm.demYdVjsPtxhXcv7uDfd06O",
+      "account": "",
+      "name": "",
+      "given_name": "",
+      "family_name": "",
+      "phone": "0912345678",
+      "img": "",
+      "logins_count": 0,
+      "created_at": "",
+      "updated_at": "",
+      "last_login": "",
+      "email_verified": true,
+      "collect_book": [],
+      "collect_comment": [],
+      "comment": [],
+      "token": "",
+      "id": 3
+    },
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$c7PY/M.0Wo3B4xqRx8DgqupwjvZO6UqI4fQ8Sz4MVtHWMEMwFQIxe",
+      "account": "",
+      "name": "",
+      "given_name": "",
+      "family_name": "",
+      "phone": "0912345678",
+      "img": "",
+      "logins_count": 0,
+      "created_at": "",
+      "updated_at": "",
+      "last_login": "",
+      "email_verified": true,
+      "collect_book": [],
+      "collect_comment": [],
+      "comment": [],
+      "token": "",
+      "id": 4
     }
   ],
   "comments": [
