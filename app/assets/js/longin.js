@@ -56,6 +56,11 @@ getSignUp_btn.addEventListener("click", (e) => {
     const signupPassword = document.querySelector("#signupPassword").value;
     const signupPasswordAgain = document.querySelector("#signupPasswordAgain").value;
     const signupPhone = document.querySelector("#signupPhone").value;
+    userData.forEach((item) => {
+        if(signupEmail === item.email) {
+            alert("信箱已註冊過囉！");
+        }
+    });
     if(signupPasswordAgain !== signupPassword) {
         alert("請確認密碼2次輸入是否正確！");
         //暫時先用，有時間再換成有設計的alert
@@ -109,16 +114,22 @@ getLongin_btn.addEventListener("click", (e) => {
     //console.log(e.target);
     const longinEmail = document.querySelector("#longinEmail").value;
     const longinPassword = document.querySelector("#longinPassword").value;
-    login(longinEmail, longinPassword);
+    //const longinEmailInput = document.querySelector("#longinEmail");
+    
     userData.forEach((item) => {
-        if(longinEmail == item.email) {
+        if(longinEmail === item.email) {
             longinUserId = item.id;
             console.log(longinUserId);
-            item.token = token;
-            console.log(token); //沒出現，不確定有沒有成功
         }
     });
-    
+
+    login(longinEmail, longinPassword);
+
+    /*localStorage.setItem("loginUserId",longinUserId);
+    console.log(longinUserId);
+    let strToken = JSON.stringify(userData.accessToken);
+    localStorage.setItem("loginToken",strToken);
+    console.log(strToken);*/
 });
 // 登入POST
 function login(longinEmail, longinPassword) {
@@ -132,9 +143,18 @@ function login(longinEmail, longinPassword) {
             token = response.data.accessToken;
             alert("登入成功");
             //跳出成功登入alert，點擊確認後轉跳小說首頁
+
+            localStorage.setItem("loginUserId",longinUserId);
+            console.log(longinUserId);
+            let strToken = JSON.stringify(userData.accessToken);
+            localStorage.setItem("loginToken",strToken);
+            console.log(strToken);
+
             // 清空
             document.querySelector("#longinEmail").value = "";
             document.querySelector("#longinPassword").value = "";
+            // 登入完成轉跳首頁
+            location.href="https://ocket609.github.io/20_novel_search/#";
         })
         .catch((error) => {
             console.log(error.response);
