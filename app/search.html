@@ -25,122 +25,45 @@
     
    <div class="searchSection "> 
     <div class="container">
-       <div class=" row "> 
-        <div class="booksearch col-4 mt-5">
+       <div class=" row justify-content-center"> 
+        <div class="booksearch col-5 mt-5 p-5 " style="min-width: 300px;max-width: 350px;">
              <div class="d-flex searchDiv rounded-3 mb-5 p-1 bg-white w-75">
                <input class="search" type="search" placeholder="Search" aria-label="Search">  
                <input class="searchImg " type="button" aria-label="button">
              </div>
 
-            
-            <div class="dropdown ">
-              <h3 class="mb-3 ">類別</h3>
-                <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  選擇類別
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><button class="dropdown-item" type="button" value="奇幻 • 科幻">奇幻 • 科幻</button></li>
-                  <li><button class="dropdown-item" type="button" value="歷史 • 武俠">歷史 • 武俠</button></li>
-                  <li><button class="dropdown-item" type="button" value="愛情 • 文藝">愛情 • 文藝</button></li>
-                  <li><button class="dropdown-item" type="button" value="懸疑 • 推理">懸疑 • 推理</button></li>
-                  <li><button class="dropdown-item" type="button" value="恐怖 • 驚悚">恐怖 • 驚悚</button></li>
-                </ul>
-            </div>  
-            
-            <div class="dropdown mt-5">
-                <h3 class="mb-3 ">評分</h3>
-                <button class="btn btn-success dropdown-toggle w-75" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  選擇評分
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><button class="dropdown-item a" type="button" value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                  <li><button class="dropdown-item a" type="button" value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></button></li>
-                </ul>
-            </div> 
-            <div>
-              <select name="" id="" class="btn btn-success  w-75">
-                <option value="">選擇評分</option>
-                <option value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-                <option>5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
-              </select>
-            </div>
+            <div class="selectArea">
+              <div class="mb-5">
+                <h3 class="mb-3 ">類別</h3>
+                <select class="selectCategory btn btn-success  w-75">
+                  <option value="">選擇類別</option>
+                  <option value="奇幻．科幻">奇幻 • 科幻</option>
+                  <option value="歷史．武俠">歷史 • 武俠</option>
+                  <option value="愛情．文藝">愛情 • 文藝</option>
+                  <option value="懸疑．推理">懸疑 • 推理</option>
+                  <option value="恐怖．驚悚">恐怖 • 驚悚</option>
+                </select>
+              </div>
 
+              <div class="mb-5">
+                <h3 class="mb-3 ">評分</h3>
+                <select class="selectStar btn btn-success  w-75">
+                  <option value="">選擇評分</option>
+                  <option value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                  <option value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""></option>
+                </select>
+              </div>    
+            </div>
+            
          </div>
 
-           <div class="bookdisplay col-8 mt-5 ">          
-             <div class="row row-cols-1 row-cols-xl-3 row-cols-sm-2 m-0 p-0 text-end">
-              <div class="col p-0">
-                  <div class="position-relative">
-                  <img src="./assets/images/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
-                  <div class="d-flex position-absolute top-50 end-0 mt-5 align-items-center">
-                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
-                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
-                    <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
-                  </div>
-                </div>
-                  <div class="card-body">         
-                    <div class="row cardIcon ">
-                      <h5 class=" col-xl-12 card-title">轉身成為史萊姆</h5>
-                      <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
-                     </div> 
-                  </div>
-              </div>  
-              <div class="col p-0">
-                <div class="position-relative">
-                <img src="./assets/images/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
-                <div class="d-flex position-absolute top-50 end-0 mt-5 align-items-center">
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
-                </div>
-              </div>
-                <div class="card-body">         
-                  <div class="row cardIcon ">
-                    <h5 class=" col-xl-12 card-title">轉身成為史萊姆</h5>
-                    <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
-                   </div> 
-                </div>
-               </div>  
-               <div class="col p-0">
-                <div class="position-relative">
-                <img src="./assets/images/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
-                <div class="d-flex position-absolute top-50 end-0 mt-5 align-items-center">
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
-                </div>
-              </div>
-                <div class="card-body">         
-                  <div class="row cardIcon ">
-                    <h5 class=" col-xl-12 card-title">轉身成為史萊姆</h5>
-                    <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
-                   </div> 
-                </div>
-               </div>   
-               <div class="col p-0">
-                <div class="position-relative">
-                <img src="./assets/images/book.jpg" class="card-img-top" alt="..." style="width: 200px; height: 200px;">
-                <div class="d-flex position-absolute top-50 end-0 mt-5 align-items-center">
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></span></div>
-                  <div><span class="" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
-                </div>
-              </div>
-                <div class="card-body">         
-                  <div class="row cardIcon ">
-                    <h5 class=" col-xl-12 card-title">轉身成為史萊姆</h5>
-                    <div class="col-xl-12 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">4.8</div>
-                   </div> 
-                </div>
-                 </div>                  
-             
-            </div>
+           <div class="bookdisplay col-8 mt-5 ">     
+             <div class="row  row-cols-4 row-cols-md-1  row-cols-md-2 row-cols-sm-2 justify-content-start bookList">
+    
+            </div>  
             </div>
               
               <div class="mulitpagesSection mt-5">
@@ -229,6 +152,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 <script src="/app/assets/js/bootstrap.bundle.min.js" ></script>
 <script src="/app/assets/js/bootstrap.bundle.js" ></script>
+<!-- axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script  src="./JS/module/search.js"></script>
 
 
 </html>
