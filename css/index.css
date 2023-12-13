@@ -120,7 +120,22 @@ h6{
     background-color: #fffbe8;
 }
 
+.bannertext{
+    background-image: url(../img/balloon.png);
+    background-repeat:no-repeat;
+}
 
+.ballon {
+    animation: float 3s ease-out infinite;
+  }
+
+  @keyframes float {
+    50% {
+       transform: translate(0, 20px);
+    }
+  }
+   
+   
 .inputSearch {
     position: relative; 
     display: inline-block;
@@ -160,7 +175,6 @@ li{list-style-type: none;}
     font-weight:bold;
 }
 
-
 .rank{
     text-align: center;
     margin: 120px 0px;
@@ -180,11 +194,21 @@ li{list-style-type: none;}
 
 .novelImg{
     position: relative;
-    /* width: 416px; 设置宽度 */
-    /* height: 312px; 设置高度 */
 }
 
+.pic{
+    width:416px; 
+    height:450px;
+    overflow:hidden;
+    object-fit: cover;
+}
 
+.pic img{
+    transform:scale(1,1);
+    transition: all 1s ease-out;
+}
+
+.pic img:hover{transform:scale(1.2,1.2);}
 
 .amount{
     background-image: url(../img/meaningless.png);
@@ -197,8 +221,8 @@ li{list-style-type: none;}
 
 .share{
     position: absolute;
-    top: 260px;
-    left: 265px;
+    top: 380px;
+    left: 250px;
 }
 
 
@@ -257,11 +281,6 @@ li{list-style-type: none;}
     object-fit: cover; 
   }
 
-  .bookCover {
-    width: 416px; 
-    height: 416px; 
-    object-fit: cover; 
-  }
   
 
 .star{
@@ -317,6 +336,11 @@ li{list-style-type: none;}
         flex-direction: column;
     }
 
+    .ballon {
+        display: none;
+        }
+
+
     .illustrateCard{
         width: 95%;
         margin-top: 16px;
@@ -326,6 +350,7 @@ li{list-style-type: none;}
         max-width: 100%;
        flex-direction: column;
     }
+
     }
 
     .Footer{
@@ -337,3 +362,23 @@ li{list-style-type: none;}
     }
 
     a { text-decoration: none; }
+
+
+    html{
+        overflow-y: scroll;
+    }
+    
+    :root{
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+    }
+    
+    :root body{
+        position: absolute;
+    }
+    
+    body{
+        width: 100vw;
+       overflow: hidden;
+    }
