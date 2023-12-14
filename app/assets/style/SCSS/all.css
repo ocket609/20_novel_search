@@ -10361,7 +10361,7 @@ margin & padding
 }
 
 .searchImg {
-  width: 10%;
+  width: 15%;
   min-width: 20px;
   background-image: url(../../images/search.svg);
   background-repeat: no-repeat;
@@ -10369,7 +10369,7 @@ margin & padding
   background-color: #fff;
   background-size: cover;
   border: 0;
-  border-radius: 100px;
+  border-radius: 200px;
 }
 .searchImg:active {
   border-radius: 100px;
@@ -10462,6 +10462,34 @@ margin & padding
   width: 95%;
   border: 0;
   outline: none;
+}
+
+.selectCategory:hover {
+  background-color: #F5F5F5;
+}
+.selectCategory:active {
+  background-color: #FFF0D4;
+}
+
+.selectCategory option:hover {
+  background-color: #F5F5F5;
+}
+.selectCategory option:active {
+  background-color: #FFF0D4;
+}
+
+.selectStar:hover {
+  background-color: #F5F5F5;
+}
+.selectStar:active {
+  background-color: #FFF0D4;
+}
+
+.selectStar option:hover {
+  background-color: #F5F5F5;
+}
+.selectStar option:active {
+  background-color: #FFF0D4;
 }
 
 /*圖片區*/

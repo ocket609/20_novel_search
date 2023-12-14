@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /*rwd*/
 /*adjust*/
+.mySwiper {
+  --swiper-pagination-color: #FFFEF6;
+}
+
 .searchDiv {
   width: 50%;
   min-width: 100px;
@@ -92,7 +96,7 @@
   border: 1px solid gray;
   border-radius: 29px;
 }
-.switchCommitLeft.active, .switchCommitLeft:hover {
+.switchCommitLeft:active, .switchCommitLeft:hover {
   border: 1px solid #E78C52;
   background-image: url(../../images/arrow_left_hover.svg);
   transform: scale(1.1);
@@ -107,7 +111,7 @@
   border: 1px solid gray;
   border-radius: 29px;
 }
-.switchCommitRight.active, .switchCommitRight:hover {
+.switchCommitRight:active, .switchCommitRight:hover {
   border: 1px solid #E78C52;
   background-image: url(../../images/arrow_right_hover.svg);
   transform: scale(1.1);

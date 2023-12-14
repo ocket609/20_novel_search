@@ -10,7 +10,6 @@ let data = [];
 
 const value = window.location.search;
 const newvalue = value.split('=')[1];
-
 //帶入bookId
 
 PagebookApi(newvalue);
@@ -26,30 +25,16 @@ function PagebookApi(p){
         data = response.data;
         pageRender(data);
         PageCommentRender(data);
-       
+        
       })
       .catch(function(error){
-        document.querySelector('.bookSection');
+          document.querySelector('.bookSection');
           pagesbody.innerHTML = ``;
-          console.log(error.response);
+          console.log(error);
           window.setTimeout("alert('無效連結，將導向回首頁')",50);
           setTimeout("location.href='/'",500);
         
       })
-}
-
-//PagesCommentsApi
-
-function bookPageApi(p){
-  axios.get(`http://localhost:3000/books/${p}`)
-  
-    .then(function(response){
-      data = response.data;
-      pageRender(data);
-    })
-    .catch(function(error){
-        console.log(error.response);
-    })
 }
 
 
@@ -60,9 +45,11 @@ const bookName = document.querySelector('.bookName2');
 const bookInfoLeft = document.querySelector('.bookInfoLeft');
 const bookInfoRight = document.querySelector('.bookInfoRight');
 const bookDescrt = document.querySelector('.bookDescrt');
+const bookHeart = document.querySelector('.bookHeart');
 
 function pageRender(bookData) {
-          
+
+
             if(bookData == 0){
               albeer('無此頁面')
             }else{
@@ -75,6 +62,8 @@ function pageRender(bookData) {
               <h2>${bookData.bookName}</h2>
               <h4>${bookData.author}</h4>
                    `;
+                   
+
           if(bookData.tags.length === 2){
               
             bookInfoLeft.innerHTML = `
@@ -103,22 +92,16 @@ function pageRender(bookData) {
            <p class="p-4 lh-lg">${bookData.description}</p>
            `;
           }
-      
+          
+          
 }
-
-
-// Initialize Swiper(套件)
-
-
-const swiperEl = document.querySelector('swiper-container');
-const swiper = swiperEl.swiper;
-
 
 
 //PagesCommentRender
 
 const commentListArea = document.querySelector('.mySwiper');
 const commentArea = document.querySelector('.commentArea');
+
 
 function PageCommentRender(commentAllData) {
 
@@ -128,10 +111,10 @@ function PageCommentRender(commentAllData) {
         commentArea.innerHTML = `<h2 class="text-center mb-5">無任何留言</h2>`
       }else{
 
-        commentAllData.comments.forEach((item) => {
+        commentAllData.comments.forEach((item,index) => {
 
           str +=  `
-          <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active" 
+          <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
           role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
           <div  class="">
            <img src="./assets/images/Avatar2.png" alt="book" style="" class="position-absolute top-0 start-50 translate-middle">
@@ -142,18 +125,20 @@ function PageCommentRender(commentAllData) {
     </div>
        <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
           <div class="">${commentAllData.bookName}</div>
-          <div class="d-flex row cardIcon align-items-center">
+          <div class="d-flex row cardIcon ms-2 align-items-center">
             <div class="col-xl-6 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
-            <div class="col-xl-6 p-1"><a class="ms-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></a></div>
+            <div class="col-xl-6 p-1"><a class="ms-1" role="button"><img class="pagesIcon commentheart" src="./assets/images/thumb_up_off_alt.svg" alt="heart" data-heartid=${item.id}></a></div>
            </div>  
        </div>       
     </swiper-slide>
           `
+          GoodcommentData(item.id,index);
       })
     }
     commentListArea.innerHTML = str;
-}
+    GoodcommentCheckForDisplay();
 
+}
 
 
 //move to Search.html
@@ -161,15 +146,16 @@ function PageCommentRender(commentAllData) {
 const pageArea = document.querySelector('.searchDiv');
 const pageSearch = document.querySelector('.search')
 
-pageArea.addEventListener('change',pageSearchToSearchPage);
+pageArea.addEventListener('click',pageSearchToSearchPage);
 
 function pageSearchToSearchPage() {
    console.log(pageSearch.value);
-   
-     if(pageSearch.value === undefined){
+
+     if(pageSearch.value === undefined || pageSearch.value === ''){
       return;
      }else{
       let result = pageSearch.value;
+      pageSearch.value = '';
       console.log(result);
       window.open(encodeURI(`http://127.0.0.1:5501/app/search.html?result=${result}`));
 
@@ -178,23 +164,110 @@ function pageSearchToSearchPage() {
 }
 
 
+//聆聽收藏書籍
+
+const newvalueNum = Number(newvalue);
+let bookLocal = localStorage.getItem('bookId');
+
+bookHeart.addEventListener('click',goodBookListener);
+
+function goodBookListener(){
+  
+   let bookLSdata = JSON.parse(bookLocal);
+   if(bookLSdata=== null){
+    localStorage.setItem('bookId',JSON.stringify([]));
+    return;
+  }else if(bookLSdata.includes(newvalueNum)){
+    let index = bookLSdata.indexOf(newvalueNum);
+    bookLSdata.splice(index,1);
+    localStorage.setItem('bookId',JSON.stringify(bookLSdata));
+    location.reload();
+
+  }else{
+    bookLSdata.push(newvalueNum);
+    localStorage.setItem('bookId',JSON.stringify(bookLSdata));
+    location.reload();
+  }
 
 
-/*<div class="card bg-orange-300 mb-3 col-3 col-xl-3 col-md-3 mx-2 px-2 mt-5" style="min-width: 5rem;" >    
-            <div class="position-relative mb-3">
-              <div class="position-absolute top-50 start-50 translate-middle">
-               <img src="./assets/images/Avatar2.png" alt="book">
-              </div>   
-            </div>
-        <div class="card-body bg-white text-center"> 
-          <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
-          <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
-        </div>
-           <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
-              <div class="">${commentAllData.bookName}</div>
-              <div class="d-flex row cardIcon align-items-center">
-                <div class="col-xl-7 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
-                <div class="col-xl-5 p-1"><a class="ms-1" role="button"><img class="pagesIcon" src="./assets/images/heart.svg" alt="heart"></a></div>
-               </div>  
-           </div>        
-          </div> */
+}
+
+
+//判斷是否收藏書籍
+
+window.addEventListener('load',goodBookCheckForDisplay);
+
+function goodBookCheckForDisplay(){
+
+  let bookLSdata = JSON.parse(bookLocal);
+
+  if (bookLSdata.includes(newvalueNum)){
+    bookHeart.setAttribute('src', './assets/images/heart-full.svg');
+  }else{
+    bookHeart.setAttribute('src', './assets/images/heart.svg');
+  }
+}
+
+
+
+
+//判斷是否按讚留言
+
+let goodComment = [];
+
+let heartLocal = localStorage.getItem('heartId');
+
+function GoodcommentData(id,index){
+
+  let test = JSON.parse(heartLocal);
+  if(test === null){
+    localStorage.setItem('heartId',JSON.stringify([]));
+    return;
+  }else if(test.indexOf(id) !== -1){
+
+    goodComment.push(index);
+
+ }
+}
+
+//渲染留言按讚
+
+function GoodcommentCheckForDisplay(){
+  
+  const commentHeart = document.querySelectorAll('.commentheart'); 
+  goodComment.forEach((item) => {
+       
+    commentHeart[item].setAttribute('src', './assets/images/thumb_up_alt.svg')
+  })
+  goodComment = [];
+}
+
+
+//聆聽按讚
+
+const swiperTest = document.querySelector('.mySwiper');
+
+swiperTest.addEventListener('click',Goodcommentlistener);
+
+function Goodcommentlistener(e){
+
+  let heartLocalData = JSON.parse(heartLocal);
+  let value = e.target.dataset.heartid;
+  let numValue = Number(value);
+
+  if(value === null || value === NaN || value === undefined){
+    return;
+  }else{
+    if(heartLocalData.includes(numValue)){
+      let index =  heartLocalData.indexOf(numValue);
+      heartLocalData.splice(index,1);
+      localStorage.setItem('heartId',JSON.stringify(heartLocalData));
+      location.reload();
+  
+    }else{
+      heartLocalData.push(numValue);
+      localStorage.setItem('heartId',JSON.stringify(heartLocalData));
+      location.reload();
+    }
+  }
+}

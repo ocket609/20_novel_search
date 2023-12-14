@@ -11,6 +11,13 @@
 
 /*adjust*/
 
+.mySwiper{
+
+    --swiper-pagination-color: #FFFEF6;
+
+
+}
+
 
 .searchDiv{
     width: 50%;
@@ -58,6 +65,8 @@
     background-color: #FFFEF6;
 }
 
+
+
 /*圖片區*/
 
 
@@ -103,7 +112,7 @@
     height: 30px;
     border:1px solid gray;
     border-radius: 29px;
-    &.active,
+    &:active,
     &:hover{
         border:1px solid #E78C52;
         background-image: url(../../images/arrow_left_hover.svg);
@@ -120,7 +129,7 @@
     height: 30px;
     border:1px solid gray;
     border-radius: 29px;
-    &.active,
+    &:active,
     &:hover{
         border:1px solid #E78C52;
         background-image: url(../../images/arrow_right_hover.svg);

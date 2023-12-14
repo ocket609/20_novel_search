@@ -20,7 +20,41 @@
 }
 
 
+.selectCategory{
+    &:hover{
+        background-color: #F5F5F5;
+    }
+    &:active{
+        background-color: #FFF0D4;
+    }
+}
 
+.selectCategory option{
+    &:hover{
+        background-color: #F5F5F5;
+    }
+    &:active{
+        background-color: #FFF0D4;
+    }
+}
+
+.selectStar{
+    &:hover{
+        background-color: #F5F5F5;
+    }
+    &:active{
+        background-color: #FFF0D4;
+    }
+}
+
+.selectStar option{
+    &:hover{
+        background-color: #F5F5F5;
+    }
+    &:active{
+        background-color: #FFF0D4;
+    }
+}
 
 
 /*圖片區*/
