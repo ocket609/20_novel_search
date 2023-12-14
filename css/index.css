@@ -125,6 +125,7 @@ h6{
     background-repeat:no-repeat;
 }
 
+/* 氣球漂浮效果 */
 .ballon {
     animation: float 3s ease-out infinite;
   }
@@ -141,7 +142,7 @@ h6{
     display: inline-block;
   }	
   	
-  .inputSearch .icon { /*右邊圖示*/
+  .inputSearch .icon { 
     position: absolute;	
     width: 55px;	
     right: 20px;
@@ -196,6 +197,7 @@ li{list-style-type: none;}
     position: relative;
 }
 
+/*hover top 5小說圖片放大效果 */
 .pic{
     width:416px; 
     height:450px;
@@ -282,7 +284,6 @@ li{list-style-type: none;}
   }
 
   
-
 .star{
     display: flex;
     height: 28px;
@@ -292,7 +293,6 @@ li{list-style-type: none;}
 .bookclass{
     margin-bottom: 60px;
 }
-
 
 .commentCard{
     /* background: linear-gradient(90deg, #FFF2E1, #FFE4BC); */
@@ -329,7 +329,6 @@ li{list-style-type: none;}
     margin: 8px 16px 16px 16px;
 }
 
-
 @media (max-width: 767px) {  
     .illustrateRwd{
         max-width: 100%;
@@ -353,6 +352,7 @@ li{list-style-type: none;}
 
     }
 
+
     .Footer{
         background-color: #FDF9E6;
     }
@@ -363,7 +363,7 @@ li{list-style-type: none;}
 
     a { text-decoration: none; }
 
-
+    /* 修正Swiper的x軸 */
     html{
         overflow-y: scroll;
     }
