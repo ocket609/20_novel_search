@@ -16,6 +16,7 @@ function getUsres() {
         .then((response) => {
             console.log(response.data);
             userData = response.data;
+            console.log(userData[0].id);
         })
         .catch((error) => {
             console.log(error);
@@ -41,8 +42,9 @@ signinNew.addEventListener("click", (e) => {
     signup.classList.remove("d-none");
 });
 // 忘記密碼切換
-const forget_password = document.querySelector(".forget-password");
+const forget_password = document.querySelector(".forget-password-btn");
 forget_password.addEventListener("click", (e) => {
+    e.preventDefault();
     longin.classList.add("d-none");
     textEmail.classList.remove("d-none");
 });
@@ -50,19 +52,24 @@ forget_password.addEventListener("click", (e) => {
 // 註冊送出鈕
 getSignUp_btn.addEventListener("click", (e) => {
     e.preventDefault();
-    //console.log(e.target);
+    console.log(e.target);
     const signupEmail = document.querySelector("#signupEmail").value;
     const signupPassword = document.querySelector("#signupPassword").value;
     const signupPasswordAgain = document.querySelector("#signupPasswordAgain").value;
     const signupPhone = document.querySelector("#signupPhone").value;
+    userData.forEach((item) => {
+        if(signupEmail === item.email) {
+            alert("信箱已註冊過囉！");
+        }
+    });
     if(signupPasswordAgain !== signupPassword) {
         alert("請確認密碼2次輸入是否正確！");
         //暫時先用，有時間再換成有設計的alert
     }
-    SignUp();
+    SignUp(signupEmail, signupPassword, signupPhone);
 });
 // 註冊POST
-function SignUp() {
+function SignUp(signupEmail, signupPassword, signupPhone) {
     axios
         .post(`${longinUrl}users`, {
             "email": signupEmail, //必填
@@ -85,52 +92,105 @@ function SignUp() {
         })
         .then((response) => {
             console.log(response.data);
+            alert("註冊完成");
             //跳出註冊成功alert，點擊確認後轉跳登入頁面(按鈕a給小說主頁網址)
+            // 清空
+            document.querySelector("#signupEmail").value = "";
+            document.querySelector("#signupPassword").value = "";
+            document.querySelector("#signupPasswordAgain").value = "";
+            document.querySelector("#signupPhone").value = "";
+            // 註冊完成切換登入
+            longin.classList.remove("d-none");
+            signup.classList.add("d-none");
         })
         .catch((error) => {
             console.log(error);
         })
 };
+function Validity() {
+    const inputs = document.querySelector("input");
+}
 
 // 登入送出鈕
+let longinUserId = "";
 getLongin_btn.addEventListener("click", (e) => {
     e.preventDefault();
     //console.log(e.target);
     const longinEmail = document.querySelector("#longinEmail").value;
     const longinPassword = document.querySelector("#longinPassword").value;
-    login();
+    const longinEmailInput = document.querySelector("#longinEmail");
+    longinEmailInput.reportValidity();
+
+    userData.forEach((item) => {
+        if(longinEmail === item.email) {
+            longinEmailInput.classList.add("is-valid");
+            longinUserId = item.id;
+            console.log(longinUserId);
+        }
+    });
+
+    login(longinEmail, longinPassword);
 });
 // 登入POST
-function login() {
+function login(longinEmail, longinPassword) {
     axios
         .post(`${longinUrl}login`, {
             "email": longinEmail,
-            "password": longinPassword
+            "password": longinPassword,
+            "token": token
         })
         .then((response) => {
             console.log(response.data);
             token = response.data.accessToken;
+            alert("登入成功");
             //跳出成功登入alert，點擊確認後轉跳小說首頁
+
+            localStorage.setItem("loginUserId",longinUserId);
+            console.log(longinUserId);
+            localStorage.setItem("loginToken",token);
+            console.log(token);
+
+            // 清空
+            document.querySelector("#longinEmail").value = "";
+            document.querySelector("#longinPassword").value = "";
+            // 登入完成轉跳首頁
+            location.href="https://ocket609.github.io/20_novel_search/#";
         })
         .catch((error) => {
             console.log(error.response);
         })
 };
 
+// 密碼重設完成切換登入
+getReset_btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const resetPassword = document.querySelector("#resetPassword").value;
+    const resetPasswordAgain = document.querySelector("#resetPasswordAgain").value;
+    if(resetPassword !== resetPasswordAgain) {
+        alert("請確認密碼2次輸入是否正確！");
+    }
+    updatePassword(resetPassword);
+});
 // 重設密碼PATCH
-function updatePassword() {
+function updatePassword(resetPassword) {
     axios
-        .patch(`${longinUrl}600/users/4`, {
-            "password": "1122334455"
+        .patch(`${longinUrl}600/users/${longinUserId}`, {
+            "password": resetPassword
         }, {
             headers: {
                 "authorization": `Bearer ${token}`
             }
         })
         .then((response) => {
-            //console.log(response.data);
+            console.log(response.data);
             token = response.data.accessToken;
+            alert("密碼重新設定完成");
             //跳出密碼修改完成alert，點擊確認後轉跳登入頁面
+            // 清空
+            document.querySelector("#resetPassword").value = "";
+            document.querySelector("#resetPasswordAgain").value = "";
+            resetPassword.classList.add("d-none");
+            longin.classList.remove("d-none");
         })
         .catch((error) => {
             console.log(error);
@@ -143,8 +203,8 @@ function updatePassword() {
 // 修改內容
 function patchContent() {
     axios
-        .patch(`${longinUrl}users/4`, {
-            "name": "毛毛"
+        .patch(`${longinUrl}users/1`, {
+            "password": "bestPassw0rd"
         })
         .then((response) => {
             console.log(response.data);

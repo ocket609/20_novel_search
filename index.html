@@ -9,26 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> -->
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  
-<!-- owl.carousel -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> -->
-<!-- </link> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
-<!-- </link> -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
-
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/index.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>小說檢索網</title>
 </head>
 
 
 <body>
-
     <nav class="navbar navbar-expand-md fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand"><img src="./img/logo.png" alt="logo"></a>
@@ -36,7 +25,7 @@
         <div class="justify-content-end collapse navbar-collapse" id="menu">
         <ul class="navbar-nav">
         <li class="nav-link"><a href="#" class="btn" title="按左鍵前往">關於我們</a></li>
-        <li class="nav-link"><a href="#" class="btn btnLogin" title="按左鍵前往">登入/註冊</a></li>
+        <li class="nav-link"><a href="https://ocket609.github.io/20_novel_search/app/longin.html" class="btn btnLogin" title="按左鍵前往">登入/註冊</a></li>
         </ul>
       </div>
     </div>
@@ -44,12 +33,13 @@
     <div class="banner">
      <div class="container">
       <div class="row">
-        <div class="col-12 col-md-9 d-flex justify-content-between bannerimg">
+        <div class="col-12 col-md-12 d-flex justify-content-between bannerimg">
           <div class="d-flex bannertext">
           <h3 class="m-2">專<br>屬<br>你<br>的</h3>
           <h1 class="m-2">書<br>籍<br>地<br>圖</h1>
-        </div>
-          <img src="./img/Banner.png" alt="banner" class="">
+          </div>
+          <div class="Banner"><img src="./img/Banner.png" alt="banner" class=""></div>
+          <div class="ballon my-5"><img src="./img/Ballon.png" alt="ballon" class=""></div>
         </div>
       </div>
 
@@ -88,16 +78,20 @@
       </li>
       </div>
        </div>
-       
-       <div class="container">
-        <div class="row" id="topBooksContainer">
-          <!-- 顯示前5本小說的卡片 -->
+
+      <div class="container">
+        <div class="swiper-container">
+          <div class="swiper-wrapper" id="topBooksContainer">
+            <!-- 顯示前5本小說的卡片 -->
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
- 
+      
       <div class="illustrate my-5">
       <div class="container d-flex my-4 illustrateRwd">
-        <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+        <div data-aos="fade-right" data-aos-offset="600" data-aos-easing="ease-in-out"
+        class="card col-6 mb-6 mx-1 py-2 illustrateCard">
           <div class="row g-0">
             <div class="col-5 col-md-4">
               <img src="./img/1646.png" alt="..." class="ps-5">
@@ -111,7 +105,8 @@
         </div> 
       
 
-        <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+        <div data-aos="fade-left" data-aos-offset="600" data-aos-easing="ease-in-out"
+        class="card col-6 mb-6 mx-1 py-2 illustrateCard">
           <div class="row g-0">
             <div class="col-5 col-md-4">
               <img src="./img/1647.png" alt="..." class="ps-5">
@@ -129,7 +124,8 @@
        
 
         <div class="container d-flex my-4 illustrateRwd">
-          <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+          <div data-aos="fade-right" data-aos-offset="600" data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard">
             <div class="row g-0">
               <div class="col-5 col-md-4">
                 <img src="./img/list.png" alt="..." class="ps-5">
@@ -142,7 +138,8 @@
             </div>
           </div> 
 
-          <div class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+          <div data-aos="fade-left" data-aos-offset="600" data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard">
             <div class="row g-0">
               <div class="col-5 col-md-4">
                 <img src="./img/content.png" alt="..." class="ps-5">
@@ -225,7 +222,7 @@
           </div>      
         </div>
       </div>
-
+             
        
             <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;</h2>
             <h2 class="pb-1">熱門評論</h2>
@@ -246,9 +243,9 @@
                     <h6 class="py-3 px-2">轉生史萊姆</h6>
                     <div class="score d-flex align-items-center">
                       <div class="star mx-2">
-                        <li><img src="./img/star.png" alt=""></li>
+                        <li><a href=""><img src="./img/star.png" alt=""></a></li>
                         <li><p>4.9</p></li>
-                        <li class="ms-2"><img src="./img/like.png" alt=""></li>
+                        <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
                        </div>
                   </div>
                   </div>
@@ -269,15 +266,15 @@
                       <h6 class="py-3 px-2">轉生史萊姆</h6>
                       <div class="score d-flex align-items-center">
                         <div class="star mx-2">
-                          <li><img src="./img/star.png" alt=""></li>
+                          <li><a href=""><img src="./img/star.png" alt=""></a></li>
                           <li><p>4.9</p></li>
-                          <li class="ms-2"><img src="./img/like.png" alt=""></li>
+                          <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
                          </div>
                     </div>
                     </div>
                   </div>
                    </div>
-
+                           
                    <div class="col-12 col-md-4 my-5">
                     <div class="card commentCard">
                       <div class="header d-flex justify-content-center">
@@ -292,9 +289,9 @@
                         <h6 class="py-3 px-2">轉生史萊姆</h6>
                         <div class="score d-flex align-items-center">
                           <div class="star mx-2">
-                            <li><img src="./img/star.png" alt=""></li>
+                            <li><a href=""><img src="./img/star.png" alt=""></a></li>
                             <li><p>4.9</p></li>
-                            <li class="ms-2"><img src="./img/like.png" alt=""></li>
+                            <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
                            </div>
                       </div>
                       </div>
@@ -360,8 +357,9 @@
                 </div>
             </div>
 
-          
-          <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
           <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
           <script src="./js/index.js"></script>
 </body>
