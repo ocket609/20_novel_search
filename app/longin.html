@@ -23,17 +23,17 @@
             </div>
             <div class="turn d-flex flex-column align-items-center">
                 <!--longin-->
-                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center needs-validation">
+                <div class="longin bg-orange-300 rounded-4 d-flex flex-column align-items-center">
                     <h3 class="align-middle py-3">登入</h3>
                     <div class="goSignin d-sm-flex text-center pb-2 pb-sm-0">
                         <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
                         <a class="longin-hover-btn signinNew" href="#">現在註冊</a>
                     </div>
-                    <div class="longin-content">
+                    <div class="longin-content needs-validation">
                         <label for="longinEmail" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="longinEmail" placeholder="請輸入電子信箱">
+                        <input type="email" class="form-control form-bd-color" id="longinEmail" placeholder="請輸入電子信箱" required>
                         <label for="longinPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="longinPassword" placeholder="請輸入密碼">
+                        <input type="password" class="form-control form-bd-color" id="longinPassword" placeholder="請輸入密碼" required>
                         <div class="forget-password d-flex justify-content-end">
                             <a class="forget-password-btn longin-hover-btn forget-password" href="#">忘記密碼</a>
                         </div>
@@ -45,13 +45,13 @@
                     <h3 class="align-middle py-3">註冊</h3>
                     <div class="longin-content">
                         <label for="signupEmail" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="signupEmail" placeholder="請輸入電子信箱">
+                        <input type="email" class="form-control form-bd-color" id="signupEmail" placeholder="請輸入電子信箱" required>
                         <label for="signupPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="signupPassword" placeholder="請輸入密碼">
-                        <label for="signupPasswordAgain" class="col-sm-5 col-form-label">再次輸入密碼</label>
+                        <input type="password" class="form-control form-bd-color" id="signupPassword" placeholder="請輸入密碼" required>
+                        <label for="signupPasswordAgain" class="col-sm-5 col-form-label" required>再次輸入密碼</label>
                         <input type="password" class="form-control form-bd-color" id="signupPasswordAgain" placeholder="請再次輸入密碼">
                         <label for="signupPhone" class="col-sm-5 col-form-label">電話號碼</label>
-                        <input type="tel" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼">
+                        <input type="tel" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼" required>
                         <button type="button" class="btn btn-success longin-btn getSignUp-btn">送出</button>
                     </div>
                 </div>

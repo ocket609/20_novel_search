@@ -42,8 +42,9 @@ signinNew.addEventListener("click", (e) => {
     signup.classList.remove("d-none");
 });
 // 忘記密碼切換
-const forget_password = document.querySelector(".forget-password");
+const forget_password = document.querySelector(".forget-password-btn");
 forget_password.addEventListener("click", (e) => {
+    e.preventDefault();
     longin.classList.add("d-none");
     textEmail.classList.remove("d-none");
 });
@@ -106,6 +107,9 @@ function SignUp(signupEmail, signupPassword, signupPhone) {
             console.log(error);
         })
 };
+function Validity() {
+    const inputs = document.querySelector("input");
+}
 
 // 登入送出鈕
 let longinUserId = "";
@@ -114,29 +118,26 @@ getLongin_btn.addEventListener("click", (e) => {
     //console.log(e.target);
     const longinEmail = document.querySelector("#longinEmail").value;
     const longinPassword = document.querySelector("#longinPassword").value;
-    //const longinEmailInput = document.querySelector("#longinEmail");
-    
+    const longinEmailInput = document.querySelector("#longinEmail");
+    longinEmailInput.reportValidity();
+
     userData.forEach((item) => {
         if(longinEmail === item.email) {
+            longinEmailInput.classList.add("is-valid");
             longinUserId = item.id;
             console.log(longinUserId);
         }
     });
 
     login(longinEmail, longinPassword);
-
-    /*localStorage.setItem("loginUserId",longinUserId);
-    console.log(longinUserId);
-    let strToken = JSON.stringify(userData.accessToken);
-    localStorage.setItem("loginToken",strToken);
-    console.log(strToken);*/
 });
 // 登入POST
 function login(longinEmail, longinPassword) {
     axios
         .post(`${longinUrl}login`, {
             "email": longinEmail,
-            "password": longinPassword
+            "password": longinPassword,
+            "token": token
         })
         .then((response) => {
             console.log(response.data);
@@ -146,9 +147,8 @@ function login(longinEmail, longinPassword) {
 
             localStorage.setItem("loginUserId",longinUserId);
             console.log(longinUserId);
-            let strToken = JSON.stringify(userData.accessToken);
-            localStorage.setItem("loginToken",strToken);
-            console.log(strToken);
+            localStorage.setItem("loginToken",token);
+            console.log(token);
 
             // 清空
             document.querySelector("#longinEmail").value = "";
