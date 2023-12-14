@@ -27,7 +27,6 @@ selectArea.addEventListener('change',selectRender);
   
     .then(function(response){
         data = response.data;
-        searchPageRender(data);
         searchResult(data);
     })
     .catch(function(error){
@@ -41,9 +40,7 @@ const bookListArea = document.querySelector('.bookList');
 
 function searchPageRender(bookAllData) {
       let str = '';
-      if(bookAllData.length === 0){
-         alert('無法搜尋到相關書籍');
-      }else{
+
       bookAllData.forEach((item,index) => {
             str +=  `<div class="col p-0 position-relative m-3"  style="width: 15rem;height: 32rem; " >
             <img src=${item.img} class="card-img-top" alt="..." data-id=${item.id} style="height: 360px;">
@@ -61,7 +58,7 @@ function searchPageRender(bookAllData) {
         </div> `
         GoodBookData(item.id,index);
       })
-    }
+
      bookListArea.innerHTML = str;
      GoodBookCheckForDisplay();
 
@@ -76,10 +73,13 @@ function searchlistener(){
  function searchRender(r,data){
     location.search = `result=${r}`;
     let newData  = data.filter((item) => item.bookName.includes(r));
+    if(newData.length === 0){
+      alert('無法搜尋到相關書籍');
+    }else{
     searchPageRender(newData);
     searchPageSelectCategory.options[0].selected = true;
     searchPageSelectStar.options[0].selected = true;
-
+  }
 }
 
 function searchRenderfromPage(r,data){
@@ -144,9 +144,10 @@ const newvalue = decodeURI(value.split('=')[1]);
 //帶入SearchResult
 
 function searchResult(data){
-  if(newvalue === 'undefined' || newvalue === ''){
-    console.log(newvalue);
-       return;
+  if(newvalue === 'undefined'){
+     return;
+   }else if(newvalue === ''){
+    searchPageRender(data)
    }else{
     searchPageSearch.value = newvalue;
     searchRenderfromPage(newvalue,data);
