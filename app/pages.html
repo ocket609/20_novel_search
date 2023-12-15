@@ -161,8 +161,6 @@
             navigation="false"
           >
           </swiper-container>
-          <!--<div class="moreCommitBtnDiv d-flex justify-content-end me-5"><button class="moreCommitBtn btn-success rounded-3" data-bs-toggle="button">更多評論</button></div>
-         !-->
         </div>
       </div>
     </div>
@@ -293,53 +291,4 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./JS/module/pages.js"></script>
-
-  <script>
-    /*showMoreCommit
-
-  const moreCommitBtnDiv = document.querySelector('.moreCommitBtnDiv');
-  const moreButton = document.querySelector('.moreCommitBtn');
-
-  function showMoreCommit(){
-    const moreButton = document.querySelector('.moreCommitBtn');
-    if (moreButton.innerText === '收起評論'){
-      let cardlen = card.length;
-    for(i = 3; i < cardlen; i++){
-      card[i].style.display = 'none';
-      card[i].style.visibility = 'hidden';
-      }
-      moreButton.remove();
-      setButtonExtendTag();  
-    }else if(moreButton.innerText === '更多評論'){
-      card.forEach(function(item){
-        item.style.display = '';
-        item.style.visibility = '';     
-    });
-      moreButton.remove();
-      setButtonCloseTag();
-    }
-  }
-
-  function setButtonExtendTag(){
-      const buttonTag = document.createElement('button');
-      buttonTag.setAttribute("class", `moreCommitBtn btn-success rounded-3`);
-      buttonTag.setAttribute('data-bs-toggle', 'button');
-      buttonTag.setAttribute('onclick', 'showMoreCommit()');
-      buttonTag.innerText = '更多評論'; 
-      moreCommitBtnDiv.appendChild(buttonTag);
-  }
-
-  function setButtonCloseTag(){
-      const buttonTag = document.createElement('button');
-      buttonTag.setAttribute("class", `moreCommitBtn btn-success rounded-3`);
-      buttonTag.setAttribute('data-bs-toggle', 'button');
-      buttonTag.setAttribute('onclick', 'showMoreCommit()');
-      buttonTag.innerText = '收起評論'; 
-      moreCommitBtnDiv.appendChild(buttonTag);
-  }
-
-  
-  moreButton.addEventListener("click",showMoreCommit);
-*/
-  </script>
 </html>

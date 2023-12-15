@@ -168,7 +168,7 @@ let bookLocal = localStorage.getItem("bookId");
 function GoodBookData(id, index) {
   let bookLocalData = JSON.parse(bookLocal);
   if (bookLocalData === null) {
-    localStorage.setItem("BookId", JSON.stringify([]));
+    localStorage.setItem("bookId", JSON.stringify([]));
     return;
   } else if (bookLocalData.indexOf(id) !== -1) {
     goodBook.push(index);
