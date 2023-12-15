@@ -70,20 +70,21 @@ function searchlistener() {}
 function searchRender(r, data) {
   location.search = `result=${r}`;
   let newData = data.filter((item) => item.bookName.includes(r));
+  searchPageRender(newData);
+  searchPageSelectCategory.options[0].selected = true;
+  searchPageSelectStar.options[0].selected = true;
+}
+
+function searchRenderfromPage(r, data) {
+  let newData = data.filter((item) => item.bookName.includes(r));
   if (newData.length === 0) {
     alert("無法搜尋到相關書籍");
+    return;
   } else {
     searchPageRender(newData);
     searchPageSelectCategory.options[0].selected = true;
     searchPageSelectStar.options[0].selected = true;
   }
-}
-
-function searchRenderfromPage(r, data) {
-  let newData = data.filter((item) => item.bookName.includes(r));
-  searchPageRender(newData);
-  searchPageSelectCategory.options[0].selected = true;
-  searchPageSelectStar.options[0].selected = true;
 }
 
 //select render
@@ -128,7 +129,6 @@ function selectRender(e) {
 
 let value = window.location.search;
 const newvalue = decodeURI(value.split("=")[1]);
-
 //帶入SearchResult
 
 function searchResult(data) {
