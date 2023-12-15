@@ -40,9 +40,12 @@ const bookListArea = document.querySelector(".bookList");
 
 function searchPageRender(bookAllData) {
   let str = "";
-
-  bookAllData.forEach((item, index) => {
-    str += `<div class="col p-0 position-relative m-3"  style="width: 15rem;height: 32rem; " >
+  if (bookAllData.length === 0) {
+    alert("無法搜尋到相關書籍");
+    return;
+  } else {
+    bookAllData.forEach((item, index) => {
+      str += `<div class="col p-0 position-relative m-3"  style="width: 15rem;height: 32rem; " >
             <img src=${item.img} class="card-img-top" alt="..." data-id=${item.id} style="height: 360px;">
             <div class="d-flex position-absolute top-50 end-0 mt-5  align-items-center ">
               <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
@@ -56,9 +59,9 @@ function searchPageRender(bookAllData) {
                </div> 
             </div>
         </div> `;
-    GoodBookData(item.id, index);
-  });
-
+      GoodBookData(item.id, index);
+    });
+  }
   bookListArea.innerHTML = str;
   GoodBookCheckForDisplay();
 }
@@ -77,14 +80,9 @@ function searchRender(r, data) {
 
 function searchRenderfromPage(r, data) {
   let newData = data.filter((item) => item.bookName.includes(r));
-  if (newData.length === 0) {
-    alert("無法搜尋到相關書籍");
-    return;
-  } else {
-    searchPageRender(newData);
-    searchPageSelectCategory.options[0].selected = true;
-    searchPageSelectStar.options[0].selected = true;
-  }
+  searchPageRender(newData);
+  searchPageSelectCategory.options[0].selected = true;
+  searchPageSelectStar.options[0].selected = true;
 }
 
 //select render
