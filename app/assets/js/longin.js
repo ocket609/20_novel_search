@@ -156,7 +156,7 @@ function login(longinEmail, longinPassword) {
             document.querySelector("#longinEmail").value = "";
             document.querySelector("#longinPassword").value = "";
             // 登入完成轉跳首頁
-            location.href="https://ocket609.github.io/20_novel_search/#";
+            location.href="https://ocket609.github.io/20_novel_search/#",3000;
         })
         .catch((error) => {
             console.log(error.response);
