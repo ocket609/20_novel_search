@@ -96,6 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
         topBooksContainer.appendChild(card);
       });
 
+      const toPages = document.querySelector("body");
+      toPages.addEventListener("click", getBookId);
+
+      function getBookId(e) {
+      if (e.target.dataset.id === undefined) {
+      return;
+      } else {
+       let pageId = e.target.dataset.id;
+       window.open(
+        `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+        );
+      }
+    }
+
       // 初始化 Swiper
       const swiper = new Swiper(".swiper-container", {
         pagination: {
