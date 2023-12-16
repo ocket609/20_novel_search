@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
           <div class="pic"><img src="${
             book.img
-          }" alt="書" class="bookCover"></div>
+          }" alt="書" class="bookCover" data-id=${book.id} ></div>
           <div class="amount text-white" id="number">
             <p class="py-1 px-3">no.</p>
             <h5 class="py-1 px-3">${index + 1}</h5>
