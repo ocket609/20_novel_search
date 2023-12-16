@@ -144,7 +144,7 @@ function login(longinEmail, longinPassword) {
             console.log(response.data);
             token = response.data.accessToken;
             //alert("登入成功");
-            Swal.fire("登入成功");
+            window.setTimeout('Swal.fire("登入成功")',50);
             //跳出成功登入alert，點擊確認後轉跳小說首頁
 
             localStorage.setItem("loginUserId",longinUserId);
@@ -156,12 +156,18 @@ function login(longinEmail, longinPassword) {
             document.querySelector("#longinEmail").value = "";
             document.querySelector("#longinPassword").value = "";
             // 登入完成轉跳首頁
-            location.href="https://ocket609.github.io/20_novel_search/#",3000;
+            //location.href="https://ocket609.github.io/20_novel_search/#",3000;
+            //countDown();
+            setTimeout('location.href="https://ocket609.github.io/20_novel_search/#"',1000);
         })
         .catch((error) => {
             console.log(error.response);
         })
 };
+
+/*function countDown(){
+	setTimeout('location.href="https://ocket609.github.io/20_novel_search/#"',5000);
+}*/
 
 // 密碼重設完成切換登入
 getReset_btn.addEventListener("click", (e) => {
@@ -191,7 +197,7 @@ function updatePassword(resetPassword) {
             // 清空
             document.querySelector("#resetPassword").value = "";
             document.querySelector("#resetPasswordAgain").value = "";
-            resetPassword.classList.add("d-none");
+            resetPasswordclassList.add("d-none");
             longin.classList.remove("d-none");
         })
         .catch((error) => {

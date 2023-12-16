@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
           <div class="pic"><img src="${
             book.img
-          }" alt="書" class="bookCover"></div>
+          }" alt="書" class="bookCover" data-id=${book.id} ></div>
           <div class="amount text-white" id="number">
             <p class="py-1 px-3">no.</p>
             <h5 class="py-1 px-3">${index + 1}</h5>
@@ -87,14 +87,27 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>${book.Star}</p>
           </div>
           <div class="col-12 d-flex justify-content-end">
-            <a href="${
-              book.link
-            }" class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
+            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
+            class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
           </div>
           `;
 
         topBooksContainer.appendChild(card);
       });
+
+      const toPages = document.querySelector("body");
+      toPages.addEventListener("click", getBookId);
+
+      function getBookId(e) {
+      if (e.target.dataset.id === undefined) {
+      return;
+      } else {
+       let pageId = e.target.dataset.id;
+       window.open(
+        `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+        );
+      }
+    }
 
       // 初始化 Swiper
       const swiper = new Swiper(".swiper-container", {
