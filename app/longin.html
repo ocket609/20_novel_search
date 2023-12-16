@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/SCSS/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -31,13 +32,13 @@
                     </div>
                     <div class="longin-content needs-validation">
                         <label for="longinEmail" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="longinEmail" placeholder="請輸入電子信箱" required>
+                        <input type="email" class="form-control form-bd-color email" id="longinEmail" placeholder="請輸入電子信箱" required>
                         <label for="longinPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="longinPassword" placeholder="請輸入密碼" required>
+                        <input type="password" class="form-control form-bd-color password" id="longinPassword" placeholder="請輸入密碼" required>
                         <div class="forget-password d-flex justify-content-end">
                             <a class="forget-password-btn longin-hover-btn forget-password" href="#">忘記密碼</a>
                         </div>
-                        <button type="button" class="btn btn-success longin-btn getLongin-btn">登入</button>
+                        <button type="button" class="btn btn-success longin-btn getLongin-btn" onclick="Swal.fire">登入</button>
                     </div>
                 </div>
                 <!--signup-->
@@ -45,14 +46,14 @@
                     <h3 class="align-middle py-3">註冊</h3>
                     <div class="longin-content">
                         <label for="signupEmail" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="signupEmail" placeholder="請輸入電子信箱" required>
+                        <input type="email" name="email" class="form-control form-bd-color" id="signupEmail" placeholder="請輸入電子信箱" required>
                         <label for="signupPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="signupPassword" placeholder="請輸入密碼" required>
+                        <input type="password" name="password" class="form-control form-bd-color" id="signupPassword" placeholder="請輸入密碼" required>
                         <label for="signupPasswordAgain" class="col-sm-5 col-form-label" required>再次輸入密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="signupPasswordAgain" placeholder="請再次輸入密碼">
+                        <input type="password" name="passwordAgain" class="form-control form-bd-color" id="signupPasswordAgain" placeholder="請再次輸入密碼">
                         <label for="signupPhone" class="col-sm-5 col-form-label">電話號碼</label>
-                        <input type="tel" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼" required>
-                        <button type="button" class="btn btn-success longin-btn getSignUp-btn">送出</button>
+                        <input type="tel" name="phone" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼" required>
+                        <button type="button" class="btn btn-success longin-btn getSignUp-btn" onclick="Swal.fire">送出</button>
                     </div>
                 </div>
                 <!--textEmail-->
@@ -60,7 +61,7 @@
                     <h3 class="align-middle py-3">驗證註冊信箱</h3>
                     <div class="textEmail-content">
                         <label for="textEmail" class="form-label">請輸入註冊電子信箱</label>
-                        <input type="email" class="form-control form-bd-color" id="textEmail" placeholder="請輸入電子信箱">
+                        <input type="email" name="email" class="form-control form-bd-color email" id="textEmail" placeholder="請輸入電子信箱">
                     </div>
                     <button type="button" class="btn btn-success longin-btn getVerify-btn">送出</button>
                 </div>
@@ -69,9 +70,9 @@
                     <h3 class="align-middle py-3">重設密碼</h3>
                     <div class="reset-content">
                         <label for="resetPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color" id="resetPassword" placeholder="請輸入密碼">
+                        <input type="password" name="password" class="form-control form-bd-color password" id="resetPassword" placeholder="請輸入密碼">
                         <label for="resetPasswordAgain" class="col-sm-5 col-form-label">再次輸入密碼</label>
-                        <input type="password" class="form-control form-bd-color mb-14" id="resetPasswordAgain" placeholder="請再次輸入密碼">
+                        <input type="password" name="passwordAgain" class="form-control form-bd-color mb-14 password" id="resetPasswordAgain" placeholder="請再次輸入密碼">
                         <button type="button" class="btn btn-success longin-btn getReset-btn">送出</button>
                     </div>
                 </div>
@@ -84,6 +85,8 @@
         </div>  
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
     <script src="./assets/js/longin.js"></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
 </html>
