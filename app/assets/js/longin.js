@@ -1,6 +1,6 @@
 // 登入、註冊
 let token = "";
-let longinUrl = `http://localhost:3000/`;
+let longinUrl = `https://demo-9j6o.onrender.com/`;
 
 // 初始化
 function init() {
