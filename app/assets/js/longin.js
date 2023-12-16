@@ -1,6 +1,6 @@
 // 登入、註冊
 let token = "";
-let longinUrl = `http://localhost:3000/`;
+let longinUrl = `https://demo-9j6o.onrender.com/`;
 
 // 初始化
 function init() {
@@ -57,6 +57,9 @@ getSignUp_btn.addEventListener("click", (e) => {
     const signupPassword = document.querySelector("#signupPassword").value;
     const signupPasswordAgain = document.querySelector("#signupPasswordAgain").value;
     const signupPhone = document.querySelector("#signupPhone").value;
+    const signupEmailInput = document.querySelector("#signupEmail");
+    signupEmailInput.reportValidity();
+
     userData.forEach((item) => {
         if(signupEmail === item.email) {
             alert("信箱已註冊過囉！");
@@ -92,7 +95,8 @@ function SignUp(signupEmail, signupPassword, signupPhone) {
         })
         .then((response) => {
             console.log(response.data);
-            alert("註冊完成");
+            //alert("註冊完成");
+            Swal.fire("註冊完成");
             //跳出註冊成功alert，點擊確認後轉跳登入頁面(按鈕a給小說主頁網址)
             // 清空
             document.querySelector("#signupEmail").value = "";
@@ -107,9 +111,6 @@ function SignUp(signupEmail, signupPassword, signupPhone) {
             console.log(error);
         })
 };
-function Validity() {
-    const inputs = document.querySelector("input");
-}
 
 // 登入送出鈕
 let longinUserId = "";
@@ -123,7 +124,7 @@ getLongin_btn.addEventListener("click", (e) => {
 
     userData.forEach((item) => {
         if(longinEmail === item.email) {
-            longinEmailInput.classList.add("is-valid");
+            //longinEmailInput.classList.add("is-valid");
             longinUserId = item.id;
             console.log(longinUserId);
         }
@@ -142,7 +143,8 @@ function login(longinEmail, longinPassword) {
         .then((response) => {
             console.log(response.data);
             token = response.data.accessToken;
-            alert("登入成功");
+            //alert("登入成功");
+            Swal.fire("登入成功");
             //跳出成功登入alert，點擊確認後轉跳小說首頁
 
             localStorage.setItem("loginUserId",longinUserId);
@@ -214,3 +216,6 @@ function patchContent() {
             console.log(error);
         })
 };
+
+
+// constraints 驗證器
