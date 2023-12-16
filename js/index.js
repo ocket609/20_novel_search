@@ -87,9 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>${book.Star}</p>
           </div>
           <div class="col-12 d-flex justify-content-end">
-            <a href="${
-              book.link
-            }" class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
+            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
+            class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
           </div>
           `;
 
