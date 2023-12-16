@@ -86,21 +86,19 @@ function searchRenderfromPage(r, data) {
 }
 
 //select render
-
 function selectRender(e) {
   const CateValue = searchPageSelectCategory.value;
   const StarValue = searchPageSelectStar.value;
 
-  if (e.target.value === undefined) {
-    return;
-  } else if (CateValue === "" && StarValue === "") {
+  if (CateValue === "" && StarValue === "") {
     searchPageRender(data);
+    location.search = `result=`;
   } else if (CateValue !== "" && StarValue === "") {
     searchPageSearch.value = "";
     let newDataFormCategory = data.filter((item) => {
       return item.tags.includes(CateValue);
     });
-    searchPageRender(newDataFormCategory);
+    location.search = `result=${CateValue}`;
   } else if (StarValue !== "" && CateValue === "") {
     searchPageSearch.value = "";
     let newDataFromStar = data.filter((item) => {
@@ -123,6 +121,21 @@ function selectRender(e) {
   }
 }
 
+//select renderFromHome
+function selectRenderFromHome(cate) {
+  if (data === undefined) {
+    return;
+  } else {
+    searchPageSelectCategory.value = cate;
+    let newDataFormCategory = data.filter((item) => {
+      return item.tags.includes(cate);
+    });
+
+    searchPageRender(newDataFormCategory);
+    //selectRender();
+  }
+}
+
 //接收SearchResult from pages
 
 let value = window.location.search;
@@ -134,6 +147,14 @@ function searchResult(data) {
     return;
   } else if (newvalue === "") {
     searchPageRender(data);
+  } else if (
+    newvalue === "奇幻．科幻" ||
+    newvalue === "歷史．武俠" ||
+    newvalue === "愛情．文藝" ||
+    newvalue === "懸疑．推理" ||
+    newvalue === "恐怖．驚悚"
+  ) {
+    selectRenderFromHome(newvalue);
   } else {
     searchPageSearch.value = newvalue;
     searchRenderfromPage(newvalue, data);
