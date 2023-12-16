@@ -47,7 +47,7 @@ function pageRender(bookData) {
     albeer("無此頁面");
   } else {
     bookImg.innerHTML = `<div class="bookImgDiv">
-            <img src=${bookData.img} class="bookImg" alt="我真的太難了" style="min-width:250px;">
+            <img src=${bookData.img} class="bookImg" alt="我真的太難了" style="min-width:200px;">
            </div> `;
 
     bookName.innerHTML = ` 
