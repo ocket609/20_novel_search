@@ -1,13 +1,18 @@
-const jsonServer = require('json-server')
-const auth = require('json-server-auth')
+const cors = require("cors");
+const jsonServer = require("json-server")
+const server = jsonServer.create()
+const auth = require("json-server-auth");
+const db = require("./db.json");
+const router = jsonServer.router(db);
+const middlewares = jsonServer.defaults();
+server.use(cors())
+server.use(middlewares)
+server.db = router.db;
+server.use(auth);
+server.use(router)
+server.listen(3000, () => {
+    console.log("JSON Server is running")
+})
 
-const app = jsonServer.create()
-const router = jsonServer.router('db.json')
-
-// /!\ Bind the router db to the app
-app.db = router.db
-
-// You must apply the auth middleware before the router
-app.use(auth)
-app.use(router)
-app.listen(3000)
+// Export the Server API
+module.exports = server
