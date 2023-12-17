@@ -367,18 +367,20 @@ function pageSearchToSearchPage() {
   }
 }
 
-//move to Search.html
+//分類搜尋
 
-const listbtn = document.querySelector("body");
+const bodyArea = document.querySelector("body");
 
-listbtn.addEventListener("click", homeCateToSearchPage);
+bodyArea.addEventListener("click", homeCateToSearchPage);
 
 function homeCateToSearchPage(e) {
   bookCateClass = e.target.attributes["class"].value;
   if (bookCateClass === "listbtn") {
     bookCateValue = e.target.attributes["value"].value;
     window.open(
-      encodeURI(`http://127.0.0.1:5501/app/search.html?result=${bookCateValue}`)
+      encodeURI(
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${bookCateValue}`
+      )
     );
   }
 }
