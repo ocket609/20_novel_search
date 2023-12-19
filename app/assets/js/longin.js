@@ -1,6 +1,6 @@
 // 登入、註冊
 let token = "";
-let longinUrl = `https://demo-9j6o.onrender.com/`;
+let longinUrl = `https://two023-json-server-vercel-main.onrender.com/`;
 
 // 初始化
 function init() {
