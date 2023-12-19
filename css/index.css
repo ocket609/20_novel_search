@@ -330,6 +330,9 @@ li{list-style-type: none;}
 }
 
 @media (max-width: 767px) {  
+    .nav-link{
+        text-align: center;
+    }
     .illustrateRwd{
         max-width: 100%;
         flex-direction: column;
