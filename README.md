@@ -10,7 +10,10 @@
   
   簡報: https://docs.google.com/presentation/d/1jLNCBoSeatTnFyuwSfeHyXUrIoaeAv30qX4SQ1_1v1c/edit#slide=id.p
 
-
+  登入測試:
+  電子信箱: olivier2@mail.com
+  密碼:bestPassw0rd
+  
 ----------
 SCSS檔案設定規劃
 

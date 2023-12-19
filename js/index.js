@@ -99,15 +99,15 @@ document.addEventListener("DOMContentLoaded", function () {
       toPages.addEventListener("click", getBookId);
 
       function getBookId(e) {
-      if (e.target.dataset.id === undefined) {
-      return;
-      } else {
-       let pageId = e.target.dataset.id;
-       window.open(
-        `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
-        );
+        if (e.target.dataset.id === undefined) {
+          return;
+        } else {
+          let pageId = e.target.dataset.id;
+          window.open(
+            `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+          );
+        }
       }
-    }
 
       // 初始化 Swiper
       const swiper = new Swiper(".swiper-container", {
@@ -362,6 +362,24 @@ function pageSearchToSearchPage() {
     window.open(
       encodeURI(
         `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
+      )
+    );
+  }
+}
+
+//分類搜尋
+
+const bodyArea = document.querySelector("body");
+
+bodyArea.addEventListener("click", homeCateToSearchPage);
+
+function homeCateToSearchPage(e) {
+  bookCateClass = e.target.attributes["class"].value;
+  if (bookCateClass === "listbtn") {
+    bookCateValue = e.target.attributes["value"].value;
+    window.open(
+      encodeURI(
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${bookCateValue}`
       )
     );
   }

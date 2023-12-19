@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,86 +18,170 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>小說檢索網</title>
 </head>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Castoro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>小說檢索網</title>
+  </head>
+>>>>>>> af8ea2b763e6e19b4fb62a237edcd2bbe51ad8dc
 
-
-<body>
+  <body>
     <nav class="navbar navbar-expand-md fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand"><img src="./img/logo.png" alt="logo"></a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand"><img src="./img/logo.png" alt="logo" /></a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="justify-content-end collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav">
-        <li class="nav-link"><a href="#" class="btn" title="按左鍵前往">關於我們</a></li>
-        <li class="nav-link"><a href="https://ocket609.github.io/20_novel_search/app/longin.html" class="btn btnLogin" title="按左鍵前往">登入/註冊</a></li>
-        </ul>
+          <ul class="navbar-nav">
+            <li class="nav-link">
+              <a href="#" class="btn" title="按左鍵前往">關於我們</a>
+            </li>
+            <li class="nav-link">
+              <a
+                href="https://ocket609.github.io/20_novel_search/app/longin.html"
+                class="btn btnLogin"
+                title="按左鍵前往"
+                >登入/註冊</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
     </nav>
     <div class="banner">
-     <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-12 d-flex justify-content-between bannerimg">
-          <div class="d-flex bannertext">
-          <h3 class="m-2">專<br>屬<br>你<br>的</h3>
-          <h1 class="m-2">書<br>籍<br>地<br>圖</h1>
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-12 col-md-12 d-flex justify-content-between bannerimg"
+          >
+            <div class="d-flex bannertext">
+              <h3 class="m-2">專<br />屬<br />你<br />的</h3>
+              <h1 class="m-2">書<br />籍<br />地<br />圖</h1>
+            </div>
+            <div class="Banner">
+              <img src="./img/Banner.png" alt="banner" class="" />
+            </div>
+            <div class="ballon my-5">
+              <img src="./img/Ballon.png" alt="ballon" class="" />
+            </div>
           </div>
-          <div class="Banner"><img src="./img/Banner.png" alt="banner" class=""></div>
-          <div class="ballon my-5"><img src="./img/Ballon.png" alt="ballon" class=""></div>
         </div>
-      </div>
 
-      <div class="row justify-content-center">
-        <div class="col-10 col-md-6 inputSearch">
-          <input class="form-control" type="search" placeholder="找好書" >
-          <a href="#" class="btn icon"><img src="./img/search.png" alt=""></a>
+        <div class="row justify-content-center">
+          <div class="col-10 col-md-6 inputSearch">
+            <input
+              class="form-control search"
+              type="search"
+              placeholder="找好書"
+            />
+            <a href="#" class="btn icon"
+              ><img src="./img/search.png" alt="" class="searchImg"
+            /></a>
+          </div>
         </div>
-      </div>
 
-      <div class="row justify-content-center">
-        <div class="col-10 col-md-4">
-       <ul class="d-flex classification">
-        <li><a href="" class="link-dark">奇<br>幻<br> ．<br>科<br>幻</a></li>
-        <li><a href="" class="link-dark">歷<br>史 <br>．<br>武<br>俠</a></li>
-        <li><a href="" class="link-dark">愛<br>情<br> ．<br>文<br>藝</a></li>
-        <li><a href="" class="link-dark">懸<br>疑<br>．<br>推<br>理</a></li>
-        <li class="addBorder"><a href="" class="link-dark">恐<br>怖<br> ．<br>驚<br>悚</a></li>
-       </ul>
-      </div>
-      </div>
+        <div class="row justify-content-center">
+          <div class="col-10 col-md-4">
+            <ul class="d-flex classification">
+              <li>
+                <a href="" class="link-dark"
+                  >奇<br />幻<br />
+                  ．<br />科<br />幻</a
+                >
+              </li>
+              <li>
+                <a href="" class="link-dark"
+                  >歷<br />史 <br />．<br />武<br />俠</a
+                >
+              </li>
+              <li>
+                <a href="" class="link-dark"
+                  >愛<br />情<br />
+                  ．<br />文<br />藝</a
+                >
+              </li>
+              <li>
+                <a href="" class="link-dark"
+                  >懸<br />疑<br />．<br />推<br />理</a
+                >
+              </li>
+              <li class="addBorder">
+                <a href="" class="link-dark"
+                  >恐<br />怖<br />
+                  ．<br />驚<br />悚</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-      
-      <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;&bull;</h2>
-      <h2 class="pb-1">熱門排行榜</h2>
 
-      <div class="container d-flex justify-content-end">
-        <div class="d-flex arrow">
-      <li> 
-        <a href="#" class="previous"><img src="./img/previous.png" alt=""></a>
-          
-      </li>
-      <li>
-        <a href="#" class="next"> <img src="./img/next.png" alt=""></a>
-      </li>
+    <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;&bull;</h2>
+    <h2 class="pb-1">熱門排行榜</h2>
+
+    <div class="container d-flex justify-content-end">
+      <div class="d-flex arrow">
+        <li>
+          <a href="#" class="previous"
+            ><img src="./img/previous.png" alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="next"> <img src="./img/next.png" alt="" /></a>
+        </li>
       </div>
-       </div>
+    </div>
 
-      <div class="container">
-        <div class="swiper-container">
-          <div class="swiper-wrapper" id="topBooksContainer">
-            <!-- 顯示前5本小說的卡片 -->
-          </div>
-          <div class="swiper-pagination"></div>
+    <div class="container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper" id="topBooksContainer">
+          <!-- 顯示前5本小說的卡片 -->
         </div>
+        <div class="swiper-pagination"></div>
       </div>
-      
-      <div class="illustrate my-5">
+    </div>
+
+    <div class="illustrate my-5">
       <div class="container d-flex my-4 illustrateRwd">
-        <div data-aos="fade-right" data-aos-offset="600" data-aos-easing="ease-in-out"
-        class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+        <div
+          data-aos="fade-right"
+          data-aos-offset="600"
+          data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard"
+        >
           <div class="row g-0">
             <div class="col-5 col-md-4">
-              <img src="./img/1646.png" alt="..." class="ps-5">
+              <img src="./img/1646.png" alt="..." class="ps-5" />
             </div>
             <div class="col-7 col-md-8">
               <div class="card-body">
@@ -104,14 +189,17 @@
               </div>
             </div>
           </div>
-        </div> 
-      
+        </div>
 
-        <div data-aos="fade-left" data-aos-offset="600" data-aos-easing="ease-in-out"
-        class="card col-6 mb-6 mx-1 py-2 illustrateCard">
+        <div
+          data-aos="fade-left"
+          data-aos-offset="600"
+          data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard"
+        >
           <div class="row g-0">
             <div class="col-5 col-md-4">
-              <img src="./img/1647.png" alt="..." class="ps-5">
+              <img src="./img/1647.png" alt="..." class="ps-5" />
             </div>
             <div class="col-7 col-md-8">
               <div class="card-body">
@@ -122,249 +210,229 @@
         </div>
       </div>
 
-
-       
-
-        <div class="container d-flex my-4 illustrateRwd">
-          <div data-aos="fade-right" data-aos-offset="600" data-aos-easing="ease-in-out"
-          class="card col-6 mb-6 mx-1 py-2 illustrateCard">
-            <div class="row g-0">
-              <div class="col-5 col-md-4">
-                <img src="./img/list.png" alt="..." class="ps-5">
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">專屬你的閱讀清單</h5>
-                </div>
+      <div class="container d-flex my-4 illustrateRwd">
+        <div
+          data-aos="fade-right"
+          data-aos-offset="600"
+          data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard"
+        >
+          <div class="row g-0">
+            <div class="col-5 col-md-4">
+              <img src="./img/list.png" alt="..." class="ps-5" />
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">專屬你的閱讀清單</h5>
               </div>
             </div>
-          </div> 
-
-          <div data-aos="fade-left" data-aos-offset="600" data-aos-easing="ease-in-out"
-          class="card col-6 mb-6 mx-1 py-2 illustrateCard">
-            <div class="row g-0">
-              <div class="col-5 col-md-4">
-                <img src="./img/content.png" alt="..." class="ps-5">
-              </div>
-              <div class="col-7 col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">豐富的書評分享</h5>
-                </div>
-              </div>
-            </div>
-          </div> 
-
-          <!-- <a href="#" class="previous">&lt;</a> -->
-	        <!-- <a href="#" class="next">&gt;</a> -->
-
+          </div>
         </div>
+
+        <div
+          data-aos="fade-left"
+          data-aos-offset="600"
+          data-aos-easing="ease-in-out"
+          class="card col-6 mb-6 mx-1 py-2 illustrateCard"
+        >
+          <div class="row g-0">
+            <div class="col-5 col-md-4">
+              <img src="./img/content.png" alt="..." class="ps-5" />
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">豐富的書評分享</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <a href="#" class="previous">&lt;</a> -->
+        <!-- <a href="#" class="next">&gt;</a> -->
       </div>
-    
+    </div>
 
-        <div class="classify">
-        <h2 class="pt-3 me-5 pe-4 bull">&bull;&bull;</h2>
-        <h2 class="pb-5">小說列表</h2>
+    <div class="classify">
+      <h2 class="pt-3 me-5 pe-4 bull">&bull;&bull;</h2>
+      <h2 class="pb-5">小說列表</h2>
 
-        <div class="container list">
-          <div class="bookclass">
-            <div class="row">
+      <div class="container list">
+        <div class="bookclass">
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <h3>奇幻 ．科幻 /</h3>
+              <a
+                href="javascript:void(0);"
+                class="listbtn"
+                title="按左鍵前往"
+                value="奇幻．科幻"
+                >More&emsp;&rarr;</a
+              >
+            </div>
+            <div class="col-12 col-md-9">
+              <div class="row" id="fantasyBooks"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row bookclass">
           <div class="col-12 col-md-3">
-          <h3>奇幻 ．科幻 /</h3>
-          <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-          class="listbtn" title="按左鍵前往">More&emsp;&rarr;</a>
-         </div>
-         <div class="col-12 col-md-9">
-         <div class="row" id="fantasyBooks">
-         </div>
-         </div>
-         </div>
-          </div>
-                
-          <div class="row bookclass">
-            <div class="col-12 col-md-3">
             <h3>歷史 ．武俠 /</h3>
-            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-            class="listbtn" title="按左鍵前往">More&emsp;&rarr;</a>
+            <a
+              href="avascript:void(0);"
+              class="listbtn"
+              title="按左鍵前往"
+              value="歷史．武俠"
+              >More&emsp;&rarr;</a
+            >
           </div>
           <div class="col-12 col-md-9">
-          <div class="row" id="historyBooks">
+            <div class="row" id="historyBooks"></div>
           </div>
-          </div>
-          </div>
+        </div>
 
-          <div class="row bookclass">
-            <div class="col-12 col-md-3">
+        <div class="row bookclass">
+          <div class="col-12 col-md-3">
             <h3>愛情 ．文藝 /</h3>
-            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-            class="listbtn" title="按左鍵前往">More&emsp;&rarr;</a>
+            <a
+              href="javascript:void(0);"
+              class="listbtn"
+              title="按左鍵前往"
+              value="愛情．文藝"
+              >More&emsp;&rarr;</a
+            >
           </div>
           <div class="col-12 col-md-9">
-          <div class="row" id="loveBooks">
+            <div class="row" id="loveBooks"></div>
           </div>
-          </div>
-          </div>
+        </div>
 
-          <div class="row bookclass">
-            <div class="col-12 col-md-3">
-            <h3> 懸疑 ．推理 /</h3>
-            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-            class="listbtn" title="按左鍵前往">More&emsp;&rarr;</a>
+        <div class="row bookclass">
+          <div class="col-12 col-md-3">
+            <h3>懸疑 ．推理 /</h3>
+            <a
+              href="#javascript:void(0);"
+              class="listbtn"
+              title="按左鍵前往"
+              value="懸疑．推理"
+              >More&emsp;&rarr;</a
+            >
           </div>
           <div class="col-12 col-md-9">
-          <div class="row" id="suspenseBooks">
+            <div class="row" id="suspenseBooks"></div>
           </div>
-          </div>
-          </div>
+        </div>
 
-          <div class="row bookclass">
-            <div class="col-12 col-md-3">
-            <h3> 恐怖 ．驚悚 /</h3>
-            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-            class="listbtn" title="按左鍵前往">More&emsp;&rarr;</a>
+        <div class="row bookclass">
+          <div class="col-12 col-md-3">
+            <h3>恐怖 ．驚悚 /</h3>
+            <a
+              href="javascript:void(0);"
+              class="listbtn"
+              title="按左鍵前往"
+              value="恐怖．驚悚"
+              >More&emsp;&rarr;</a
+            >
           </div>
           <div class="col-12 col-md-9">
-          <div class="row" id="fearBooks">
+            <div class="row" id="fearBooks"></div>
           </div>
-          </div>
-          </div>      
         </div>
       </div>
-             
-       
-            <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;</h2>
-            <h2 class="pb-1">熱門評論</h2>
-   
-             <div class="container comment my-5">
-              <div class="row">
-                <div class="col-12 col-md-4 my-5">
-                <div class="card commentCard">
-                  <div class="header d-flex justify-content-center">
-                    <div class="box"></div>
-                  <img src="./img/Avatar.png" alt="網友" class="netizen"></div>
-                  <div class="card inside">
-                    <h6 class="pt-5 text-secondary">看我看我</h6>
-                    <span class="borderBottom"></span>
-                    <h5>跪求續集啊 Orz</h5 >
-                  </div>
-                  <div class="footer d-flex justify-content-between py-2 px-2">
-                    <h6 class="py-3 px-2">轉生史萊姆</h6>
-                    <div class="score d-flex align-items-center">
-                      <div class="star mx-2">
-                        <li><a href=""><img src="./img/star.png" alt=""></a></li>
-                        <li><p>4.9</p></li>
-                        <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
-                       </div>
-                  </div>
-                  </div>
+    </div>
+
+    <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;</h2>
+    <h2 class="pb-1">熱門評論</h2>
+
+    <div class="container comment my-5">
+      <div class="row">
+        <div class="col-12 col-md-4 my-5">
+          <div class="card commentCard">
+            <div class="header d-flex justify-content-center">
+              <div class="box"></div>
+              <img src="./img/Avatar.png" alt="網友" class="netizen" />
+            </div>
+            <div class="card inside">
+              <h6 class="pt-5 text-secondary">看我看我</h6>
+              <span class="borderBottom"></span>
+              <h5>跪求續集啊 Orz</h5>
+            </div>
+            <div class="footer d-flex justify-content-between py-2 px-2">
+              <h6 class="py-3 px-2">轉生史萊姆</h6>
+              <div class="score d-flex align-items-center">
+                <div class="star mx-2">
+                  <li>
+                    <a href=""><img src="./img/star.png" alt="" /></a>
+                  </li>
+                  <li><p>4.9</p></li>
+                  <li class="ms-2">
+                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  </li>
                 </div>
-                 </div>
-
-                 <div class="col-12 col-md-4 my-5">
-                  <div class="card commentCard">
-                    <div class="header d-flex justify-content-center">
-                      <div class="box"></div>
-                    <img src="./img/Avatar2.png" alt="網友" class="netizen"></div>
-                    <div class="card inside">
-                      <h6 class="pt-5 text-secondary">巨石大大</h6>
-                      <span class="borderBottom"></span>
-                      <h5>作者好會，賺我眼淚QQ</h5>
-                    </div>
-                    <div class="footer d-flex justify-content-between py-2 px-2">
-                      <h6 class="py-3 px-2">轉生史萊姆</h6>
-                      <div class="score d-flex align-items-center">
-                        <div class="star mx-2">
-                          <li><a href=""><img src="./img/star.png" alt=""></a></li>
-                          <li><p>4.9</p></li>
-                          <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
-                         </div>
-                    </div>
-                    </div>
-                  </div>
-                   </div>
-                           
-                   <div class="col-12 col-md-4 my-5">
-                    <div class="card commentCard">
-                      <div class="header d-flex justify-content-center">
-                        <div class="box"></div>
-                      <img src="./img/Avatar4.png" alt="網友" class="netizen"></div>
-                      <div class="card inside">
-                        <h6 class="pt-5 text-secondary">萬皮斯</h6>
-                        <span class="borderBottom"></span>
-                        <h5>不看你會後悔阿阿阿阿阿</h5 >
-                      </div>
-                      <div class="footer d-flex justify-content-between py-2 px-2">
-                        <h6 class="py-3 px-2">轉生史萊姆</h6>
-                        <div class="score d-flex align-items-center">
-                          <div class="star mx-2">
-                            <li><a href=""><img src="./img/star.png" alt=""></a></li>
-                            <li><p>4.9</p></li>
-                            <li class="ms-2"><a href=""><img src="./img/like.png" alt=""></a></li>
-                           </div>
-                      </div>
-                      </div>
-                    </div>
-                     </div>
-
+              </div>
+            </div>
           </div>
         </div>
 
-        
-            <div class="mt-5 pb-5">
-              <div class="container Footer bg-orange-100 border border-orange-100 rounded-4">
-                  <div class="d-flex row ">
-                      <div class="footerLaug mt-5 flex-fill  col-4">
-                       <select aria-label="Language selector" data-testid="language_selector" class="ms-2 mb-2 p-1">
-                          <option value="en" selected="">繁體中文</option>
-                          <option value="en" >English</option>
-                          <option value="ja">日本語</option>
-                       </select>            
-                              <div class="d-flex flex-column ">
-                                  <div class="p-2 d-flex"><img src="./app/assets/images/FB.svg" alt="FB"><a title="FB" href="https://www.facebook.com/" class="outsideSiteLink p-1 link-dark"  target="_blank">Facebook</a></div>
-                                  <div class="p-2 d-flex"><img src="./app/assets/images/IG.svg" alt="IG"><a title="IG" href="https://twitter.com/coinbase" class="outsideSiteLink p-1 link-dark" target="_blank">Insragram</a></div>
-                                  <div class="p-2 d-flex"><img src="./app/assets/images/X.svg" alt="X"><a title="X" href="https://twitter.com/coinbase" class="outsideSiteLink p-1 link-dark" target="_blank">Twitter X</a></div>       
-                              </div>
-                      </div>
-                      <div class="flex-fill row m-5 col-4 text-center">
-                          <div class="col-4 ">
-                            <h5 class="dotLine pb-4">書籍類別</h5>
-                            <div class="d-flex flex-column mb-3">
-                              <div class="p-2"><a class="siteLink " href="" >奇幻 • 科幻</a></div>
-                              <div class="p-2"><a class="siteLink " href="" >歷史 • 武俠</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >愛情 • 文藝</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >懸疑 • 推理</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >恐怖 • 驚悚</a></div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                              <h5 class="dotLine pb-4">會員中心</h5>
-                            <span class=""></span>
-                            <div class="d-flex flex-column mb-3">
-                              <div class="p-2"><a class="siteLink" href="" >我的收藏書籍</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >歷史觀看紀錄</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >歷史評論紀錄</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >帳號設定</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >服務條款</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >使用幫助</a></div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                              <h5 class="dotLine pb-4">關於我們</h5>
-                            <div class="d-flex flex-column bd-highlight mb-3">
-                              <div class="p-2"><a class="siteLink" href="" >關於找好書</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >訂閱新書報報</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >歷史評論紀錄</a></div>
-                              <div class="p-2"><a class="siteLink" href="" >聯絡我們</a></div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="container text-center dotLine3 w-75 pt-4">
-                    <div class="pb-4"><span class=" ">© <!-- -->2023<!-- --> <!-- -->FindGoodBook 僅供學習作品呈現，無任何商業用途</span></div>
-                  </div>
-                </div>
+        <div class="col-12 col-md-4 my-5">
+          <div class="card commentCard">
+            <div class="header d-flex justify-content-center">
+              <div class="box"></div>
+              <img src="./img/Avatar2.png" alt="網友" class="netizen" />
             </div>
+            <div class="card inside">
+              <h6 class="pt-5 text-secondary">巨石大大</h6>
+              <span class="borderBottom"></span>
+              <h5>作者好會，賺我眼淚QQ</h5>
+            </div>
+            <div class="footer d-flex justify-content-between py-2 px-2">
+              <h6 class="py-3 px-2">轉生史萊姆</h6>
+              <div class="score d-flex align-items-center">
+                <div class="star mx-2">
+                  <li>
+                    <a href=""><img src="./img/star.png" alt="" /></a>
+                  </li>
+                  <li><p>4.9</p></li>
+                  <li class="ms-2">
+                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-12 col-md-4 my-5">
+          <div class="card commentCard">
+            <div class="header d-flex justify-content-center">
+              <div class="box"></div>
+              <img src="./img/Avatar4.png" alt="網友" class="netizen" />
+            </div>
+            <div class="card inside">
+              <h6 class="pt-5 text-secondary">萬皮斯</h6>
+              <span class="borderBottom"></span>
+              <h5>不看你會後悔阿阿阿阿阿</h5>
+            </div>
+            <div class="footer d-flex justify-content-between py-2 px-2">
+              <h6 class="py-3 px-2">轉生史萊姆</h6>
+              <div class="score d-flex align-items-center">
+                <div class="star mx-2">
+                  <li>
+                    <a href=""><img src="./img/star.png" alt="" /></a>
+                  </li>
+                  <li><p>4.9</p></li>
+                  <li class="ms-2">
+                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+<<<<<<< HEAD
           <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
           <!-- 引入axios -->
@@ -378,3 +446,124 @@
           crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+    <div class="mt-5 pb-5">
+      <div
+        class="container Footer bg-orange-100 border border-orange-100 rounded-4"
+      >
+        <div class="d-flex row">
+          <div class="footerLaug mt-5 flex-fill col-4">
+            <select
+              aria-label="Language selector"
+              data-testid="language_selector"
+              class="ms-2 mb-2 p-1"
+            >
+              <option value="en" selected="">繁體中文</option>
+              <option value="en">English</option>
+              <option value="ja">日本語</option>
+            </select>
+            <div class="d-flex flex-column">
+              <div class="p-2 d-flex">
+                <img src="./app/assets/images/FB.svg" alt="FB" /><a
+                  title="FB"
+                  href="https://www.facebook.com/"
+                  class="outsideSiteLink p-1 link-dark"
+                  target="_blank"
+                  >Facebook</a
+                >
+              </div>
+              <div class="p-2 d-flex">
+                <img src="./app/assets/images/IG.svg" alt="IG" /><a
+                  title="IG"
+                  href="https://twitter.com/coinbase"
+                  class="outsideSiteLink p-1 link-dark"
+                  target="_blank"
+                  >Insragram</a
+                >
+              </div>
+              <div class="p-2 d-flex">
+                <img src="./app/assets/images/X.svg" alt="X" /><a
+                  title="X"
+                  href="https://twitter.com/coinbase"
+                  class="outsideSiteLink p-1 link-dark"
+                  target="_blank"
+                  >Twitter X</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex-fill row m-5 col-4 text-center">
+            <div class="col-4">
+              <h5 class="dotLine pb-4">書籍類別</h5>
+              <div class="d-flex flex-column mb-3">
+                <div class="p-2">
+                  <a class="siteLink" href="">奇幻 • 科幻</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">歷史 • 武俠</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">愛情 • 文藝</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">懸疑 • 推理</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">恐怖 • 驚悚</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <h5 class="dotLine pb-4">會員中心</h5>
+              <span class=""></span>
+              <div class="d-flex flex-column mb-3">
+                <div class="p-2">
+                  <a class="siteLink" href="">我的收藏書籍</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">歷史觀看紀錄</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">歷史評論紀錄</a>
+                </div>
+                <div class="p-2"><a class="siteLink" href="">帳號設定</a></div>
+                <div class="p-2"><a class="siteLink" href="">服務條款</a></div>
+                <div class="p-2"><a class="siteLink" href="">使用幫助</a></div>
+              </div>
+            </div>
+            <div class="col-4">
+              <h5 class="dotLine pb-4">關於我們</h5>
+              <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2">
+                  <a class="siteLink" href="">關於找好書</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">訂閱新書報報</a>
+                </div>
+                <div class="p-2">
+                  <a class="siteLink" href="">歷史評論紀錄</a>
+                </div>
+                <div class="p-2"><a class="siteLink" href="">聯絡我們</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center dotLine3 w-75 pt-4">
+          <div class="pb-4">
+            <span class=" "
+              >©
+              <!-- -->2023<!-- -->
+              <!-- -->FindGoodBook 僅供學習作品呈現，無任何商業用途</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
+>>>>>>> af8ea2b763e6e19b4fb62a237edcd2bbe51ad8dc
