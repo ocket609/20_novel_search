@@ -57,8 +57,8 @@ getSignUp_btn.addEventListener("click", (e) => {
     const signupPassword = document.querySelector("#signupPassword").value;
     const signupPasswordAgain = document.querySelector("#signupPasswordAgain").value;
     const signupPhone = document.querySelector("#signupPhone").value;
-    const signupEmailInput = document.querySelector("#signupEmail");
-    signupEmailInput.reportValidity();
+    //const signupEmailInput = document.querySelector("#signupEmail");
+    //signupEmailInput.reportValidity();
 
     userData.forEach((item) => {
         if(signupEmail === item.email) {
@@ -69,6 +69,10 @@ getSignUp_btn.addEventListener("click", (e) => {
         alert("請確認密碼2次輸入是否正確！");
         //暫時先用，有時間再換成有設計的alert
     }
+
+    //let checkVaule = validate(signup, constraints);
+    validate(signup, constraints);
+
     SignUp(signupEmail, signupPassword, signupPhone);
 });
 // 註冊POST
@@ -119,8 +123,8 @@ getLongin_btn.addEventListener("click", (e) => {
     //console.log(e.target);
     const longinEmail = document.querySelector("#longinEmail").value;
     const longinPassword = document.querySelector("#longinPassword").value;
-    const longinEmailInput = document.querySelector("#longinEmail");
-    longinEmailInput.reportValidity();
+    //const longinEmailInput = document.querySelector("#longinEmail");
+    //longinEmailInput.reportValidity();
 
     userData.forEach((item) => {
         if(longinEmail === item.email) {
@@ -129,6 +133,8 @@ getLongin_btn.addEventListener("click", (e) => {
             console.log(longinUserId);
         }
     });
+
+    validate(longin, constraints);
 
     login(longinEmail, longinPassword);
 });
@@ -164,10 +170,6 @@ function login(longinEmail, longinPassword) {
             console.log(error.response);
         })
 };
-
-/*function countDown(){
-	setTimeout('location.href="https://ocket609.github.io/20_novel_search/#"',5000);
-}*/
 
 // 密碼重設完成切換登入
 getReset_btn.addEventListener("click", (e) => {
@@ -225,3 +227,36 @@ function patchContent() {
 
 
 // constraints 驗證器
+let constraints = {
+    email: {
+        presence: {
+            message: "^必填" //必填
+        },
+        email: true //需符合 email 格式
+    },
+    password: {
+        presence: {
+            message: "^必填"
+        },
+        length: {
+            minimum: 6, //長度大於6
+            maximum: 12, //長度小於12
+            message: "^密碼需6~12碼"
+        }
+    },
+    passwordAgain: {
+        presence: {
+            message: "^必填"
+        },
+        equality: {
+            attribute: "password",// 此欄位要和密碼欄位一樣
+            message: "^與輸入密碼不符"
+        }
+    },
+    phone: {
+        presence: {
+            message: "^必填"
+        }
+    }
+}
+
