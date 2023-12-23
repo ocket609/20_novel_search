@@ -172,8 +172,9 @@ function getBookId(e) {
   } else {
     let pageId = e.target.dataset.id;
     console.log(e.target.dataset.id);
-    window.open(
-      `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+    location.assign(
+      //`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+      `http://127.0.0.1:5501/app/pages.html?Id=${pageId}`
     );
   }
 }
@@ -207,11 +208,11 @@ function GoodBookCheckForDisplay() {
 //聆聽收藏
 
 const bookList = document.querySelector(".bookList");
-
+let bookLocalData = JSON.parse(bookLocal);
 bookList.addEventListener("click", GoodBooklistener);
 
 function GoodBooklistener(e) {
-  let bookLocalData = JSON.parse(bookLocal);
+  
   let value = e.target.dataset.bookheartid;
   let numValue = Number(value);
 
@@ -219,18 +220,16 @@ function GoodBooklistener(e) {
     return;
   } else {
     if (bookLocalData.includes(numValue)) {
-      console.log(1);
       let index = bookLocalData.indexOf(numValue);
-      console.log(index);
       bookLocalData.splice(index, 1);
-      console.log(bookLocalData);
       localStorage.setItem("bookId", JSON.stringify(bookLocalData));
-      window.location.reload();
+      e.target.setAttribute("src", "./assets/images/heart.svg");
+      alert('收藏已取消!!');
     } else {
-      console.log(1);
       bookLocalData.push(numValue);
       localStorage.setItem("bookId", JSON.stringify(bookLocalData));
-      window.location.reload();
+      e.target.setAttribute("src", "./assets/images/heart-full.svg");
+      alert('收藏成功!!');
     }
   }
 }

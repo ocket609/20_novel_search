@@ -259,7 +259,7 @@ $spacers: (
   0: 0,
   1: $spacer / 4,  //4
   2: $spacer / 2,  //8
-  3: $spacer * 1, //16
+  3: $spacer,  //16
   4: $spacer * 1.5,  //24
   5: $spacer * 3,  //48
 ) !default;
@@ -793,7 +793,7 @@ $form-switch-checked-bg-position: right center !default;
 // scss-docs-end form-switch-variables
 
 // scss-docs-start input-group-variables
-$input-group-addon-padding-y:           $input-gpadding-y !default;
+$input-group-addon-padding-y:           $input-padding-y !default;
 $input-group-addon-padding-x:           $input-padding-x !default;
 $input-group-addon-font-weight:         $input-font-weight !default;
 $input-group-addon-color:               $input-color !default;

@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         } else {
           let pageId = e.target.dataset.id;
-          window.open(
+          location.assign(
             `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
           );
         }
@@ -359,7 +359,7 @@ function pageSearchToSearchPage() {
   } else {
     let result = pageSearch.value;
     pageSearch.value = "";
-    window.open(
+    location.assign(
       encodeURI(
         `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
       )
@@ -377,7 +377,7 @@ function homeCateToSearchPage(e) {
   bookCateClass = e.target.attributes["class"].value;
   if (bookCateClass === "listbtn") {
     bookCateValue = e.target.attributes["value"].value;
-    window.open(
+    location.assign(
       encodeURI(
         `https://ocket609.github.io/20_novel_search/app/search.html?result=${bookCateValue}`
       )

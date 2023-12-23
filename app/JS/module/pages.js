@@ -135,23 +135,69 @@ function pageSearchToSearchPage() {
     let result = pageSearch.value;
     pageSearch.value = "";
     console.log(result);
-    window.open(
+    location.assign(
       encodeURI(
-        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
+        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
+        `http://127.0.0.1:5501/app/search.html?result=${result}`
       )
     );
   }
 }
 
+
+
+//test
+
+const now = new Date()
+const item = {
+  value: 'true',
+  expired: now.getTime() 
+}
+//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item))
+
+
+window.addEventListener("load", () =>
+{
+  
+  const itemStr = localStorage.getItem('loginStatuswithExpired');
+  const item = JSON.parse(itemStr);
+  console.log((new Date().getTime()/1000),'now');
+  console.log((item.expired/1000),'token');
+  if(item.value === "true" && new Date().getTime() < item.expired){
+  console.log('已登入');
+     }else{
+      console.log('請重新登入');
+     }
+});
+
+
+/*
+setTimeout(() => {
+  const itemStr = localStorage.getItem('loginStatuswithExpired')
+  const item = JSON.parse(itemStr)
+  if (new Date().getTime() > item.expired) {
+    localStorage.removeItem('loginStatuswithExpired')
+    console.log(localStorage.getItem('loginStatuswithExpired')) // null
+  }
+}, 6000)
+*/
+
 //聆聽收藏書籍
 
 const newvalueNum = Number(newvalue);
 let bookLocal = localStorage.getItem("bookId");
-
+let bookLSdata = JSON.parse(bookLocal);
 bookHeart.addEventListener("click", goodBookListener);
 
-function goodBookListener() {
-  let bookLSdata = JSON.parse(bookLocal);
+function goodBookListener(e) {
+  const itemStr = localStorage.getItem('loginStatuswithExpired');
+  const item = JSON.parse(itemStr);
+  if(item.value === 'true'){
+    alert('請先登入唷~~');
+    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+    return;
+  }
+  console.log(bookLSdata);
   if (bookLSdata === null) {
     localStorage.setItem("bookId", JSON.stringify([]));
     return;
@@ -159,11 +205,13 @@ function goodBookListener() {
     let index = bookLSdata.indexOf(newvalueNum);
     bookLSdata.splice(index, 1);
     localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-    location.reload();
+    e.target.setAttribute("src", "./assets/images/heart.svg");
+    alert('收藏已取消!!');
   } else {
     bookLSdata.push(newvalueNum);
     localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-    location.reload();
+    e.target.setAttribute("src", "./assets/images/heart-full.svg");
+    alert('收藏成功!!');
   }
 }
 
@@ -173,9 +221,15 @@ window.addEventListener("load", goodBookCheckForDisplay);
 
 function goodBookCheckForDisplay() {
   let bookLSdata = JSON.parse(bookLocal);
+  const itemStr = localStorage.getItem('loginStatuswithExpired');
+  const item = JSON.parse(itemStr);
+   
+   if(item.value === 'true'){
+    return;
+  }
 
   if (bookLSdata.includes(newvalueNum)) {
-    bookHeart.setAttribute("src", "./assets/images/heart-full.svg");
+    bookHeart.setAttribute("src", "./assets/images/heart-full.svg")
   } else {
     bookHeart.setAttribute("src", "./assets/images/heart.svg");
   }
@@ -188,6 +242,12 @@ let goodComment = [];
 let heartLocal = localStorage.getItem("heartId");
 
 function GoodcommentData(id, index) {
+  const itemStr = localStorage.getItem('loginStatuswithExpired');
+  const item = JSON.parse(itemStr);
+   
+   if(item.value === 'true'){
+    return;
+  }
   let test = JSON.parse(heartLocal);
   if (test === null) {
     localStorage.setItem("heartId", JSON.stringify([]));
@@ -212,24 +272,35 @@ function GoodcommentCheckForDisplay() {
 const swiperTest = document.querySelector(".mySwiper");
 
 swiperTest.addEventListener("click", Goodcommentlistener);
+let heartLocalData = JSON.parse(heartLocal);
 
 function Goodcommentlistener(e) {
-  let heartLocalData = JSON.parse(heartLocal);
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
+  const itemStr = localStorage.getItem('loginStatuswithExpired');
+  const item = JSON.parse(itemStr);
+   
+   if(item.value === 'true' && isNaN(value) === false ){
+    alert('請先登入唷~~');
+    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+    return;
+  }
 
   if (value === null || value === NaN || value === undefined) {
     return;
-  } else {
-    if (heartLocalData.includes(numValue)) {
+  } else if (heartLocalData.includes(numValue)) {
+
       let index = heartLocalData.indexOf(numValue);
       heartLocalData.splice(index, 1);
       localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-      location.reload();
+      e.target.setAttribute("src", "./assets/images/thumb_up_off_alt.svg");
+      alert('留言按讚已取消!!');
     } else {
       heartLocalData.push(numValue);
       localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-      location.reload();
+      e.target.setAttribute("src", "./assets/images/thumb_up_alt.svg");
+      alert('留言按讚成功!!');
     }
   }
-}
+
+
