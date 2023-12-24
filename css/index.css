@@ -223,8 +223,8 @@ li{list-style-type: none;}
 
 .share{
     position: absolute;
-    top: 380px;
-    left: 250px;
+    top: 370px;
+    left: 240px;
 }
 
 
@@ -268,8 +268,8 @@ li{list-style-type: none;}
 
 .bookshare{
     position: absolute;
-    top: 250px;
-    left: 167px;
+    top: 240px;
+    left: 150px;
 }
 
 .bookshare li{
@@ -392,3 +392,13 @@ li{list-style-type: none;}
         width: 100vw;
        overflow: hidden;
     }
+
+    .pagesIcon {
+        background-color: #fff;
+        border-radius: 100px;
+        border: 2px solid #fff;
+      }
+      .pagesIcon:hover {
+        border-radius: 100px;
+        border: 2px solid rgb(231, 140, 82);
+      }

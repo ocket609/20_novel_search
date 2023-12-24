@@ -71,15 +71,15 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
           <div class="pic"><img src="${
             book.img
-          }" alt="書" class="bookCover" data-id=${book.id} ></div>
+          }" alt="書" class="bookCover" data-id=${book.id}></div>
           <div class="amount text-white" id="number">
             <p class="py-1 px-3">no.</p>
             <h5 class="py-1 px-3">${index + 1}</h5>
           </div>
           <ul class="share d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
           </ul>
           <h5 class="mt-2 mb-0">${book.bookName}</h5>
           <div class="star">
@@ -152,11 +152,11 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.add("col-12", "col-md-4", "bookImg");
 
         card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover">
+          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li> 
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li> 
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
@@ -193,11 +193,11 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.add("col-12", "col-md-4", "bookImg");
 
         card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover">
+          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
@@ -235,11 +235,11 @@ document.addEventListener("DOMContentLoaded", function () {
           card.classList.add("col-12", "col-md-4", "bookImg");
 
           card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover">
+          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
@@ -277,11 +277,11 @@ document.addEventListener("DOMContentLoaded", function () {
           card.classList.add("col-12", "col-md-4", "bookImg");
 
           card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover">
+          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt="star"></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt="heart"></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt="share"></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
@@ -319,11 +319,11 @@ document.addEventListener("DOMContentLoaded", function () {
           card.classList.add("col-12", "col-md-4", "bookImg");
 
           card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover">
+          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img src="./img/like.png" alt=""></a></li>
-            <li><a href=""><img src="./img/shareBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
