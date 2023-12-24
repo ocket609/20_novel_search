@@ -9,7 +9,8 @@ const value = window.location.search;
 const newvalue = value.split("=")[1];
 //帶入bookId
 
-PagebookApi(newvalue);
+window.addEventListener("load",PagebookApi(newvalue));
+
 
 //PagesBooksApi
 
@@ -31,7 +32,7 @@ function PagebookApi(p) {
       window.setTimeout("alert('無效連結，將導向回首頁')", 50);
       setTimeout("location.href='/'", 500);
     });
-}
+};
 
 //PagesRender
 const book = document.querySelector(".bookSection");
@@ -79,7 +80,7 @@ function pageRender(bookData) {
            <p class="p-4 lh-lg">${bookData.description}</p>
            `;
   }
-}
+};
 
 //PagesCommentRender
 
@@ -112,29 +113,35 @@ function PageCommentRender(commentAllData) {
        </div>       
     </swiper-slide>
           `;
-      GoodcommentData(item.id, index);
+      //GoodcommentData(item.id, index);
     });
   }
   commentListArea.innerHTML = str;
-  GoodcommentCheckForDisplay();
-}
+  //GoodcommentCheckForDisplay();
+  islogin();
+};
 
 //move to Search.html
 
 const pageArea = document.querySelector(".searchDiv");
 const pageSearch = document.querySelector(".search");
+const pageSearchImg = document.querySelector(".searchImg");
 
-pageArea.addEventListener("click", pageSearchToSearchPage);
+pageSearchImg.addEventListener("click", pageSearchToSearchPage);
+pageArea.addEventListener("keyup", function(e){
+    if(e.key === 'Enter'){
+      pageSearchToSearchPage();
+    }else{
+      return;
+    }
+});
 
 function pageSearchToSearchPage() {
-  console.log(pageSearch.value);
-
   if (pageSearch.value === undefined || pageSearch.value === "") {
     return;
   } else {
     let result = pageSearch.value;
     pageSearch.value = "";
-    console.log(result);
     location.assign(
       encodeURI(
         //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
@@ -142,62 +149,58 @@ function pageSearchToSearchPage() {
       )
     );
   }
-}
-
-
+};
 
 //test
 
 const now = new Date()
-const item = {
+const item2 = {
   value: 'true',
-  expired: now.getTime() 
-}
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item))
+  expired: now.getTime()  +3600000
+};
+//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
 
+const itemStr = localStorage.getItem('loginStatuswithExpired');
+const item = JSON.parse(itemStr);
 
-window.addEventListener("load", () =>
-{
+function islogin(){
   
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
   console.log((new Date().getTime()/1000),'now');
   console.log((item.expired/1000),'token');
-  if(item.value === "true" && new Date().getTime() < item.expired){
-  console.log('已登入');
-     }else{
-      console.log('請重新登入');
+  if(new Date().getTime() > item.expired){
+    setTimeout(() => {
+      const item2 = {
+        value: 'false',
+        expired: item.expired
+      }
+         localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+     }, 6000)
+     console.log('請重新登入');
+     console.log(item.value);
+     }else{       
+
+      console.log('已登入');
+      goodBookCheckForDisplay(item.value);
+      GoodcommentCheckForDisplay(item.value);
+      console.log(item.value);
      }
-});
+};
 
 
-/*
-setTimeout(() => {
-  const itemStr = localStorage.getItem('loginStatuswithExpired')
-  const item = JSON.parse(itemStr)
-  if (new Date().getTime() > item.expired) {
-    localStorage.removeItem('loginStatuswithExpired')
-    console.log(localStorage.getItem('loginStatuswithExpired')) // null
-  }
-}, 6000)
-*/
-
-//聆聽收藏書籍
 
 const newvalueNum = Number(newvalue);
 let bookLocal = localStorage.getItem("bookId");
 let bookLSdata = JSON.parse(bookLocal);
+
+//聆聽收藏書籍
+
 bookHeart.addEventListener("click", goodBookListener);
 
 function goodBookListener(e) {
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-  if(item.value === 'true'){
-    alert('請先登入唷~~');
-    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+  if(item.value == 'false'){
+    alert('請先登入唷~\n將跳轉至登入頁面!!!');
     return;
   }
-  console.log(bookLSdata);
   if (bookLSdata === null) {
     localStorage.setItem("bookId", JSON.stringify([]));
     return;
@@ -213,39 +216,34 @@ function goodBookListener(e) {
     e.target.setAttribute("src", "./assets/images/heart-full.svg");
     alert('收藏成功!!');
   }
-}
+};
 
-//判斷是否收藏書籍
+//判斷是否收藏書籍 & 渲染收藏書籍
 
-window.addEventListener("load", goodBookCheckForDisplay);
+//window.addEventListener("load", goodBookCheckForDisplay);
 
-function goodBookCheckForDisplay() {
-  let bookLSdata = JSON.parse(bookLocal);
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true'){
+function goodBookCheckForDisplay(){
+  let bookLocaldata = JSON.parse(bookLocal);
+  if(arguments[0] == false){
     return;
   }
 
-  if (bookLSdata.includes(newvalueNum)) {
+  if (bookLocaldata.includes(newvalueNum)) {
     bookHeart.setAttribute("src", "./assets/images/heart-full.svg")
   } else {
     bookHeart.setAttribute("src", "./assets/images/heart.svg");
   }
-}
+};
 
 //判斷是否按讚留言
 
-let goodComment = [];
 
-let heartLocal = localStorage.getItem("heartId");
 
+/*
 function GoodcommentData(id, index) {
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true'){
+
+  console.log(arguments);
+   if(arguments[0] == false){
     return;
   }
   let test = JSON.parse(heartLocal);
@@ -256,16 +254,36 @@ function GoodcommentData(id, index) {
     goodComment.push(index);
   }
 }
+*/
 
-//渲染留言按讚
+//判斷是否按讚留言 & 渲染留言按讚
+
+let heartLocal = localStorage.getItem("heartId");
 
 function GoodcommentCheckForDisplay() {
   const commentHeart = document.querySelectorAll(".commentheart");
-  goodComment.forEach((item) => {
-    commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
-  });
-  goodComment = [];
-}
+  const CommentGoodLocaldata = JSON.parse(heartLocal);
+  const newCommentGoodLocaldata = CommentGoodLocaldata.sort();
+  const commentArry = [];
+  const goodCommentArry = [];
+
+  if(arguments[0] == false){
+    return;
+  }
+
+  for(let i = 0; i < commentHeart.length; i++){
+    commentArry.push(Number(commentHeart[i].dataset.heartid));
+  }
+
+  commentArry.forEach((item,index) => {
+    if(newCommentGoodLocaldata.indexOf(item) !== -1){
+      goodCommentArry.push(index);
+    }
+  })
+    goodCommentArry.forEach((item) => {
+      commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
+    });
+};
 
 //聆聽按讚
 
@@ -277,11 +295,9 @@ let heartLocalData = JSON.parse(heartLocal);
 function Goodcommentlistener(e) {
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true' && isNaN(value) === false ){
-    alert('請先登入唷~~');
+
+   if(item.value == 'false' && isNaN(value) === false ){
+    alert('請先登入唷~\n將跳轉至登入頁面!!!');
     location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
     return;
   }
@@ -301,6 +317,6 @@ function Goodcommentlistener(e) {
       e.target.setAttribute("src", "./assets/images/thumb_up_alt.svg");
       alert('留言按讚成功!!');
     }
-  }
+  };
 
 
