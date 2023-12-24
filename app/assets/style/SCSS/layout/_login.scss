@@ -1,9 +1,6 @@
-$success:#FDF9E6;
+//$success:#FDF9E6;
 
 .longin-main {
-    a {
-        color: $success;
-    }
     .header {
         padding: 32px 80px;
     }
@@ -24,7 +21,7 @@ $success:#FDF9E6;
 }
 .longin-hover-btn {
     &:hover {
-        font-weight: 1;
+        font-weight: $font-weight-bold;
     }
 }
 

@@ -17,7 +17,7 @@
             <div class="nav ms-4 ms-lg-0">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a class="longin-hover-btn" href="https://ocket609.github.io/20_novel_search/">首頁</a></li>
+                      <li class="breadcrumb-item"><a class="longin-hover-btn text-success" href="https://ocket609.github.io/20_novel_search/">首頁</a></li>
                       <li class="breadcrumb-item active" aria-current="page">登入 / 註冊</li>
                     </ol>
                 </nav>
@@ -28,15 +28,15 @@
                     <h3 class="align-middle py-3">登入</h3>
                     <div class="goSignin d-sm-flex text-center pb-2 pb-sm-0">
                         <p class="pe-2">還沒成為小說檢索網用戶嗎？</p>
-                        <a class="longin-hover-btn signinNew" href="#">現在註冊</a>
+                        <a class="longin-hover-btn signinNew text-success" href="#">現在註冊</a>
                     </div>
                     <div class="longin-content needs-validation">
                         <label for="longinEmail" class="form-label">電子信箱</label>
-                        <input type="email" class="form-control form-bd-color email" id="longinEmail" placeholder="請輸入電子信箱" required>
+                        <input type="email" name="email" class="form-control form-bd-color email" id="longinEmail" placeholder="請輸入電子信箱" required>
                         <label for="longinPassword" class="col-sm-2 col-form-label">密碼</label>
-                        <input type="password" class="form-control form-bd-color password" id="longinPassword" placeholder="請輸入密碼" required>
+                        <input type="password" name="password" class="form-control form-bd-color password" id="longinPassword" placeholder="請輸入密碼" required>
                         <div class="forget-password d-flex justify-content-end">
-                            <a class="forget-password-btn longin-hover-btn forget-password" href="#">忘記密碼</a>
+                            <a class="forget-password-btn longin-hover-btn forget-password text-success" href="#">忘記密碼</a>
                         </div>
                         <button type="button" class="btn btn-success longin-btn getLongin-btn" onclick="Swal.fire">登入</button>
                     </div>
@@ -52,7 +52,7 @@
                         <label for="signupPasswordAgain" class="col-sm-5 col-form-label" required>再次輸入密碼</label>
                         <input type="password" name="passwordAgain" class="form-control form-bd-color" id="signupPasswordAgain" placeholder="請再次輸入密碼">
                         <label for="signupPhone" class="col-sm-5 col-form-label">電話號碼</label>
-                        <input type="tel" name="phone" class="form-control form-bd-color mb-14" id="signupPhone" placeholder="請輸入電話號碼" required>
+                        <input type="tel" name="phone" class="form-control form-bd-color mb-3" id="signupPhone" placeholder="請輸入電話號碼" required>
                         <button type="button" class="btn btn-success longin-btn getSignUp-btn" onclick="Swal.fire">送出</button>
                     </div>
                 </div>
