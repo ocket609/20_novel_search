@@ -26,11 +26,13 @@ function PagebookApi(p) {
       PageCommentRender(data);
     })
     .catch(function (error) {
-      document.querySelector(".bookSection");
-      pagesbody.innerHTML = ``;
       console.log(error);
-      window.setTimeout("alert('無效連結，將導向回首頁')", 50);
-      setTimeout("location.href='/'", 500);
+      if(newvalue === '' || error.response.status === 404){
+         document.querySelector(".bookSection");
+         pagesbody.innerHTML = ``;
+         window.setTimeout("alert('無效連結，將導向回首頁')", 50);
+         setTimeout("location.href='/'", 500);      
+      }
     });
 };
 
@@ -154,11 +156,11 @@ function pageSearchToSearchPage() {
 //test
 
 const now = new Date()
-const item2 = {
+const loginInfo = {
   value: 'true',
   expired: now.getTime()  +3600000
 };
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+//localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
 
 const itemStr = localStorage.getItem('loginStatuswithExpired');
 const item = JSON.parse(itemStr);
@@ -167,7 +169,8 @@ function islogin(){
   
   console.log((new Date().getTime()/1000),'now');
   console.log((item.expired/1000),'token');
-  if(new Date().getTime() > item.expired){
+  
+   if(new Date().getTime() > item.expired){
     setTimeout(() => {
       const item2 = {
         value: 'false',
