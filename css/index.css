@@ -393,7 +393,7 @@ li{list-style-type: none;}
        overflow: hidden;
     }
 
-    .pagesIcon {
+    .pagesIcon .likeIcon {
         background-color: #fff;
         border-radius: 100px;
         border: 2px solid #fff;
@@ -402,3 +402,12 @@ li{list-style-type: none;}
         border-radius: 100px;
         border: 2px solid rgb(231, 140, 82);
       }
+
+
+      /* 填滿愛心 */
+    .likeIcon:hover {
+    content: url('../img/filledHeart.png');
+    border-radius: 100px;
+    border: 2px solid rgb(231, 140, 82);
+    }
+  

@@ -41,22 +41,20 @@
 // })
 
 document.addEventListener("DOMContentLoaded", function () {
-  // 从提供的 URL 获取 JSON 数据
   fetch(
     "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
   )
     .then((response) => response.json())
     .then((data) => {
-      // 获取 books 数组并按 Star 值排序
+      // 獲取 books 數組並按 Star 值排序
       const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
 
-      // 获取前五名书籍
+      // 撈前五名
       const topFiveBooks = sortedBooks.slice(0, 5);
 
-      // 找到用于显示书籍信息的容器
+      // 找到用於顯示小說的容器
       const topBooksContainer = document.getElementById("topBooksContainer");
 
-      // 将前五本书籍信息以卡片样式插入到 HTML 页面中
       topFiveBooks.forEach((book, index) => {
         const card = document.createElement("div");
         card.classList.add(
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <ul class="share d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
           </ul>
           <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -155,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li> 
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -196,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -238,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -280,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt="star"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt="heart"></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt="share"></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -322,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
             <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/like.png" alt=""></a></li>
+            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
             <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
@@ -384,3 +382,59 @@ function homeCateToSearchPage(e) {
     );
   }
 }
+
+//GPT寫的點愛心收藏邏輯還需要修改
+const likeIcon = document.querySelector('likeIcon');
+const likeImg = likeIcon.querySelector('img');
+const favoriteList = document.getElementById('favoriteList');
+
+likeIcon.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  // 更改圖示為填滿的愛心
+  likeImg.src = './img/filledHeart.png';
+
+  // 將內容加入收藏列表
+  const contentToFavorite = {
+    title: '您要收藏的內容標題',
+    url: '內容的URL' // 可能是該內容的鏈接或其他識別符
+    // 您可能想添加更多相關資訊以便稍後在收藏列表中顯示
+  };
+
+  // 檢查本地存儲中是否已經存在收藏列表，如果不存在，則初始化為一個空數組
+  let favorites = localStorage.getItem('favorites');
+  if (!favorites) {
+    favorites = [];
+  } else {
+    favorites = JSON.parse(favorites);
+  }
+
+  // 將新的收藏內容添加到收藏列表
+  favorites.push(contentToFavorite);
+
+  // 將更新後的收藏列表存回本地存儲
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+
+  // 更新收藏列表的顯示
+  renderFavorites();
+});
+
+// 用於渲染收藏列表的函數
+function renderFavorites() {
+  favoriteList.innerHTML = ''; // 清空列表
+
+  let favorites = localStorage.getItem('favorites');
+  if (favorites) {
+    favorites = JSON.parse(favorites);
+
+    // 將收藏內容顯示在列表中
+    favorites.forEach((favorite, index) => {
+      const listItem = document.createElement('div');
+      listItem.innerHTML = `${index + 1}. <a href="${favorite.url}">${favorite.title}</a>`;
+      favoriteList.appendChild(listItem);
+    });
+  }
+}
+
+// 頁面加載時渲染收藏列表
+renderFavorites();
