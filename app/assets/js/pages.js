@@ -40,6 +40,7 @@ function PagebookApi(p) {
 const book = document.querySelector(".bookSection");
 const bookImg = document.querySelector(".bookImg");
 const bookName = document.querySelector(".bookName2");
+const bookStar = document.querySelector(".starPtag");
 const bookInfoLeft = document.querySelector(".bookInfoLeft");
 const bookInfoRight = document.querySelector(".bookInfoRight");
 const bookDescrt = document.querySelector(".bookDescrt");
@@ -50,13 +51,23 @@ function pageRender(bookData) {
     albeer("無此頁面");
   } else {
     bookImg.innerHTML = `<div class="bookImgDiv">
-            <img src=${bookData.img} class="bookImg" alt="我真的太難了" style="min-width:200px;">
+            <img src=${bookData.img} class="bookImg" alt=${bookData.bookName} style="min-width:200px;">
            </div> `;
 
     bookName.innerHTML = ` 
               <h2>${bookData.bookName}</h2>
               <h4>${bookData.author}</h4>
                    `;
+    bookStar.innerHTML = `
+                    <p>
+                  <img
+                    class="starImg"
+                    src="./assets/images/star.svg"
+                    alt="star"
+                    >
+                    ${bookData.Star}
+                </p>
+                    `;
 
     if (bookData.tags.length === 2) {
       bookInfoLeft.innerHTML = `
@@ -153,7 +164,7 @@ function pageSearchToSearchPage() {
   }
 };
 
-//test
+//localSotrage TEST
 
 const now = new Date()
 const loginInfo = {
@@ -323,3 +334,118 @@ function Goodcommentlistener(e) {
   };
 
 
+//聆聽留言功能
+//localStorage.setItem("loginUserId",1);
+const pagesEvaluateForm = document.querySelector(".pagesEvaluateForm");
+
+pagesEvaluateForm.addEventListener("submit",submitCommentForm);
+
+//Validate.JS 驗證格式
+let constraints = {
+  name: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  },
+  content: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  },
+  score: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  }
+};
+
+ function submitCommentForm(e) {
+      e.preventDefault();
+      const commenterName = document.querySelector('.name').value;
+      const commentContent = document.querySelector('.content').value;
+      const commentScore = document.querySelector('.score').value;
+      const commentUserId = localStorage.getItem("loginUserId");
+      
+      let result = validate(pagesEvaluateForm, constraints);
+      cleanMessage();
+      console.log(result);
+      if(result){
+        let message;
+        let nameList = Object.keys(result);
+        console.log(nameList);
+        nameList.forEach((item) => {
+          message = document.querySelector(`.${item}-message`);
+          message.innerHTML = result[item];
+        });
+      
+      }else{
+      
+      let modalContent = `
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-primary">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">評分完成</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body text-center">
+                                <form id="myForm"">
+                                  <label for="name">名字：${commenterName}</label>                        
+                                 <label for="content">內容：${commentContent}</label>                           
+                                  <label for="score">分數：${commentScore}</label>  
+                                </form>
+                              </div>                           
+                            </div>
+                          </div>
+                        `
+  
+      setTimeout(() => {
+        document.getElementById('exampleModal').innerHTML = modalContent;
+      }, 500);
+      addCommentApi(commentUserId,commenterName,commentContent,commentScore);
+      setTimeout(() =>{
+        PagebookApi(newvalue);
+      },1000)
+      
+     }
+  }
+
+//清除驗證訊息 
+function cleanMessage() {
+    let message = document.querySelectorAll('.span-message')
+    message.forEach((message) => {
+      message.innerHTML=''
+    });
+  }  
+  
+function addCommentApi(id,name,content,score) {
+      axios.post('https://demo-9j6o.onrender.com/comments',{
+             "userId" : Number(id),
+             "bookId" : Number(newvalue),
+             "commenter": name,
+             "textContent" : content,
+             "score" : score,
+             "like" : 0
+      })
+   
+      .then(function(response){
+         console.log(response);
+    
+      })  
+      .catch(function(error){
+          console.log(error);
+     
+     });
+     }
+   

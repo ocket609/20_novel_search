@@ -65,7 +65,20 @@
     background-color: #FFFEF6;
 }
 
+.pagesEvaluate {
+    display: block;
+    margin-bottom: 15px;
+  }
 
+.pagesEvaluateInput {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
+.name-message,.content-message,.score-message {
+    display: block;
+    color: red;
+}
 
 /*圖片區*/
 

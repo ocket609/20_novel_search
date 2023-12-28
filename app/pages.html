@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style/SCSS/all.css" />
     <title>BookPage</title>
-
-    <style type="text/css">
-      .mySwiper {
-        --swiper-pagination-color: #fffef6;
-      }
-    </style>
   </head>
 
   <body class="bg-primary">
@@ -33,6 +27,7 @@
               type="search"
               placeholder="Search"
               aria-label="Search"
+              id="search"
             />
             <input class="searchImg" type="button" aria-label="button" />
           </div>
@@ -55,25 +50,47 @@
           <div class="row">
             <div class="bookName2 col-6 col-xl-6 col-sm-6"></div>
             <div class="icon col-6 col-xl-6 col-sm-6 text-end">
-              <div>
-                <p class="starPtag">
-                  <img
-                    class="starImg"
-                    src="./assets/images/star.svg"
-                    alt="star"
-                  />
-                  4.8
-                </p>
+              <div class="starPtag">
+               
               </div>
               <div class="d-flex justify-content-end align-items-center">
+
                 <div>
-                  <span class="" role="button"
+                  <span class="" role="button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     ><img
                       class="pagesIcon mx-2"
                       src="./assets/images/star2.svg"
                       alt="star"
                   /></span>
                 </div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content bg-primary">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">評分</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <form id="myForm" class="pagesEvaluateForm">
+                                <label class="pagesEvaluate" for="name">名字：</label>
+                                <input type="text"  class="pagesEvaluateInput name" name="name">
+                                <span  class="span-message name-message"></span>
+                                <label class="pagesEvaluate" for="content">內容：</label>
+                                <textarea name="content" class="pagesEvaluateInput content" rows="3" cols="20"></textarea>
+                                <span class="span-message content-message"></span>
+                                <label class="pagesEvaluate" for="score">分數：</label>
+                                <input type="number" class="pagesEvaluateInput score" name="score" min="0" max="5" step="0.1">
+                                <span  class="span-message score-message"></span>
+                                <div class="modal-footer mt-5">
+                                  <input  class="pagesEvaluateBtn btn-success" type="submit" value="送出">
+                                </div>
+                              </form>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
                 <div>
                   <span class="" role="button"
                     ><img
@@ -90,6 +107,7 @@
                       alt="share"
                   /></span>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -185,6 +203,7 @@
               aria-label="Language selector"
               data-testid="language_selector"
               class="ms-2 mb-2 p-1"
+              id="language_selector"
             >
               <option value="en" selected="">繁體中文</option>
               <option value="en">English</option>
@@ -300,5 +319,8 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <!-- Validate JS -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
   <script src="./assets/js/pages.js"></script>
+  
 </html>

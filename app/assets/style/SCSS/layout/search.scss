@@ -55,6 +55,16 @@
     }
 }
 
+.card-img-top{
+    &:hover{
+        transform: scale(1.05);
+        transition:all 0.1s linear 0s ;
+    }
+    &:active{
+        transform: scale(1.1);
+        transition:all 0.1s linear 0s ;
+    }
+}
 
 /*圖片區*/
 

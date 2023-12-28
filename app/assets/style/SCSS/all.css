@@ -10272,6 +10272,21 @@ margin & padding
   background-color: #FFFEF6;
 }
 
+.pagesEvaluate {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.pagesEvaluateInput {
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+.name-message, .content-message, .score-message {
+  display: block;
+  color: red;
+}
+
 /*圖片區*/
 .logo {
   background-image: url("../../images/LogoSize=lg.svg");
@@ -10422,6 +10437,15 @@ margin & padding
 }
 .selectStar option:active {
   background-color: #FFF0D4;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+  transition: all 0.1s linear 0s;
+}
+.card-img-top:active {
+  transform: scale(1.1);
+  transition: all 0.1s linear 0s;
 }
 
 /*圖片區*/

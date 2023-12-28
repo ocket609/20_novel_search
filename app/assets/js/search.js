@@ -191,7 +191,7 @@ const item2 = {
   value: 'true',
   expired: now.getTime()  +3600000
 }
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
 
 
 const itemStr = localStorage.getItem('loginStatuswithExpired');
