@@ -1,20 +1,21 @@
 //前五名熱門小說排名
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
+      );
+      const data = await response.json();
+
       // 獲取 books 數組並按 Star 值排序
       const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
-
       // 撈前五名
       const topFiveBooks = sortedBooks.slice(0, 5);
-
       // 找到用於顯示小說的容器
       const topBooksContainer = document.getElementById("topBooksContainer");
 
-      topFiveBooks.forEach((book, index) => {
+      // 創建書籍卡片
+      const createBookCard = (book, index) => {
         const card = document.createElement("div");
         card.classList.add(
           "swiper-slide",
@@ -50,21 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
 
         topBooksContainer.appendChild(card);
+      };
+
+      // 渲染前五名書籍卡片
+      topFiveBooks.forEach((book, index) => {
+        createBookCard(book, index);
       });
 
-      const toPages = document.querySelector("body");
-      toPages.addEventListener("click", getBookId);
-
-      function getBookId(e) {
-        if (e.target.dataset.id === undefined) {
-          return;
-        } else {
-          let pageId = e.target.dataset.id;
+      // 點擊事件監聽器指定給特定元素
+      topBooksContainer.addEventListener("click", (e) => {
+        if (e.target.dataset.id !== undefined) {
+          const pageId = e.target.dataset.id;
           location.assign(
             `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
           );
         }
-      }
+      });
 
       // 初始化 Swiper
       const swiper = new Swiper(".swiper-container", {
@@ -73,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
           clickable: true,
         },
         breakpoints: {
-          // 在寬度小於 768px（手機版）時的設置
           992: {
             slidesPerView: 3,
             allowTouchMove: true,
@@ -84,10 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
       });
-    })
-    .catch((error) => {
+    } catch (error) {
       console.log("發生錯誤：", error);
-    });
+    }
+  };
+
+  // 執行獲取資料的函數
+  fetchData();
 });
 
 //各類別小說前三名
