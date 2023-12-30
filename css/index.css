@@ -352,9 +352,21 @@ li{list-style-type: none;}
         max-width: 100%;
        flex-direction: column;
     }
-
     }
 
+     /* 媒體查詢，當視窗寬度大於中等（md）尺寸時 */
+    @media (min-width: 768px) {
+    /* 取消折疊效果 */
+    .collapse {
+      display: block !important;
+      visibility: visible;
+      height: auto;
+      overflow: visible;
+    }
+    .bi{
+        display: none;
+    }
+    }
 
     .Footer{
         background-color: #FDF9E6;
@@ -410,4 +422,3 @@ li{list-style-type: none;}
     border-radius: 100px;
     border: 2px solid rgb(231, 140, 82);
     }
-  

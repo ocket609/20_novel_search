@@ -1,61 +1,21 @@
-// fetch('https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json')
-// .then(response => response.json())
-// .then(data => {
-//撈books 並按 Star 值排序
-// const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
-//
-//撈前5名小說
-// const topFiveBooks = sortedBooks.slice(0, 5);
-//
-//找到用於顯示小說資訊的容器
-// const topBooksContainer = document.getElementById('topBooksContainer');
-//
-//將排名前5名塞到html
-// topFiveBooks.forEach((book, index) => {
-// const card = document.createElement('div');
-// card.classList.add('swiper-slide','col-12', 'col-md-4', 'bg-white', 'novelImg', 'my-3');
-//
-// card.innerHTML = `
-// <img src="${book.img}" alt="書" class="bookCover">
-// <div class="amount text-white" id="number">
-// <p class="py-1 px-3">no.</p>
-// <h5 class="py-1 px-3">${index + 1}</h5>
-// </div>
-// <ul class="share d-flex">
-// <li><img src="./img/starBox.png" alt=""></li>
-// <li><img src="./img/like.png" alt=""></li>
-// <li><img src="./img/shareBox.png" alt=""></li>
-// </ul>
-// <h5 class="mt-2 mb-0">${book.bookName}</h5>
-// <div class="star">
-// <img src="./img/star.png" alt="star">
-// <p>${book.Star}</p>
-// </div>
-// <div class="col-12 d-flex justify-content-end">
-// <a href="${book.link}" class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
-// </div>
-// `;
-//
-// topBooksContainer.appendChild(card);
-// });
-// })
-
+//前五名熱門小說排名
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
+      );
+      const data = await response.json();
+
       // 獲取 books 數組並按 Star 值排序
       const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
-
       // 撈前五名
       const topFiveBooks = sortedBooks.slice(0, 5);
-
       // 找到用於顯示小說的容器
       const topBooksContainer = document.getElementById("topBooksContainer");
 
-      topFiveBooks.forEach((book, index) => {
+      // 創建書籍卡片
+      const createBookCard = (book, index) => {
         const card = document.createElement("div");
         card.classList.add(
           "swiper-slide",
@@ -91,21 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
 
         topBooksContainer.appendChild(card);
+      };
+
+      // 渲染前五名書籍卡片
+      topFiveBooks.forEach((book, index) => {
+        createBookCard(book, index);
       });
 
-      const toPages = document.querySelector("body");
-      toPages.addEventListener("click", getBookId);
-
-      function getBookId(e) {
-        if (e.target.dataset.id === undefined) {
-          return;
-        } else {
-          let pageId = e.target.dataset.id;
+      // 點擊事件監聽器指定給特定元素
+      topBooksContainer.addEventListener("click", (e) => {
+        if (e.target.dataset.id !== undefined) {
+          const pageId = e.target.dataset.id;
           location.assign(
             `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
           );
         }
-      }
+      });
 
       // 初始化 Swiper
       const swiper = new Swiper(".swiper-container", {
@@ -114,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
           clickable: true,
         },
         breakpoints: {
-          // 在寬度小於 768px（手機版）時的設置
           992: {
             slidesPerView: 3,
             allowTouchMove: true,
@@ -125,219 +85,64 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
       });
-    })
-    .catch((error) => {
-      console.log("發生错误：", error);
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const fantasyAndSciFiBooks = data.books.filter((book) =>
-        book.tags.includes("奇幻．科幻")
-      );
-
-      // 找到用於顯示小說資訊的容器
-      const fantasyBooks = document.getElementById("fantasyBooks");
-
-      // 符合條件的小說塞入到 HTML
-      fantasyAndSciFiBooks.forEach((book) => {
-        const card = document.createElement("div");
-        card.classList.add("col-12", "col-md-4", "bookImg");
-
-        card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
-            <ul class="bookshare d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li> 
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
-            </ul>
-            <h5 class="mt-2 mb-0">${book.bookName}</h5>
-            <div class="star">
-            <img src="./img/star.png" alt="">
-            <p>${book.Star}</p>
-            </div>
-            </div>
-
-          `;
-        fantasyBooks.appendChild(card);
-      });
-    })
-    .catch((error) => {
+    } catch (error) {
       console.log("發生錯誤：", error);
-    });
+    }
+  };
+
+  // 執行獲取資料的函數
+  fetchData();
 });
 
+//各類別小說前三名
 document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const fantasyAndSciFiBooks = data.books.filter((book) =>
-        book.tags.includes("歷史．武俠")
-      );
+  const baseUrl =
+    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json";
 
-      // 找到用於顯示小說資訊的容器
-      const historyBooks = document.getElementById("historyBooks");
+  // 函數用於顯示書籍資訊到特定容器，顯示Star分數前三名的書籍
+  function displayTopThreeBooksByTag(tag, containerId) {
+    fetch(baseUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const books = data.books.filter((book) => book.tags.includes(tag));
 
-      // 符合條件的小說塞入到 HTML
-      fantasyAndSciFiBooks.forEach((book) => {
-        const card = document.createElement("div");
-        card.classList.add("col-12", "col-md-4", "bookImg");
+        // 將符合條件的書籍依照Star分數排序，並取前三名
+        const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 3);
 
-        card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
-            <ul class="bookshare d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
-            </ul>
-            <h5 class="mt-2 mb-0">${book.bookName}</h5>
-            <div class="star">
-            <img src="./img/star.png" alt="">
-            <p>${book.Star}</p>
-            </div>
-            </div>
-          `;
-        historyBooks.appendChild(card);
-      });
-    })
-    .catch((error) => {
-      console.log("發生錯誤：", error);
-    });
-});
+        const container = document.getElementById(containerId);
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const fantasyAndSciFiBooks = data.books.filter((book) =>
-        book.tags.includes("愛情．文藝")
-      );
-
-      // 找到用於顯示小說資訊的容器
-      const loveBooks = document.getElementById("loveBooks");
-
-      // 符合條件的小說塞入到 HTML
-      let counter = 0;
-      fantasyAndSciFiBooks.forEach((book) => {
-        if (counter < 3) {
+        topThreeBooks.forEach((book) => {
           const card = document.createElement("div");
           card.classList.add("col-12", "col-md-4", "bookImg");
 
           card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
+            <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
             <ul class="bookshare d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
+              <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
+              <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
+              <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
             </ul>
             <h5 class="mt-2 mb-0">${book.bookName}</h5>
             <div class="star">
-            <img src="./img/star.png" alt="">
-            <p>${book.Star}</p>
-            </div>
-            </div>
-          `;
-          loveBooks.appendChild(card);
-          counter++;
-        }
-      });
-    })
-    .catch((error) => {
-      console.log("發生錯誤：", error);
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const fantasyAndSciFiBooks = data.books.filter((book) =>
-        book.tags.includes("懸疑．推理")
-      );
-
-      const suspenseBooks = document.getElementById("suspenseBooks");
-
-      let counter = 0;
-      fantasyAndSciFiBooks.forEach((book) => {
-        if (counter < 3) {
-          const card = document.createElement("div");
-          card.classList.add("col-12", "col-md-4", "bookImg");
-
-          card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
-            <ul class="bookshare d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt="star"></a></li>
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt="share"></a></li>
-            </ul>
-            <h5 class="mt-2 mb-0">${book.bookName}</h5>
-            <div class="star">
-            <img src="./img/star.png" alt="">
-            <p>${book.Star}</p>
-            </div>
+              <img src="./img/star.png" alt="">
+              <p>${book.Star}</p>
             </div>
           `;
-          suspenseBooks.appendChild(card);
-          counter++;
-        }
+
+          container.appendChild(card);
+        });
+      })
+      .catch((error) => {
+        console.log("發生錯誤：", error);
       });
-    })
-    .catch((error) => {
-      console.log("發生錯誤：", error);
-    });
-});
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch(
-    "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const fantasyAndSciFiBooks = data.books.filter((book) =>
-        book.tags.includes("恐怖．驚悚")
-      );
-
-      const fearBooks = document.getElementById("fearBooks");
-
-      let counter = 0;
-      fantasyAndSciFiBooks.forEach((book) => {
-        if (counter < 3) {
-          const card = document.createElement("div");
-          card.classList.add("col-12", "col-md-4", "bookImg");
-
-          card.innerHTML = `
-          <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
-            <ul class="bookshare d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
-            </ul>
-            <h5 class="mt-2 mb-0">${book.bookName}</h5>
-            <div class="star">
-            <img src="./img/star.png" alt="">
-            <p>${book.Star}</p>
-            </div>
-            </div>
-          `;
-          fearBooks.appendChild(card);
-          counter++;
-        }
-      });
-    })
-    .catch((error) => {
-      console.log("發生錯誤：", error);
-    });
+  // 在指定容器中顯示Star分數前三名的各類型書籍
+  displayTopThreeBooksByTag("奇幻．科幻", "fantasyBooks");
+  displayTopThreeBooksByTag("歷史．武俠", "historyBooks");
+  displayTopThreeBooksByTag("愛情．文藝", "loveBooks");
+  displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
+  displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
 });
 
 AOS.init();

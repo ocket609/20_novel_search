@@ -420,7 +420,7 @@
         class="container Footer bg-orange-100 border border-orange-100 rounded-4"
       >
         <div class="d-flex row">
-          <div class="footerLaug mt-5 flex-fill col-4">
+          <div class="footerLaug mt-5 flex-fill col-12 col-md-4">
             <select
               aria-label="Language selector"
               data-testid="language_selector"
@@ -461,9 +461,24 @@
             </div>
           </div>
           <div class="flex-fill row m-5 col-4 text-center">
-            <div class="col-4">
-              <h5 class="dotLine pb-4">書籍類別</h5>
-              <div class="d-flex flex-column mb-3">
+            <div class="col-12 col-md-4">
+              <button
+              class="navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#bookMenu"
+                >
+                <div class="d-flex" >
+                <h5 class="dotLine pb-4">書籍類別</h5>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                width="20" height="20" 
+                fill="currentColor" 
+                class="bi bi-caret-down-fill" 
+                viewBox="0 0 16 16">
+                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+              </div>
+                  </button>
+                <div class="col-12 col-md-12 collapse" id="bookMenu">
                 <div class="p-2">
                   <a class="siteLink" href="">奇幻 • 科幻</a>
                 </div>
@@ -481,10 +496,25 @@
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
+              <button
+              class="navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#member"
+                >
+            <div class="d-flex" >
               <h5 class="dotLine pb-4">會員中心</h5>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              width="20" height="20" 
+              fill="currentColor" 
+              class="bi bi-caret-down-fill" 
+              viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+            </div> 
+            </button>
               <span class=""></span>
-              <div class="d-flex flex-column mb-3">
+              <div class="col-12 col-md-12 collapse" id="member">
                 <div class="p-2">
                   <a class="siteLink" href="">我的收藏書籍</a>
                 </div>
@@ -499,9 +529,24 @@
                 <div class="p-2"><a class="siteLink" href="">使用幫助</a></div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
+              <button
+              class="navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#aboutUs"
+                >
+              <div class="d-flex" >
               <h5 class="dotLine pb-4">關於我們</h5>
-              <div class="d-flex flex-column bd-highlight mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              width="20" height="20" 
+              fill="currentColor" 
+              class="bi bi-caret-down-fill" 
+              viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+              </div>
+               </button>
+              <div class="col-12 col-md-12 collapse bd-highlight mb-3" id="aboutUs">
                 <div class="p-2">
                   <a class="siteLink" href="">關於找好書</a>
                 </div>
