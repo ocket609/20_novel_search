@@ -333,6 +333,7 @@ li{list-style-type: none;}
     padding-top: 24px;
 }
 
+
 @media (max-width: 767px) {  
     .nav-link{
         text-align: center;
@@ -365,6 +366,11 @@ li{list-style-type: none;}
 
     .menuCollapse{
         padding-top: 0px;
+    }
+
+    .language{
+        display: flex;
+        justify-content: end;
     }
 
     /* 重新排列元素的順序 */
