@@ -329,6 +329,10 @@ li{list-style-type: none;}
     margin: 8px 16px 16px 16px;
 }
 
+.menuCollapse{
+    padding-top: 24px;
+}
+
 @media (max-width: 767px) {  
     .nav-link{
         text-align: center;
@@ -352,7 +356,23 @@ li{list-style-type: none;}
         max-width: 100%;
        flex-direction: column;
     }
+
+    .link{
+        width: 90%;
+        height: 1px;
+        border-top: solid #E0E0E0 1px;
     }
+
+    .menuCollapse{
+        padding-top: 0px;
+    }
+
+    /* 重新排列元素的順序 */
+    /* .language{ */
+        /* order: 2;    */
+    /* } */
+}
+
 
      /* 媒體查詢，當視窗寬度大於中等（md）尺寸時 */
     @media (min-width: 768px) {
@@ -364,6 +384,9 @@ li{list-style-type: none;}
       overflow: visible;
     }
     .bi{
+        display: none;
+    }
+    .socialMenu{
         display: none;
     }
     }
