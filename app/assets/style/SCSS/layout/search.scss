@@ -1,5 +1,4 @@
 
-
 /*adjust*/
 
 .searchPageDiv{
@@ -56,13 +55,23 @@
     }
 }
 
+.card-img-top{
+    &:hover{
+        transform: scale(1.05);
+        transition:all 0.1s linear 0s ;
+    }
+    &:active{
+        transform: scale(1.1);
+        transition:all 0.1s linear 0s ;
+    }
+}
 
 /*圖片區*/
 
 
 .searchPageImg{
     width: 5%;
-    background-image: url('../../images/search.png');
+    background-image: url('../../images/search.svg');
     background-repeat: no-repeat;
     background-position: right;
     background-color: #fff;
@@ -75,11 +84,11 @@
 }
 
 .userCenter{
-    background-image: url(../../images/account_circle_black_24dp.svg);
+    background-image: url('../../images/account_circle_black_24dp.svg');
     background-repeat: no-repeat;
     background-position: center;
     &:hover{
-        background-image: url(../../images/account_circle_hover_24dp.svg);
+        background-image: url('../../images/account_circle_hover_24dp.svg');
     } 
  }
 

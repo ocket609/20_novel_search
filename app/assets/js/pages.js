@@ -9,7 +9,8 @@ const value = window.location.search;
 const newvalue = value.split("=")[1];
 //帶入bookId
 
-PagebookApi(newvalue);
+window.addEventListener("load",PagebookApi(newvalue));
+
 
 //PagesBooksApi
 
@@ -25,18 +26,21 @@ function PagebookApi(p) {
       PageCommentRender(data);
     })
     .catch(function (error) {
-      document.querySelector(".bookSection");
-      pagesbody.innerHTML = ``;
       console.log(error);
-      window.setTimeout("alert('無效連結，將導向回首頁')", 50);
-      setTimeout("location.href='/'", 500);
+      if(newvalue === '' || error.response.status === 404){
+         document.querySelector(".bookSection");
+         pagesbody.innerHTML = ``;
+         window.setTimeout("alert('無效連結，將導向回首頁')", 50);
+         setTimeout("location.href='/'", 500);      
+      }
     });
-}
+};
 
 //PagesRender
 const book = document.querySelector(".bookSection");
 const bookImg = document.querySelector(".bookImg");
 const bookName = document.querySelector(".bookName2");
+const bookStar = document.querySelector(".starPtag");
 const bookInfoLeft = document.querySelector(".bookInfoLeft");
 const bookInfoRight = document.querySelector(".bookInfoRight");
 const bookDescrt = document.querySelector(".bookDescrt");
@@ -47,13 +51,23 @@ function pageRender(bookData) {
     albeer("無此頁面");
   } else {
     bookImg.innerHTML = `<div class="bookImgDiv">
-            <img src=${bookData.img} class="bookImg" alt="我真的太難了" style="min-width:200px;">
+            <img src=${bookData.img} class="bookImg" alt=${bookData.bookName} style="min-width:200px;">
            </div> `;
 
     bookName.innerHTML = ` 
               <h2>${bookData.bookName}</h2>
               <h4>${bookData.author}</h4>
                    `;
+    bookStar.innerHTML = `
+                    <p>
+                  <img
+                    class="starImg"
+                    src="./assets/images/star.svg"
+                    alt="star"
+                    >
+                    ${bookData.Star}
+                </p>
+                    `;
 
     if (bookData.tags.length === 2) {
       bookInfoLeft.innerHTML = `
@@ -79,7 +93,7 @@ function pageRender(bookData) {
            <p class="p-4 lh-lg">${bookData.description}</p>
            `;
   }
-}
+};
 
 //PagesCommentRender
 
@@ -112,29 +126,35 @@ function PageCommentRender(commentAllData) {
        </div>       
     </swiper-slide>
           `;
-      GoodcommentData(item.id, index);
+      //GoodcommentData(item.id, index);
     });
   }
   commentListArea.innerHTML = str;
-  GoodcommentCheckForDisplay();
-}
+  //GoodcommentCheckForDisplay();
+  islogin();
+};
 
 //move to Search.html
 
 const pageArea = document.querySelector(".searchDiv");
 const pageSearch = document.querySelector(".search");
+const pageSearchImg = document.querySelector(".searchImg");
 
-pageArea.addEventListener("click", pageSearchToSearchPage);
+pageSearchImg.addEventListener("click", pageSearchToSearchPage);
+pageArea.addEventListener("keyup", function(e){
+    if(e.key === 'Enter'){
+      pageSearchToSearchPage();
+    }else{
+      return;
+    }
+});
 
 function pageSearchToSearchPage() {
-  console.log(pageSearch.value);
-
   if (pageSearch.value === undefined || pageSearch.value === "") {
     return;
   } else {
     let result = pageSearch.value;
     pageSearch.value = "";
-    console.log(result);
     location.assign(
       encodeURI(
         //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
@@ -142,62 +162,59 @@ function pageSearchToSearchPage() {
       )
     );
   }
-}
+};
 
-
-
-//test
+//localSotrage TEST
 
 const now = new Date()
-const item = {
+const loginInfo = {
   value: 'true',
-  expired: now.getTime() 
-}
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(item))
+  expired: now.getTime()  +3600000
+};
+//localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
 
+const itemStr = localStorage.getItem('loginStatuswithExpired');
+const item = JSON.parse(itemStr);
 
-window.addEventListener("load", () =>
-{
+function islogin(){
   
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
   console.log((new Date().getTime()/1000),'now');
   console.log((item.expired/1000),'token');
-  if(item.value === "true" && new Date().getTime() < item.expired){
-  console.log('已登入');
-     }else{
-      console.log('請重新登入');
+  
+   if(new Date().getTime() > item.expired){
+    setTimeout(() => {
+      const item2 = {
+        value: 'false',
+        expired: item.expired
+      }
+         localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+     }, 6000)
+     console.log('請重新登入');
+     console.log(item.value);
+     }else{       
+
+      console.log('已登入');
+      goodBookCheckForDisplay(item.value);
+      GoodcommentCheckForDisplay(item.value);
+      console.log(item.value);
      }
-});
+};
 
 
-/*
-setTimeout(() => {
-  const itemStr = localStorage.getItem('loginStatuswithExpired')
-  const item = JSON.parse(itemStr)
-  if (new Date().getTime() > item.expired) {
-    localStorage.removeItem('loginStatuswithExpired')
-    console.log(localStorage.getItem('loginStatuswithExpired')) // null
-  }
-}, 6000)
-*/
-
-//聆聽收藏書籍
 
 const newvalueNum = Number(newvalue);
 let bookLocal = localStorage.getItem("bookId");
 let bookLSdata = JSON.parse(bookLocal);
+
+//聆聽收藏書籍
+
 bookHeart.addEventListener("click", goodBookListener);
 
 function goodBookListener(e) {
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-  if(item.value === 'true'){
-    alert('請先登入唷~~');
-    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+  if(item.value == 'false'){
+    alert('請先登入唷~\n將跳轉至登入頁面!!!');
     return;
   }
-  console.log(bookLSdata);
   if (bookLSdata === null) {
     localStorage.setItem("bookId", JSON.stringify([]));
     return;
@@ -213,39 +230,34 @@ function goodBookListener(e) {
     e.target.setAttribute("src", "./assets/images/heart-full.svg");
     alert('收藏成功!!');
   }
-}
+};
 
-//判斷是否收藏書籍
+//判斷是否收藏書籍 & 渲染收藏書籍
 
-window.addEventListener("load", goodBookCheckForDisplay);
+//window.addEventListener("load", goodBookCheckForDisplay);
 
-function goodBookCheckForDisplay() {
-  let bookLSdata = JSON.parse(bookLocal);
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true'){
+function goodBookCheckForDisplay(){
+  let bookLocaldata = JSON.parse(bookLocal);
+  if(arguments[0] == false){
     return;
   }
 
-  if (bookLSdata.includes(newvalueNum)) {
+  if (bookLocaldata.includes(newvalueNum)) {
     bookHeart.setAttribute("src", "./assets/images/heart-full.svg")
   } else {
     bookHeart.setAttribute("src", "./assets/images/heart.svg");
   }
-}
+};
 
 //判斷是否按讚留言
 
-let goodComment = [];
 
-let heartLocal = localStorage.getItem("heartId");
 
+/*
 function GoodcommentData(id, index) {
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true'){
+
+  console.log(arguments);
+   if(arguments[0] == false){
     return;
   }
   let test = JSON.parse(heartLocal);
@@ -256,16 +268,36 @@ function GoodcommentData(id, index) {
     goodComment.push(index);
   }
 }
+*/
 
-//渲染留言按讚
+//判斷是否按讚留言 & 渲染留言按讚
+
+let heartLocal = localStorage.getItem("heartId");
 
 function GoodcommentCheckForDisplay() {
   const commentHeart = document.querySelectorAll(".commentheart");
-  goodComment.forEach((item) => {
-    commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
-  });
-  goodComment = [];
-}
+  const CommentGoodLocaldata = JSON.parse(heartLocal);
+  const newCommentGoodLocaldata = CommentGoodLocaldata.sort();
+  const commentArry = [];
+  const goodCommentArry = [];
+
+  if(arguments[0] == false){
+    return;
+  }
+
+  for(let i = 0; i < commentHeart.length; i++){
+    commentArry.push(Number(commentHeart[i].dataset.heartid));
+  }
+
+  commentArry.forEach((item,index) => {
+    if(newCommentGoodLocaldata.indexOf(item) !== -1){
+      goodCommentArry.push(index);
+    }
+  })
+    goodCommentArry.forEach((item) => {
+      commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
+    });
+};
 
 //聆聽按讚
 
@@ -277,11 +309,9 @@ let heartLocalData = JSON.parse(heartLocal);
 function Goodcommentlistener(e) {
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
-  const itemStr = localStorage.getItem('loginStatuswithExpired');
-  const item = JSON.parse(itemStr);
-   
-   if(item.value === 'true' && isNaN(value) === false ){
-    alert('請先登入唷~~');
+
+   if(item.value == 'false' && isNaN(value) === false ){
+    alert('請先登入唷~\n將跳轉至登入頁面!!!');
     location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
     return;
   }
@@ -301,6 +331,121 @@ function Goodcommentlistener(e) {
       e.target.setAttribute("src", "./assets/images/thumb_up_alt.svg");
       alert('留言按讚成功!!');
     }
+  };
+
+
+//聆聽留言功能
+//localStorage.setItem("loginUserId",1);
+const pagesEvaluateForm = document.querySelector(".pagesEvaluateForm");
+
+pagesEvaluateForm.addEventListener("submit",submitCommentForm);
+
+//Validate.JS 驗證格式
+let constraints = {
+  name: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  },
+  content: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  },
+  score: {
+    presence: {
+      message: "必填"
+    } , 
+    length: {
+      minimum: 3,
+      message: "must be at least 6 characters"
+    }
+  }
+};
+
+ function submitCommentForm(e) {
+      e.preventDefault();
+      const commenterName = document.querySelector('.name').value;
+      const commentContent = document.querySelector('.content').value;
+      const commentScore = document.querySelector('.score').value;
+      const commentUserId = localStorage.getItem("loginUserId");
+      
+      let result = validate(pagesEvaluateForm, constraints);
+      cleanMessage();
+      console.log(result);
+      if(result){
+        let message;
+        let nameList = Object.keys(result);
+        console.log(nameList);
+        nameList.forEach((item) => {
+          message = document.querySelector(`.${item}-message`);
+          message.innerHTML = result[item];
+        });
+      
+      }else{
+      
+      let modalContent = `
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-primary">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">評分完成</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body text-center">
+                                <form id="myForm"">
+                                  <label for="name">名字：${commenterName}</label>                        
+                                 <label for="content">內容：${commentContent}</label>                           
+                                  <label for="score">分數：${commentScore}</label>  
+                                </form>
+                              </div>                           
+                            </div>
+                          </div>
+                        `
+  
+      setTimeout(() => {
+        document.getElementById('exampleModal').innerHTML = modalContent;
+      }, 500);
+      addCommentApi(commentUserId,commenterName,commentContent,commentScore);
+      setTimeout(() =>{
+        PagebookApi(newvalue);
+      },1000)
+      
+     }
   }
 
-
+//清除驗證訊息 
+function cleanMessage() {
+    let message = document.querySelectorAll('.span-message')
+    message.forEach((message) => {
+      message.innerHTML=''
+    });
+  }  
+  
+function addCommentApi(id,name,content,score) {
+      axios.post('https://demo-9j6o.onrender.com/comments',{
+             "userId" : Number(id),
+             "bookId" : Number(newvalue),
+             "commenter": name,
+             "textContent" : content,
+             "score" : score,
+             "like" : 0
+      })
+   
+      .then(function(response){
+         console.log(response);
+    
+      })  
+      .catch(function(error){
+          console.log(error);
+     
+     });
+     }
+   

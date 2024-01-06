@@ -10140,9 +10140,11 @@ margin & padding
   color: #A0A0A0;
 }
 
-.longin-main a {
-  color: #FDF9E6;
+/*margin & padding*/
+.mb-14 {
+  margin-bottom: 14px;
 }
+
 .longin-main .header {
   padding: 32px 80px;
 }
@@ -10158,7 +10160,7 @@ margin & padding
   }
 }
 .longin-hover-btn:hover {
-  font-weight: 1;
+  font-weight: 700;
 }
 
 .turn {
@@ -10270,9 +10272,24 @@ margin & padding
   background-color: #FFFEF6;
 }
 
+.pagesEvaluate {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.pagesEvaluateInput {
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+.name-message, .content-message, .score-message {
+  display: block;
+  color: red;
+}
+
 /*圖片區*/
 .logo {
-  background-image: url(../../images/LogoSize=lg.svg);
+  background-image: url("../../images/LogoSize=lg.svg");
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
@@ -10281,7 +10298,7 @@ margin & padding
 }
 @media (max-width: 576px) {
   .logo {
-    background-image: url(../../images/LogoSize=sm.svg);
+    background-image: url("../../images/LogoSize=sm.svg");
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
@@ -10293,7 +10310,7 @@ margin & padding
 .searchImg {
   width: 10%;
   min-width: 20px;
-  background-image: url(../../images/search.svg);
+  background-image: url("../../images/search.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fff;
@@ -10303,11 +10320,11 @@ margin & padding
 }
 .searchImg:active {
   border-radius: 100px;
-  background-image: url(../../images/search_active.svg);
+  background-image: url("../../images/search_active.svg");
 }
 
 .switchCommitLeft {
-  background-image: url(../../images/arrow_left.svg);
+  background-image: url("../../images/arrow_left.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 30px;
@@ -10317,12 +10334,12 @@ margin & padding
 }
 .switchCommitLeft:active, .switchCommitLeft:hover {
   border: 1px solid #E78C52;
-  background-image: url(../../images/arrow_left_hover.svg);
+  background-image: url("../../images/arrow_left_hover.svg");
   transform: scale(1.1);
 }
 
 .switchCommitRight {
-  background-image: url(../../images/arrow_right.svg);
+  background-image: url("../../images/arrow_right.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 30px;
@@ -10332,17 +10349,17 @@ margin & padding
 }
 .switchCommitRight:active, .switchCommitRight:hover {
   border: 1px solid #E78C52;
-  background-image: url(../../images/arrow_right_hover.svg);
+  background-image: url("../../images/arrow_right_hover.svg");
   transform: scale(1.1);
 }
 
 .userCenter {
-  background-image: url(../../images/account_circle_black_24dp.svg);
+  background-image: url("../../images/account_circle_black_24dp.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 .userCenter:hover {
-  background-image: url(../../images/account_circle_hover_24dp.svg);
+  background-image: url("../../images/account_circle_hover_24dp.svg");
 }
 
 /*button*/
@@ -10422,10 +10439,19 @@ margin & padding
   background-color: #FFF0D4;
 }
 
+.card-img-top:hover {
+  transform: scale(1.05);
+  transition: all 0.1s linear 0s;
+}
+.card-img-top:active {
+  transform: scale(1.1);
+  transition: all 0.1s linear 0s;
+}
+
 /*圖片區*/
 .searchPageImg {
   width: 5%;
-  background-image: url("../../images/search.png");
+  background-image: url("../../images/search.svg");
   background-repeat: no-repeat;
   background-position: right;
   background-color: #fff;
@@ -10438,12 +10464,12 @@ margin & padding
 }
 
 .userCenter {
-  background-image: url(../../images/account_circle_black_24dp.svg);
+  background-image: url("../../images/account_circle_black_24dp.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 .userCenter:hover {
-  background-image: url(../../images/account_circle_hover_24dp.svg);
+  background-image: url("../../images/account_circle_hover_24dp.svg");
 }
 
 /*a*/

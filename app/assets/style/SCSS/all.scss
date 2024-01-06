@@ -1,7 +1,7 @@
 @import "./bootstrap/functions";
 @import "./helpers/variables";
 @import "./helpers/utilities-bs5";
-@import "./bootstrap/bootstrap.scss";
+@import "./bootstrap/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
 
@@ -9,5 +9,5 @@
 @import "./helpers/utilities";
 
 @import "./layout/login";
-@import "./pages";
-@import "./search";
+@import "./layout/pages";
+@import "./layout/search";

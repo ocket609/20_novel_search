@@ -223,8 +223,8 @@ li{list-style-type: none;}
 
 .share{
     position: absolute;
-    top: 380px;
-    left: 250px;
+    top: 370px;
+    left: 240px;
 }
 
 
@@ -268,8 +268,8 @@ li{list-style-type: none;}
 
 .bookshare{
     position: absolute;
-    top: 250px;
-    left: 167px;
+    top: 240px;
+    left: 150px;
 }
 
 .bookshare li{
@@ -329,6 +329,11 @@ li{list-style-type: none;}
     margin: 8px 16px 16px 16px;
 }
 
+.menuCollapse{
+    padding-top: 24px;
+}
+
+
 @media (max-width: 767px) {  
     .nav-link{
         text-align: center;
@@ -353,8 +358,44 @@ li{list-style-type: none;}
        flex-direction: column;
     }
 
+    .link{
+        width: 90%;
+        height: 1px;
+        border-top: solid #E0E0E0 1px;
     }
 
+    .menuCollapse{
+        padding-top: 0px;
+    }
+
+    .language{
+        display: flex;
+        justify-content: end;
+    }
+
+    /* 重新排列元素的順序 */
+    /* .language{ */
+        /* order: 2;    */
+    /* } */
+}
+
+
+     /* 媒體查詢，當視窗寬度大於中等（md）尺寸時 */
+    @media (min-width: 768px) {
+    /* 取消折疊效果 */
+    .collapse {
+      display: block !important;
+      visibility: visible;
+      height: auto;
+      overflow: visible;
+    }
+    .bi{
+        display: none;
+    }
+    .socialMenu{
+        display: none;
+    }
+    }
 
     .Footer{
         background-color: #FDF9E6;
@@ -391,4 +432,22 @@ li{list-style-type: none;}
     body{
         width: 100vw;
        overflow: hidden;
+    }
+
+    .pagesIcon .likeIcon {
+        background-color: #fff;
+        border-radius: 100px;
+        border: 2px solid #fff;
+      }
+      .pagesIcon:hover {
+        border-radius: 100px;
+        border: 2px solid rgb(231, 140, 82);
+      }
+
+
+      /* 填滿愛心 */
+    .likeIcon:hover {
+    content: url('../img/filledHeart.png');
+    border-radius: 100px;
+    border: 2px solid rgb(231, 140, 82);
     }

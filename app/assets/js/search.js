@@ -3,9 +3,10 @@ let data = [];
 
 //預載入
 
-searchPageApi();
+window.addEventListener("load",searchPageApi);
 
 //Search Area
+const pageArea = document.querySelector(".searchDiv");
 const searchPageSearch = document.querySelector(".search");
 const searchPageSearchImg = document.querySelector(".searchImg");
 
@@ -14,13 +15,23 @@ const selectArea = document.querySelector(".selectArea");
 const searchPageSelectCategory = document.querySelector(".selectCategory");
 const searchPageSelectStar = document.querySelector(".selectStar");
 
-//addEventListener
-searchPageSearchImg.addEventListener("click", function () {
-  searchRender(searchPageSearch.value, data);
+//Search addEventListener
+pageArea.addEventListener("keyup", function(e){
+    if(e.key === 'Enter'){
+      location.search = `result=${searchPageSearch.value}`;
+    }else{
+      return;
+    }
 });
+
+searchPageSearchImg.addEventListener("click", function () {
+  location.search = `result=${searchPageSearch.value}`;
+});
+
 selectArea.addEventListener("change", selectRender);
 
 //searchPageApi
+
 
 function searchPageApi() {
   axios
@@ -40,6 +51,7 @@ const bookListArea = document.querySelector(".bookList");
 
 function searchPageRender(bookAllData) {
   let str = "";
+  console.log('faaa');
   if (bookAllData.length === 0) {
     alert("無法搜尋到相關書籍");
     return;
@@ -59,26 +71,16 @@ function searchPageRender(bookAllData) {
                </div> 
             </div>
         </div> `;
-      GoodBookData(item.id, index);
     });
   }
   bookListArea.innerHTML = str;
-  GoodBookCheckForDisplay();
+  //GoodBookCheckForDisplay();
+  islogin();
 }
 
 //search render
 
-function searchlistener() {}
-
 function searchRender(r, data) {
-  location.search = `result=${r}`;
-  let newData = data.filter((item) => item.bookName.includes(r));
-  searchPageRender(newData);
-  searchPageSelectCategory.options[0].selected = true;
-  searchPageSelectStar.options[0].selected = true;
-}
-
-function searchRenderfromPage(r, data) {
   let newData = data.filter((item) => item.bookName.includes(r));
   searchPageRender(newData);
   searchPageSelectCategory.options[0].selected = true;
@@ -142,6 +144,8 @@ let value = window.location.search;
 const newvalue = decodeURI(value.split("=")[1]);
 //帶入SearchResult
 
+
+
 function searchResult(data) {
   if (newvalue === "undefined") {
     return;
@@ -157,7 +161,7 @@ function searchResult(data) {
     selectRenderFromHome(newvalue);
   } else {
     searchPageSearch.value = newvalue;
-    searchRenderfromPage(newvalue, data);
+    searchRender(newvalue, data);
   }
 }
 
@@ -179,11 +183,47 @@ function getBookId(e) {
   }
 }
 
-//判斷是否收藏書籍
 
+//test
+
+const now = new Date()
+const item2 = {
+  value: 'true',
+  expired: now.getTime()  +3600000
+}
+localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+
+
+const itemStr = localStorage.getItem('loginStatuswithExpired');
+const item = JSON.parse(itemStr);
+
+function islogin(){
+  
+  console.log((new Date().getTime()/1000),'now');
+  console.log((item.expired/1000),'token');
+  if(new Date().getTime() > item.expired){
+    setTimeout(() => {
+      const item2 = {
+        value: 'false',
+        expired: item.expired
+      }
+         localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
+     }, 6000)
+     console.log('請重新登入');
+     console.log(item.value);
+     }else{       
+
+      console.log('已登入');
+      GoodBookCheckForDisplay(item.value);
+      console.log(item.value);
+     }
+};
+
+//判斷是否收藏書籍
+/*
 let goodBook = [];
 
-let bookLocal = localStorage.getItem("bookId");
+
 
 function GoodBookData(id, index) {
   let bookLocalData = JSON.parse(bookLocal);
@@ -194,15 +234,35 @@ function GoodBookData(id, index) {
     goodBook.push(index);
   }
 }
+*/
 
-//渲染書籍收藏
+let bookLocal = localStorage.getItem("bookId");
+
+//判斷是否收藏書籍 & 渲染書籍收藏
 
 function GoodBookCheckForDisplay() {
   const bookHeart = document.querySelectorAll(".bookHeart");
-  goodBook.forEach((item) => {
+  const bookLocalData = JSON.parse(bookLocal);
+  const newBookLocalData = bookLocalData.sort();
+  const bookArry = [];
+  const goodBookArry = [];
+
+  if(arguments[0] == false){
+    return;
+  }
+
+  for(let i = 0; i < bookHeart.length; i++){
+        bookArry.push(Number(bookHeart[i].dataset.bookheartid))
+  }
+
+  bookArry.forEach((item,index) => {
+         if(newBookLocalData.indexOf(item) !== -1){
+          goodBookArry.push(index);
+         }
+  })
+  goodBookArry.forEach((item) => {
     bookHeart[item].setAttribute("src", "./assets/images/heart-full.svg");
   });
-  goodBook = [];
 }
 
 //聆聽收藏
@@ -215,6 +275,12 @@ function GoodBooklistener(e) {
   
   let value = e.target.dataset.bookheartid;
   let numValue = Number(value);
+  
+  if(item.value == 'false' && isNaN(value) === false ) {
+    alert('請先登入唷~\n將跳轉至登入頁面!!!');
+    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+    return;
+  }
 
   if (value === null || value === NaN || value === undefined) {
     return;
