@@ -62,13 +62,19 @@ getSignUp_btn.addEventListener("click", (e) => {
 
     userData.forEach((item) => {
         if(signupEmail === item.email) {
-            alert("信箱已註冊過囉！");
+            Swal.fire({
+                icon: "error",
+                title: "信箱已註冊過囉！"
+            });
         }
     });
     if(signupPasswordAgain !== signupPassword) {
-        alert("請確認密碼2次輸入是否正確！");
-        //暫時先用，有時間再換成有設計的alert
-    }
+        Swal.fire({
+            icon: "error",
+            title: "請確認密碼2次輸入是否正確！"
+        });
+        return; //中斷，不中斷會繼續往下跑註冊成功
+    };
 
     //let checkVaule = validate(signup, constraints);
     validate(signup, constraints);
@@ -158,6 +164,14 @@ function login(longinEmail, longinPassword) {
             localStorage.setItem("loginToken",token);
             console.log(token);
 
+            // 用來判斷是否登入
+            const now = new Date();
+            const loginInfo = {
+                value: 'true',
+                expired: now.getTime()  +3600000
+            };
+            localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
+
             // 清空
             document.querySelector("#longinEmail").value = "";
             document.querySelector("#longinPassword").value = "";
@@ -168,6 +182,19 @@ function login(longinEmail, longinPassword) {
         })
         .catch((error) => {
             console.log(error.response);
+            console.log(error.response["data"]); //取到網頁console error data 訊息，用來比對判斷
+            if(error.response["data"] == "Cannot find user") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Email 尚未註冊"
+                });
+            } else if (error.response["data"] == "Incorrect password") {
+                Swal.fire({
+                    icon: "error",
+                    title: "密碼輸入錯誤",
+                    text: "請再次嘗試！"
+                });
+            }
         })
 };
 
@@ -177,7 +204,11 @@ getReset_btn.addEventListener("click", (e) => {
     const resetPassword = document.querySelector("#resetPassword").value;
     const resetPasswordAgain = document.querySelector("#resetPasswordAgain").value;
     if(resetPassword !== resetPasswordAgain) {
-        alert("請確認密碼2次輸入是否正確！");
+        Swal.fire({
+            icon: "error",
+            title: "請確認密碼2次輸入是否正確！"
+        });
+        return;
     }
     updatePassword(resetPassword);
 });
@@ -194,7 +225,7 @@ function updatePassword(resetPassword) {
         .then((response) => {
             console.log(response.data);
             token = response.data.accessToken;
-            alert("密碼重新設定完成");
+            Swal.fire("密碼重新設定完成");
             //跳出密碼修改完成alert，點擊確認後轉跳登入頁面
             // 清空
             document.querySelector("#resetPassword").value = "";
