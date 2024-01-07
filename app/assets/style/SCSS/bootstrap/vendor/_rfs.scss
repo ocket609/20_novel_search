@@ -1,3 +1,4 @@
+@use "sass:math";
 // stylelint-disable property-blacklist, scss/dollar-variable-default
 
 // SCSS RFS mixin
@@ -9,6 +10,7 @@
 // Configuration
 
 // Base value
+
 $rfs-base-value: 1.25rem !default;
 $rfs-unit: rem !default;
 
