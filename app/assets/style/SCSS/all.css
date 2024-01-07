@@ -10412,31 +10412,31 @@ margin & padding
 }
 
 .selectCategory:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectCategory:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectCategory option:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectCategory option:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectStar:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectStar:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectStar option:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectStar option:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .card-img-top:hover {
@@ -10478,14 +10478,40 @@ margin & padding
 }
 .mulitPageLink.active, .mulitPageLink:hover {
   background-color: rgba(231, 140, 82, 0.2);
-  color: #E78C52;
+  color: #e78c52;
 }
 .mulitPageLink:focus {
-  color: #E78C52;
+  color: #e78c52;
   background-color: rgba(231, 140, 82, 0.2);
 }
 
 .book {
   width: 80%;
   height: 50%;
+}
+
+/*pagination*/
+.page-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.page-item:hover {
+  font-weight: bold;
+}
+
+.page-number-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.page-number-item:hover {
+  background: rgba(231, 139, 82, 0.4117647059);
+  font-weight: bold;
+}
+.page-number-item.active {
+  background: #e78c52;
+  font-weight: bold;
 }

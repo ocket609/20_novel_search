@@ -1,116 +1,137 @@
-
 /*adjust*/
 
-.searchPageDiv{
-    height: auto;
-    width: 50%;
-    min-width: 120px;
-    margin: auto;
-    border:1px solid #E78C5233;
-    &:hover{
-        border:1px solid #E78C52CC;
-    };
+.searchPageDiv {
+  height: auto;
+  width: 50%;
+  min-width: 120px;
+  margin: auto;
+  border: 1px solid #e78c5233;
+  &:hover {
+    border: 1px solid #e78c52cc;
+  }
 }
 
-.searchPage{
-    width: 95%;
-    border: 0;
-    outline: none;
+.searchPage {
+  width: 95%;
+  border: 0;
+  outline: none;
 }
 
-
-.selectCategory{
-    &:hover{
-        background-color: #F5F5F5;
-    }
-    &:active{
-        background-color: #FFF0D4;
-    }
+.selectCategory {
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &:active {
+    background-color: #fff0d4;
+  }
 }
 
-.selectCategory option{
-    &:hover{
-        background-color: #F5F5F5;
-    }
-    &:active{
-        background-color: #FFF0D4;
-    }
+.selectCategory option {
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &:active {
+    background-color: #fff0d4;
+  }
 }
 
-.selectStar{
-    &:hover{
-        background-color: #F5F5F5;
-    }
-    &:active{
-        background-color: #FFF0D4;
-    }
+.selectStar {
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &:active {
+    background-color: #fff0d4;
+  }
 }
 
-.selectStar option{
-    &:hover{
-        background-color: #F5F5F5;
-    }
-    &:active{
-        background-color: #FFF0D4;
-    }
+.selectStar option {
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &:active {
+    background-color: #fff0d4;
+  }
 }
 
-.card-img-top{
-    &:hover{
-        transform: scale(1.05);
-        transition:all 0.1s linear 0s ;
-    }
-    &:active{
-        transform: scale(1.1);
-        transition:all 0.1s linear 0s ;
-    }
+.card-img-top {
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.1s linear 0s;
+  }
+  &:active {
+    transform: scale(1.1);
+    transition: all 0.1s linear 0s;
+  }
 }
 
 /*圖片區*/
 
-
-.searchPageImg{
-    width: 5%;
-    background-image: url('../../images/search.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-color: #fff;
-    background-size: 90% 65%;
-    border: 0;
-    &:hover{
-        box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
-        transform: scale(1.1);
-    }
+.searchPageImg {
+  width: 5%;
+  background-image: url("../../images/search.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #fff;
+  background-size: 90% 65%;
+  border: 0;
+  &:hover {
+    box-shadow: 2px 2px rgba(231, 140, 82, 0.5);
+    transform: scale(1.1);
+  }
 }
 
-.userCenter{
-    background-image: url('../../images/account_circle_black_24dp.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    &:hover{
-        background-image: url('../../images/account_circle_hover_24dp.svg');
-    } 
- }
-
+.userCenter {
+  background-image: url("../../images/account_circle_black_24dp.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  &:hover {
+    background-image: url("../../images/account_circle_hover_24dp.svg");
+  }
+}
 
 /*a*/
 
-
-.mulitPageLink{
-    color: #454545; 
-    &.active,
-    &:hover{  
-      background-color: #E78C5233;
-      color: #E78C52;
-    } 
-    &:focus {
-        color: #E78C52;
-        background-color: #E78C5233;
-      }
+.mulitPageLink {
+  color: #454545;
+  &.active,
+  &:hover {
+    background-color: #e78c5233;
+    color: #e78c52;
+  }
+  &:focus {
+    color: #e78c52;
+    background-color: #e78c5233;
+  }
 }
 
+.book {
+  width: 80%;
+  height: 50%;
+}
 
-.book{
-    width: 80%;
-    height: 50%;
+/*pagination*/
+
+.page-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.page-number-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  &:hover {
+    background: #e78b5269;
+    font-weight: bold;
+  }
+  &.active {
+    background: #e78c52;
+    font-weight: bold;
+  }
 }

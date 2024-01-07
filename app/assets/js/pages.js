@@ -1,16 +1,17 @@
-const booksGet = "http://localhost:3000/books";
-const commentGet = "http://localhost:3000/books?_expand=comment";
+const booksGet = "https://demo-9j6o.onrender.com/books";
 
-let data = [];
+//API檔案
+
+let data;
 
 //接收bookId
 
 const value = window.location.search;
 const newvalue = value.split("=")[1];
+
 //帶入bookId
 
-window.addEventListener("load",PagebookApi(newvalue));
-
+window.addEventListener("load", PagebookApi(newvalue));
 
 //PagesBooksApi
 
@@ -27,14 +28,25 @@ function PagebookApi(p) {
     })
     .catch(function (error) {
       console.log(error);
-      if(newvalue === '' || error.response.status === 404){
-         document.querySelector(".bookSection");
-         pagesbody.innerHTML = ``;
-         window.setTimeout("alert('無效連結，將導向回首頁')", 50);
-         setTimeout("location.href='/'", 500);      
+      if (newvalue === "" || error.response.status === 404) {
+        document.querySelector(".bookSection");
+        pagesbody.innerHTML = ``;
+        window.setTimeout("alert('無效連結，將導向回首頁')", 50);
+        setTimeout("location.href='/'", 500);
       }
     });
-};
+}
+
+//Search Area
+
+const pageArea = document.querySelector(".searchDiv");
+const SearchBar = document.querySelector(".search");
+const SearchButton = document.querySelector(".searchImg");
+
+//Search addEventListener
+
+SearchButton.addEventListener("click", searchKeyWord);
+pageArea.addEventListener("keyup", searchKeyWordByEnter);
 
 //PagesRender
 const book = document.querySelector(".bookSection");
@@ -93,7 +105,7 @@ function pageRender(bookData) {
            <p class="p-4 lh-lg">${bookData.description}</p>
            `;
   }
-};
+}
 
 //PagesCommentRender
 
@@ -106,7 +118,7 @@ function PageCommentRender(commentAllData) {
   if (commentAllData.comments.length === 0) {
     commentArea.innerHTML = `<h2 class="text-center mb-5">無任何留言</h2>`;
   } else {
-    commentAllData.comments.forEach((item, index) => {
+    commentAllData.comments.forEach((item) => {
       str += `
           <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
           role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
@@ -126,93 +138,80 @@ function PageCommentRender(commentAllData) {
        </div>       
     </swiper-slide>
           `;
-      //GoodcommentData(item.id, index);
     });
   }
   commentListArea.innerHTML = str;
-  //GoodcommentCheckForDisplay();
   islogin();
-};
+}
+
+//登入判斷
+
+const itemStr = localStorage.getItem("loginStatuswithExpired");
+const item = JSON.parse(itemStr);
+
+function islogin() {
+  console.log(new Date().getTime() / 1000, "now");
+  console.log(item.expired / 1000, "token");
+
+  if (new Date().getTime() > item.expired) {
+    setTimeout(() => {
+      const item2 = {
+        value: "false",
+        expired: item.expired,
+      };
+      localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
+    }, 6000);
+    console.log("請重新登入");
+    console.log(item.value);
+  } else {
+    console.log("已登入");
+    goodBookCheckForDisplay(item.value);
+    GoodcommentCheckForDisplay(item.value);
+    console.log(item.value);
+  }
+}
+
 
 //move to Search.html
 
-const pageArea = document.querySelector(".searchDiv");
-const pageSearch = document.querySelector(".search");
-const pageSearchImg = document.querySelector(".searchImg");
+function searchKeyWordByEnter(e) {
+  if (e.key === "Enter") {
+    searchKeyWord();
+  }
+}
 
-pageSearchImg.addEventListener("click", pageSearchToSearchPage);
-pageArea.addEventListener("keyup", function(e){
-    if(e.key === 'Enter'){
-      pageSearchToSearchPage();
-    }else{
-      return;
-    }
-});
-
-function pageSearchToSearchPage() {
-  if (pageSearch.value === undefined || pageSearch.value === "") {
+function searchKeyWord() {
+  if (SearchBar.value === "") {
+    alert("請輸入搜尋內容");
+    return;
+  }
+  if (SearchBar.value === undefined || SearchBar.value === "") {
     return;
   } else {
-    let result = pageSearch.value;
-    pageSearch.value = "";
+    let result = SearchBar.value;
+    SearchBar.value = "";
     location.assign(
       encodeURI(
-        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
-        `http://127.0.0.1:5501/app/search.html?result=${result}`
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
       )
     );
   }
-};
-
-//localSotrage TEST
-
-const now = new Date()
-const loginInfo = {
-  value: 'true',
-  expired: now.getTime()  +3600000
-};
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
-
-const itemStr = localStorage.getItem('loginStatuswithExpired');
-const item = JSON.parse(itemStr);
-
-function islogin(){
-  
-  console.log((new Date().getTime()/1000),'now');
-  console.log((item.expired/1000),'token');
-  
-   if(new Date().getTime() > item.expired){
-    setTimeout(() => {
-      const item2 = {
-        value: 'false',
-        expired: item.expired
-      }
-         localStorage.setItem('loginStatuswithExpired', JSON.stringify(item2))
-     }, 6000)
-     console.log('請重新登入');
-     console.log(item.value);
-     }else{       
-
-      console.log('已登入');
-      goodBookCheckForDisplay(item.value);
-      GoodcommentCheckForDisplay(item.value);
-      console.log(item.value);
-     }
-};
+}
 
 
+
+
+//聆聽收藏書籍
 
 const newvalueNum = Number(newvalue);
 let bookLocal = localStorage.getItem("bookId");
 let bookLSdata = JSON.parse(bookLocal);
 
-//聆聽收藏書籍
-
 bookHeart.addEventListener("click", goodBookListener);
 
 function goodBookListener(e) {
-  if(item.value == 'false'){
-    alert('請先登入唷~\n將跳轉至登入頁面!!!');
+  if (item.value == "false") {
+    alert("請先登入唷~\n將跳轉至登入頁面!!!");
     return;
   }
   if (bookLSdata === null) {
@@ -223,52 +222,29 @@ function goodBookListener(e) {
     bookLSdata.splice(index, 1);
     localStorage.setItem("bookId", JSON.stringify(bookLSdata));
     e.target.setAttribute("src", "./assets/images/heart.svg");
-    alert('收藏已取消!!');
+    alert("收藏已取消!!");
   } else {
     bookLSdata.push(newvalueNum);
     localStorage.setItem("bookId", JSON.stringify(bookLSdata));
     e.target.setAttribute("src", "./assets/images/heart-full.svg");
-    alert('收藏成功!!');
+    alert("收藏成功!!");
   }
-};
+}
 
 //判斷是否收藏書籍 & 渲染收藏書籍
 
-//window.addEventListener("load", goodBookCheckForDisplay);
-
-function goodBookCheckForDisplay(){
+function goodBookCheckForDisplay() {
   let bookLocaldata = JSON.parse(bookLocal);
-  if(arguments[0] == false){
+  if (arguments[0] == false) {
     return;
   }
 
   if (bookLocaldata.includes(newvalueNum)) {
-    bookHeart.setAttribute("src", "./assets/images/heart-full.svg")
+    bookHeart.setAttribute("src", "./assets/images/heart-full.svg");
   } else {
     bookHeart.setAttribute("src", "./assets/images/heart.svg");
   }
-};
-
-//判斷是否按讚留言
-
-
-
-/*
-function GoodcommentData(id, index) {
-
-  console.log(arguments);
-   if(arguments[0] == false){
-    return;
-  }
-  let test = JSON.parse(heartLocal);
-  if (test === null) {
-    localStorage.setItem("heartId", JSON.stringify([]));
-    return;
-  } else if (test.indexOf(id) !== -1) {
-    goodComment.push(index);
-  }
 }
-*/
 
 //判斷是否按讚留言 & 渲染留言按讚
 
@@ -281,23 +257,23 @@ function GoodcommentCheckForDisplay() {
   const commentArry = [];
   const goodCommentArry = [];
 
-  if(arguments[0] == false){
+  if (arguments[0] == false) {
     return;
   }
 
-  for(let i = 0; i < commentHeart.length; i++){
+  for (let i = 0; i < commentHeart.length; i++) {
     commentArry.push(Number(commentHeart[i].dataset.heartid));
   }
 
-  commentArry.forEach((item,index) => {
-    if(newCommentGoodLocaldata.indexOf(item) !== -1){
+  commentArry.forEach((item, index) => {
+    if (newCommentGoodLocaldata.indexOf(item) !== -1) {
       goodCommentArry.push(index);
     }
-  })
-    goodCommentArry.forEach((item) => {
-      commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
-    });
-};
+  });
+  goodCommentArry.forEach((item) => {
+    commentHeart[item].setAttribute("src", "./assets/images/thumb_up_alt.svg");
+  });
+}
 
 //聆聽按讚
 
@@ -310,89 +286,87 @@ function Goodcommentlistener(e) {
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
 
-   if(item.value == 'false' && isNaN(value) === false ){
-    alert('請先登入唷~\n將跳轉至登入頁面!!!');
-    location.assign('https://ocket609.github.io/20_novel_search/app/longin.html');
+  if (item.value == "false" && isNaN(value) === false) {
+    alert("請先登入唷~\n將跳轉至登入頁面!!!");
+    location.assign(
+      "https://ocket609.github.io/20_novel_search/app/longin.html"
+    );
     return;
   }
 
   if (value === null || value === NaN || value === undefined) {
     return;
   } else if (heartLocalData.includes(numValue)) {
-
-      let index = heartLocalData.indexOf(numValue);
-      heartLocalData.splice(index, 1);
-      localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-      e.target.setAttribute("src", "./assets/images/thumb_up_off_alt.svg");
-      alert('留言按讚已取消!!');
-    } else {
-      heartLocalData.push(numValue);
-      localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-      e.target.setAttribute("src", "./assets/images/thumb_up_alt.svg");
-      alert('留言按讚成功!!');
-    }
-  };
-
+    let index = heartLocalData.indexOf(numValue);
+    heartLocalData.splice(index, 1);
+    localStorage.setItem("heartId", JSON.stringify(heartLocalData));
+    e.target.setAttribute("src", "./assets/images/thumb_up_off_alt.svg");
+    alert("留言按讚已取消!!");
+  } else {
+    heartLocalData.push(numValue);
+    localStorage.setItem("heartId", JSON.stringify(heartLocalData));
+    e.target.setAttribute("src", "./assets/images/thumb_up_alt.svg");
+    alert("留言按讚成功!!");
+  }
+}
 
 //聆聽留言功能
 //localStorage.setItem("loginUserId",1);
 const pagesEvaluateForm = document.querySelector(".pagesEvaluateForm");
 
-pagesEvaluateForm.addEventListener("submit",submitCommentForm);
+pagesEvaluateForm.addEventListener("submit", submitCommentForm);
 
 //Validate.JS 驗證格式
 let constraints = {
   name: {
     presence: {
-      message: "必填"
-    } , 
+      message: "必填",
+    },
     length: {
       minimum: 3,
-      message: "must be at least 6 characters"
-    }
+      message: "must be at least 6 characters",
+    },
   },
   content: {
     presence: {
-      message: "必填"
-    } , 
+      message: "必填",
+    },
     length: {
       minimum: 3,
-      message: "must be at least 6 characters"
-    }
+      message: "must be at least 6 characters",
+    },
   },
   score: {
     presence: {
-      message: "必填"
-    } , 
+      message: "必填",
+    },
     length: {
       minimum: 3,
-      message: "must be at least 6 characters"
-    }
-  }
+      message: "must be at least 6 characters",
+    },
+  },
 };
 
- function submitCommentForm(e) {
-      e.preventDefault();
-      const commenterName = document.querySelector('.name').value;
-      const commentContent = document.querySelector('.content').value;
-      const commentScore = document.querySelector('.score').value;
-      const commentUserId = localStorage.getItem("loginUserId");
-      
-      let result = validate(pagesEvaluateForm, constraints);
-      cleanMessage();
-      console.log(result);
-      if(result){
-        let message;
-        let nameList = Object.keys(result);
-        console.log(nameList);
-        nameList.forEach((item) => {
-          message = document.querySelector(`.${item}-message`);
-          message.innerHTML = result[item];
-        });
-      
-      }else{
-      
-      let modalContent = `
+function submitCommentForm(e) {
+  e.preventDefault();
+  const commenterName = document.querySelector(".name").value;
+  const commentContent = document.querySelector(".content").value;
+  const commentScore = document.querySelector(".score").value;
+  const commentUserId = localStorage.getItem("loginUserId");
+
+  let result = validate(pagesEvaluateForm, constraints);
+  cleanMessage();
+  console.log(result);
+  if (result) {
+    let message;
+    let nameList = Object.keys(result);
+    console.log(nameList);
+    nameList.forEach((item) => {
+      message = document.querySelector(`.${item}-message`);
+      message.innerHTML = result[item];
+    });
+  } else {
+    let modalContent = `
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content bg-primary">
                               <div class="modal-header">
@@ -408,44 +382,52 @@ let constraints = {
                               </div>                           
                             </div>
                           </div>
-                        `
-  
-      setTimeout(() => {
-        document.getElementById('exampleModal').innerHTML = modalContent;
-      }, 500);
-      addCommentApi(commentUserId,commenterName,commentContent,commentScore);
-      setTimeout(() =>{
-        PagebookApi(newvalue);
-      },1000)
-      
-     }
-  }
+                        `;
 
-//清除驗證訊息 
+    setTimeout(() => {
+      document.getElementById("exampleModal").innerHTML = modalContent;
+    }, 500);
+    addCommentApi(commentUserId, commenterName, commentContent, commentScore);
+    setTimeout(() => {
+      PagebookApi(newvalue);
+    }, 1000);
+  }
+}
+
+//清除驗證訊息
 function cleanMessage() {
-    let message = document.querySelectorAll('.span-message')
-    message.forEach((message) => {
-      message.innerHTML=''
+  let message = document.querySelectorAll(".span-message");
+  message.forEach((message) => {
+    message.innerHTML = "";
+  });
+}
+
+//送評分訊息至後端
+
+function addCommentApi(id, name, content, score) {
+  axios
+    .post("https://demo-9j6o.onrender.com/comments", {
+      userId: Number(id),
+      bookId: Number(newvalue),
+      commenter: name,
+      textContent: content,
+      score: score,
+      like: 0,
+    })
+
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-  }  
-  
-function addCommentApi(id,name,content,score) {
-      axios.post('https://demo-9j6o.onrender.com/comments',{
-             "userId" : Number(id),
-             "bookId" : Number(newvalue),
-             "commenter": name,
-             "textContent" : content,
-             "score" : score,
-             "like" : 0
-      })
-   
-      .then(function(response){
-         console.log(response);
-    
-      })  
-      .catch(function(error){
-          console.log(error);
-     
-     });
-     }
-   
+}
+
+//登入測試
+
+const now = new Date();
+const loginInfo = {
+  value: "true",
+  expired: now.getTime() + 3600000,
+};
+//localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
