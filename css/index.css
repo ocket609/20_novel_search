@@ -154,8 +154,14 @@ h6{
     border-left: 1px solid;
     border-top: none; 
     border-bottom: none ;
-    padding: 32px;
-    margin: 48px 0px;
+    padding: 30px;
+    margin: 40px 0px;
+}
+
+/* 書籍分類選單hover */
+.classification li:hover,
+.classification li:focus {
+  transform: translateY(-0.25em);
 }
 
 .addBorder{
