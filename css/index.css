@@ -457,3 +457,9 @@ li{list-style-type: none;}
     border-radius: 100px;
     border: 2px solid rgb(231, 140, 82);
     }
+
+    .thumbIcon:hover {
+        content: url('../img/filledThumb.png');
+        border-radius: 100px;
+        border: 2px solid rgb(231, 140, 82);
+        }
