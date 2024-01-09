@@ -164,3 +164,51 @@ function homeCateToSearchPage(e) {
     );
   }
 }
+
+// 讀者留言
+fetch('https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json')
+  .then(response => response.json())
+  .then(data => {
+    // 將取得的 JSON 資料傳遞給 PageCommentRender 函式進行渲染
+    PageCommentRender(data);
+  })
+  .catch(error => console.log('發生錯誤：', error));
+
+// PageCommentRender 函式用來渲染留言列表
+function PageCommentRender(commentAllData) {
+  let str = "";
+
+  if (commentAllData.comments.length === 0) {
+    str = `<h2 class="text-center mb-5">無任何留言</h2>`;
+  } else {
+    commentAllData.comments.forEach((item) => {
+      str += `
+          <div class="card bg-orange-300 position-relative mt-5">
+          <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
+          role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
+          <div  class="">
+           <img src="./assets/images/Avatar2.png" alt="book" style="" class="position-absolute top-0 start-50 translate-middle">
+           </div> 
+    <div class="card-body bg-white text-center mt-3"> 
+      <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
+      <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
+    </div>
+       <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
+          <div class="">${commentAllData.bookName}</div>
+          <div class="d-flex row cardIcon ms-2 align-items-center">
+            <div class="col-xl-6 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
+            <div class="col-xl-6 p-1">
+            <a class="ms-1" role="button"><img class="pagesIcon commentheart" src="./assets/images/thumb_up_off_alt.svg" alt="heart" data-heartid=${item.id}></a></div>
+           </div>  
+    </div>       
+ </swiper-slide>
+          <!-- ... -->
+        </div>
+      `;
+    });
+  }
+  
+  // 將動態生成的 HTML 元素插入到 commentListArea 容器中
+  const commentListArea = document.getElementById("commentListArea");
+  commentListArea.innerHTML = str;
+}
