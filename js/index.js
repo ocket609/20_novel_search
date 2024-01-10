@@ -63,16 +63,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
 
-    // 各類別小說前三名
+    // 各類別小說前5名
       const displayTopThreeBooksByTag = (tag, containerId) => {
       const books = data.books.filter((book) => book.tags.includes(tag));
-      const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 3);
+      const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 5);
 
       const container = document.getElementById(containerId);
 
       topThreeBooks.forEach((book) => {
         const card = document.createElement("div");
-        card.classList.add("col-12", "col-md-4", "bookImg");
+        card.classList.add("swiper-slide","col-12", "col-md-4", "bookImg");
 
         card.innerHTML = `
   	    <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
@@ -92,17 +92,17 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
     };
 
-    // 在指定容器中顯示Star分數前三名的各類型書籍
+    // 在指定容器中顯示Star分數前五名的各類型書籍
     displayTopThreeBooksByTag("奇幻．科幻", "fantasyBooks");
     displayTopThreeBooksByTag("歷史．武俠", "historyBooks");
     displayTopThreeBooksByTag("愛情．文藝", "loveBooks");
     displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
     displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
 
-    // 初始化 Swiper
+    //熱門小說排名swiper
     const swiper = new Swiper(".swiper-container", {
       pagination: {
-        el: ".swiper-pagination",
+        // el: ".swiper-pagination",
         clickable: true,
       },
       breakpoints: {
@@ -111,7 +111,30 @@ document.addEventListener("DOMContentLoaded", async function () {
           allowTouchMove: true,
         },
         360: {
-          slidesPerView: 1,
+          slidesPerView: 1.5,
+          allowTouchMove: true,
+        },
+      },
+    });
+
+    // 初始化各類型書籍Swiper
+    const swiperContainer = new Swiper(".swiperContainer", {
+      pagination: {
+        // el: ".swiper-pagination",
+        clickable: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // spaceBetween: 24, 
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 2.9,
+          allowTouchMove: true,
+        },
+        360: {
+          slidesPerView: 1.5,
           allowTouchMove: true,
         },
       },
