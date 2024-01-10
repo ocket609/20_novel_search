@@ -1,149 +1,152 @@
-//前五名熱門小說排名
-document.addEventListener("DOMContentLoaded", function () {
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json"
-      );
-      const data = await response.json();
-
-      // 獲取 books 數組並按 Star 值排序
-      const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
-      // 撈前五名
-      const topFiveBooks = sortedBooks.slice(0, 5);
-      // 找到用於顯示小說的容器
-      const topBooksContainer = document.getElementById("topBooksContainer");
-
-      // 創建書籍卡片
-      const createBookCard = (book, index) => {
-        const card = document.createElement("div");
-        card.classList.add(
-          "swiper-slide",
-          "col-12",
-          "col-md-4",
-          "bg-white",
-          "novelImg",
-          "my-3"
-        );
-
-        card.innerHTML = `
-          <div class="pic"><img src="${
-            book.img
-          }" alt="書" class="bookCover" data-id=${book.id}></div>
-          <div class="amount text-white" id="number">
-            <p class="py-1 px-3">no.</p>
-            <h5 class="py-1 px-3">${index + 1}</h5>
-          </div>
-          <ul class="share d-flex">
-            <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-            <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-            <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
-          </ul>
-          <h5 class="mt-2 mb-0">${book.bookName}</h5>
-          <div class="star">
-            <img src="./img/star.png" alt="star">
-            <p>${book.Star}</p>
-          </div>
-          <div class="col-12 d-flex justify-content-end">
-            <a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
-            class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
-          </div>
-          `;
-
-        topBooksContainer.appendChild(card);
-      };
-
-      // 渲染前五名書籍卡片
-      topFiveBooks.forEach((book, index) => {
-        createBookCard(book, index);
-      });
-
-      // 點擊事件監聽器指定給特定元素
-      topBooksContainer.addEventListener("click", (e) => {
-        if (e.target.dataset.id !== undefined) {
-          const pageId = e.target.dataset.id;
-          location.assign(
-            `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
-          );
-        }
-      });
-
-      // 初始化 Swiper
-      const swiper = new Swiper(".swiper-container", {
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            allowTouchMove: true,
-          },
-          360: {
-            slidesPerView: 1,
-            allowTouchMove: true,
-          },
-        },
-      });
-    } catch (error) {
-      console.log("發生錯誤：", error);
-    }
-  };
-
-  // 執行獲取資料的函數
-  fetchData();
-});
-
-//各類別小說前三名
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const baseUrl =
     "https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json";
 
-  // 函數用於顯示書籍資訊到特定容器，顯示Star分數前三名的書籍
-  function displayTopThreeBooksByTag(tag, containerId) {
-    fetch(baseUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const books = data.books.filter((book) => book.tags.includes(tag));
+  try {
+    const response = await fetch(baseUrl);
+    const data = await response.json();
 
-        // 將符合條件的書籍依照Star分數排序，並取前三名
-        const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 3);
+    // 前五名熱門小說排名
+    const sortedBooks = data.books.sort((a, b) => b.Star - a.Star);
+    const topFiveBooks = sortedBooks.slice(0, 5);
+    const topBooksContainer = document.getElementById("topBooksContainer");
 
-        const container = document.getElementById(containerId);
+    const createBookCard = (book, index) => {
+      const card = document.createElement("div");
+	    card.classList.add(
+ 	    "swiper-slide",
+ 	    "col-12",
+  	  "col-md-4",
+ 	    "bg-white",
+ 	    "novelImg",
+  	  "my-3"
+	  );
 
-        topThreeBooks.forEach((book) => {
-          const card = document.createElement("div");
-          card.classList.add("col-12", "col-md-4", "bookImg");
+       card.innerHTML = `
+   	    <div class="pic"><img src="${
+    	 book.img
+   	    }" alt="書" class="bookCover" data-id=${book.id}></div>
+  	    <div class="amount text-white" id="number">
+    	 <p class="py-1 px-3">no.</p>
+    	 <h5 class="py-1 px-3">${index + 1}</h5>
+   	    </div>
+   	  <ul class="share d-flex">
+    	 <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
+     	<li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
+    	</ul>
+   	  <h5 class="mt-2 mb-0">${book.bookName}</h5>
+   	  <div class="star">
+     	<img src="./img/star.png" alt="star">
+     	<p>${book.Star}</p>
+   	  </div>
+   	  <div class="col-12 d-flex justify-content-end">
+     	<a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
+     	class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
+   	  </div>
+   	  `;
 
-          card.innerHTML = `
-            <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
-            <ul class="bookshare d-flex">
-              <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
-              <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
-              <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
-            </ul>
-            <h5 class="mt-2 mb-0">${book.bookName}</h5>
-            <div class="star">
-              <img src="./img/star.png" alt="">
-              <p>${book.Star}</p>
-            </div>
-          `;
+      topBooksContainer.appendChild(card);
+    };
 
-          container.appendChild(card);
+    topFiveBooks.forEach((book, index) => {
+      createBookCard(book, index);
+    });
+
+    // 點擊事件監聽器指定給特定元素
+    topBooksContainer.addEventListener("click", (e) => {
+      if (e.target.dataset.id !== undefined) {
+        const pageId = e.target.dataset.id;
+        location.assign(
+          `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+        );
+      }
+    });
+
+    // 各類別小說前3名
+      const displayTopThreeBooksByTag = (tag, containerId) => {
+      const books = data.books.filter((book) => book.tags.includes(tag));
+      const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 5);
+
+      const container = document.getElementById(containerId);
+
+      topThreeBooks.forEach((book) => {
+        const card = document.createElement("div");
+        card.classList.add("swiper-slide","col-12", "col-md-4", "bookImg");
+
+        card.innerHTML = `
+  	    <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
+  	    <ul class="bookshare d-flex">
+    	  <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
+    	  <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
+ 	      </ul>
+  	    <h5 class="mt-2 mb-0">${book.bookName}</h5>
+  	    <div class="star">
+   	    <img src="./img/star.png" alt="">
+    	  <p>${book.Star}</p>
+  	    </div>
+     `;
+
+        container.appendChild(card);
+        
+        card.addEventListener("click", () => {
+          location.assign(`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${book.id}`);
         });
-      })
-      .catch((error) => {
-        console.log("發生錯誤：", error);
+        
       });
-  }
+    };
 
-  // 在指定容器中顯示Star分數前三名的各類型書籍
-  displayTopThreeBooksByTag("奇幻．科幻", "fantasyBooks");
-  displayTopThreeBooksByTag("歷史．武俠", "historyBooks");
-  displayTopThreeBooksByTag("愛情．文藝", "loveBooks");
-  displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
-  displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
+    // 在指定容器中顯示Star分數前五名的各類型書籍
+    displayTopThreeBooksByTag("奇幻．科幻", "fantasyBooks");
+    displayTopThreeBooksByTag("歷史．武俠", "historyBooks");
+    displayTopThreeBooksByTag("愛情．文藝", "loveBooks");
+    displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
+    displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
+
+    //熱門小說排名swiper
+    const swiper = new Swiper(".swiper-container", {
+      pagination: {
+        // el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 3,
+          allowTouchMove: true,
+        },
+        360: {
+          slidesPerView: 1.5,
+          allowTouchMove: true,
+        },
+      },
+    });
+
+    // 初始化各類型書籍Swiper
+    const swiperContainer = new Swiper(".swiperContainer", {
+      pagination: {
+        // el: ".swiper-pagination",
+        clickable: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // spaceBetween: 24, 
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 2.9,
+          allowTouchMove: true,
+        },
+        360: {
+          slidesPerView: 1.5,
+          allowTouchMove: true,
+        },
+      },
+    });
+  } catch (error) {
+    console.log("發生錯誤：", error);
+  }
 });
+
 
 AOS.init();
 
@@ -188,58 +191,50 @@ function homeCateToSearchPage(e) {
   }
 }
 
-//GPT寫的點愛心收藏邏輯還需要修改
-const likeIcon = document.querySelector('likeIcon');
-const likeImg = likeIcon.querySelector('img');
-const favoriteList = document.getElementById('favoriteList');
+// 讀者留言
+fetch('https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json')
+  .then(response => response.json())
+  .then(data => {
+    // 將取得的 JSON 資料傳遞給 PageCommentRender 函式進行渲染
+    PageCommentRender(data);
+  })
+  .catch(error => console.log('發生錯誤：', error));
 
-likeIcon.addEventListener('click', function(event) {
-  event.preventDefault();
+// PageCommentRender 函式用來渲染留言列表
+function PageCommentRender(commentAllData) {
+  let str = "";
 
-  // 更改圖示為填滿的愛心
-  likeImg.src = './img/filledHeart.png';
-
-  // 將內容加入收藏列表
-  const contentToFavorite = {
-    title: '您要收藏的內容標題',
-    url: '內容的URL' // 可能是該內容的鏈接或其他識別符
-    // 您可能想添加更多相關資訊以便稍後在收藏列表中顯示
-  };
-
-  // 檢查本地存儲中是否已經存在收藏列表，如果不存在，則初始化為一個空數組
-  let favorites = localStorage.getItem('favorites');
-  if (!favorites) {
-    favorites = [];
+  if (commentAllData.comments.length === 0) {
+    str = `<h2 class="text-center mb-5">無任何留言</h2>`;
   } else {
-    favorites = JSON.parse(favorites);
-  }
-
-  // 將新的收藏內容添加到收藏列表
-  favorites.push(contentToFavorite);
-
-  // 將更新後的收藏列表存回本地存儲
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-
-  // 更新收藏列表的顯示
-  renderFavorites();
-});
-
-// 用於渲染收藏列表的函數
-function renderFavorites() {
-  favoriteList.innerHTML = ''; // 清空列表
-
-  let favorites = localStorage.getItem('favorites');
-  if (favorites) {
-    favorites = JSON.parse(favorites);
-
-    // 將收藏內容顯示在列表中
-    favorites.forEach((favorite, index) => {
-      const listItem = document.createElement('div');
-      listItem.innerHTML = `${index + 1}. <a href="${favorite.url}">${favorite.title}</a>`;
-      favoriteList.appendChild(listItem);
+    commentAllData.comments.forEach((item) => {
+      str += `
+          <div class="card bg-orange-300 position-relative mt-5">
+          <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
+          role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
+          <div  class="">
+           <img src="./assets/images/Avatar2.png" alt="book" style="" class="position-absolute top-0 start-50 translate-middle">
+           </div> 
+    <div class="card-body bg-white text-center mt-3"> 
+      <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
+      <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
+    </div>
+       <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
+          <div class="">${commentAllData.bookName}</div>
+          <div class="d-flex row cardIcon ms-2 align-items-center">
+            <div class="col-xl-6 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
+            <div class="col-xl-6 p-1">
+            <a class="ms-1" role="button"><img class="pagesIcon commentheart" src="./assets/images/thumb_up_off_alt.svg" alt="heart" data-heartid=${item.id}></a></div>
+           </div>  
+    </div>       
+ </swiper-slide>
+          <!-- ... -->
+        </div>
+      `;
     });
   }
+  
+  // 將動態生成的 HTML 元素插入到 commentListArea 容器中
+  const commentListArea = document.getElementById("commentListArea");
+  commentListArea.innerHTML = str;
 }
-
-// 頁面加載時渲染收藏列表
-renderFavorites();

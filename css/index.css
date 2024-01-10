@@ -5,7 +5,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
 
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,7 +50,6 @@ table {
 	border-spacing: 0;
 }
 
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -62,9 +60,6 @@ img{
     height: auto;
     display: block;
 }
-
-
-
 
 *,*::before,*::after {
 box-sizing: border-box;
@@ -100,11 +95,9 @@ h6{
     font-size: 20px;
 }
 
-
 .navbar{
     background-color: #fffbe8;
 }
-
 
 .btnLogin {
     background-color: #E78C52;
@@ -135,7 +128,6 @@ h6{
        transform: translate(0, 20px);
     }
   }
-   
    
 .inputSearch {
     position: relative; 
@@ -172,7 +164,6 @@ li{list-style-type: none;}
 
 .classification a {text-decoration:none;}
 
-
 .arrow li{
     margin: 8px;
 }
@@ -187,7 +178,6 @@ li{list-style-type: none;}
     margin: 120px 0px;
 }
 
-
 .rankbtn{
     display: inline-block;
     padding: 10px 30px;
@@ -196,8 +186,6 @@ li{list-style-type: none;}
     border-radius: 40px 0px 0px 40px;
     color: #454545;
 }
-
-
 
 .novelImg{
     position: relative;
@@ -230,9 +218,8 @@ li{list-style-type: none;}
 .share{
     position: absolute;
     top: 370px;
-    left: 240px;
+    left: 290px;
 }
-
 
 .share li{
     margin: 4px;
@@ -248,13 +235,9 @@ li{list-style-type: none;}
     background-color: #FFF0D4;
 }
 
-
 .classify{
     background-color: #fffbe8;
 }
-
-
-
 
 .listbtn{
     margin-top: 24px;
@@ -275,7 +258,7 @@ li{list-style-type: none;}
 .bookshare{
     position: absolute;
     top: 240px;
-    left: 150px;
+    left: 190px;
 }
 
 .bookshare li{
@@ -339,14 +322,40 @@ li{list-style-type: none;}
     padding-top: 24px;
 }
 
+   /* 填滿愛心 */
+   .likeIcon:hover {
+    content: url('../img/filledHeart.png');
+    border-radius: 50px;
+    border: 2px solid rgb(231, 140, 82);
+    }
+     /* 填滿讚*/
+    .thumbIcon:hover {
+        content: url('../img/filledThumb.png');
+        border-radius: 50px;
+        border: 2px solid rgb(231, 140, 82);
+        }
 
 @media (max-width: 767px) {  
+    .navbar, .banner{
+        max-width: 95%;
+    }
     .nav-link{
         text-align: center;
     }
     .illustrateRwd{
-        max-width: 100%;
+        max-width: 95%;
         flex-direction: column;
+    }
+
+    .classification, .Banner img{
+        display: flex;
+        justify-content: center;
+        max-width: 95%;
+        /* text-align: center; */
+    }
+
+    .classification li{
+        padding: 16px;
     }
 
     .ballon {
@@ -379,12 +388,39 @@ li{list-style-type: none;}
         justify-content: end;
     }
 
+    .classRWD{
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 24px;
+    }
+
+    .listbtn{
+        margin-top: 0px;
+    }
+
+    .pic{
+        width:100%;
+    }
+
+    .share{
+        top: 385px;
+        left: 190px;
+        width:100%;
+    }
+
+    .bookshare{
+        top: 230px;
+    }
+
+    .Footer{
+        max-width: 90%;
+    }
+
     /* 重新排列元素的順序 */
     /* .language{ */
         /* order: 2;    */
     /* } */
 }
-
 
      /* 媒體查詢，當視窗寬度大於中等（md）尺寸時 */
     @media (min-width: 768px) {
@@ -449,11 +485,3 @@ li{list-style-type: none;}
         border-radius: 100px;
         border: 2px solid rgb(231, 140, 82);
       }
-
-
-      /* 填滿愛心 */
-    .likeIcon:hover {
-    content: url('../img/filledHeart.png');
-    border-radius: 100px;
-    border: 2px solid rgb(231, 140, 82);
-    }

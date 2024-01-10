@@ -98,29 +98,29 @@
           <div class="col-10 col-md-4">
             <ul class="d-flex classification">
               <li>
-               <a href="javascript:void(0);" class="link-dark"
+               <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E5%A5%87%E5%B9%BB%EF%BC%8E%E7%A7%91%E5%B9%BB" class="link-dark"
                   >奇<br />幻<br />
                   ．<br />科<br />幻</a
                 >
               </li>
               <li>
-                <a href="javascript:void(0);" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%AD%B7%E5%8F%B2%EF%BC%8E%E6%AD%A6%E4%BF%A0" class="link-dark"
                   >歷<br />史 <br />．<br />武<br />俠</a
                 >
               </li>
               <li>
-                <a href="javascript:void(0);" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%87%B8%E7%96%91%EF%BC%8E%E6%8E%A8%E7%90%86" class="link-dark"
                   >愛<br />情<br />
                   ．<br />文<br />藝</a
                 >
               </li>
               <li>
-                <a href="javascript:void(0);" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%87%B8%E7%96%91%EF%BC%8E%E6%8E%A8%E7%90%86" class="link-dark"
                   >懸<br />疑<br />．<br />推<br />理</a
                 >
               </li>
               <li class="addBorder">
-                <a href="javascript:void(0);" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%81%90%E6%80%96%EF%BC%8E%E9%A9%9A%E6%82%9A" class="link-dark"
                   >恐<br />怖<br />
                   ．<br />驚<br />悚</a
                 >
@@ -244,7 +244,7 @@
       <div class="container list">
         <div class="bookclass">
           <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 classRWD">
               <h3>奇幻 ．科幻 /</h3>
               <a
                 href="javascript:void(0);"
@@ -254,14 +254,14 @@
                 >More&emsp;&rarr;</a
               >
             </div>
-            <div class="col-12 col-md-9">
-              <div class="row" id="fantasyBooks"></div>
+            <div class="swiperContainer col-12 col-md-9">
+              <div class="swiper-wrapper" id="fantasyBooks"></div>
             </div>
           </div>
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>歷史 ．武俠 /</h3>
             <a
               href="javascript:void(0);"
@@ -271,13 +271,13 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="historyBooks"></div>
+          <div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="historyBooks"></div>
           </div>
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>愛情 ．文藝 /</h3>
             <a
               href="javascript:void(0);"
@@ -287,13 +287,13 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="loveBooks"></div>
+          <div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="loveBooks"></div>
           </div>
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>懸疑 ．推理 /</h3>
             <a
               href="#javascript:void(0);"
@@ -303,13 +303,13 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="suspenseBooks"></div>
+          <div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="suspenseBooks"></div>
           </div>
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>恐怖 ．驚悚 /</h3>
             <a
               href="javascript:void(0);"
@@ -319,8 +319,8 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="fearBooks"></div>
+          <div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="fearBooks"></div>
           </div>
         </div>
       </div>
@@ -331,6 +331,7 @@
 
     <div class="container comment my-5">
       <div class="row">
+            <!-- <div id="commentListArea"></div> -->
         <div class="col-12 col-md-4 my-5">
           <div class="card commentCard">
             <div class="header d-flex justify-content-center">
@@ -350,8 +351,8 @@
                     <a href=""><img src="./img/star.png" alt="" /></a>
                   </li>
                   <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  <li class="ms-2 thumbIcon">
+                    <a href=""><img src="./img/thumb.png" alt="" /></a>
                   </li>
                 </div>
               </div>
@@ -378,8 +379,8 @@
                     <a href=""><img src="./img/star.png" alt="" /></a>
                   </li>
                   <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  <li class="ms-2 thumbIcon">
+                    <a href=""><img src="./img/thumb.png" alt="" /></a>
                   </li>
                 </div>
               </div>
@@ -406,8 +407,8 @@
                     <a href=""><img src="./img/star.png" alt="" /></a>
                   </li>
                   <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
+                  <li class="ms-2 thumbIcon">
+                    <a href=""><img src="./img/thumb.png" alt="" /></a>
                   </li>
                 </div>
               </div>
@@ -504,19 +505,19 @@
                   <div class="link mb-2 mx-2"></div>
                 <div class="col-12 col-md-12 collapse" id="bookMenu">
                 <div class="p-2">
-                  <a class="siteLink" href="">奇幻 • 科幻</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E5%A5%87%E5%B9%BB%EF%BC%8E%E7%A7%91%E5%B9%BB">奇幻 • 科幻</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">歷史 • 武俠</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%AD%B7%E5%8F%B2%EF%BC%8E%E6%AD%A6%E4%BF%A0">歷史 • 武俠</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">愛情 • 文藝</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%84%9B%E6%83%85%EF%BC%8E%E6%96%87%E8%97%9D">愛情 • 文藝</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">懸疑 • 推理</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%87%B8%E7%96%91%EF%BC%8E%E6%8E%A8%E7%90%86">懸疑 • 推理</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">恐怖 • 驚悚</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%81%90%E6%80%96%EF%BC%8E%E9%A9%9A%E6%82%9A">恐怖 • 驚悚</a>
                 </div>
               </div>
             </div>
@@ -601,6 +602,8 @@
         </div>
       </div>
     </div>
+
+    <!-- <div id="commentListArea"></div> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
