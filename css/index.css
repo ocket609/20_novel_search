@@ -344,6 +344,16 @@ li{list-style-type: none;}
         flex-direction: column;
     }
 
+    .classification{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .classification li{
+        padding: 24px;
+    }
+
     .ballon {
         display: none;
         }
@@ -374,17 +384,14 @@ li{list-style-type: none;}
         justify-content: end;
     }
 
-    .moreBtn{
+    .classRWD{
          display: flex;
          justify-content: space-between;
+         margin-bottom: 24px;
     }
 
-    .bookclass a{
-        margin: 12px;
-    }
-
-    .bookclass h3{
-        margin: 16px;
+    .listbtn{
+        margin-top: 0px;
     }
 
     .pic{
@@ -400,7 +407,6 @@ li{list-style-type: none;}
     .bookshare{
         top: 230px;
     }
-
 
     /* 重新排列元素的順序 */
     /* .language{ */
