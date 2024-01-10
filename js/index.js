@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
 
-    // 各類別小說前5名
+    // 各類別小說前3名
       const displayTopThreeBooksByTag = (tag, containerId) => {
       const books = data.books.filter((book) => book.tags.includes(tag));
       const topThreeBooks = books.sort((a, b) => b.Star - a.Star).slice(0, 5);
@@ -87,6 +87,11 @@ document.addEventListener("DOMContentLoaded", async function () {
      `;
 
         container.appendChild(card);
+        
+        card.addEventListener("click", () => {
+          location.assign(`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${book.id}`);
+        });
+        
       });
     };
 
