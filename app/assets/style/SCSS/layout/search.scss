@@ -64,6 +64,17 @@
   }
 }
 
+.searchPageBreadCrumbs{
+  position: relative;
+  top: 2rem;
+  left: 5%;
+  .breadcrumb-item-content{
+    color: #e78c52;
+    &:hover {
+    font-weight: bold;
+  }}
+}
+
 /*圖片區*/
 
 .searchPageImg {

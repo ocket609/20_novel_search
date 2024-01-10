@@ -7,6 +7,7 @@
     <title>BookPage</title>
   </head>
 
+
   <body class="bg-primary">
     <div class="navSection mb-5">
       <div class="container-fluid row m-0 p-0">
@@ -42,11 +43,20 @@
       </div>
     </div>
 
-    <div class="bookSection">
-      <div class="bookinfo">
-        <div class="bookImg container text-center"></div>
+    
 
+    <div class="bookSection">  
+      <div class="bookinfo">
+        
         <div class="bookName container mt-2">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="bookPageBreadCrumbs">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="breadcrumb-item-content">首頁</a></li>
+              <li class="breadcrumb-item"><a href="http://127.0.0.1:5501/app/search.html" class="breadcrumb-item-content">搜尋頁面</a></li>
+              <li class="breadcrumb-item active" aria-current="page"></li>
+            </ol>
+          </nav>
+          <div class="bookImg container text-center"></div>
           <div class="row">
             <div class="bookName2 col-6 col-xl-6 col-sm-6"></div>
             <div class="icon col-6 col-xl-6 col-sm-6 text-end">
@@ -179,16 +189,8 @@
           </div>
                  -->
 
-          <swiper-container
-            class="mySwiper"
-            slides-per-view="3"
-            centered-slides="false"
-            space-between="10"
-            pagination="true"
-            pagination-type="bullets"
-            navigation="false"
-          >
-          </swiper-container>
+          <swiper-container class="mySwiper" slides-per-view="3" centered-slides="false" space-between="10" pagination="true" 
+          pagination-type="bullets" navigation="false"></swiper-container>
         </div>
       </div>
     </div>

@@ -103,11 +103,11 @@ function searchPageRender(bookData) {
     alert("無法搜尋到相關書籍");
     return;
   } else {
+    //<div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
     bookData.forEach((item) => {
       str += `<div class="col p-0 position-relative m-3"  style="width: 15rem;height: 32rem; " >
             <img src=${item.img} class="card-img-top" alt="..." data-id=${item.id} style="height: 360px;">
             <div class="d-flex position-absolute top-50 end-0 mt-5  align-items-center ">
-              <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/star2.svg" alt="star"></span></div>
               <div><span class="p-1" role="button"><img class="pagesIcon bookHeart" data-bookHeartid=${item.id} src="./assets/images/heart.svg" alt="heart"></span></div>
               <div><span class="p-1" role="button"><img class="pagesIcon" src="./assets/images/share.svg" alt="share"></span></div>      
             </div>
@@ -314,7 +314,8 @@ function getBookId(e) {
     let pageId = e.target.dataset.id;
     console.log(e.target.dataset.id);
     location.assign(
-      `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+      //`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+      `http://127.0.0.1:5501/app/pages.html?Id=${pageId}`
     );
   }
 }

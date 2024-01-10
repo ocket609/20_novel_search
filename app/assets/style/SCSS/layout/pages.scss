@@ -80,6 +80,18 @@
     color: red;
 }
 
+.bookPageBreadCrumbs{
+    position: relative;
+    left: 1%;
+    .breadcrumb-item-content{
+        color: #E78C52;
+        &:hover {
+        font-weight: bold;
+      }}
+    
+  }
+  
+
 /*圖片區*/
 
 

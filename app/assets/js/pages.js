@@ -57,11 +57,24 @@ const bookInfoLeft = document.querySelector(".bookInfoLeft");
 const bookInfoRight = document.querySelector(".bookInfoRight");
 const bookDescrt = document.querySelector(".bookDescrt");
 const bookHeart = document.querySelector(".bookHeart");
+const breadCrumbName = document.querySelectorAll(".breadcrumb-item")[2];
+console.log(breadCrumbName.innerHTML);
 
 function pageRender(bookData) {
+  let str = `<p >連載狀態 : ${bookData.SerializationStatus}</p>
+  <p>集數 : ${bookData.Episode}</p>
+  <p>類別 : <span class="bg-success  p-1 text-white rounded-3">${bookData.tags[0]}</span><span class="bg-success ms-3 p-1 text-white rounded-3">${bookData.tags[1]}</span></p>
+  <p>語言 : ${bookData.language}</p>`;
+  let str2 = `<p >連載狀態 : ${bookData.SerializationStatus}</p>
+  <p>集數 : ${bookData.Episode}</p>
+  <p>類別 : <span class="bg-success  p-2 text-white rounded-3">${bookData.tags}</span>
+  <p>語言 : ${bookData.language}</p>`;
+  let bookTage = bookData.tags === 2 ? str : str2;
+  
   if (bookData == 0) {
     albeer("無此頁面");
   } else {
+    breadCrumbName.innerHTML = `${bookData.bookName}`;
     bookImg.innerHTML = `<div class="bookImgDiv">
             <img src=${bookData.img} class="bookImg" alt=${bookData.bookName} style="min-width:200px;">
            </div> `;
@@ -192,7 +205,8 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`
+        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
+        `http://127.0.0.1:5501/app/search.html?result=${result}`
       )
     );
   }
@@ -398,6 +412,7 @@ function submitCommentForm(e) {
 function cleanMessage() {
   let message = document.querySelectorAll(".span-message");
   message.forEach((message) => {
+    console.log(message);
     message.innerHTML = "";
   });
 }
