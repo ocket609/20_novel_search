@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     	 <h5 class="py-1 px-3">${index + 1}</h5>
    	    </div>
    	  <ul class="share d-flex">
-    	 <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
     	 <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
      	<li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
     	</ul>
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         card.innerHTML = `
   	    <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
   	    <ul class="bookshare d-flex">
-    	  <li><a href=""><img class="pagesIcon" src="./img/starBox.png" alt=""></a></li>
     	  <li><a href="#"><img class="likeIcon" src="./img/likeBox.png" alt="like"></a></li>
     	  <li><a href=""><img class="pagesIcon" src="./img/shareBox.png" alt=""></a></li>
  	      </ul>
