@@ -336,22 +336,26 @@ li{list-style-type: none;}
         }
 
 @media (max-width: 767px) {  
+    .navbar, .banner{
+        max-width: 95%;
+    }
     .nav-link{
         text-align: center;
     }
     .illustrateRwd{
-        max-width: 100%;
+        max-width: 95%;
         flex-direction: column;
     }
 
-    .classification{
+    .classification, .Banner img{
         display: flex;
         justify-content: center;
-        text-align: center;
+        max-width: 95%;
+        /* text-align: center; */
     }
 
     .classification li{
-        padding: 24px;
+        padding: 16px;
     }
 
     .ballon {
@@ -406,6 +410,10 @@ li{list-style-type: none;}
 
     .bookshare{
         top: 230px;
+    }
+
+    .Footer{
+        max-width: 90%;
     }
 
     /* 重新排列元素的順序 */
