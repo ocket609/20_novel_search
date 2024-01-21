@@ -52,7 +52,7 @@
           <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="bookPageBreadCrumbs">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/" class="breadcrumb-item-content">首頁</a></li>
-              <li class="breadcrumb-item"><a href="http://127.0.0.1:5501/app/search.html" class="breadcrumb-item-content">搜尋頁面</a></li>
+              <li class="breadcrumb-item"><a href="https://ocket609.github.io/20_novel_search/app/search.html" class="breadcrumb-item-content">搜尋頁面</a></li>
               <li class="breadcrumb-item active" aria-current="page"></li>
             </ol>
           </nav>
@@ -66,15 +66,12 @@
               <div class="d-flex justify-content-end align-items-center">
 
                 <div>
-                  <span class="" role="button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    ><img
-                      class="pagesIcon mx-2"
-                      src="./assets/images/star2.svg"
-                      alt="star"
-                  /></span>
+                  <span type="button" class="evaluateButton mx-2"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-keyboard="true">
+                   <img class="bookStar pagesIcon" src="./assets/images/star_Nofill.svg" alt="star"/>
+                  </span>
                 </div>
                       <!-- Modal -->
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content bg-primary">
                             <div class="modal-header">
@@ -96,28 +93,42 @@
                                   <input  class="pagesEvaluateBtn btn-success" type="submit" value="送出">
                                 </div>
                               </form>
-                            </div>
-                            
+                            </div>        
                           </div>
                         </div>
                       </div>
+                       <!-- Modal2 -->
+                      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" data-bs-keyboard="true">              
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content bg-primary">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">評分狀態</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <form id="myForm" class="mt-4">
+                              <h3>已經完成評分嘍!</h3>
+                              <div class="modal-footer mt-5">
+                              <input  class="pagesEvaluateBtn btn-success" type="button" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" value="繼續">
+                            </div>
+                            </form>
+                            </div>                           
+                          </div>
+                        </div>         
+                      </div>
+
+                      
                 <div>
-                  <span class="" role="button"
-                    ><img
-                      class="bookHeart pagesIcon mx-2"
-                      src="./assets/images/heart.svg"
-                      alt="heart"
-                  /></span>
+                  <span class="mx-2" role="button">
+                    <img class="bookHeart pagesIcon" src="./assets/images/heart.svg" alt="heart"/>
+                  </span>
                 </div>
                 <div>
-                  <span class="" role="button"
-                    ><img
-                      class="pagesIcon ms-2"
-                      src="./assets/images/share.svg"
-                      alt="share"
-                  /></span>
+                  <span class="mx-2" role="button">
+                    <img class="pagesIcon" src="./assets/images/share.svg" alt="share"/>
+                  </span>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -189,7 +200,9 @@
           </div>
                  -->
 
-          <swiper-container class="mySwiper" slides-per-view="3" centered-slides="false" space-between="10" pagination="true" 
+        </div>
+        <div>
+        <swiper-container class="mySwiper" slides-per-view="3" centered-slides="false" space-between="10" pagination="true" 
           pagination-type="bullets" navigation="false"></swiper-container>
         </div>
       </div>
@@ -310,13 +323,10 @@
     </div>
   </body>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-    crossorigin="anonymous"
-  ></script>
-  <script src="/app/assets/js/bootstrap.bundle.min.js"></script>
-  <script src="/app/assets/js/bootstrap.bundle.js"></script>
+  <!--<script src="/app/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/app/assets/js/bootstrap.bundle.js"></script>-->
+    <!-- bootstrap5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- Swiper JS -->

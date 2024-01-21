@@ -12,6 +12,7 @@ function searchPageApi() {
     .then(function (response) {
       data = response.data;
       searchResult();
+      islogin();
     })
     .catch(function (error) {
       console.log(error);
@@ -58,9 +59,7 @@ let value = window.location.search;
 const searchResultvalue = decodeURI(value.split(/[?,=,&]/)[2]);
 const searchResultvalue2 = decodeURI(value.split(/[?,=,&]/)[4]);
 const searchResultvalue3 = decodeURI(value.split(/[?,=,&]/)[1]);
-console.log(searchResultvalue);
-console.log(searchResultvalue2);
-console.log(searchResultvalue3);
+
 
 //帶入SearchResult
 
@@ -76,16 +75,10 @@ function searchResult() {
   } else if (isNaN(searchResultvalue) && isNaN(searchResultvalue2) === false) {
     selectRender(searchResultvalue, searchResultvalue2);
     console.log("error");
-  } else if (
-    searchResultvalue3 === "cateresult" &&
-    searchResultvalue.indexOf("．", 2) != -1
-  ) {
+  } else if (searchResultvalue3 === "cateresult" && searchResultvalue.indexOf("．", 2) != -1) {
     selectRender(searchResultvalue);
     console.log("error1");
-  } else if (
-    searchResultvalue3 === "star" &&
-    isNaN(searchResultvalue) === false
-  ) {
+  } else if (searchResultvalue3 === "star" && isNaN(searchResultvalue) === false) {
     selectRender(searchResultvalue);
     console.log("error2");
   } else {
@@ -121,15 +114,27 @@ function searchPageRender(bookData) {
     });
   }
   bookListArea.innerHTML = str;
-  islogin();
 }
 
 //登入判斷
 
-const itemStr = localStorage.getItem("loginStatuswithExpired");
-const item = JSON.parse(itemStr);
+let loginStatus;
+
+
 
 function islogin() {
+
+  const itemStr = localStorage.getItem("loginStatuswithExpired");
+  const item = JSON.parse(itemStr);
+
+  if(item === null){
+    loginStatus = false;
+    GoodBookCheckForDisplay();
+    console.log("第一次登入");
+    console.log(loginStatus);
+    return;
+  }
+
   console.log(new Date().getTime() / 1000, "now");
   console.log(item.expired / 1000, "token");
   if (new Date().getTime() > item.expired) {
@@ -141,11 +146,11 @@ function islogin() {
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
     console.log("請重新登入");
-    console.log(item.value);
+    console.log(loginStatus);
   } else {
     console.log("已登入");
-    GoodBookCheckForDisplay(item.value);
-    console.log(item.value);
+    GoodBookCheckForDisplay();
+    console.log(loginStatus);
   }
 }
 
@@ -314,8 +319,7 @@ function getBookId(e) {
     let pageId = e.target.dataset.id;
     console.log(e.target.dataset.id);
     location.assign(
-      //`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
-      `http://127.0.0.1:5501/app/pages.html?Id=${pageId}`
+      `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
     );
   }
 }
@@ -335,7 +339,7 @@ function GoodBookCheckForDisplay() {
   const bookArry = [];
   const goodBookArry = [];
 
-  if (arguments[0] == false) {
+  if (loginStatus == false) {
     return;
   }
 
@@ -363,7 +367,7 @@ function GoodBooklistener(e) {
   let value = e.target.dataset.bookheartid;
   let numValue = Number(value);
 
-  if (item.value == "false" && isNaN(value) === false) {
+  if (loginStatus == false && isNaN(value) === false) {
     alert("請先登入唷~\n將跳轉至登入頁面!!!");
     location.assign(
       "https://ocket609.github.io/20_novel_search/app/longin.html"
@@ -396,4 +400,4 @@ const item2 = {
   value: "true",
   expired: now.getTime() + 3600000,
 };
-localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
+//localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));

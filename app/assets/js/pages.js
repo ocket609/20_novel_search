@@ -25,6 +25,7 @@ function PagebookApi(p) {
       data = response.data;
       pageRender(data);
       PageCommentRender(data);
+      islogin();
     })
     .catch(function (error) {
       console.log(error);
@@ -58,7 +59,7 @@ const bookInfoRight = document.querySelector(".bookInfoRight");
 const bookDescrt = document.querySelector(".bookDescrt");
 const bookHeart = document.querySelector(".bookHeart");
 const breadCrumbName = document.querySelectorAll(".breadcrumb-item")[2];
-console.log(breadCrumbName.innerHTML);
+
 
 function pageRender(bookData) {
   let str = `<p >連載狀態 : ${bookData.SerializationStatus}</p>
@@ -126,11 +127,12 @@ const commentListArea = document.querySelector(".mySwiper");
 const commentArea = document.querySelector(".commentArea");
 
 function PageCommentRender(commentAllData) {
+  
   let str = "";
 
-  if (commentAllData.comments.length === 0) {
-    commentArea.innerHTML = `<h2 class="text-center mb-5">無任何留言</h2>`;
-  } else {
+    commentArea.innerHTML = commentAllData.comments.length === 0 ? `<h2 class="text-center mb-5">無任何留言</h2>` : ``;
+
+    if(commentAllData){
     commentAllData.comments.forEach((item) => {
       str += `
           <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
@@ -144,44 +146,68 @@ function PageCommentRender(commentAllData) {
     </div>
        <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
           <div class="">${commentAllData.bookName}</div>
-          <div class="d-flex row cardIcon ms-2 align-items-center">
-            <div class="col-xl-6 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
-            <div class="col-xl-6 p-1"><a class="ms-1" role="button"><img class="pagesIcon commentheart" src="./assets/images/thumb_up_off_alt.svg" alt="heart" data-heartid=${item.id}></a></div>
+          <div class="d-flex row cardIcon mx-1 align-items-center">
+            <div class="col-xl-7 p-1 startag "><img class="starImg" src="./assets/images/star.svg" alt="star">${item.score}</div>
+            <div class="col-xl-5 p-1 "><a class="" role="button"><img class="pagesIcon commentheart" src="./assets/images/thumb_up_off_alt.svg" alt="heart" data-heartid=${item.id}></a></div>
            </div>  
        </div>       
     </swiper-slide>
           `;
     });
-  }
+  };
   commentListArea.innerHTML = str;
-  islogin();
 }
+
+let loginStatus;
 
 //登入判斷
 
-const itemStr = localStorage.getItem("loginStatuswithExpired");
-const item = JSON.parse(itemStr);
-
 function islogin() {
+  
+   
+  const itemStr = localStorage.getItem("loginStatuswithExpired");
+  const item = JSON.parse(itemStr);
+  const userStr = localStorage.getItem("loginUserId");
+  const userId = JSON.parse(userStr);
+  
+
+  if(item === null){
+    loginStatus = false;
+    goodBookCheckForDisplay();
+    GoodcommentCheckForDisplay();
+    evaluateWasDone(userId);
+    console.log("第一次登入");
+    console.log(loginStatus);
+    return;
+  }
+
+  loginStatus = item.value === true ? true : false;
+  let expired = item === null ? 0 : item.expired;
+
+
   console.log(new Date().getTime() / 1000, "now");
   console.log(item.expired / 1000, "token");
+ 
+  
 
-  if (new Date().getTime() > item.expired) {
+  if (new Date().getTime() > expired) {
     setTimeout(() => {
       const item2 = {
-        value: "false",
-        expired: item.expired,
+        value: false,
+        expired: expired,
       };
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
-    console.log("請重新登入");
-    console.log(item.value);
-  } else {
+    console.log("請登入");
+    console.log(loginStatus);
+  }else {
+    goodBookCheckForDisplay();
+    GoodcommentCheckForDisplay();
+    evaluateWasDone(userId);
     console.log("已登入");
-    goodBookCheckForDisplay(item.value);
-    GoodcommentCheckForDisplay(item.value);
-    console.log(item.value);
+    console.log(loginStatus);
   }
+
 }
 
 
@@ -205,8 +231,7 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
-        `http://127.0.0.1:5501/app/search.html?result=${result}`
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
       )
     );
   }
@@ -224,10 +249,15 @@ let bookLSdata = JSON.parse(bookLocal);
 bookHeart.addEventListener("click", goodBookListener);
 
 function goodBookListener(e) {
-  if (item.value == "false") {
+
+  if (loginStatus == false) {
     alert("請先登入唷~\n將跳轉至登入頁面!!!");
+    location.assign(
+      "https://ocket609.github.io/20_novel_search/app/longin.html"
+    );
     return;
   }
+
   if (bookLSdata === null) {
     localStorage.setItem("bookId", JSON.stringify([]));
     return;
@@ -245,11 +275,12 @@ function goodBookListener(e) {
   }
 }
 
+
 //判斷是否收藏書籍 & 渲染收藏書籍
 
 function goodBookCheckForDisplay() {
   let bookLocaldata = JSON.parse(bookLocal);
-  if (arguments[0] == false) {
+  if (loginStatus == false) {
     return;
   }
 
@@ -271,7 +302,7 @@ function GoodcommentCheckForDisplay() {
   const commentArry = [];
   const goodCommentArry = [];
 
-  if (arguments[0] == false) {
+  if (loginStatus == false) {
     return;
   }
 
@@ -300,7 +331,7 @@ function Goodcommentlistener(e) {
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
 
-  if (item.value == "false" && isNaN(value) === false) {
+  if (loginStatus == false && isNaN(value) === false) {
     alert("請先登入唷~\n將跳轉至登入頁面!!!");
     location.assign(
       "https://ocket609.github.io/20_novel_search/app/longin.html"
@@ -324,9 +355,87 @@ function Goodcommentlistener(e) {
   }
 }
 
+const evaluateButton = document.querySelector(".evaluateButton");
+
+//判斷是否已經評分
+
+function evaluateWasDone(loninUserId) {
+
+  
+  
+
+  data.comments.forEach(id => {
+    if(id.userId === loninUserId){
+      evaluateButton.setAttribute("data-bs-toggle", "modal");
+  evaluateButton.setAttribute("data-bs-target", "#exampleModalToggle2");
+      pagesEvaluateStar.setAttribute("src", "./assets//images/star.svg");
+      //evaluateWasDone(id.commenter,id.textContent,id.score);
+      let modalContent = `<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content bg-primary">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">評分完成</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body text-center">
+      <form id="myForm"">
+        <label for="name">名字：${id.commenter}</label>                        
+       <label for="content">內容：${id.textContent}</label>                           
+        <label for="score">分數：${id.score}</label>  
+      </form>
+     </div>                           
+    </div>
+  </div>
+    `;
+  document.getElementById("exampleModalToggle").innerHTML = modalContent; 
+    }
+  });
+  /*if(arguments[0] ==  "false"){
+    return;
+  }*/
+  
+
+  
+
+}
+
+evaluateButton.addEventListener("click",evaluateLitener);
+
+
+function evaluateLitener() {
+  if(loginStatus == false){
+
+    let modalContent = `<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-primary">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">評分</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <form id="myForm">
+          <h3>請先登入唷~</h3>
+          <div class="modal-footer mt-5">
+           <div class="pagesEvaluateBtn btn btn-success">
+           <a   href="https://ocket609.github.io/20_novel_search/app/longin.html">登入</a>
+           </div>
+          </div>
+        </form>
+      </div>        
+    </div>
+  </div>
+    `;
+  document.getElementById("exampleModalToggle").innerHTML = modalContent; 
+  return;
+  }
+ 
+};
+ 
+
+
+
 //聆聽留言功能
 //localStorage.setItem("loginUserId",1);
 const pagesEvaluateForm = document.querySelector(".pagesEvaluateForm");
+const pagesEvaluateStar = document.querySelector(".bookStar");
 
 pagesEvaluateForm.addEventListener("submit", submitCommentForm);
 
@@ -337,8 +446,8 @@ let constraints = {
       message: "必填",
     },
     length: {
-      minimum: 3,
-      message: "must be at least 6 characters",
+      minimum: 2,
+      message: "must be at least 2 characters",
     },
   },
   content: {
@@ -354,12 +463,9 @@ let constraints = {
     presence: {
       message: "必填",
     },
-    length: {
-      minimum: 3,
-      message: "must be at least 6 characters",
-    },
   },
 };
+
 
 function submitCommentForm(e) {
   e.preventDefault();
@@ -379,34 +485,13 @@ function submitCommentForm(e) {
       message = document.querySelector(`.${item}-message`);
       message.innerHTML = result[item];
     });
-  } else {
-    let modalContent = `
-                          <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content bg-primary">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">評分完成</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body text-center">
-                                <form id="myForm"">
-                                  <label for="name">名字：${commenterName}</label>                        
-                                 <label for="content">內容：${commentContent}</label>                           
-                                  <label for="score">分數：${commentScore}</label>  
-                                </form>
-                              </div>                           
-                            </div>
-                          </div>
-                        `;
-
-    setTimeout(() => {
-      document.getElementById("exampleModal").innerHTML = modalContent;
-    }, 500);
+  } 
     addCommentApi(commentUserId, commenterName, commentContent, commentScore);
-    setTimeout(() => {
+    /*setTimeout(() => {
       PagebookApi(newvalue);
-    }, 1000);
+    }, 1000);*/
   }
-}
+
 
 //清除驗證訊息
 function cleanMessage() {
@@ -432,6 +517,7 @@ function addCommentApi(id, name, content, score) {
 
     .then(function (response) {
       console.log(response);
+      PagebookApi(newvalue);
     })
     .catch(function (error) {
       console.log(error);
@@ -442,7 +528,8 @@ function addCommentApi(id, name, content, score) {
 
 const now = new Date();
 const loginInfo = {
-  value: "true",
+  value: true,
   expired: now.getTime() + 3600000,
 };
 //localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
+//localStorage.setItem('userId', JSON.stringify(1));

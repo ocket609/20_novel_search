@@ -10287,6 +10287,17 @@ margin & padding
   color: red;
 }
 
+.bookPageBreadCrumbs {
+  position: relative;
+  left: 1%;
+}
+.bookPageBreadCrumbs .breadcrumb-item-content {
+  color: #E78C52;
+}
+.bookPageBreadCrumbs .breadcrumb-item-content:hover {
+  font-weight: bold;
+}
+
 /*圖片區*/
 .logo {
   background-image: url("../../images/LogoSize=lg.svg");
@@ -10446,6 +10457,18 @@ margin & padding
 .card-img-top:active {
   transform: scale(1.1);
   transition: all 0.1s linear 0s;
+}
+
+.searchPageBreadCrumbs {
+  position: relative;
+  top: 2rem;
+  left: 5%;
+}
+.searchPageBreadCrumbs .breadcrumb-item-content {
+  color: #e78c52;
+}
+.searchPageBreadCrumbs .breadcrumb-item-content:hover {
+  font-weight: bold;
 }
 
 /*圖片區*/
