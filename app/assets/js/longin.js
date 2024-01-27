@@ -49,8 +49,10 @@ forget_password.addEventListener("click", (e) => {
     textEmail.classList.remove("d-none");
 });
 
+const register_content = document.querySelector(".register-content");
 // 註冊送出鈕
-getSignUp_btn.addEventListener("click", (e) => {
+//getSignUp_btn.addEventListener("submit"
+register_content.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e.target);
     const signupEmail = document.querySelector("#signupEmail").value;
@@ -60,24 +62,28 @@ getSignUp_btn.addEventListener("click", (e) => {
     //const signupEmailInput = document.querySelector("#signupEmail");
     //signupEmailInput.reportValidity();
 
+    const checkValidate = validate(register_content, constraints);
+    if (checkValidate) {
+        console.log(checkValidate);
+        return;
+    }
+    
     userData.forEach((item) => {
         if(signupEmail === item.email) {
             Swal.fire({
                 icon: "error",
                 title: "信箱已註冊過囉！"
             });
+            return;
         }
     });
-    if(signupPasswordAgain !== signupPassword) {
+    /*if(signupPasswordAgain !== signupPassword) {
         Swal.fire({
             icon: "error",
             title: "請確認密碼2次輸入是否正確！"
         });
         return; //中斷，不中斷會繼續往下跑註冊成功
-    };
-
-    //let checkVaule = validate(signup, constraints);
-    validate(signup, constraints);
+    };*/
 
     SignUp(signupEmail, signupPassword, signupPhone);
 });
