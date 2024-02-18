@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
      	<p>${book.Star}</p>
    	  </div>
    	  <div class="justify-content-end" style="margin-left:50%;">
-     	<a href="https://ocket609.github.io/20_novel_search/app/search.html?result=" 
+     	<a href="https://ocket609.github.io/20_novel_search/app/search.html?" 
      	class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
    	  </div>
    	  `;
@@ -308,7 +308,7 @@ function homeCateToSearchPage(e) {
     bookCateValue = e.target.attributes["value"].value;
     location.assign(
       encodeURI(
-        `https://ocket609.github.io/20_novel_search/app/search.html?result=${bookCateValue}`
+        `https://ocket609.github.io/20_novel_search/app/search.html?cateresult=${bookCateValue}`
       )
     );
   }

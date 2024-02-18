@@ -185,7 +185,7 @@ h6{
 .searchImg{
     width: 5%;
     min-width: 25px;
-    background-image: url('/app/assets/images/search.svg');
+    background-image: url('../app/assets/images/search.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #fff;
@@ -194,7 +194,7 @@ h6{
     border-radius: 100px;
     &:active{
             border-radius: 100px;     
-            background-image: url('/app/assets/images/search_active.svg');
+            background-image: url('../app/assets/images/search_active.svg');
     }
 }
 
