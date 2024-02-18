@@ -290,8 +290,7 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
-        `http://127.0.0.1:5501/app/search.html?result=${result}`
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
       )
     );
   }
@@ -491,7 +490,7 @@ function islogin() {
 
   }else {
     str += `<div class = "d-flex loginUser">
-    <p class = "p-1">HI,</p><a href ="http://127.0.0.1:5501/pages/member.html"><p class = "loginUserName">輕輕<p></a><p>登出</p>
+    <p class = "p-1">HI,</p><a href ="https://ocket609.github.io/20_novel_search/pages/member.html"><p class = "loginUserName">輕輕<p></a><p>登出</p>
     </div>
     `
     loginBtn.setAttribute("href", "javascript:void(0);");

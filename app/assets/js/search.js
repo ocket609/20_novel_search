@@ -320,8 +320,7 @@ function getBookId(e) {
     let pageId = e.target.dataset.id;
     console.log(e.target.dataset.id);
     location.assign(
-      //`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
-      `http://127.0.0.1:5501/app/pages.html?Id=${pageId}`
+      `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
     );
   }
 }
