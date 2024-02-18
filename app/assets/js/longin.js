@@ -167,7 +167,7 @@ function login(longinEmail, longinPassword) {
             // 用來判斷是否登入
             const now = new Date();
             const loginInfo = {
-                value: 'true',
+                value: true,
                 expired: now.getTime()  +3600000
             };
             localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
