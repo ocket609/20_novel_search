@@ -203,13 +203,13 @@ function goodBookListener(item,id) {
       let index = bookLSdata.indexOf(idNumber);
       bookLSdata.splice(index, 1);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "../img/like.png");
+      item.setAttribute("src", "./img/like.png");
       goodBookCheckForDisplay();
       alert("收藏已取消!!");
       } else {
       bookLSdata.push(idNumber);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "../img/filledHeart.png");
+      item.setAttribute("src", "./img/filledHeart.png");
       goodBookCheckForDisplay();
       alert("收藏成功!!");
       }
@@ -243,12 +243,12 @@ function goodBookListener(item,id) {
           if (newBookLocalData.indexOf(item) == -1) {
             notgoodBookArry.push(index);
             notgoodBookArry.forEach((item) => {
-            bookHeart[item].setAttribute("src", "../img/like.png");
+            bookHeart[item].setAttribute("src", "./img/like.png");
             });
           }else if(newBookLocalData.indexOf(item) !== -1) {
             goodBookArry.push(index);
             goodBookArry.forEach((item) => {
-              bookHeart[item].setAttribute("src", "../img/filledHeart.png");
+              bookHeart[item].setAttribute("src", "./img/filledHeart.png");
             });
           }
         });
