@@ -10319,8 +10319,8 @@ margin & padding
 }
 
 .searchImg {
-  width: 10%;
-  min-width: 20px;
+  width: 9%;
+  min-width: 25px;
   background-image: url("../../images/search.svg");
   background-repeat: no-repeat;
   background-position: center;

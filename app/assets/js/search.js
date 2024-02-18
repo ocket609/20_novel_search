@@ -146,6 +146,7 @@ function islogin() {
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
     console.log("請重新登入");
+    GoodBookCheckForDisplay();
     console.log(loginStatus);
   } else {
     console.log("已登入");
@@ -319,7 +320,8 @@ function getBookId(e) {
     let pageId = e.target.dataset.id;
     console.log(e.target.dataset.id);
     location.assign(
-      `https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+      //`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${pageId}`
+      `http://127.0.0.1:5501/app/pages.html?Id=${pageId}`
     );
   }
 }
@@ -330,6 +332,7 @@ let bookLocal = localStorage.getItem("bookId");
 
 function GoodBookCheckForDisplay() {
   const bookHeart = document.querySelectorAll(".bookHeart");
+  console.log(bookHeart);
   const bookLocalData = JSON.parse(bookLocal);
   if (bookLocalData === null) {
     localStorage.setItem("bookId", JSON.stringify([]));

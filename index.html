@@ -50,13 +50,8 @@
             <li class="nav-link">
               <a href="#" class="btn" title="按左鍵前往">關於我們</a>
             </li>
-            <li class="nav-link">
-              <a
-                href="https://ocket609.github.io/20_novel_search/app/longin.html"
-                class="btn btnLogin"
-                title="按左鍵前往"
-                >登入/註冊</a
-              >
+            <li class="nav-link justify-content-center">
+              <a href="https://ocket609.github.io/20_novel_search/app/longin.html" class="btn btnLogin" title="按左鍵前往">登入/註冊</a>
             </li>
           </ul>
         </div>
@@ -82,15 +77,15 @@
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-10 col-md-6 inputSearch">
-            <input
-              class="form-control search"
-              type="search"
-              placeholder="找好書"
-            />
-            <a href="#" class="btn icon"
-              ><img src="./img/search.png" alt="" class="searchImg"
-            /></a>
+          <div class="col-8 col-md-6 inputSearch">
+            <div class="d-flex searchDiv rounded-3 m-0 p-1 bg-white">
+              <input class="search" type="search" placeholder="找好書" aria-label="Search" id="search"/>
+              <input class="searchImg" type="button" aria-label="button"/>
+            </div>
+               <!--<input class="form-control search " type="search" placeholder="找好書"/>
+               <a href="#" class="btn icon"><img src="./img/search.png" alt="" class="searchImg"/></a>-->
+
+
           </div>
         </div>
 
@@ -147,8 +142,8 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="swiper-container">
+     <div class="container ">
+      <div class="swiper swiper-container">
         <div class="swiper-wrapper" id="topBooksContainer">
           <!-- 顯示前5本小說的卡片 -->
         </div>
@@ -254,9 +249,18 @@
                 >More&emsp;&rarr;</a
               >
             </div>
-            <div class="swiperContainer col-12 col-md-9">
-              <div class="swiper-wrapper" id="fantasyBooks"></div>
+            <div class="swiper mySwiper col-12 col-md-9">
+              <div class="swiper-wrapper" id="fantasyBooks">
+              </div>
+              <div class="swiper-button-next swiper-button-black"></div>
+              <div class="swiper-button-prev swiper-button-black"></div>
+              <div class="swiper-pagination"></div>
             </div>
+            <!--<div class="container col-12 col-md-9">
+             <div class="swiperContainer ">
+              <div class="swiper-wrapper" id="fantasyBooks"></div>
+             </div>
+            </div>-->
           </div>
         </div>
 
@@ -271,9 +275,16 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="swiperContainer col-12 col-md-9">
-            <div class="swiper-wrapper" id="historyBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="historyBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="historyBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
@@ -287,9 +298,19 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="swiperContainer col-12 col-md-9">
-            <div class="swiper-wrapper" id="loveBooks"></div>
+          <!--<swiper-container class="mySwiper col-12 col-md-9" pagination="true" pagination-clickable="true" slides-per-view="3"
+           space-between="30" free-mode="true" id="loveBooks" navigation="true">
+          </swiper-container>-->
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="loveBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="loveBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
@@ -303,9 +324,16 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="swiperContainer col-12 col-md-9">
-            <div class="swiper-wrapper" id="suspenseBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="suspenseBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="suspenseBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
@@ -319,9 +347,16 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="swiperContainer col-12 col-md-9">
-            <div class="swiper-wrapper" id="fearBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="fearBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="fearBooks"></div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -332,89 +367,8 @@
     <div class="container comment my-5">
       <div class="row">
             <!-- <div id="commentListArea"></div> -->
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">看我看我</h6>
-              <span class="borderBottom"></span>
-              <h5>跪求續集啊 Orz</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2 thumbIcon">
-                    <a href=""><img src="./img/thumb.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar2.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">巨石大大</h6>
-              <span class="borderBottom"></span>
-              <h5>作者好會，賺我眼淚QQ</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2 thumbIcon">
-                    <a href=""><img src="./img/thumb.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar4.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">萬皮斯</h6>
-              <span class="borderBottom"></span>
-              <h5>不看你會後悔阿阿阿阿阿</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2 thumbIcon">
-                    <a href=""><img src="./img/thumb.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <swiper-container class="CommentSwiper" slides-per-view="3" centered-slides="false" space-between="10" pagination="true" 
+            pagination-type="bullets" navigation="false" ></swiper-container>
       </div>
     </div>
 
@@ -605,7 +559,10 @@
 
     <!-- <div id="commentListArea"></div> -->
 
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- 引入axios -->
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>

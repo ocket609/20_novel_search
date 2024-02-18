@@ -176,7 +176,7 @@ function islogin() {
     goodBookCheckForDisplay();
     GoodcommentCheckForDisplay();
     evaluateWasDone(userId);
-    console.log("第一次登入");
+    console.log("沒登入過");
     console.log(loginStatus);
     return;
   }
@@ -190,23 +190,33 @@ function islogin() {
  
   
 
-  if (new Date().getTime() > expired) {
+  if (new Date().getTime() > item.expired) {
     setTimeout(() => {
       const item2 = {
         value: false,
-        expired: expired,
+        expired: item.expired,
       };
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
-    console.log("請登入");
+    console.log("請重新登入");
     console.log(loginStatus);
   }else {
     goodBookCheckForDisplay();
     GoodcommentCheckForDisplay();
+    changeToUserCenter();
     evaluateWasDone(userId);
     console.log("已登入");
     console.log(loginStatus);
   }
+
+
+}
+
+//會員中心
+
+function changeToUserCenter(){
+  const userCenter = document.querySelector(".userCenter");
+  userCenter.href = "/pages/member.html";
 
 }
 
@@ -231,7 +241,8 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
+        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
+        `http://127.0.0.1:5501/app/search.html?result=${result}`
       )
     );
   }
@@ -367,7 +378,7 @@ function evaluateWasDone(loninUserId) {
   data.comments.forEach(id => {
     if(id.userId === loninUserId){
       evaluateButton.setAttribute("data-bs-toggle", "modal");
-  evaluateButton.setAttribute("data-bs-target", "#exampleModalToggle2");
+      evaluateButton.setAttribute("data-bs-target", "#exampleModalToggle2");
       pagesEvaluateStar.setAttribute("src", "./assets//images/star.svg");
       //evaluateWasDone(id.commenter,id.textContent,id.score);
       let modalContent = `<div class="modal-dialog modal-dialog-centered">
