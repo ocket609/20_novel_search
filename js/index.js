@@ -423,10 +423,13 @@ function goodcommentlistener(e) {
 function localStorageNullResolve() {
     const bookLSdata = JSON.parse(bookLocal);
     const heartLocalData = JSON.parse(heartLocal);
-    if (bookLSdata === null) {
+    if (bookLSdata === null && heartLocalData === null) {
     localStorage.setItem("bookId", JSON.stringify([]));
-    }else if (heartLocalData === null) {
     localStorage.setItem("heartId", JSON.stringify([]));
+    }else if (heartLocalData === null) {
+      localStorage.setItem("heartId", JSON.stringify([]));
+    }else {
+      localStorage.setItem("bookId", JSON.stringify([]));
     }
 }
 
