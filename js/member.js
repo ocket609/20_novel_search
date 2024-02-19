@@ -97,7 +97,7 @@ function myCollectBook(){
    <div class="card-body ">         
      <div class="row cardIcon">
        <p class=" col-xl-8 card-title">${item.bookName}</p>
-       <div class="col-xl-4 p-1 startag "><img class="starImg" src="/img/star.svg" alt="star">${item.Star}</div>
+       <div class="col-xl-4 p-1 startag "><img class="starImg" src="/20_novel_search/img/star.svg" alt="star">${item.Star}</div>
       </div> 
    </div>
 </div>`;

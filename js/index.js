@@ -181,11 +181,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
-
+const bookLocal = localStorage.getItem("bookId");
 
 function goodBookListener(item,id) {
-  const bookLocal = localStorage.getItem("bookId");
-  let bookLSdata = JSON.parse(bookLocal);
+  const bookLSdata = JSON.parse(bookLocal);
   const idNumber = Number(id);
   console.log(bookLSdata);
   if (loginStatus == false) {
@@ -196,10 +195,7 @@ function goodBookListener(item,id) {
         return;
        }
 
-      if (bookLSdata === null) {
-      localStorage.setItem("bookId", JSON.stringify([]));
-      return;
-      } else if (bookLSdata.includes(idNumber)) {
+       if (bookLSdata.includes(idNumber)) {
       let index = bookLSdata.indexOf(idNumber);
       bookLSdata.splice(index, 1);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
@@ -217,14 +213,9 @@ function goodBookListener(item,id) {
 
 
       function goodBookCheckForDisplay() {
-        const bookLocal = localStorage.getItem("bookId");
         const bookHeart = document.querySelectorAll(".likeIcon");
         console.log(bookHeart);
         const bookLocalData = JSON.parse(bookLocal);
-        if (bookLocalData === null) {
-          localStorage.setItem("bookId", JSON.stringify([]));
-          return;
-        }
         const newBookLocalData = bookLocalData.sort();
         const bookArry = [];
         const notgoodBookArry = [];
@@ -368,9 +359,7 @@ function PageCommentRender(commentAllData) {
   
 };
 
-let heartLocal = localStorage.getItem("heartId");
-let heartLocalData = JSON.parse(heartLocal);
-
+const heartLocal = localStorage.getItem("heartId");
 
 function goodcommentCheckForDisplay() {
   const commentHeart = document.querySelectorAll(".commentheart");
@@ -402,6 +391,7 @@ function goodcommentCheckForDisplay() {
 
 function goodcommentlistener(e) {
   console.log(e.target.dataset.heartid);
+  const heartLocalData = JSON.parse(heartLocal);
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
    console.log(value);
@@ -430,7 +420,15 @@ function goodcommentlistener(e) {
 }
 
 
-
+function localStorageNullResolve() {
+    const bookLSdata = JSON.parse(bookLocal);
+    const heartLocalData = JSON.parse(heartLocal);
+    if (bookLSdata === null) {
+    localStorage.setItem("bookId", JSON.stringify([]));
+    }else if (heartLocalData === null) {
+    localStorage.setItem("heartId", JSON.stringify([]));
+    }
+}
 
 
 //登入測試
@@ -460,6 +458,7 @@ function islogin() {
 
   if(item === null){
     loginStatus = false;
+    localStorageNullResolve();
     goodBookCheckForDisplay();
     goodcommentCheckForDisplay();
     //evaluateWasDone(userId);

@@ -194,7 +194,7 @@ h6{
     border-radius: 100px;
     &:active{
             border-radius: 100px;     
-            background-image: url('/20_novel_search//app/assets/images/search_active.svg');
+            background-image: url('/20_novel_search/app/assets/images/search_active.svg');
     }
 }
 
