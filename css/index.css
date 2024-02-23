@@ -340,10 +340,15 @@ li{list-style-type: none;}
     margin-bottom: 60px;
 }
 
+.CommentSwiper{
+    height: 100%;
+}
+
 .commentCard{
     /* background: linear-gradient(90deg, #FFF2E1, #FFE4BC); */
     background: linear-gradient(to top, #FFF2E1 0%, #FFE4BC 100%, #FFF2E1 100%, #FFE4BC 100%);
     border: none;
+    padding: 8px;
     position: relative;
 }
 
@@ -498,8 +503,8 @@ li{list-style-type: none;}
         background: linear-gradient(to top, #FFF2E1 0%, #FFE4BC 100%, #FFF2E1 100%, #FFE4BC 100%);
         border: none;
         position: relative;
-        height: 100%;
     }
+
 
     /* 重新排列元素的順序 */
     /* .language{ */
