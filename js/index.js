@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       topThreeBooks.forEach((book) => {
         const card = document.createElement("div");
-        card.classList.add("swiper-slide","col-12", "col-md-4", "bookImg");
+        card.classList.add("swiper-slide","bookImg");
 
         card.innerHTML = `
   	    <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
@@ -126,14 +126,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     const swiper = new Swiper(".swiper-container", {
       loop: false,
       centeredSlides: false,
-      spaceBetween: 30,
-      initialSlide: 0,
+      spaceBetween: 10,
       navigation: {
         nextEl: '.next',
         prevEl: '.previous',
       },
       pagination: {
-        // el: ".swiper-pagination",
+        el: ".swiper-pagination",
         clickable: false,
       },
       breakpoints: {
@@ -171,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           allowTouchMove: true,
         },
         360: {
-          slidesPerView: 2,
+          slidesPerView: 1.5,
           allowTouchMove: true,
         },
       },
