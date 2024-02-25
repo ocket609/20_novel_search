@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
     displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
    
-    islogin();
+   
 
     // 前五名熱門小說排名
     
@@ -428,8 +428,11 @@ function localStorageNullResolve() {
     localStorage.setItem("heartId", JSON.stringify([]));
     }else if (heartLocalData === null) {
       localStorage.setItem("heartId", JSON.stringify([]));
-    }else {
+    }else if (bookLSdata === null){
       localStorage.setItem("bookId", JSON.stringify([]));
+    }else {
+      goodBookCheckForDisplay();
+      goodcommentCheckForDisplay();
     }
 }
 
@@ -461,9 +464,7 @@ function islogin() {
 
   if(item === null){
     loginStatus = false;
-    localStorageNullResolve();
-    goodBookCheckForDisplay();
-    goodcommentCheckForDisplay();
+    //localStorageNullResolve();
     //evaluateWasDone(userId);
     console.log("沒登入過");
     console.log(loginStatus);
@@ -498,14 +499,11 @@ function islogin() {
     loginBtn.setAttribute("href", "javascript:void(0);");
     loginBtn.setAttribute("class", "btnLogin");
     loginBtn.innerHTML = str;
-    goodBookCheckForDisplay();
-    goodcommentCheckForDisplay();
+    localStorageNullResolve();
     //changeToUserCenter();
     //evaluateWasDone(userId);
     
     console.log("已登入");
     console.log(loginStatus);
   }
-
-
 }

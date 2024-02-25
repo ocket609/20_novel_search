@@ -12,7 +12,6 @@ function searchPageApi() {
     .then(function (response) {
       data = response.data;
       searchResult();
-      islogin();
     })
     .catch(function (error) {
       console.log(error);
@@ -129,7 +128,6 @@ function islogin() {
 
   if(item === null){
     loginStatus = false;
-    GoodBookCheckForDisplay();
     console.log("第一次登入");
     console.log(loginStatus);
     return;
@@ -140,13 +138,12 @@ function islogin() {
   if (new Date().getTime() > item.expired) {
     setTimeout(() => {
       const item2 = {
-        value: "false",
+        value: false,
         expired: item.expired,
       };
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
     console.log("請重新登入");
-    GoodBookCheckForDisplay();
     console.log(loginStatus);
   } else {
     console.log("已登入");
@@ -257,10 +254,7 @@ let selectPage = 1;
 
 function changePage(e) {
   const pageNum = Number(e.target.innerText);
-  const totalBookPage =
-    searchResultvalue === "undefined"
-      ? Math.ceil(data.length / 6)
-      : Math.ceil(changePageData.length / 6);
+  const totalBookPage = searchResultvalue === "undefined" ? Math.ceil(data.length / 6) : Math.ceil(changePageData.length / 6);
 
   // click page number
   if (e.target.className === "page-item page-number-item") {
@@ -290,6 +284,7 @@ function changePage(e) {
 function sliceBookDataForPageNumber(pageNum, newdata = data) {
   const bookData = newdata.slice((pageNum - 1) * 6, pageNum * 6);
   searchPageRender(bookData);
+  islogin();
 }
 
 function bookDataForPageNumber(pageNum, newdata = data) {
@@ -399,7 +394,7 @@ function GoodBooklistener(e) {
 
 const now = new Date();
 const item2 = {
-  value: "true",
+  value: true,
   expired: now.getTime() + 3600000,
 };
 //localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
