@@ -315,7 +315,7 @@ function homeCateToSearchPage(e) {
   })
   .catch(error => console.log('發生錯誤：', error));
 
-  const commentListArea = document.querySelector(".CommentSwiper");
+  const commentListArea = document.querySelector(".commentFromSwiper");
 
 // PageCommentRender 函式用來渲染留言列表
 function PageCommentRender(commentAllData) {
@@ -334,7 +334,7 @@ function PageCommentRender(commentAllData) {
       <div class="header d-flex justify-content-center">
         <img src="./img/Avatar2.png" alt="網友" class="netizen" />
       </div>
-      <div class="card-body bg-white text-center mt-3 h-75">
+      <div class="card-body bg-white text-center mt-3 commentBody">
         <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
         <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
       </div>
@@ -349,7 +349,7 @@ function PageCommentRender(commentAllData) {
       `;
       commentListArea.appendChild(str);
     });
-    const swiperTest = document.querySelector(".CommentSwiper");
+    const swiperTest = document.querySelector(".commentFromSwiper");
 
     swiperTest.addEventListener("click", goodcommentlistener);
   }
@@ -357,6 +357,32 @@ function PageCommentRender(commentAllData) {
   //commentListArea.innerHTML = str;
   
 };
+
+ // 初始化留言區Swiper
+ const swiperContainer = new Swiper(".commentSwiper", {
+  spaceBetween: 10,
+  freeMode: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: false,
+  },
+  /*navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+    hideOnClick: true,
+  },*/
+  breakpoints: {
+    992: {
+      slidesPerView: 3,
+      allowTouchMove: true,
+    },
+    360: {
+      slidesPerView: 1,
+      allowTouchMove: true,
+    },
+  },
+});
+
 
 const heartLocal = localStorage.getItem("heartId");
 

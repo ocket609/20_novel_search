@@ -348,7 +348,6 @@ li{list-style-type: none;}
     /* background: linear-gradient(90deg, #FFF2E1, #FFE4BC); */
     background: linear-gradient(to top, #FFF2E1 0%, #FFE4BC 100%, #FFF2E1 100%, #FFE4BC 100%);
     border: none;
-    padding: 8px;
     position: relative;
 }
 
@@ -356,6 +355,11 @@ li{list-style-type: none;}
     position: absolute;
     top: -45px;
     z-index:1;
+}
+
+.commentBody{
+    height:15rem;
+
 }
 
 .box{
@@ -367,6 +371,11 @@ li{list-style-type: none;}
     --swiper-pagination-color: #FFFEF6;
 
 
+}
+
+.swiper{
+    --swiper-navigation-color: #E78C52;
+    --swiper-navigation-size: 30px;
 }
 
 .dotLine2{
