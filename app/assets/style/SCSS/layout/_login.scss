@@ -1,25 +1,25 @@
 //$success:#FDF9E6;
 
-.longin-main {
+.login-main {
     .header {
         padding: 32px 80px;
     }
 }
 @media (max-width: 768px) {
-    .longin-main {
+    .login-main {
         .header {
             padding: 32px 60px;
         }
     }
 }
 @media (max-width: 572px) {
-    .longin-main {
+    .login-main {
         .header {
             padding: 32px 30px;
         }
     }
 }
-.longin-hover-btn {
+.login-hover-btn {
     &:hover {
         font-weight: 700;
     }
@@ -28,18 +28,18 @@
 .turn {
     padding: 40px 0;
 }
-.longin, .signup, .textEmail, .resetPassword {
+.login, .signup, .textEmail, .resetPassword {
     padding: 80px 150PX;
     margin:  40px 200px;
 }
 @media (max-width: 992px) {
-    .longin, .signup, .textEmail, .resetPassword {
+    .login, .signup, .textEmail, .resetPassword {
         padding: 80px 100px;
         margin:  40px 100px;
     }
 }
 @media (max-width: 768px) {
-    .longin, .signup, .textEmail, .resetPassword {
+    .login, .signup, .textEmail, .resetPassword {
         padding: 80px;
         margin:  20px;
     }
@@ -48,7 +48,7 @@
     .turn {
         padding: 0;
     }
-    .longin, .signup, .textEmail, .resetPassword {
+    .login, .signup, .textEmail, .resetPassword {
         padding: 40px 50px;
         margin:  20px 10px;
     }
@@ -66,7 +66,7 @@
     padding: 10px 0px;
 }
 
-.longin-btn {
+.login-btn {
     width: 100%;
     padding: 12px 24px;
     &:hover {
