@@ -5,7 +5,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
 
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,7 +50,6 @@ table {
 	border-spacing: 0;
 }
 
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -62,9 +60,6 @@ img{
     height: auto;
     display: block;
 }
-
-
-
 
 *,*::before,*::after {
 box-sizing: border-box;
@@ -100,20 +95,38 @@ h6{
     font-size: 20px;
 }
 
-
 .navbar{
     background-color: #fffbe8;
 }
 
-
 .btnLogin {
     background-color: #E78C52;
-    color: white;
+    color: black;
 }
  
 .btnLogin:hover{
     box-shadow: 4px 4px rgba(231, 140, 82, 0.5);
   }
+
+.loginUser{
+    margin-top: 0.3rem;
+}  
+
+.loginUserName{
+    padding: 3px;
+    border:2px solid white;
+    border-radius: 100%;
+    color: white;
+    background: #E78C52;
+    transition: all 0.1s ease-out;
+}
+
+.loginUserName:hover{
+    background: #e36415;
+    box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+    transform:scale(1.1);
+}
+
 
 .banner{
     padding: 100px 0px;
@@ -136,7 +149,6 @@ h6{
     }
   }
    
-   
 .inputSearch {
     position: relative; 
     display: inline-block;
@@ -149,13 +161,56 @@ h6{
     top: calc(2% - 0.3em);
   }
 
+
+/*搜尋欄*/
+
+.searchDiv{
+    width: 90%;
+    height: auto;
+    min-width: 100px;
+    border: 1px solid rgba(231, 140, 82, 0.2);
+    border-radius: 20px;
+    &:active{
+        border:1px solid #E78C52CC;
+    };
+}
+
+.search {
+    width: 95%;
+    border: 0;
+    outline: none;
+  }
+
+
+.searchImg{
+    width: 5%;
+    min-width: 25px;
+    background-image: url('/20_novel_search/app/assets/images/search.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    background-size: cover;
+    border: 0;
+    border-radius: 100px;
+    &:active{
+            border-radius: 100px;     
+            background-image: url('/20_novel_search/app/assets/images/search_active.svg');
+    }
+}
+
 .classification li{
     list-style-type: none;
     border-left: 1px solid;
     border-top: none; 
     border-bottom: none ;
-    padding: 32px;
-    margin: 48px 0px;
+    padding: 30px;
+    margin: 40px 0px;
+}
+
+/* 書籍分類選單hover */
+.classification li:hover,
+.classification li:focus {
+  transform: translateY(-0.25em);
 }
 
 .addBorder{
@@ -165,7 +220,6 @@ h6{
 li{list-style-type: none;}
 
 .classification a {text-decoration:none;}
-
 
 .arrow li{
     margin: 8px;
@@ -181,7 +235,6 @@ li{list-style-type: none;}
     margin: 120px 0px;
 }
 
-
 .rankbtn{
     display: inline-block;
     padding: 10px 30px;
@@ -190,8 +243,6 @@ li{list-style-type: none;}
     border-radius: 40px 0px 0px 40px;
     color: #454545;
 }
-
-
 
 .novelImg{
     position: relative;
@@ -223,10 +274,10 @@ li{list-style-type: none;}
 
 .share{
     position: absolute;
-    top: 370px;
-    left: 240px;
+    top: 400px;
+    left: 310px;
+    width: 100%;
 }
-
 
 .share li{
     margin: 4px;
@@ -242,13 +293,9 @@ li{list-style-type: none;}
     background-color: #FFF0D4;
 }
 
-
 .classify{
     background-color: #fffbe8;
 }
-
-
-
 
 .listbtn{
     margin-top: 24px;
@@ -268,8 +315,8 @@ li{list-style-type: none;}
 
 .bookshare{
     position: absolute;
-    top: 240px;
-    left: 150px;
+    top: 250px;
+    left: 200px;
 }
 
 .bookshare li{
@@ -280,7 +327,6 @@ li{list-style-type: none;}
 .book-cover {
     width: 306px; 
     height: 306px; 
-    object-fit: cover; 
   }
 
   
@@ -292,6 +338,10 @@ li{list-style-type: none;}
 
 .bookclass{
     margin-bottom: 60px;
+}
+
+.CommentSwiper{
+    height: 100%;
 }
 
 .commentCard{
@@ -307,8 +357,31 @@ li{list-style-type: none;}
     z-index:1;
 }
 
+.commentBody{
+    height:15rem;
+
+}
+
 .box{
     height: 24px;
+}
+
+.swiper-pagination, .CommentSwiper{
+
+    --swiper-pagination-color: #FFFEF6;
+
+
+}
+
+.swiper{
+    --swiper-navigation-color: #E78C52;
+    --swiper-navigation-size: 30px;
+}
+
+.dotLine2{
+    
+    border-bottom: 1px dashed #E0E0E0;
+
 }
 
 .inside{
@@ -333,14 +406,40 @@ li{list-style-type: none;}
     padding-top: 24px;
 }
 
+   /* 填滿愛心 */
+   .likeIcon:hover {
+    content: url('../img/filledHeart.png');
+    border-radius: 50px;
+    border: 2px solid rgb(231, 140, 82);
+    }
+     /* 填滿讚*/
+    .thumbIcon:hover {
+        content: url('../img/filledThumb.png');
+        border-radius: 50px;
+        border: 2px solid rgb(231, 140, 82);
+        }
 
 @media (max-width: 767px) {  
+    .navbar, .banner{
+        max-width: 95%;
+    }
     .nav-link{
         text-align: center;
     }
     .illustrateRwd{
-        max-width: 100%;
+        max-width: 95%;
         flex-direction: column;
+    }
+
+    .classification, .Banner img{
+        display: flex;
+        justify-content: center;
+        max-width: 95%;
+        /* text-align: center; */
+    }
+
+    .classification li{
+        padding: 16px;
     }
 
     .ballon {
@@ -373,12 +472,54 @@ li{list-style-type: none;}
         justify-content: end;
     }
 
+    .classRWD{
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 24px;
+    }
+
+    .listbtn{
+        margin-top: 0px;
+    }
+
+    .pic{
+        width:70%;
+        height: auto;
+    }
+
+    .pic img{
+        height: 500px;
+    }
+
+    .share{
+        top: 440px;
+        left: 230px;
+        width: auto;
+    }
+
+    .bookshare{
+        top: 250px;
+        left: 150px;
+        width: 100%;
+    }
+
+    .Footer{
+        max-width: 90%;
+    }
+
+    .commentCard{
+        /* background: linear-gradient(90deg, #FFF2E1, #FFE4BC); */
+        background: linear-gradient(to top, #FFF2E1 0%, #FFE4BC 100%, #FFF2E1 100%, #FFE4BC 100%);
+        border: none;
+        position: relative;
+    }
+
+
     /* 重新排列元素的順序 */
     /* .language{ */
         /* order: 2;    */
     /* } */
 }
-
 
      /* 媒體查詢，當視窗寬度大於中等（md）尺寸時 */
     @media (min-width: 768px) {
@@ -443,11 +584,3 @@ li{list-style-type: none;}
         border-radius: 100px;
         border: 2px solid rgb(231, 140, 82);
       }
-
-
-      /* 填滿愛心 */
-    .likeIcon:hover {
-    content: url('../img/filledHeart.png');
-    border-radius: 100px;
-    border: 2px solid rgb(231, 140, 82);
-    }

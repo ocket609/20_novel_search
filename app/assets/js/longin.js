@@ -178,7 +178,7 @@ function Login(loginEmail, loginPassword, loginUserId) {
             // 用來判斷是否登入
             const now = new Date();
             const loginInfo = {
-                value: 'true',
+                value: true,
                 expired: now.getTime()  +3600000
             };
             localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
@@ -215,7 +215,7 @@ getReset_btn.addEventListener("click", (e) => {
     e.preventDefault();
     const resetPassword = document.querySelector("#resetPassword").value;
     const resetPasswordAgain = document.querySelector("#resetPasswordAgain").value;
-    if(resetPassword !== resetPasswordAgain) {
+    if(resetPassword !== resetPsasswordAgain) {
         Swal.fire({
             icon: "error",
             title: "請確認密碼2次輸入是否正確！"

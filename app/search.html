@@ -29,23 +29,26 @@
       </nav>
     </div>
 
+    
+        
+ 
+
     <div class="searchSection">
-      <div class="container">
+      <div class="container"> 
         <div class="row justify-content-center">
-          <div
-            class="booksearch col-5 mt-5 p-5"
-            style="min-width: 300px; max-width: 350px"
-          >
-            <div class="d-flex searchDiv rounded-3 mb-5 p-1 bg-white w-75">
-              <input
-                class="search"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="searchPageBreadCrumbs">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="https://ocket609.github.io/20_novel_search/" class="breadcrumb-item-content">首頁</a></li>
+              <li class="breadcrumb-item active" aria-current="page">搜尋頁面</li>
+            </ol>
+          </nav>
+          <div class="booksearch col-5 mt-5 p-5" style="min-width: 300px; max-width: 350px">
+            <div class="d-flex searchArea rounded-3 mb-5 p-1 bg-white w-75">
+              <input class="search" type="search" placeholder="Search" aria-label="Search"/>
               <input class="searchImg" type="button" aria-label="button" />
             </div>
 
+    
             <div class="selectArea">
               <div class="mb-5">
                 <h3 class="mb-3">類別</h3>
@@ -63,40 +66,15 @@
                 <h3 class="mb-3">評分</h3>
                 <select class="selectStar btn btn-orange-100 w-75">
                   <option value="">選擇評分</option>
-                  <option value="1">
-                    1<img
-                      class="ms-1"
-                      src="./assets/images/star_black_24dp.svg"
-                      alt=""
-                    />
+                  <option value="1">1<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""/>
                   </option>
-                  <option value="2">
-                    2<img
-                      class="ms-1"
-                      src="./assets/images/star_black_24dp.svg"
-                      alt=""
-                    />
+                  <option value="2">2<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""/>
                   </option>
-                  <option value="3">
-                    3<img
-                      class="ms-1"
-                      src="./assets/images/star_black_24dp.svg"
-                      alt=""
-                    />
+                  <option value="3">3<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""/>
                   </option>
-                  <option value="4">
-                    4<img
-                      class="ms-1"
-                      src="./assets/images/star_black_24dp.svg"
-                      alt=""
-                    />
+                  <option value="4">4<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""/>
                   </option>
-                  <option value="5">
-                    5<img
-                      class="ms-1"
-                      src="./assets/images/star_black_24dp.svg"
-                      alt=""
-                    />
+                  <option value="5">5<img class="ms-1" src="./assets/images/star_black_24dp.svg" alt=""/>
                   </option>
                 </select>
               </div>
@@ -104,12 +82,14 @@
           </div>
 
           <div class="bookdisplay col-8 mt-5">
-            <div
-              class="row row-cols-4 row-cols-md-1 row-cols-md-2 row-cols-sm-2 justify-content-start bookList"
-            ></div>
+            <div class="row row-cols-4 row-cols-md-1 row-cols-md-2 row-cols-sm-2 justify-content-start bookList"></div>
           </div>
-
-
+          <div class="content">
+            <ul class="page-number d-flex justify-content-center"></ul>
+          </div>
+        </div>
+      </div>
+       
     <div class="Footer mt-5 pb-5">
       <div
         class="container-xl bg-orange-100 border border-orange-100 rounded-4"

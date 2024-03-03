@@ -80,6 +80,18 @@
     color: red;
 }
 
+.bookPageBreadCrumbs{
+    position: relative;
+    left: 1%;
+    .breadcrumb-item-content{
+        color: #E78C52;
+        &:hover {
+        font-weight: bold;
+      }}
+    
+  }
+  
+
 /*圖片區*/
 
 
@@ -102,8 +114,8 @@
 
 
 .searchImg{
-    width: 10%;
-    min-width: 20px;
+    width: 9%;
+    min-width: 25px;
     background-image: url('../../images/search.svg');
     background-repeat: no-repeat;
     background-position: center;

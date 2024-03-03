@@ -10345,6 +10345,17 @@ margin & padding
   color: red;
 }
 
+.bookPageBreadCrumbs {
+  position: relative;
+  left: 1%;
+}
+.bookPageBreadCrumbs .breadcrumb-item-content {
+  color: #E78C52;
+}
+.bookPageBreadCrumbs .breadcrumb-item-content:hover {
+  font-weight: bold;
+}
+
 /*圖片區*/
 .logo {
   background-image: url("../../images/LogoSize=lg.svg");
@@ -10366,8 +10377,8 @@ margin & padding
 }
 
 .searchImg {
-  width: 10%;
-  min-width: 20px;
+  width: 9%;
+  min-width: 25px;
   background-image: url("../../images/search.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -10470,31 +10481,31 @@ margin & padding
 }
 
 .selectCategory:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectCategory:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectCategory option:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectCategory option:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectStar:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectStar:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .selectStar option:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .selectStar option:active {
-  background-color: #FFF0D4;
+  background-color: #fff0d4;
 }
 
 .card-img-top:hover {
@@ -10504,6 +10515,18 @@ margin & padding
 .card-img-top:active {
   transform: scale(1.1);
   transition: all 0.1s linear 0s;
+}
+
+.searchPageBreadCrumbs {
+  position: relative;
+  top: 2rem;
+  left: 5%;
+}
+.searchPageBreadCrumbs .breadcrumb-item-content {
+  color: #e78c52;
+}
+.searchPageBreadCrumbs .breadcrumb-item-content:hover {
+  font-weight: bold;
 }
 
 /*圖片區*/
@@ -10536,14 +10559,44 @@ margin & padding
 }
 .mulitPageLink.active, .mulitPageLink:hover {
   background-color: rgba(231, 140, 82, 0.2);
-  color: #E78C52;
+  color: #e78c52;
 }
 .mulitPageLink:focus {
-  color: #E78C52;
+  color: #e78c52;
   background-color: rgba(231, 140, 82, 0.2);
 }
 
 .book {
   width: 80%;
   height: 50%;
+<<<<<<< HEAD
 }/*# sourceMappingURL=all.css.map */
+=======
+}
+
+/*pagination*/
+.page-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.page-item:hover {
+  font-weight: bold;
+}
+
+.page-number-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.page-number-item:hover {
+  background: rgba(231, 139, 82, 0.4117647059);
+  font-weight: bold;
+}
+.page-number-item.active {
+  background: #e78c52;
+  font-weight: bold;
+}
+>>>>>>> bcf4769dfd796ff42e7777e6a05544953ad91e49

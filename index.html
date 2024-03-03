@@ -50,13 +50,8 @@
             <li class="nav-link">
               <a href="#" class="btn" title="按左鍵前往">關於我們</a>
             </li>
-            <li class="nav-link">
-              <a
-                href="https://ocket609.github.io/20_novel_search/app/longin.html"
-                class="btn btnLogin"
-                title="按左鍵前往"
-                >登入/註冊</a
-              >
+            <li class="nav-link justify-content-center">
+              <a href="https://ocket609.github.io/20_novel_search/app/longin.html" class="btn btnLogin" title="按左鍵前往">登入/註冊</a>
             </li>
           </ul>
         </div>
@@ -82,15 +77,15 @@
         </div>
 
         <div class="row justify-content-center">
-          <div class="col-10 col-md-6 inputSearch">
-            <input
-              class="form-control search"
-              type="search"
-              placeholder="找好書"
-            />
-            <a href="#" class="btn icon"
-              ><img src="./img/search.png" alt="" class="searchImg"
-            /></a>
+          <div class="col-8 col-md-6 inputSearch">
+            <div class="d-flex searchDiv rounded-3 m-0 p-1 bg-white">
+              <input class="search" type="search" placeholder="找好書" aria-label="Search" id="search"/>
+              <input class="searchImg" type="button" aria-label="button"/>
+            </div>
+               <!--<input class="form-control search " type="search" placeholder="找好書"/>
+               <a href="#" class="btn icon"><img src="./img/search.png" alt="" class="searchImg"/></a>-->
+
+
           </div>
         </div>
 
@@ -98,29 +93,29 @@
           <div class="col-10 col-md-4">
             <ul class="d-flex classification">
               <li>
-                <a href="" class="link-dark"
+               <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E5%A5%87%E5%B9%BB%EF%BC%8E%E7%A7%91%E5%B9%BB" class="link-dark"
                   >奇<br />幻<br />
                   ．<br />科<br />幻</a
                 >
               </li>
               <li>
-                <a href="" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%AD%B7%E5%8F%B2%EF%BC%8E%E6%AD%A6%E4%BF%A0" class="link-dark"
                   >歷<br />史 <br />．<br />武<br />俠</a
                 >
               </li>
               <li>
-                <a href="" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%84%9B%E6%83%85%EF%BC%8E%E6%96%87%E8%97%9D" class="link-dark"
                   >愛<br />情<br />
                   ．<br />文<br />藝</a
                 >
               </li>
               <li>
-                <a href="" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%87%B8%E7%96%91%EF%BC%8E%E6%8E%A8%E7%90%86" class="link-dark"
                   >懸<br />疑<br />．<br />推<br />理</a
                 >
               </li>
               <li class="addBorder">
-                <a href="" class="link-dark"
+                <a href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%81%90%E6%80%96%EF%BC%8E%E9%A9%9A%E6%82%9A" class="link-dark"
                   >恐<br />怖<br />
                   ．<br />驚<br />悚</a
                 >
@@ -147,8 +142,8 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="swiper-container">
+     <div class="container">
+      <div class="swiper swiper-container">
         <div class="swiper-wrapper" id="topBooksContainer">
           <!-- 顯示前5本小說的卡片 -->
         </div>
@@ -244,7 +239,7 @@
       <div class="container list">
         <div class="bookclass">
           <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 classRWD">
               <h3>奇幻 ．科幻 /</h3>
               <a
                 href="javascript:void(0);"
@@ -254,30 +249,46 @@
                 >More&emsp;&rarr;</a
               >
             </div>
-            <div class="col-12 col-md-9">
-              <div class="row" id="fantasyBooks"></div>
+            <div class="swiper mySwiper col-12 col-md-9">
+              <div class="swiper-wrapper" id="fantasyBooks">
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
             </div>
+            <!--<div class="container col-12 col-md-9">
+             <div class="swiperContainer ">
+              <div class="swiper-wrapper" id="fantasyBooks"></div>
+             </div>
+            </div>-->
           </div>
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>歷史 ．武俠 /</h3>
             <a
-              href="avascript:void(0);"
+              href="javascript:void(0);"
               class="listbtn"
               title="按左鍵前往"
               value="歷史．武俠"
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="historyBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="historyBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="historyBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>愛情 ．文藝 /</h3>
             <a
               href="javascript:void(0);"
@@ -287,13 +298,23 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="loveBooks"></div>
+          <!--<swiper-container class="mySwiper col-12 col-md-9" pagination="true" pagination-clickable="true" slides-per-view="3"
+           space-between="30" free-mode="true" id="loveBooks" navigation="true">
+          </swiper-container>-->
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="loveBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="loveBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>懸疑 ．推理 /</h3>
             <a
               href="#javascript:void(0);"
@@ -303,13 +324,20 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="suspenseBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="suspenseBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="suspenseBooks"></div>
+          </div>-->
         </div>
 
         <div class="row bookclass">
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-3 classRWD">
             <h3>恐怖 ．驚悚 /</h3>
             <a
               href="javascript:void(0);"
@@ -319,9 +347,16 @@
               >More&emsp;&rarr;</a
             >
           </div>
-          <div class="col-12 col-md-9">
-            <div class="row" id="fearBooks"></div>
+          <div class="swiper mySwiper col-12 col-md-9">
+            <div class="swiper-wrapper" id="fearBooks">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
+          <!--<div class="swiperContainer col-12 col-md-9">
+            <div class="swiper-wrapper" id="fearBooks"></div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -329,93 +364,19 @@
     <h2 class="pt-3 bull">&#x2003;&#x2003;&bull;&bull;</h2>
     <h2 class="pb-1">熱門評論</h2>
 
-    <div class="container comment my-5">
-      <div class="row">
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">看我看我</h6>
-              <span class="borderBottom"></span>
-              <h5>跪求續集啊 Orz</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="container-fluid">
+      <!-- <div id="commentListArea"></div> -->
+       <!--<swiper-container class="CommentSwiper" slides-per-view="3" centered-slides="false" space-between="10" pagination="true" 
+      pagination-type="bullets" navigation="false" ></swiper-container>
+      -->
+      <div class="swiper commentSwiper col-12 col-md-9">
+        <div class="swiper-wrapper commentFromSwiper">
         </div>
-
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar2.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">巨石大大</h6>
-              <span class="borderBottom"></span>
-              <h5>作者好會，賺我眼淚QQ</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4 my-5">
-          <div class="card commentCard">
-            <div class="header d-flex justify-content-center">
-              <div class="box"></div>
-              <img src="./img/Avatar4.png" alt="網友" class="netizen" />
-            </div>
-            <div class="card inside">
-              <h6 class="pt-5 text-secondary">萬皮斯</h6>
-              <span class="borderBottom"></span>
-              <h5>不看你會後悔阿阿阿阿阿</h5>
-            </div>
-            <div class="footer d-flex justify-content-between py-2 px-2">
-              <h6 class="py-3 px-2">轉生史萊姆</h6>
-              <div class="score d-flex align-items-center">
-                <div class="star mx-2">
-                  <li>
-                    <a href=""><img src="./img/star.png" alt="" /></a>
-                  </li>
-                  <li><p>4.9</p></li>
-                  <li class="ms-2">
-                    <a href=""><img src="./img/like.png" alt="" /></a>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>-->
+        <div class="swiper-pagination"></div>
       </div>
-    </div>
+</div>
 
     <div class="mt-5 pb-5">
       <div
@@ -504,19 +465,19 @@
                   <div class="link mb-2 mx-2"></div>
                 <div class="col-12 col-md-12 collapse" id="bookMenu">
                 <div class="p-2">
-                  <a class="siteLink" href="">奇幻 • 科幻</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E5%A5%87%E5%B9%BB%EF%BC%8E%E7%A7%91%E5%B9%BB">奇幻 • 科幻</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">歷史 • 武俠</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%AD%B7%E5%8F%B2%EF%BC%8E%E6%AD%A6%E4%BF%A0">歷史 • 武俠</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">愛情 • 文藝</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%84%9B%E6%83%85%EF%BC%8E%E6%96%87%E8%97%9D">愛情 • 文藝</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">懸疑 • 推理</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%87%B8%E7%96%91%EF%BC%8E%E6%8E%A8%E7%90%86">懸疑 • 推理</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">恐怖 • 驚悚</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/app/search.html?cateresult=%E6%81%90%E6%80%96%EF%BC%8E%E9%A9%9A%E6%82%9A">恐怖 • 驚悚</a>
                 </div>
               </div>
             </div>
@@ -602,7 +563,12 @@
       </div>
     </div>
 
+    <!-- <div id="commentListArea"></div> -->
+
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- 引入axios -->
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>

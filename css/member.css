@@ -1,0 +1,182 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    color: #454545;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+*,*::before,*::after {
+box-sizing: border-box;
+}
+
+body{
+    background-color: #FFFEF6;
+    font-family: "Noto Serif TC", "Cardo", sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+h3{
+    font-size: 32px;
+}
+
+h4{
+    font-size: 28px;
+}
+
+h5{
+    font-size: 24px;
+}
+
+h6{
+    font-size: 20px;
+}
+
+.navbar{
+    background-color: #fffbe8;
+}
+
+.inputSearch {
+    position: relative; 
+    display: inline-block;
+  }	
+  	
+  .inputSearch .icon { 
+    position: absolute;	
+    width: 45px;	
+    right: 9px;
+    top: calc(15% - 0.0em);
+  }
+
+.breadCrumbs{
+    margin-top: 120px;
+}
+
+.memberbtn{
+    margin: 8px;
+    display: inline-block;
+    padding: 16px 20px;
+    text-decoration: none;
+    border: none;
+    /* border: 1px solid rgb(231, 140, 82); */
+    background-color: #FFFEF6;
+}
+
+.memberbtn:hover{
+    color: rgb(231, 140, 82);
+    border-bottom: 1px solid rgb(231, 140, 82);
+    /* box-shadow: 0px 4px rgba(231, 140, 82, 0.5); */
+  }
+
+  .menuCollapse{
+    padding-top: 24px;
+}
+
+.breadcrumb a{
+    color: gray;
+}
+
+.breadcrumb a:hover{
+    color: rgb(231, 140, 82);
+  }
+
+
+@media (max-width: 767px) {  
+    .navbar, .banner{
+        max-width: 95%;
+    }
+    .nav-link{
+        text-align: center;
+    }
+    .Footer{
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    /* 取消折疊效果 */
+    .collapse {
+      display: block !important;
+      visibility: visible;
+      height: auto;
+      overflow: visible;
+    }
+    .bi{
+        display: none;
+    }
+    .socialMenu{
+        display: none;
+    }
+    }
+
+    .Footer{
+        background-color: #FDF9E6;
+    }
+    .siteLink{
+        color: #454545;
+    }
+    a { text-decoration: none; }
+        
