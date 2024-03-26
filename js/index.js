@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     displayTopThreeBooksByTag("懸疑．推理", "suspenseBooks");
     displayTopThreeBooksByTag("恐怖．驚悚", "fearBooks");
    
-   
 
     // 前五名熱門小說排名
     
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
      	<p>${book.Star}</p>
    	  </div>
    	  <div class="justify-content-end" style="margin-left:50%;">
-     	<a href="https://ocket609.github.io/20_novel_search/app/search.html?" 
+     	<a href="https://ocket609.github.io/20_novel_search/app/search.html" 
      	class="rankbtn" title="按左鍵前往">查看更多&rarr;</a>
    	  </div>
    	  `;
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       topThreeBooks.forEach((book) => {
         const card = document.createElement("div");
-        card.classList.add("swiper-slide","bookImg");
+        card.classList.add("swiper-slide","col-12", "col-md-4", "bookImg","pic2");
 
         card.innerHTML = `
   	    <img src="${book.img}" alt="書" class="book-cover" data-id=${book.id}>
@@ -126,13 +125,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const swiper = new Swiper(".swiper-container", {
       loop: false,
       centeredSlides: false,
-      spaceBetween: 10,
+      spaceBetween: 30,
+      initialSlide: 0,
       navigation: {
         nextEl: '.next',
         prevEl: '.previous',
       },
       pagination: {
-        el: ".swiper-pagination",
+        // el: ".swiper-pagination",
         clickable: false,
       },
       breakpoints: {
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           allowTouchMove: true,
         },
         360: {
-          slidesPerView: 1.5,
+          slidesPerView: 2,
           allowTouchMove: true,
         },
       },
@@ -181,9 +181,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 const bookLocal = localStorage.getItem("bookId");
+const bookLSdata = JSON.parse(bookLocal);
+
 
 function goodBookListener(item,id) {
-  const bookLSdata = JSON.parse(bookLocal);
   const idNumber = Number(id);
   console.log(bookLSdata);
   if (loginStatus == false) {
@@ -194,17 +195,20 @@ function goodBookListener(item,id) {
         return;
        }
 
-       if (bookLSdata.includes(idNumber)) {
+      if (bookLSdata === null) {
+      localStorage.setItem("bookId", JSON.stringify([]));
+      return;
+      } else if (bookLSdata.includes(idNumber)) {
       let index = bookLSdata.indexOf(idNumber);
       bookLSdata.splice(index, 1);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "./img/like.png");
+      item.setAttribute("src", "../img/like.png");
       goodBookCheckForDisplay();
       alert("收藏已取消!!");
       } else {
       bookLSdata.push(idNumber);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "./img/filledHeart.png");
+      item.setAttribute("src", "../img/filledHeart.png");
       goodBookCheckForDisplay();
       alert("收藏成功!!");
       }
@@ -212,9 +216,14 @@ function goodBookListener(item,id) {
 
 
       function goodBookCheckForDisplay() {
+        const bookLocal = localStorage.getItem("bookId");
         const bookHeart = document.querySelectorAll(".likeIcon");
         console.log(bookHeart);
         const bookLocalData = JSON.parse(bookLocal);
+        if (bookLocalData === null) {
+          localStorage.setItem("bookId", JSON.stringify([]));
+          return;
+        }
         const newBookLocalData = bookLocalData.sort();
         const bookArry = [];
         const notgoodBookArry = [];
@@ -233,12 +242,12 @@ function goodBookListener(item,id) {
           if (newBookLocalData.indexOf(item) == -1) {
             notgoodBookArry.push(index);
             notgoodBookArry.forEach((item) => {
-            bookHeart[item].setAttribute("src", "./img/like.png");
+            bookHeart[item].setAttribute("src", "../img/like.png");
             });
           }else if(newBookLocalData.indexOf(item) !== -1) {
             goodBookArry.push(index);
             goodBookArry.forEach((item) => {
-              bookHeart[item].setAttribute("src", "./img/filledHeart.png");
+              bookHeart[item].setAttribute("src", "../img/filledHeart.png");
             });
           }
         });
@@ -280,7 +289,8 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
+        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
+        `http://127.0.0.1:5501/app/search.html?result=${result}`
       )
     );
   }
@@ -306,7 +316,7 @@ function homeCateToSearchPage(e) {
 
 // 讀者留言
 //fetch('https://raw.githubusercontent.com/ocket609/20_novel_search/main/app/assets/json/db.json')
-  fetch('https://demo-9j6o.onrender.com/comments?_expand=book')
+  fetch('https://two023-json-server-vercel-main.onrender.com/comments?_expand=book&_expand=user')
   .then(response => response.json())
   .then(data => {
     // 將取得的 JSON 資料傳遞給 PageCommentRender 函式進行渲染
@@ -321,6 +331,7 @@ function homeCateToSearchPage(e) {
 function PageCommentRender(commentAllData) {
   const CommentSort = commentAllData.sort((a, b) => b.score - a.score).slice(0, 5);
   let str = "";
+  console.log(commentAllData);
 
   if (commentAllData.length === 0) {
     str = `<h2 class="text-center mb-5">無任何留言</h2>`;
@@ -335,7 +346,7 @@ function PageCommentRender(commentAllData) {
         <img src="./img/Avatar2.png" alt="網友" class="netizen" />
       </div>
       <div class="card-body bg-white text-center mt-3 commentBody">
-        <div class="commitTitlt p-3 dotLine2">${item.commenter}</div>
+        <div class="commitTitlt p-3 dotLine2">${item.user}</div>
         <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
       </div>
       <div class="d-flex justify-content-between card-footer bg-transparent align-items-center">
@@ -444,21 +455,20 @@ function goodcommentlistener(e) {
   }
 }
 
-
 function localStorageNullResolve() {
-    const bookLSdata = JSON.parse(bookLocal);
-    const heartLocalData = JSON.parse(heartLocal);
-    if (bookLSdata === null && heartLocalData === null) {
-    localStorage.setItem("bookId", JSON.stringify([]));
+  const bookLSdata = JSON.parse(bookLocal);
+  const heartLocalData = JSON.parse(heartLocal);
+  if (bookLSdata === null && heartLocalData === null) {
+  localStorage.setItem("bookId", JSON.stringify([]));
+  localStorage.setItem("heartId", JSON.stringify([]));
+  }else if (heartLocalData === null) {
     localStorage.setItem("heartId", JSON.stringify([]));
-    }else if (heartLocalData === null) {
-      localStorage.setItem("heartId", JSON.stringify([]));
-    }else if (bookLSdata === null){
-      localStorage.setItem("bookId", JSON.stringify([]));
-    }else {
-      goodBookCheckForDisplay();
-      goodcommentCheckForDisplay();
-    }
+  }else if (bookLSdata === null){
+    localStorage.setItem("bookId", JSON.stringify([]));
+  }else {
+    goodBookCheckForDisplay();
+    goodcommentCheckForDisplay();
+  }
 }
 
 
@@ -484,8 +494,7 @@ function islogin() {
   const item = JSON.parse(itemStr);
   const userStr = localStorage.getItem("loginUserId");
   const userId = JSON.parse(userStr);
-  const loginBtn = document.querySelector(".btnLogin");
-  console.log(loginBtn);
+  
 
   if(item === null){
     loginStatus = false;
@@ -498,7 +507,6 @@ function islogin() {
 
   loginStatus = item.value === true ? true : false;
   let expired = item === null ? 0 : item.expired;
-  let str = ""; 
 
   console.log(new Date().getTime() / 1000, "now");
   console.log(item.expired / 1000, "token");
@@ -517,13 +525,7 @@ function islogin() {
     console.log(loginStatus);
 
   }else {
-    str += `<div class = "d-flex loginUser">
-    <p class = "p-1">HI,</p><a href ="https://ocket609.github.io/20_novel_search/pages/member.html"><p class = "loginUserName">輕輕<p></a><p>登出</p>
-    </div>
-    `
-    loginBtn.setAttribute("href", "javascript:void(0);");
-    loginBtn.setAttribute("class", "btnLogin");
-    loginBtn.innerHTML = str;
+    userLoginDisplay();
     localStorageNullResolve();
     //changeToUserCenter();
     //evaluateWasDone(userId);
@@ -531,4 +533,30 @@ function islogin() {
     console.log("已登入");
     console.log(loginStatus);
   }
+}
+
+function userLoginDisplay() {
+  const loginBtn = document.querySelector(".loginArea");
+  console.log(loginBtn);
+  let str = ""; 
+  str += `<div class = "d-flex loginUser p-1">
+  <p>HI,</p>
+  <p><a class = "loginUserName m-1 p-2" href ="http://127.0.0.1:5502/pages/member.html">輕輕</a></p>
+  <p><a class = "logoutBtn m-1 p-2" href = "javascript:void(0);">登出</a></p>
+  </div>
+  `
+  loginBtn.innerHTML = str;
+  const logOut = document.querySelector(".logoutBtn");
+  logOut.addEventListener("click",logoutBtn);
+  
+}
+
+function logoutBtn() {
+  
+  const item2 = {
+    value: false,
+    expired: null,
+  };
+  localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
+  location.reload();
 }

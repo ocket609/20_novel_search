@@ -111,6 +111,42 @@ h6{
     top: calc(15% - 0.0em);
   }
 
+/*搜尋欄*/
+
+.searchDiv{
+    width: 50%;
+    height: auto;
+    min-width: 100px;
+    border: 1px solid rgba(231, 140, 82, 0.2);
+    border-radius: 20px;
+    &:active{
+        border:1px solid #E78C52CC;
+    };
+}
+
+.search {
+    width: 95%;
+    border: 0;
+    outline: none;
+  }
+
+
+.searchImg{
+    width: 5%;
+    min-width: 25px;
+    background-image: url('../img/search.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    background-size: cover;
+    border: 0;
+    border-radius: 100px;
+    &:active{
+            border-radius: 100px;     
+            background-image: url('../img/search_active.svg');
+    }
+}
+
 .breadCrumbs{
     margin-top: 120px;
 }
@@ -131,29 +167,128 @@ h6{
     /* box-shadow: 0px 4px rgba(231, 140, 82, 0.5); */
   }
 
+.memberbtn:Active{
+    margin: 8px;
+    display: inline-block;
+    padding: 16px 20px;
+    text-decoration: none;
+    border: none;
+    /* border: 1px solid rgb(231, 140, 82); */
+    background-color: #FFFEF6;
+    color: rgb(231, 140, 82);
+    border-bottom: 1px solid rgb(231, 140, 82);
+}
+
+.loginUserName{
+    padding: 3px;
+    border:2px solid white;
+    border-radius: 100%;
+    color: white;
+    background: #E78C52;
+    transition: all 0.1s ease-out;
+}
+
+.loginUserName:hover{
+    background: #e36415;
+    box-shadow: 2px 2px 2px 2px rgba(231, 140, 82, 0.5);
+    transform:scale(1.1);
+}
+
+.logoutBtn{
+    padding: 3px;
+    border:2px solid white;
+    border-radius: 100%;
+    color: white;
+    background: #03020182;
+    transition: all 0.1s ease-out;
+}
+
+.logoutBtn:hover{
+    color: black;
+    box-shadow: 2px 2px 2px 2px rgba(105, 83, 69, 0.789);
+    transform:scale(1.1);
+}
+
+.booklink{
+    color: rgb(239, 169, 99);
+}
+
+.booklink:hover{
+    color: rgb(231, 140, 82);
+}
+
+.clearButton:hover{
+    color: rgb(231, 140, 82);
+}
+
   .menuCollapse{
     padding-top: 24px;
 }
 
 .breadcrumb a{
-    color: gray;
+    color: #e78c52;
 }
 
 .breadcrumb a:hover{
-    color: rgb(231, 140, 82);
+    font-weight: bold;
   }
 
+
+.pic img{
+    transition: all 0.5s ease-out;
+}
+
+.pic img:hover{transform:scale(0.9);}
+
+
+.userCenterCommentText{
+    color: #989898;
+}
+
+
+.userCenterAccountFromInput{
+    max-width: 75%;
+}
 
 @media (max-width: 767px) {  
     .navbar, .banner{
         max-width: 95%;
     }
+
+    .navbar-nav{
+        max-width: 100%;
+        flex-direction: row;
+        margin-left: 5rem;
+    }
+
     .nav-link{
         text-align: center;
     }
+
+    .loginArea{
+        margin-left: 0rem;
+    }
+    
+    .loginUser{
+        min-width: 100%;
+    }
+
     .Footer{
         max-width: 90%;
     }
+}
+
+@media (max-width: 460px) {  
+
+    .searchDiv{
+        width: 70%;
+    }
+
+    .navbar-nav{
+        flex-direction: column;
+        margin-left: 8rem;
+    }
+
 }
 
 @media (min-width: 768px) {
