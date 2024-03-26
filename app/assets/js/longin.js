@@ -167,6 +167,7 @@ function Login(loginEmail, loginPassword, loginUserId) {
         .then((response) => {
             console.log(response.data);
             token = response.data.accessToken;
+            loginUserId = response.data.user.id;
             window.setTimeout('Swal.fire("登入成功")',50);
             //跳出成功登入alert，點擊確認後轉跳小說首頁
 
