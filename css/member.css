@@ -250,9 +250,23 @@ h6{
     max-width: 75%;
 }
 
+.outsideSiteLink{
+    color: #454545;
+   &:hover{
+     color: #E78C52;
+   } 
+}
+
+.siteLink{
+    color: #454545; 
+    &:hover{
+      color: #E78C52;
+    } 
+ } 
+
 @media (max-width: 767px) {  
     .navbar, .banner{
-        max-width: 95%;
+        max-width: 100%;
     }
 
     .navbar-nav{
@@ -273,18 +287,39 @@ h6{
         min-width: 100%;
     }
 
+    .socialListArea{
+        padding: 0 1.2rem;
+    } 
+ 
     .Footer{
         max-width: 90%;
+    }
+
+    .language{
+      display: flex;
+      justify-content: end;
+    }
+
+    .menuCollapse{
+      padding-top: 0px;
+    } 
+
+    .link{
+      width: 90%;
+      height: 1px;
+      border-top: solid #E0E0E0 1px;
     }
 }
 
 @media (max-width: 460px) {  
 
     .searchDiv{
-        width: 70%;
+        width: 50%;
+        margin-bottom: 1rem;
     }
 
     .navbar-nav{
+        width: 100%;
         flex-direction: column;
         margin-left: 8rem;
     }

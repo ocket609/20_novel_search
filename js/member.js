@@ -7,8 +7,8 @@ let token = localStorage.getItem("loginToken");
 let bookData;
 let commentData;
 let userData;
-console.log(displayArea);
-console.log(getBookId);
+
+
 
 //init
 islogin();
@@ -21,7 +21,6 @@ function PagebookApi() {
 
     .then(function (response) {
       bookData = response.data;
-      console.log(bookData);
     })
     .catch(function (error) {
       console.log(error);
@@ -40,8 +39,7 @@ function  PageCommentApi() {
       })
   
       .then(function (response) {
-        commentData = response.data;
-        console.log(commentData);
+        commentData = response.data.comments;
         
       })
       .catch(function (error) {
@@ -51,11 +49,18 @@ function  PageCommentApi() {
  
   function  PageUserApi() {
     axios
-      .get(`https://two023-json-server-vercel-main.onrender.com/users/${userId}`)
+      .get(`https://two023-json-server-vercel-main.onrender.com/600/users/${userId}`,
+      {
+        headers: {
+            "authorization": `Bearer ${token}`
+        }
+      }
+      )
   
       .then(function (response) {
         userData = response.data;
-        console.log(userData);
+        userLoginDisplay(userData);
+        searchResult();
       })
       .catch(function (error) {
         console.log(error);
@@ -69,31 +74,31 @@ function  PageCommentApi() {
     
     const itemStr = localStorage.getItem("loginStatuswithExpired");
     const item = JSON.parse(itemStr);
-    //const userStr = localStorage.getItem("loginUserId");
-    //const userId = JSON.parse(userStr);
+
     if(item === null || item.value === false || new Date().getTime() > item.expired){
-      window.alert("請登入會員");
-      location.assign(
-        `https://ocket609.github.io/20_novel_search/`
-      );
+      Swal.fire({
+        icon: "error",
+        title: "請登入會員",
+       });
+      setTimeout(() => location.assign(
+        `/`
+      ),1500);
       return;
-    }
-    userLoginDisplay();
+    }else{
     PagebookApi();
     PageCommentApi();
     PageUserApi();
-    searchResult();
-    
+    }
   }  
 
 
-  function userLoginDisplay() {
+  function userLoginDisplay(userData) {
     const loginBtn = document.querySelector(".loginArea");
-    console.log(loginBtn);
+  
     let str = ""; 
-    str += `<div class = "d-flex loginUser p-1">
+    str += `<div class = "d-flex loginUser">
     <p>HI,</p>
-    <p><a class = "loginUserName m-1 p-2" href ="javascript:void(0);">輕輕</a></p>
+    <p><a class = "loginUserName m-1 p-2" href ="javascript:void(0);">${userData.nick_name}</a></p>
     <p><a class = "logoutBtn m-1 p-2" href = "javascript:void(0);">登出</a></p>
     </div>
     `
@@ -111,7 +116,7 @@ function  PageCommentApi() {
     };
     localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     location.assign(
-      `https://ocket609.github.io/20_novel_search/`
+      `/`
     );
   }
 
@@ -136,7 +141,10 @@ function searchKeyWordByEnter(e) {
 
 function searchKeyWord() {
   if (SearchBar.value === "") {
-    alert("請輸入搜尋內容");
+    Swal.fire({
+      icon: "error",
+      title: "請輸入搜尋內容",
+     });
     return;
   }
   if (SearchBar.value === undefined || SearchBar.value === "") {
@@ -161,12 +169,14 @@ function searchResult() {
  const value = window.location.search;
  const searchResultvalue = decodeURI(value.split(/[?,=,&]/)[1]);
  const searchResultvalue2 = decodeURI(value.split(/[?,=,&]/)[2]);
- console.log(searchResultvalue);
- console.log(searchResultvalue2);
+
 
   if (searchResultvalue === "" || searchResultvalue2 === "") {
-    alert("錯誤網址，倒回首頁");
-    location.assign("https://ocket609.github.io/20_novel_search/");
+    Swal.fire({
+      icon: "error",
+      title: "錯誤網址，倒回首頁",
+     });
+    setTimeout(() =>location.assign("https://ocket609.github.io/20_novel_search/"),1500);
   };
 
   if(searchResultvalue === 'undefined' || searchResultvalue2 === 'undefined')
@@ -221,15 +231,15 @@ function mulitButtonJudge(e){
 
 function myCollectBook(){
   let str = "";
-  displayArea.classList.value = "userCenterDisplayArea  row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 ";
+  displayArea.classList.value = "userCenterDisplayArea  row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-sm-2";
   bookData.forEach((item) => {
     if(getBookId.indexOf(item.id) != -1) {
       str += `<div class="pic">
    <img src=${item.img} class="" id="userCenterBookLink" alt="..." data-id=${item.id} style="width: 15rem;height: 15rem;">
    <div class="card-body ">         
      <div class="row cardIcon">
-       <p class=" col-8 card-title">${item.bookName}</p>
-       <div class="col-4 startag "><img class="starImg" src="/img/star.svg" alt="star">${item.Star}</div>
+       <p class=" col-7 card-title">${item.bookName}</p>
+       <div class="col-5 startag "><img class="starImg" src="../img/star.svg" alt="star">${item.Star}</div>
       </div> 
    </div>
 </div>`;
@@ -248,15 +258,15 @@ function userCenterBookLink(e){
 
 
 function myCollectComment(){
-  console.log(commentData);
+
   let str = "";
   commentData.forEach((item) => {
 
     if(item.userId == Number(userId)){
       str += `
         <div class="row m-3 p-3 cardIcon align-items-center border-bottom border-2">
-            <div class="col-8 col-lg-4"><a href="javascript:void(0);"><h5 class="booklink" id="userCenterCommentlink" data-id=${item.book.id}>${item.book.bookName}</h5></a></div>
-            <div class="col-4 col-lg-2  d-flex startag align-items-center"><img class="starImg " src="/img/star.svg" alt="star">${item.score}</div> 
+            <div class="col-8 col-lg-4"><a href="javascript:void(0);"><h5 class="booklink" id="userCenterCommentlink" data-id=${item.bookId}>${item.bookName}</h5></a></div>
+            <div class="col-4 col-lg-2  d-flex startag align-items-center"><img class="starImg " src="../img/star.svg" alt="star">${item.score}</div> 
             <div class="col-12 col-lg-6"><p class="userCenterCommentText card-text mt-3">${item.textContent}</p></div>
         </div>`;
     };
@@ -267,7 +277,7 @@ function myCollectComment(){
 
 function userCenterCommentlink(e){
    if(e.target.id === "userCenterCommentlink"){
-      location.assign(`http://127.0.0.1:5501/app/pages.html?Id=${e.target.dataset.id}`);
+      location.assign(`https://ocket609.github.io/20_novel_search/app/pages.html?Id=${e.target.dataset.id}`);
    };
 };
 
@@ -307,9 +317,23 @@ function myWatchHistoryDelete(e){
     const bookHistoryParse = JSON.parse(bookHistory);
     let id = Number(e.target.dataset.id); 
       if(e.target.innerHTML === "全部移除"){
-        const emptyArr = [];
-        localStorage.setItem("bookHistoryId", JSON.stringify(emptyArr));
-        myWatchHistory();
+        Swal.fire({
+          title: "確定要刪除全部紀錄嗎?",
+          showDenyButton: true,
+          showCancelButton: false,
+          confirmButtonText: "確認",
+          denyButtonText: `取消`
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire("刪除成功", "", "success");
+            const emptyArr = [];
+            localStorage.setItem("bookHistoryId", JSON.stringify(emptyArr));
+            myWatchHistory();
+          } else if (result.isDenied) {
+            Swal.fire("取消成功", "", "info");
+          }
+        });
        };
 
        if(e.target.className === "clearButton"){
@@ -324,38 +348,42 @@ function myWatchHistoryDelete(e){
 
 
 function myAccountSetup(){
-  console.log(userData);
+
   displayArea.classList.value = "userCenterDisplayArea";
    let str = `  
-   <form class="mb-3 ">
+   <form class="mb-3 accountInfoForm">
    <div class="row mt-2">
      <div class="col-4 text-end"><label for="staticEmail" class="col-form-label">Email:</label></div>
-     <div class="col-8"><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${userData.email}"></div>
+     <div class="col-8"><input type="text" readonly class="form-control-plaintext" name="staticEmail" value="${userData.email}"></div>
    </div>
    <div class="row mt-2">
-     <div class="col-4 text-end"><label for="NickName" class="col-form-label ">暱稱:</label></div>
-     <div class="col-7"><input type="text" class="userCenterAccountFromInput" id="nickName" value="${userData.nick_name}"></div>
+     <div class="col-4 text-end"><label for="nickName" class="col-form-label ">暱稱:</label></div>
+     <div class="col-7"><input type="text" class="userCenterAccountFromInput nickName" name="nickName" value="${userData.nick_name}">
+     <span class="span-message nickName-message"></span>
+     </div>
+
    </div>
-   <div class="row mt-2">
-      <div class="col-4 text-end"><label for="Phone" class="col-form-label ">電話:</label></div>
-      <div class="col-7"><input type="text" class="userCenterAccountFromInput" id="phone" value="${userData.phone}"></div>
+   <div class="row mt-2 ">
+      <div class="col-4 text-end"><label for="phone" class="col-form-label ">電話:</label></div>
+      <div class="col-7"><input type="text" class="userCenterAccountFromInput phone" name="phone" value="${userData.phone}">
+      <span class="span-message phone-message text-center"></span>
+      </div>
+
    </div>
    <div class="row mt-2">
     <div class="col-6"></div>
-    <div class="col-6"><label href="javascript:void(0);" type="submit" class="btn btn-primary mb-3 ">修改</label></div>
+    <div class="col-6"><input  class="btn btn-primary mb-3" type="submit" value="修改"></div>
   </div>
  </form>`;
    displayArea.innerHTML = str;
-   displayArea.addEventListener('click', updateAccountInfo);
+   displayArea.addEventListener('submit', submitAccountInfoForm);
 }
 
-function updateAccountInfo(e) {
+function updateAccountInfo() {
 
-  const upgradeNickName = document.querySelector('#nickName');
-  const upgradePhone =    document.querySelector('#phone');
-  console.log(upgradeNickName.value);
-  console.log(token);
-  if(e.target.innerHTML === "送出"){
+  const upgradeNickName = document.querySelector('.nickName');
+  const upgradePhone =    document.querySelector('.phone');
+
   axios
       .patch(`https://two023-json-server-vercel-main.onrender.com/600/users/${userId}`, {
           "nick_name": upgradeNickName.value,
@@ -366,14 +394,77 @@ function updateAccountInfo(e) {
           }
       })
       .then((response) => {
-          console.log(response);
-          token = response.data.token;
-          alert("會員資料更新完成");
+          Swal.fire("會員資料更新完成!", "", "success");
           PageUserApi();
           setTimeout("myAccountSetup()",600);
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "會員資料更新失敗",
+         });
           console.log(error.response);
       })
-    }
 };
+
+
+//聆聽修改功能
+
+
+//Validate.JS 驗證格式
+let constraints = {
+  nickName: {
+    presence: {
+        message: "^必填"
+    }
+   },
+  phone: {
+    presence: {
+        message: "^必填"
+    },
+    length: {
+        is: 10, // 長度等於10
+        message: "^號碼需10碼"
+    }
+   }
+};
+
+function submitAccountInfoForm(e) {
+  e.preventDefault();
+  const accountInfoForm = document.querySelector('.accountInfoForm');
+  let result = validate(accountInfoForm, constraints);
+  cleanMessage();
+  if (result) {
+    let message;
+    let nameList = Object.keys(result);
+   
+    nameList.forEach((item) => {
+      message = document.querySelector(`.${item}-message`);
+      message.innerHTML = result[item];
+    });
+  } else{
+    Swal.fire({
+      title: "確定要更新會員資料嗎?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "確認",
+      denyButtonText: `取消`
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        updateAccountInfo();
+      } else if (result.isDenied) {
+        Swal.fire("取消成功", "", "info");
+      }
+    });
+   }
+  }
+
+
+//清除驗證訊息
+function cleanMessage() {
+  let message = document.querySelectorAll(".span-message");
+  message.forEach((message) => {
+    message.innerHTML = "";
+  });
+}

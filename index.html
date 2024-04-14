@@ -45,7 +45,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="justify-content-end collapse navbar-collapse" id="menu">
+        <div class="justify-content-end collapse navbar-collapse text-center" id="menu">
           <ul class="navbar-nav">
             <li class="nav-link">
               <a href="#" class="btn" title="按左鍵前往">關於我們</a>
@@ -413,7 +413,7 @@
             </div>
            </button>
            <div class="link mt-2 mx-3"></div>
-           <div class="collapse" id="socialMenu">
+           <div class="collapse socialListArea" id="socialMenu">
               <div class="p-2 d-flex sociaList">
                 <img src="./app/assets/images/FB.svg" alt="FB" /><a
                   title="FB"
@@ -426,7 +426,7 @@
               <div class="p-2 d-flex sociaList">
                 <img src="./app/assets/images/IG.svg" alt="IG" /><a
                   title="IG"
-                  href="https://twitter.com/coinbase"
+                  href="https://www.instagram.com/"
                   class="outsideSiteLink p-1 link-dark"
                   target="_blank"
                   >Insragram</a
@@ -435,7 +435,7 @@
               <div class="p-2 d-flex sociaList">
                 <img src="./app/assets/images/X.svg" alt="X" /><a
                   title="X"
-                  href="https://twitter.com/coinbase"
+                  href="https://twitter.com/"
                   class="outsideSiteLink p-1 link-dark"
                   target="_blank"
                   >Twitter X</a
@@ -452,7 +452,7 @@
               data-bs-target="#bookMenu"
                 >
                 <div class="d-flex justify-content-between" >
-                <h5 class="dotLine pb-3">書籍類別</h5>
+                <h5 class="pb-3">書籍類別</h5>
                 <svg xmlns="http://www.w3.org/2000/svg" 
                 width="20" height="20" 
                 fill="currentColor" 
@@ -489,7 +489,7 @@
               data-bs-target="#member"
                 >
                 <div class="d-flex justify-content-between" >
-              <h5 class="dotLine pb-3">會員中心</h5>
+              <h5 class="pb-3">會員中心</h5>
               <svg xmlns="http://www.w3.org/2000/svg" 
               width="20" height="20" 
               fill="currentColor" 
@@ -503,15 +503,15 @@
       
               <div class="col-12 col-md-12 collapse" id="member">
                 <div class="p-2">
-                  <a class="siteLink" href="">我的收藏書籍</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/pages/member.html?page=我的收藏">我的收藏書籍</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">歷史觀看紀錄</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/pages/member.html?page=觀看紀錄">歷史觀看紀錄</a>
                 </div>
                 <div class="p-2">
-                  <a class="siteLink" href="">歷史評論紀錄</a>
+                  <a class="siteLink" href="https://ocket609.github.io/20_novel_search/pages/member.html?page=評論紀錄">歷史評論紀錄</a>
                 </div>
-                <div class="p-2"><a class="siteLink" href="">帳號設定</a></div>
+                <div class="p-2"><a class="siteLink" href="https://ocket609.github.io/20_novel_search/pages/member.html?page=帳號設定">帳號設定</a></div>
                 <div class="p-2"><a class="siteLink" href="">服務條款</a></div>
                 <div class="p-2"><a class="siteLink" href="">使用幫助</a></div>
               </div>
@@ -524,7 +524,7 @@
               data-bs-target="#aboutUs"
                 >
             <div class="d-flex justify-content-between" >
-              <h5 class="dotLine pb-3">關於我們</h5>
+              <h5 class="pb-3">關於我們</h5>
               <svg xmlns="http://www.w3.org/2000/svg" 
               width="20" height="20" 
               fill="currentColor" 
@@ -535,7 +535,7 @@
               </div>
                </button>
                <div class="link mx-2"></div>
-              <div class="col-12 col-md-12 collapse bd-highlight mb-3" id="aboutUs">
+              <div class="col-12 col-md-12 collapse mb-3" id="aboutUs">
                 <div class="p-2">
                   <a class="siteLink" href="">關於找好書</a>
                 </div>
@@ -551,7 +551,7 @@
           </div>
         </div>
 
-        <div class="container text-center dotLine3 w-75 pt-4">
+        <div class="container text-center pt-4">
           <div class="pb-4">
             <span class=" "
               >©
@@ -572,13 +572,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- 引入axios -->
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="./js/index.js"></script>
     <!-- 引入jquery -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <!-- 引入bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-    
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

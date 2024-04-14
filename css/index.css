@@ -279,11 +279,11 @@ li{list-style-type: none;}
 
 /*hover top 3小說圖片放大效果 */
 
-.pic2 img{
-    transition: all 0.5s ease-out;
-}
+.book-cover{
+    transition: all 0.5s ease;
+  }
 
-.pic2 img:hover{
+.book-cover:hover{
     transform:scale(0.95);
 }
 
@@ -426,6 +426,19 @@ li{list-style-type: none;}
     padding-top: 24px;
 }
 
+.outsideSiteLink{
+    color: #454545;
+   &:hover{
+     color: #E78C52;
+   } 
+}
+
+.siteLink{
+    color: #454545; 
+    &:hover{
+      color: #E78C52;
+    } 
+ } 
    /* 填滿愛心 */
    .likeIcon:hover {
     content: url('../img/filledHeart.png');
@@ -441,7 +454,7 @@ li{list-style-type: none;}
 
 @media (max-width: 767px) {  
     .navbar, .banner{
-        max-width: 95%;
+        max-width: 100%;
     }
     .nav-link{
         text-align: center;
@@ -534,6 +547,10 @@ li{list-style-type: none;}
         position: relative;
         height: 100%;
     }
+
+    .socialListArea{
+        padding: 0 1.2rem;
+    } 
 
     /* 重新排列元素的順序 */
     /* .language{ */

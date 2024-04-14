@@ -180,37 +180,42 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
-const bookLocal = localStorage.getItem("bookId");
-const bookLSdata = JSON.parse(bookLocal);
-
-
 function goodBookListener(item,id) {
+  const bookLocal = localStorage.getItem("bookId");
+  const bookLSdata = JSON.parse(bookLocal);
   const idNumber = Number(id);
-  console.log(bookLSdata);
   if (loginStatus == false) {
-      alert("請先登入唷~\n將跳轉至登入頁面!!!");
-      location.assign(
+    Swal.fire({
+      icon: "error",
+      title: "請先登入唷~",
+      text:  "將跳轉至登入頁面!!!",
+      showConfirmButton: false
+     });
+      setTimeout(() => {location.assign(
       "https://ocket609.github.io/20_novel_search/app/longin.html"
-       );
+       )},1500);
         return;
        }
 
-      if (bookLSdata === null) {
-      localStorage.setItem("bookId", JSON.stringify([]));
-      return;
-      } else if (bookLSdata.includes(idNumber)) {
+      if (bookLSdata.includes(idNumber)) {
       let index = bookLSdata.indexOf(idNumber);
       bookLSdata.splice(index, 1);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
       item.setAttribute("src", "../img/like.png");
       goodBookCheckForDisplay();
-      alert("收藏已取消!!");
+      Swal.fire({
+        icon: "error",
+        title: "收藏已取消!!",
+       });
       } else {
       bookLSdata.push(idNumber);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
       item.setAttribute("src", "../img/filledHeart.png");
       goodBookCheckForDisplay();
-      alert("收藏成功!!");
+      Swal.fire({
+        icon: "success",
+        title: "收藏成功!!",
+       });
       }
       }  
 
@@ -218,7 +223,6 @@ function goodBookListener(item,id) {
       function goodBookCheckForDisplay() {
         const bookLocal = localStorage.getItem("bookId");
         const bookHeart = document.querySelectorAll(".likeIcon");
-        console.log(bookHeart);
         const bookLocalData = JSON.parse(bookLocal);
         if (bookLocalData === null) {
           localStorage.setItem("bookId", JSON.stringify([]));
@@ -279,7 +283,10 @@ function searchKeyWordByEnter(e) {
 
 function searchKeyWord() {
   if (SearchBar.value === "") {
-    alert("請輸入搜尋內容");
+    Swal.fire({
+      icon: "error",
+      title: "請輸入搜尋內容",
+     });
     return;
   }
   if (SearchBar.value === undefined || SearchBar.value === "") {
@@ -289,8 +296,7 @@ function searchKeyWord() {
     SearchBar.value = "";
     location.assign(
       encodeURI(
-        //`https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
-        `http://127.0.0.1:5501/app/search.html?result=${result}`
+        `https://ocket609.github.io/20_novel_search/app/search.html?result=${result}`    
       )
     );
   }
@@ -303,6 +309,9 @@ const bodyArea = document.querySelector("body");
 bodyArea.addEventListener("click", homeCateToSearchPage);
 
 function homeCateToSearchPage(e) {
+  if(e.target.attributes["class"] === undefined){
+    return;
+  }
   bookCateClass = e.target.attributes["class"].value;
   if (bookCateClass === "listbtn") {
     bookCateValue = e.target.attributes["value"].value;
@@ -331,7 +340,6 @@ function homeCateToSearchPage(e) {
 function PageCommentRender(commentAllData) {
   const CommentSort = commentAllData.sort((a, b) => b.score - a.score).slice(0, 5);
   let str = "";
-  console.log(commentAllData);
 
   if (commentAllData.length === 0) {
     str = `<h2 class="text-center mb-5">無任何留言</h2>`;
@@ -346,7 +354,7 @@ function PageCommentRender(commentAllData) {
         <img src="./img/Avatar2.png" alt="網友" class="netizen" />
       </div>
       <div class="card-body bg-white text-center mt-3 commentBody">
-        <div class="commitTitlt p-3 dotLine2">${item.user}</div>
+        <div class="commitTitlt p-3 dotLine2">${item.user.nick_name}</div>
         <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
       </div>
       <div class="d-flex justify-content-between card-footer bg-transparent align-items-center">
@@ -395,11 +403,11 @@ function PageCommentRender(commentAllData) {
 });
 
 
-const heartLocal = localStorage.getItem("heartId");
+
 
 function goodcommentCheckForDisplay() {
+  const heartLocal = localStorage.getItem("heartId");
   const commentHeart = document.querySelectorAll(".commentheart");
-  console.log(commentHeart);
   const CommentGoodLocaldata = JSON.parse(heartLocal);
   const newCommentGoodLocaldata = CommentGoodLocaldata.sort();
   const commentArry = [];
@@ -419,68 +427,72 @@ function goodcommentCheckForDisplay() {
     }
   });
   goodCommentArry.forEach((item) => {
-    commentHeart[item].setAttribute("src", "./img/filledThumb.png");
+    commentHeart[item].setAttribute("src", "../img/filledThumb.png");
   });
 }
 
 
 
 function goodcommentlistener(e) {
-  console.log(e.target.dataset.heartid);
+  const heartLocal = localStorage.getItem("heartId");
   const heartLocalData = JSON.parse(heartLocal);
   let value = e.target.dataset.heartid;
   let numValue = Number(value);
-   console.log(value);
+
   if (loginStatus == false && isNaN(value) === false) {
-    alert("請先登入唷~\n將跳轉至登入頁面!!!");
-    location.assign(
+    Swal.fire({
+      icon: "error",
+      title: "請先登入唷~",
+      text:  "將跳轉至登入頁面!!!",
+      showConfirmButton: false,
+     });
+     setTimeout(() => {location.assign(
       "https://ocket609.github.io/20_novel_search/app/longin.html"
-    );
+       )},1500);
+        return;
     return;
   }
-
   if (value === null || value === NaN || value === undefined) {
     return;
   } else if (heartLocalData.includes(numValue)) {
     let index = heartLocalData.indexOf(numValue);
     heartLocalData.splice(index, 1);
     localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-    e.target.setAttribute("src", "./img/thumb.png");
-    alert("留言按讚已取消!!");
+    e.target.setAttribute("src", "../img/thumb.png");
+    Swal.fire({
+      icon: "error",
+      title: "留言按讚已取消!!",
+     });
   } else {
     heartLocalData.push(numValue);
     localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-    e.target.setAttribute("src", "./img/filledThumb.png");
-    alert("留言按讚成功!!");
+    e.target.setAttribute("src", "../img/filledThumb.png");
+    Swal.fire({
+      icon: "success",
+      title: "留言按讚成功!!",
+     });
   }
 }
 
 function localStorageNullResolve() {
+  const bookLocal = localStorage.getItem("bookId");
+  const heartLocal = localStorage.getItem("heartId");
+  const bookHistoryLocal = localStorage.getItem("bookHistoryId");
   const bookLSdata = JSON.parse(bookLocal);
   const heartLocalData = JSON.parse(heartLocal);
-  if (bookLSdata === null && heartLocalData === null) {
+  const bookHistoryLocalData = JSON.parse(bookHistoryLocal);
+  if (bookLSdata === null && heartLocalData === null && bookHistoryId === null) {
   localStorage.setItem("bookId", JSON.stringify([]));
   localStorage.setItem("heartId", JSON.stringify([]));
+  localStorage.setItem("bookHistoryId", JSON.stringify([]));
   }else if (heartLocalData === null) {
     localStorage.setItem("heartId", JSON.stringify([]));
   }else if (bookLSdata === null){
     localStorage.setItem("bookId", JSON.stringify([]));
-  }else {
-    goodBookCheckForDisplay();
-    goodcommentCheckForDisplay();
+  }else if (bookHistoryLocalData === null){
+    localStorage.setItem("bookHistoryId", JSON.stringify([]));
   }
 }
-
-
-//登入測試
-
-const now = new Date();
-const loginInfo = {
-  value: true,
-  expired: now.getTime() + 3600000,
-};
-//localStorage.setItem('loginStatuswithExpired', JSON.stringify(loginInfo))
-//localStorage.setItem('userId', JSON.stringify(1));
 
 
 let loginStatus;
@@ -492,56 +504,67 @@ function islogin() {
    
   const itemStr = localStorage.getItem("loginStatuswithExpired");
   const item = JSON.parse(itemStr);
-  const userStr = localStorage.getItem("loginUserId");
-  const userId = JSON.parse(userStr);
-  
 
-  if(item === null){
-    loginStatus = false;
-    //localStorageNullResolve();
-    //evaluateWasDone(userId);
-    console.log("沒登入過");
-    console.log(loginStatus);
-    return;
-  }
-
-  loginStatus = item.value === true ? true : false;
-  let expired = item === null ? 0 : item.expired;
+  itemexpired = item === null ? 0 : item.expired;
 
   console.log(new Date().getTime() / 1000, "now");
-  console.log(item.expired / 1000, "token");
+  console.log(itemexpired / 1000, "token");
+  localStorageNullResolve();
+  if(item === null || item.value === false){
+    loginStatus = false;
+    return;
+  }
+  
+  if(item.expired === 0){
+    return;
+  }
  
- 
-
   if (new Date().getTime() > item.expired) {
     setTimeout(() => {
       const item2 = {
         value: false,
-        expired: item.expired,
+        expired: 0,
       };
       localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     }, 6000);
-    console.log("請重新登入");
-    console.log(loginStatus);
-
+    Swal.fire({
+      icon: "info",
+      title: "請重新登入唷~",
+      showConfirmButton: false,
+     });
   }else {
-    userLoginDisplay();
-    localStorageNullResolve();
-    //changeToUserCenter();
-    //evaluateWasDone(userId);
-    
-    console.log("已登入");
-    console.log(loginStatus);
+    PageUserApi();
+    goodBookCheckForDisplay();
+    goodcommentCheckForDisplay();
   }
 }
 
-function userLoginDisplay() {
+function  PageUserApi() {
+  const userId = localStorage.getItem("loginUserId");
+  const token = localStorage.getItem("loginToken");
+  axios
+    .get(`https://two023-json-server-vercel-main.onrender.com/600/users/${userId}`,
+    {
+      headers: {
+          "authorization": `Bearer ${token}`
+      }
+    }
+    )
+
+    .then(function (response) {
+      userLoginDisplay(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+function userLoginDisplay(userData) {
   const loginBtn = document.querySelector(".loginArea");
-  console.log(loginBtn);
   let str = ""; 
-  str += `<div class = "d-flex loginUser p-1">
+  str += `<div class = "d-flex loginUser p-1 justify-content-center">
   <p>HI,</p>
-  <p><a class = "loginUserName m-1 p-2" href ="http://127.0.0.1:5502/pages/member.html">輕輕</a></p>
+  <p><a class = "loginUserName m-1 p-2" href ="https://ocket609.github.io/20_novel_search/pages/member.html">${userData.nick_name}</a></p>
   <p><a class = "logoutBtn m-1 p-2" href = "javascript:void(0);">登出</a></p>
   </div>
   `
