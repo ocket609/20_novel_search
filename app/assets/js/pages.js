@@ -26,7 +26,7 @@ function PagebookApi(p) {
       data = response.data;
       bookHistoryAdd();
       pageRender(data);
-      PageCommentRender(data);
+      pageCommentApi(p);
       islogin();
     })
     .catch(function (error) {
@@ -60,6 +60,19 @@ function  pageUserApi() {
     .then(function (response) {
       userData = response.data;
       userLoginDisplay(userData);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+function  pageCommentApi(p) {
+
+  axios
+    .get(`https://two023-json-server-vercel-main.onrender.com/comments?_expand=user&bookId=${p}`)
+
+    .then(function (response) {
+      PageCommentRender(response.data);
     })
     .catch(function (error) {
       console.log(error);
@@ -159,13 +172,13 @@ const commentListArea = document.querySelector(".mySwiper");
 const commentArea = document.querySelector(".commentArea");
 
 function PageCommentRender(commentAllData) {
-  
+  console.log(commentAllData);
   let str = "";
 
-    commentArea.innerHTML = commentAllData.comments.length === 0 ? `<h2 class="text-center mb-5">無任何留言</h2>` : ``;
+    commentArea.innerHTML = commentAllData.length === 0 ? `<h2 class="text-center mb-5">無任何留言</h2>` : ``;
     
     if(commentAllData){
-    commentAllData.comments.forEach((item) => {
+    commentAllData.forEach((item) => {
       str += `
           <swiper-slide class="card bg-orange-300 position-relative mt-5 swiper-slide-active " 
           role="group" style="width: 365.333px;height:auto; margin-right: 10px;>
@@ -173,7 +186,7 @@ function PageCommentRender(commentAllData) {
            <img src="./assets/images/Avatar2.png" alt="book" style="" class="position-absolute top-0 start-50 translate-middle">
            </div> 
     <div class="card-body bg-white text-center mt-3"> 
-      <div class="commitTitlt p-3 dotLine2">${item.nick_name}</div>
+      <div class="commitTitlt p-3 dotLine2">${item.user.nick_name}</div>
       <div><p class="card-text p-5 fs-5 text-secondary">${item.textContent}</p></div> 
     </div>
        <div class="d-flex justify-content-between card-footer bg-transparent align-items-center ps-2">
