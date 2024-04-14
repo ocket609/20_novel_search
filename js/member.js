@@ -81,7 +81,7 @@ function  PageCommentApi() {
         title: "請登入會員",
        });
       setTimeout(() => location.assign(
-        `/`
+        `https://ocket609.github.io/20_novel_search/`
       ),1500);
       return;
     }else{
@@ -116,7 +116,7 @@ function  PageCommentApi() {
     };
     localStorage.setItem("loginStatuswithExpired", JSON.stringify(item2));
     location.assign(
-      `/`
+      `https://ocket609.github.io/20_novel_search/`
     );
   }
 

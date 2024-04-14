@@ -201,7 +201,7 @@ function goodBookListener(item,id) {
       let index = bookLSdata.indexOf(idNumber);
       bookLSdata.splice(index, 1);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "../img/like.png");
+      item.setAttribute("src", "./img/like.png");
       goodBookCheckForDisplay();
       Swal.fire({
         icon: "error",
@@ -210,7 +210,7 @@ function goodBookListener(item,id) {
       } else {
       bookLSdata.push(idNumber);
       localStorage.setItem("bookId", JSON.stringify(bookLSdata));
-      item.setAttribute("src", "../img/filledHeart.png");
+      item.setAttribute("src", "./img/filledHeart.png");
       goodBookCheckForDisplay();
       Swal.fire({
         icon: "success",
@@ -246,12 +246,12 @@ function goodBookListener(item,id) {
           if (newBookLocalData.indexOf(item) == -1) {
             notgoodBookArry.push(index);
             notgoodBookArry.forEach((item) => {
-            bookHeart[item].setAttribute("src", "../img/like.png");
+            bookHeart[item].setAttribute("src", "./img/like.png");
             });
           }else if(newBookLocalData.indexOf(item) !== -1) {
             goodBookArry.push(index);
             goodBookArry.forEach((item) => {
-              bookHeart[item].setAttribute("src", "../img/filledHeart.png");
+              bookHeart[item].setAttribute("src", "./img/filledHeart.png");
             });
           }
         });

@@ -40,7 +40,7 @@ function PagebookApi(p) {
           text:  "將導向回首頁!!!",
           showConfirmButton: false,
          });
-        setTimeout(() => {location.href='/'}, 1500);
+        setTimeout(() => {location.href='https://ocket609.github.io/20_novel_search/'}, 1500);
       }
     });
 }
