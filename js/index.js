@@ -427,7 +427,7 @@ function goodcommentCheckForDisplay() {
     }
   });
   goodCommentArry.forEach((item) => {
-    commentHeart[item].setAttribute("src", "../img/filledThumb.png");
+    commentHeart[item].setAttribute("src", "./img/filledThumb.png");
   });
 }
 
@@ -458,7 +458,7 @@ function goodcommentlistener(e) {
     let index = heartLocalData.indexOf(numValue);
     heartLocalData.splice(index, 1);
     localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-    e.target.setAttribute("src", "../img/thumb.png");
+    e.target.setAttribute("src", "./img/thumb.png");
     Swal.fire({
       icon: "error",
       title: "留言按讚已取消!!",
@@ -466,7 +466,7 @@ function goodcommentlistener(e) {
   } else {
     heartLocalData.push(numValue);
     localStorage.setItem("heartId", JSON.stringify(heartLocalData));
-    e.target.setAttribute("src", "../img/filledThumb.png");
+    e.target.setAttribute("src", "./img/filledThumb.png");
     Swal.fire({
       icon: "success",
       title: "留言按讚成功!!",
