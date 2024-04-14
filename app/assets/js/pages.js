@@ -172,7 +172,7 @@ const commentListArea = document.querySelector(".mySwiper");
 const commentArea = document.querySelector(".commentArea");
 
 function PageCommentRender(commentAllData) {
-  console.log(commentAllData);
+
   let str = "";
 
     commentArea.innerHTML = commentAllData.length === 0 ? `<h2 class="text-center mb-5">無任何留言</h2>` : ``;
