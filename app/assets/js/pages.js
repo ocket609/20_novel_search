@@ -609,10 +609,10 @@ function addCommentApi(userName, id, content, score) {
 function userLoginDisplay(userData) {
   const loginBtn = document.querySelector(".loginArea");
   let str = ""; 
-  str += `<div class = "d-flex loginUser">
+  str += `<div class = "d-flex loginUser mx-3">
   <p>HI,</p>
-  <p><a class = "loginUserName p-2" href ="https://ocket609.github.io/20_novel_search/pages/member.html">${userData.nick_name}</a></p>
-  <p><a class = "logoutBtn p-2" href = "javascript:void(0);">登出</a></p>
+  <p><a class = "loginUserName m-1 p-2" href ="https://ocket609.github.io/20_novel_search/pages/member.html">${userData.nick_name}</a></p>
+  <p><a class = "logoutBtn m-1 p-2" href = "javascript:void(0);">登出</a></p>
   </div>
   `
   loginBtn.innerHTML = str;
