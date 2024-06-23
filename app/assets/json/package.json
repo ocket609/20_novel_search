@@ -14,8 +14,8 @@
   "dependencies": {
     "express": "^4.18.2"
   },
-  "description": "",
   "overrides": {
     "autoprefixer": "10.4.5"
-  }
+  },
+  "description": ""
 }

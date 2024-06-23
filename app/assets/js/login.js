@@ -74,31 +74,21 @@ register_content.addEventListener("submit", (e) => {
             title: "信箱已註冊過囉！"
         });
     } else {
-        SignUp(signupEmail, signupPassword, signupPhone);
+        SignUp(signupEmail, signupPassword, signupNickName, signupPhone);
         // 帶入註冊資料
     }
 
 });
 // 註冊POST
-function SignUp(signupEmail, signupPassword, signupPhone) {
+function SignUp(signupEmail, signupPassword, signupNickName, signupPhone) {
     axios
         .post(`${loginUrl}users`, {
             "email": signupEmail, //必填
             "password": signupPassword, //必填，會自行加密
-            "account": "",
-            "name": "", //必填
-            "given_name": "",
-            "family_name": "",
+            "nick_name": signupNickName, //必填
             "phone": signupPhone, //必填
             "img": "",
             "logins_count": 0,
-            "created_at": "",
-            "updated_at": "",
-            "last_login": "",
-            "email_verified": true,
-            "collect_book": [],
-            "collect_comment": [],
-            "comment": [],
             "token": "",
         })
         .then((response) => {
@@ -146,7 +136,7 @@ login_content.addEventListener("submit", (e) => {
     const checkValidate = validate(login_content, constraintsLogin);
     const checkEmail = userData.filter((item) => item.email.includes(loginEmail));
     // 判斷
-    const checkEmaliLength = checkEmail.length === 0 ? null : checkEmail[0].id;
+    //const checkEmaliLength = checkEmail.length === 0 ? null : checkEmail[0].id;
 
     cleanMessage();
     if (checkValidate) {
